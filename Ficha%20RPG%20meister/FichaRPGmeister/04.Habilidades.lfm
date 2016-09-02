@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmFichaRPGmeister4_svg" align="client" theme="dark" margins="{top=1}">
+	 <scrollBox align="client">
+			  
+		<template name="Talento">
+			<rectangle align="client" color="black"/>
+			
+			<label left="5" top="1" width="35" height="20" text="NEP"/>
+			<edit vertTextAlign="center" left="5" top="20" width="35" height="23" field="tNep$(num)"/>
+			
+			<label left="45" top="1" width="275" height="20" text="NOME"/>
+			<edit vertTextAlign="center" left="40" top="20" width="280" height="23" field="tNome$(num)"/>
+			
+			<label left="325" top="1" width="55" height="20" text="LIVRO"/>
+			<edit vertTextAlign="center" left="320" top="20" width="55" height="23" field="tOrigem$(num)"/>
+		</template>
+		
+		<template name="CaracteristicaClasse">
+			<rectangle align="client" color="black"/>
+			
+			<label left="5" top="1" width="35" height="20" text="NEP"/>
+			<edit vertTextAlign="center" left="5" top="20" width="35" height="23" field="cNep$(num)"/>
+			
+			<label left="45" top="1" width="275" height="20" text="NOME"/>
+			<edit vertTextAlign="center" left="40" top="20" width="280" height="23" field="cNome$(num)"/>
+			
+			<label left="325" top="1" width="55" height="20" text="LIVRO"/>
+			<edit vertTextAlign="center" left="320" top="20" width="55" height="23" field="cOrigem$(num)"/>
+			
+			<edit vertTextAlign="center" left="5" top="43" width="370" height="23" field="cDescricao$(num)a"/>
+			<edit vertTextAlign="center" left="5" top="66" width="370" height="23" field="cDescricao$(num)b"/>
+		</template>
+			
+		<layout left="0" top="0" width="380" height="1020">
+			<rectangle align="client" color="#0000007F"/>
+			<label left="0" top="0" width="380" height="20" text="TALENTOS" horzTextAlign="center"/>
+			
+			<layout left="0" top="25" width="380" height="45">
+				<Talento num="1"/>
+			</layout>
+			<layout left="0" top="75" width="380" height="45">
+				<Talento num="2"/>
+			</layout>
+			<layout left="0" top="125" width="380" height="45">
+				<Talento num="3"/>
+			</layout>
+			<layout left="0" top="175" width="380" height="45">
+				<Talento num="4"/>
+			</layout>
+			<layout left="0" top="225" width="380" height="45">
+				<Talento num="5"/>
+			</layout>
+			<layout left="0" top="275" width="380" height="45">
+				<Talento num="6"/>
+			</layout>
+			<layout left="0" top="325" width="380" height="45">
+				<Talento num="7"/>
+			</layout>
+			<layout left="0" top="375" width="380" height="45">
+				<Talento num="8"/>
+			</layout>
+			<layout left="0" top="425" width="380" height="45">
+				<Talento num="9"/>
+			</layout>
+			<layout left="0" top="475" width="380" height="45">
+				<Talento num="10"/>
+			</layout>
+			<layout left="0" top="525" width="380" height="45">
+				<Talento num="11"/>
+			</layout>
+			<layout left="0" top="575" width="380" height="45">
+				<Talento num="12"/>
+			</layout>
+			<layout left="0" top="625" width="380" height="45">
+				<Talento num="13"/>
+			</layout>
+			<layout left="0" top="675" width="380" height="45">
+				<Talento num="14"/>
+			</layout>
+			<layout left="0" top="725" width="380" height="45">
+				<Talento num="29"/>
+			</layout>
+			<layout left="0" top="775" width="380" height="45">
+				<Talento num="31"/>
+			</layout>
+			<layout left="0" top="825" width="380" height="45">
+				<Talento num="32"/>
+			</layout>
+			<layout left="0" top="875" width="380" height="45">
+				<Talento num="33"/>
+			</layout>
+			<layout left="0" top="925" width="380" height="45">
+				<Talento num="34"/>
+			</layout>
+			<layout left="0" top="975" width="380" height="45">
+				<Talento num="35"/>
+			</layout>
+		</layout>
+			
+		<layout left="405" top="0" width="380" height="1020">
+			<rectangle align="client" color="#0000007F"/>
+			<label left="0" top="0" width="380" height="20" text="OUTROS" horzTextAlign="center"/>
+			
+			<layout left="0" top="25" width="380" height="45">
+				<Talento num="15"/>
+			</layout>
+			<layout left="0" top="75" width="380" height="45">
+				<Talento num="16"/>
+			</layout>
+			<layout left="0" top="125" width="380" height="45">
+				<Talento num="17"/>
+			</layout>
+			<layout left="0" top="175" width="380" height="45">
+				<Talento num="18"/>
+			</layout>
+			<layout left="0" top="225" width="380" height="45">
+				<Talento num="19"/>
+			</layout>
+			<layout left="0" top="275" width="380" height="45">
+				<Talento num="20"/>
+			</layout>
+			<layout left="0" top="325" width="380" height="45">
+				<Talento num="21"/>
+			</layout>
+			<layout left="0" top="375" width="380" height="45">
+				<Talento num="22"/>
+			</layout>
+			<layout left="0" top="425" width="380" height="45">
+				<Talento num="23"/>
+			</layout>
+			<layout left="0" top="475" width="380" height="45">
+				<Talento num="24"/>
+			</layout>
+			<layout left="0" top="525" width="380" height="45">
+				<Talento num="25"/>
+			</layout>
+			<layout left="0" top="575" width="380" height="45">
+				<Talento num="26"/>
+			</layout>
+			<layout left="0" top="625" width="380" height="45">
+				<Talento num="27"/>
+			</layout>
+			<layout left="0" top="675" width="380" height="45">
+				<Talento num="28"/>
+			</layout>
+			<layout left="0" top="725" width="380" height="45">
+				<Talento num="30"/>
+			</layout>
+			<layout left="0" top="775" width="380" height="45">
+				<Talento num="36"/>
+			</layout>
+			<layout left="0" top="825" width="380" height="45">
+				<Talento num="37"/>
+			</layout>
+			<layout left="0" top="875" width="380" height="45">
+				<Talento num="38"/>
+			</layout>
+			<layout left="0" top="925" width="380" height="45">
+				<Talento num="39"/>
+			</layout>
+			<layout left="0" top="975" width="380" height="45">
+				<Talento num="40"/>
+			</layout>
+		</layout>
+		
+		<layout left="810" top="0" width="380" height="1020">
+			<rectangle align="client" color="#0000007F"/>
+			<label left="0" top="0" width="380" height="20" text="CARACTERISTICAS DE CLASSE" horzTextAlign="center"/>
+			
+			<layout left="0" top="25" width="380" height="95">
+				<CaracteristicaClasse num="1"/>
+			</layout>
+			<layout left="0" top="125" width="380" height="95">
+				<CaracteristicaClasse num="2"/>
+			</layout>
+			<layout left="0" top="225" width="380" height="95">
+				<CaracteristicaClasse num="3"/>
+			</layout>
+			<layout left="0" top="325" width="380" height="95">
+				<CaracteristicaClasse num="4"/>
+			</layout>
+			<layout left="0" top="425" width="380" height="95">
+				<CaracteristicaClasse num="5"/>
+			</layout>
+			<layout left="0" top="525" width="380" height="95">
+				<CaracteristicaClasse num="6"/>
+			</layout>
+			<layout left="0" top="625" width="380" height="95">
+				<CaracteristicaClasse num="7"/>
+			</layout>
+			<layout left="0" top="725" width="380" height="95">
+				<CaracteristicaClasse num="8"/>
+			</layout>
+			<layout left="0" top="825" width="380" height="95">
+				<CaracteristicaClasse num="9"/>
+			</layout>
+			<layout left="0" top="925" width="380" height="95">
+				<CaracteristicaClasse num="10"/>
+			</layout>
+		</layout>
+	 </scrollBox>
+</form>
