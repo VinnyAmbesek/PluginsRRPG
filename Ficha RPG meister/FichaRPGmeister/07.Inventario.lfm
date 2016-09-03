@@ -21,13 +21,13 @@
 			<rectangle align="client" color="black"/>
 			<label left="5" top="1" width="200" height="20" text="DINHEIRO"/>
 			<textEditor left="5" top="25" width="145" height="110" field="dinheiro"/>
-			<label left="20" top="140" width="50" height="20" text="PREÇO"/>
+			<label left="20" top="140" width="50" height="20" text="GASTOS"/>
 			<rectangle left="65" top="140" width="85" height="20" color="black" strokeColor="white" strokeSize="1"/>
 			<label field="gastos" text="0" left="65" top="140" width="85" height="20" horzTextAlign="center"/>
 		</layout>
 		<dataLink fields="{'precoCabeca', 'precoOlhos', 'precoPescoco', 'precoOmbros', 'precoTorso', 'precoCorpo', 'precoPunhos', 'precoCintura', 'precoMaos', 'precoDedosI', 'precoDesdosII', 'precoPes', 'precoArmas', 'precoMochila', 'precoPermanencias', 'precoLivres', 'precoOutros', 'precoMunicoes', 'precoBolsos', 'precoImoveis', 'precoInventorioComp'}">
 			<event name="onChange">
-				local mod = 0; 
+				local mod = 0;
 				mod = (getNumber(sheet.precoCabeca) or 0) +
 							(getNumber(sheet.precoOlhos) or 0) +
 							(getNumber(sheet.precoPescoco) or 0) +
@@ -47,8 +47,13 @@
 							(getNumber(sheet.precoOutros) or 0) +
 							(getNumber(sheet.precoMunicoes) or 0) +
 							(getNumber(sheet.precoBolsos) or 0) +
-							(getNumber(sheet.precoImoveis) or 0)+
-							(getNumber(sheet.precoInventorioComp) or 0);
+							(getNumber(sheet.precoImoveis) or 0);
+				local mod2 = 0;
+				local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);   
+				for i=1, #nodes, 1 do
+					mod2 = mod2 + (getNumber(nodes[i].precoInventorioComp) or 0);
+				end
+				mod = mod + mod2;
 				while true do  
 					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
 					if (k==0) then

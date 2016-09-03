@@ -218,69 +218,69 @@
 			<image field="imagemArma$(num)" editable="true" style="autoFit" left="870" top="5" width="330" height="75" />
 		</template>
 			
-			<scrollBox left="0" top="0" width="1225" height="605">
-				<rectangle align="client" color="#0000007F" compilerOrder="0"/>
-				<layout left="2" top="2" width="1207" height="92" compilerOrder="1">
-					<Ataque num="1"/>
-				</layout>
-				<layout left="2" top="97" width="1207" height="92" compilerOrder="1">
-					<Ataque num="2"/>
-				</layout>
-				<layout left="2" top="192" width="1207" height="92" compilerOrder="1">
-					<Ataque num="3"/>
-				</layout>
-				<layout left="2" top="288" width="1207" height="92" compilerOrder="1">
-					<Ataque num="4"/>
-				</layout>
-				<layout left="2" top="383" width="1207" height="92" compilerOrder="1">
-					<Ataque num="5"/>
-				</layout>
-				<layout left="2" top="478" width="1207" height="92" compilerOrder="1">
-					<Ataque num="6"/>
-				</layout>
-				<layout left="2" top="573" width="1207" height="92" compilerOrder="1">
-					<Ataque num="7"/>
-				</layout>
-				<layout left="2" top="668" width="1207" height="92" compilerOrder="1">
-					<Ataque num="8"/>
-				</layout>
-				<layout left="2" top="763" width="1207" height="92" compilerOrder="1">
-					<Ataque num="9"/>
-				</layout>
-				<layout left="2" top="858" width="1207" height="92" compilerOrder="1">
-					<Ataque num="10"/>
-				</layout>
-				<layout left="2" top="953" width="1207" height="92" compilerOrder="1">
-					<Ataque num="11"/>
-				</layout>
-				<layout left="2" top="1048" width="1207" height="92" compilerOrder="1">
-					<Ataque num="12"/>
-				</layout>
-				<layout left="2" top="1143" width="1207" height="92" compilerOrder="1">
-					<Ataque num="13"/>
-				</layout>
-				<layout left="2" top="1238" width="1207" height="92" compilerOrder="1">
-					<Ataque num="14"/>
-				</layout>
-				<layout left="2" top="1333" width="1207" height="92" compilerOrder="1">
-					<Ataque num="15"/>
-				</layout>
-				<layout left="2" top="1428" width="1207" height="92" compilerOrder="1">
-					<Ataque num="16"/>
-				</layout>
-				<layout left="2" top="1523" width="1207" height="92" compilerOrder="1">
-					<Ataque num="17"/>
-				</layout>
-				<layout left="2" top="1618" width="1207" height="92" compilerOrder="1">
-					<Ataque num="18"/>
-				</layout>
-				<layout left="2" top="1713" width="1207" height="92" compilerOrder="1">
-					<Ataque num="19"/>
-				</layout>
-				<layout left="2" top="1808" width="1207" height="92" compilerOrder="1">
-					<Ataque num="20"/>
-				</layout>
-			</scrollBox>
+		<layout left="0" top="0" width="1209" height="1900">
+			<rectangle align="client" color="#0000007F" compilerOrder="0"/>
+			<layout left="2" top="2" width="1207" height="92" compilerOrder="1">
+				<Ataque num="1"/>
+			</layout>
+			<layout left="2" top="97" width="1207" height="92" compilerOrder="1">
+				<Ataque num="2"/>
+			</layout>
+			<layout left="2" top="192" width="1207" height="92" compilerOrder="1">
+				<Ataque num="3"/>
+			</layout>
+			<layout left="2" top="288" width="1207" height="92" compilerOrder="1">
+				<Ataque num="4"/>
+			</layout>
+			<layout left="2" top="383" width="1207" height="92" compilerOrder="1">
+				<Ataque num="5"/>
+			</layout>
+			<layout left="2" top="478" width="1207" height="92" compilerOrder="1">
+				<Ataque num="6"/>
+			</layout>
+			<layout left="2" top="573" width="1207" height="92" compilerOrder="1">
+				<Ataque num="7"/>
+			</layout>
+			<layout left="2" top="668" width="1207" height="92" compilerOrder="1">
+				<Ataque num="8"/>
+			</layout>
+			<layout left="2" top="763" width="1207" height="92" compilerOrder="1">
+				<Ataque num="9"/>
+			</layout>
+			<layout left="2" top="858" width="1207" height="92" compilerOrder="1">
+				<Ataque num="10"/>
+			</layout>
+			<layout left="2" top="953" width="1207" height="92" compilerOrder="1">
+				<Ataque num="11"/>
+			</layout>
+			<layout left="2" top="1048" width="1207" height="92" compilerOrder="1">
+				<Ataque num="12"/>
+			</layout>
+			<layout left="2" top="1143" width="1207" height="92" compilerOrder="1">
+				<Ataque num="13"/>
+			</layout>
+			<layout left="2" top="1238" width="1207" height="92" compilerOrder="1">
+				<Ataque num="14"/>
+			</layout>
+			<layout left="2" top="1333" width="1207" height="92" compilerOrder="1">
+				<Ataque num="15"/>
+			</layout>
+			<layout left="2" top="1428" width="1207" height="92" compilerOrder="1">
+				<Ataque num="16"/>
+			</layout>
+			<layout left="2" top="1523" width="1207" height="92" compilerOrder="1">
+				<Ataque num="17"/>
+			</layout>
+			<layout left="2" top="1618" width="1207" height="92" compilerOrder="1">
+				<Ataque num="18"/>
+			</layout>
+			<layout left="2" top="1713" width="1207" height="92" compilerOrder="1">
+				<Ataque num="19"/>
+			</layout>
+			<layout left="2" top="1808" width="1207" height="92" compilerOrder="1">
+				<Ataque num="20"/>
+			</layout>
+		</layout>
 			
 	</scrollBox>
 </form>

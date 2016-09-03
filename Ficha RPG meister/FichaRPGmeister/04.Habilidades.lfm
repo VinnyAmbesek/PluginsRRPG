@@ -31,7 +31,7 @@
 			<edit vertTextAlign="center" left="5" top="66" width="370" height="23" field="cDescricao$(num)b"/>
 		</template>
 			
-		<scrollBox left="0" top="0" width="400" height="605">
+		<layout left="0" top="0" width="380" height="1020">
 			<rectangle align="client" color="#0000007F"/>
 			<label left="0" top="0" width="380" height="20" text="TALENTOS" horzTextAlign="center"/>
 			
@@ -95,9 +95,9 @@
 			<layout left="0" top="975" width="380" height="45">
 				<Talento num="35"/>
 			</layout>
-		</scrollBox>
+		</layout>
 			
-		<scrollBox left="405" top="0" width="400" height="605">
+		<layout left="405" top="0" width="380" height="1020">
 			<rectangle align="client" color="#0000007F"/>
 			<label left="0" top="0" width="380" height="20" text="OUTROS" horzTextAlign="center"/>
 			
@@ -161,9 +161,9 @@
 			<layout left="0" top="975" width="380" height="45">
 				<Talento num="40"/>
 			</layout>
-		</scrollBox>
+		</layout>
 		
-		<scrollBox left="810" top="0" width="400" height="605">
+		<layout left="810" top="0" width="380" height="1020">
 			<rectangle align="client" color="#0000007F"/>
 			<label left="0" top="0" width="380" height="20" text="CARACTERISTICAS DE CLASSE" horzTextAlign="center"/>
 			
@@ -197,6 +197,6 @@
 			<layout left="0" top="925" width="380" height="95">
 				<CaracteristicaClasse num="10"/>
 			</layout>
-		</scrollBox>
+		</layout>
 	 </scrollBox>
 </form>
