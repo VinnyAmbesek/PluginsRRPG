@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmFichaRPGmeister10_svg" align="client" theme="dark" margins="{top=1}">
+    <scrollBox align="client">
+		<rectangle left="0" top="0" width="1210" height="20" color="Black">
+			<label left="0" top="0" width="1210" height="20" text="PAGINA EXCLUSIVA DO MESTRE" horzTextAlign="center" />
+			<button left="0" top="0" width="50" height="20" text="Exibir" onClick="secret();"/>
+		</rectangle>
+	
+	   <layout left="0" top="0" width="400" height="605" name="a1" visible="false" >
+			<rectangle align="client" color="black"/>
+			<label left="0" top="0" width="400" height="20" text="ANOTAÇÕES" horzTextAlign="center"/>
+			<textEditor left="10" top="25" width="380" height="575" field="anotacoes1"/>
+		</layout>
+		
+		<layout left="405" top="0" width="400" height="605" name="a2" visible="false" >
+			<rectangle align="client" color="black"/>
+			<label left="0" top="0" width="400" height="20" text="ANOTAÇÕES" horzTextAlign="center"/>
+			<textEditor left="10" top="25" width="380" height="575" field="anotacoes2"/>
+		</layout>
+		
+		<layout left="810" top="0" width="400" height="605" name="a3" visible="false">
+			<rectangle align="client" color="black"/>
+			<label left="0" top="0" width="400" height="20" text="ANOTAÇÕES" horzTextAlign="center"/>
+			<textEditor left="10" top="25" width="380" height="575" field="anotacoes3"/>
+		</layout>
+		
+		<script>
+				local function secret()
+					local jogadores = rrpg.getMesaDe(sheet).jogadores;
+					local current = nil;
+					
+					for i = 1, #jogadores, 1 do
+						if jogadores[i].login==rrpg.getCurrentUser().login then
+							current = jogadores[i];
+						end;
+					end; 
+					
+					
+					if current~=nil and current.isMestre then
+						self.a1.visible = true;
+						self.a2.visible = true;
+						self.a3.visible = true;
+					else
+						self.a1.visible = false;
+						self.a2.visible = false;
+						self.a3.visible = false;
+					end;
+				end;
+			</script>
+    </scrollBox>
+</form>
