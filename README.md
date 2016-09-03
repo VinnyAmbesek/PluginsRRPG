@@ -1,10 +1,13 @@
 # fichaRPGmeister
+3 de Setembro de 2016
 Versao 16
  - Ajustes no layout para telas maiores e menores que 1366*768.
  - Rolagem de teste de falha arcana. 
  - Pequenos ajustes nos textos.
  - Multiplos companheiros permitidos. 
  - IMPORTANTE: Essa versao nao eh compativel com o companheiro da versao antiga. Tire um print e/ou copie as informacoes antes de atualizar para essa versao. 
+ - Aba Geral melhor comprimida para caber na tela. 
+ - Aba Magias reorganizada para caber melhor na tela. Organizacao dos circulos de magia mudada. 
 
 30 de Junho de 2016
 Versao 15
@@ -143,8 +146,7 @@ TALENTOS
 5 Instanciar (Talvez no futuro, agora está funfando legal, nao tem nenhum personagem que precise de mais de 35 espacos para habilidades de classe, raca e talentos).
 
 MAGIA
-? Adicionar novos tipos de magia. 
-Bug: atributo das CD e Usos adicionais nao ta indo automatico. 
+? Adicionar novos tipos de magia.  
 
 CREDITOS/OPCOES
 * Bloquear rolagens na mesa?
@@ -156,3 +158,7 @@ CREDITOS/OPCOES
 
 CODE
 * Melhorar o codigo pra ficar eficiente em aparelhos android. 
+
+BUGS CONHECIDOS: 
+* Atributo das CD e Usos adicionais nao ta indo automatico quando o atributo eh alterado.
+* Valores gastos em equipamentos para os companheiros nao estao somando automaticamente. 
