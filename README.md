@@ -11,4 +11,5 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
 - Gerenciador de Campanha: VinnyAmbesek
   - Gerenciador de XP, tesouros, npcs, jogador, logs e aventuras para D&D3.5.
 - Fira: Yiotoo
-- MG: : Yiotoo
+- MG: Yiotoo
+  - Ficha para Malditos Globins.
