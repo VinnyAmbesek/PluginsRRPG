@@ -1,0 +1,13 @@
+-- Faz uma rolagem de 3d6 e compara o valor com o NH
+local dificuldade = tonumber(parametro); 
+if dificuldade == nil then
+   escrever("Utilize: /rg  <NH>");
+   return;
+end; 
+
+local resultado = rolar("3d6", "NH " .. dificuldade);
+if resultado > dificuldade then
+  enviar("Falha!");
+else
+  enviar("Sucesso");
+end;

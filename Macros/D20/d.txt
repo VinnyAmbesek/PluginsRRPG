@@ -1,0 +1,17 @@
+-- faz uma rolagem de d20 + bonus
+local bonus= tonumber(arg[1]); 
+local info = arg[2];
+
+if bonus == nil then
+   escrever("Utilize: /d <BONUS> <Descriçao (Opcional)>");
+   return;
+end; 
+
+local text = "";
+if info==nil then
+  text = "";
+else
+  text = "Teste de " .. info;
+end;
+
+local resultado = rolar("1d20+" .. bonus, text);

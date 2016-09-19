@@ -1,0 +1,14 @@
+-- Faz uma sequencia de ataques
+local bonus =tonumber( arg[1]);
+local qtd = tonumber(arg[2]);
+
+if bonus==nil or qtd == nil then
+	escrever("Utilize: /ataque <bonus> <quantidade>");
+	return;
+end;
+
+for i=1, qtd, 1 do
+	local teste = "1d20+" .. bonus;
+	bonus = bonus -5;
+	rolar(teste, "Ataque " .. i);
+end

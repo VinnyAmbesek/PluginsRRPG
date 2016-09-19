@@ -1,0 +1,12 @@
+-- Joga uma rolagem de dano N vezes
+local dano = arg[1];
+local qtd = tonumber(arg[2]);
+
+if dano==nil or qtd == nil then
+  escrever("Utilize: /dano <dano> <quantidade>");
+  return;
+end;
+
+for i=1, qtd, 1 do
+  rolar(dano, "Dano " .. i);
+end
