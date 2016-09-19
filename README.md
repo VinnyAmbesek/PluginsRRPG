@@ -13,3 +13,17 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
 - Fira: Yiotoo
 - MG: Yiotoo
   - Ficha para Malditos Globins.
+
+#Contribuir
+Para contribuir com seus plugins:
+- Faça um "Fork" do projeto principal (de VinnyAmbesek).
+- Adicione seus plugins.
+- Realize um commit (de preferencia explicando o plugin nos comentarios do commit).
+- Realize um pull request.
+
+Para contribuir com alteraçoes no plugin de outra pessoa:
+- Faça um "Fork" do projeto da pessoa dona do plugin.
+- Adicione suas modificaçoes.
+- Realize um commit (de preferencia explicando porque e o que mudou nos comentarios do commit).
+- Realize um pull request para o dono do plugin.
+  - Se a pessoa aprovar os plugins vai realizar um pull request para o projeto principal. Apenas o dono do plugin vai ter alteraçoes aceitas nos pull requests para VinnyAmbesek. Se voce tentar alterar um plugin de outra pessoa com um pull request direto para VinnyAmbesek seu pedido sera negado.  
