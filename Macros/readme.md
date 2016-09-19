@@ -14,4 +14,4 @@ Como instalar os macros:
 * Feche o popup de "Editar Macro".
 * Feche o gerenciador de Macros.
 * Teste ele na mesa.
-* Dica: Alguns macros podem gerar flood e irritar outros jogadores. Para evitar bans ao testa-los abra um pvt consigo mesmo. 
+  * Dica: Alguns macros podem gerar flood e irritar outros jogadores. Para evitar bans ao testa-los abra um pvt consigo mesmo. 

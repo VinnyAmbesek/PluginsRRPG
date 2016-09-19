@@ -8,9 +8,11 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
   - Ficha para o sistema Ao Cair da Noite.
 - Ficha RPG meister: VinnyAmbesek
   - Ficha para o sistema D&D3.5.
+- Fira: Yiotoo
 - Gerenciador de Campanha: VinnyAmbesek
   - Gerenciador de XP, tesouros, npcs, jogador, logs e aventuras para D&D3.5.
-- Fira: Yiotoo
+- Macros: VinnyAmbesek
+  - Acervo de Macros para sistemas diversos e utilitarios.
 - MG: Yiotoo
   - Ficha para Malditos Globins.
 
