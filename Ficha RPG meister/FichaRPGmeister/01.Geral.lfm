@@ -6,7 +6,7 @@
 				<event name="onClick">
 					local rolagem = rrpg.interpretarRolagem("1d20 + " .. get$(atrU)());
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(atrN) de " .. sheet.nome);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(atrN) de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			
@@ -62,7 +62,7 @@
 						rolagem = rolagem:concatenar(sheet.buffTR);
 					end;
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(nome) de " .. sheet.nome);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(nome) de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			<rectangle left="50" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
@@ -149,6 +149,7 @@
 		
 		<dataLink field="xpAtual">
 			<event name="onChange">
+				if sheet~= nil then
 					local mod = sheet.xpAtual;
 					mod = string.gsub(mod, "X", "");
 					mod = string.gsub(mod, "P", "");
@@ -173,6 +174,7 @@
 					
 					sheet.xpNivel = mod2 .. "XP";
 					sheet.nep = mod3;
+				end;
 			</event>
 		</dataLink>
 		
@@ -235,9 +237,9 @@
 			
 			<button left="35" top="25" width="75" height="25" text="INICIATIVA" fontSize="11">
 				<event name="onClick">
-					local rolagem = rrpg.interpretarRolagem("1d20 " .. sheet.iniciativa);
+					local rolagem = rrpg.interpretarRolagem("1d20 " .. (sheet.iniciativa or "+0"));
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Iniciativa de " .. sheet.nome);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Iniciativa de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			
@@ -249,11 +251,13 @@
 		</layout>
 		<dataLink fields="{'iniDes', 'iniVariado'}">
 			<event name="onChange">
-				local mod = (tonumber(sheet.iniDes) or 0) + (tonumber(sheet.iniVariado) or 0);
-				if (mod >= 0) then
-						mod = "+" .. mod;
-				end;					   
-				sheet.iniciativa = mod;
+				if sheet~= nil then
+					local mod = (tonumber(sheet.iniDes) or 0) + (tonumber(sheet.iniVariado) or 0);
+					if (mod >= 0) then
+							mod = "+" .. mod;
+					end;					   
+					sheet.iniciativa = mod;
+				end;
 			</event>
 		</dataLink>
 
@@ -281,7 +285,7 @@
 				<event name="onClick">
 					local rolagem = rrpg.interpretarRolagem("1d100");
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Falha Arcana (" .. (sheet.falha or 0).. "%) de " .. sheet.nome);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Falha Arcana (" .. (sheet.falha or 0).. "%) de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			<edit vertTextAlign="center" horzTextAlign="center" left="175" top="25" width="35" height="25" field="falha"/>
@@ -325,7 +329,8 @@
 		</layout>
 		<dataLink fields="{'armaduraCa', 'buffCA', 'escudoCa', 'destrezaCa', 'tamanhoCa', 'naturalCa', 'deflexaoCa', 'esquivaCa', 'sorteCa', 'outrosCa', 'variadosCa'}">
 			<event name="onChange">
-				local mod = (tonumber(sheet.armaduraCa) or 0) + 
+				if sheet ~= nil then
+					local mod = (tonumber(sheet.armaduraCa) or 0) + 
 							(tonumber(sheet.escudoCa) or 0) + 
 							(tonumber(sheet.destrezaCa) or 0) +   
 							(tonumber(sheet.tamanhoCa) or 0) +  
@@ -335,9 +340,9 @@
 							(tonumber(sheet.sorteCa) or 0) +  
 							(tonumber(sheet.outrosCa) or 0) +  
 							(tonumber(sheet.variadosCa) or 0) +
-							(tonumber(sheet.buffCA) or 0) +
 								10;					  
 					sheet.ca = mod;
+				end;
 			</event>
 		</dataLink>
 		<layout left="525" top="570" width="260" height="25">
@@ -378,9 +383,9 @@
 		<layout left="0" top="485" width="280" height="25">
 			<button left="5" top="0" width="70" height="25" text="AGARRAR" fontSize="11">
 				<event name="onClick">
-					local rolagem = rrpg.interpretarRolagem("1d20 + " .. sheet.agarrar);
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.agarrar or "0"));
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Agarrar de " .. sheet.nome);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Agarrar de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			<rectangle left="80" top="0" width="40" height="25" color="black" strokeColor="white" strokeSize="1"/>
@@ -394,11 +399,13 @@
 		</layout>
 		<dataLink fields="{'bba', 'agarrarFor', 'agarrarTam', 'agarrarVar'}"> 
 			<event name="onChange">
-				local mod = (tonumber(sheet.bba) or 0) + 
-							(tonumber(sheet.agarrarFor) or 0) +  
-							(tonumber(sheet.agarrarTam) or 0) +   
-							(tonumber(sheet.agarrarVar) or 0);					  
-				sheet.agarrar = mod;
+				if sheet~= nil then
+					local mod = (tonumber(sheet.bba) or 0) + 
+								(tonumber(sheet.agarrarFor) or 0) +  
+								(tonumber(sheet.agarrarTam) or 0) +   
+								(tonumber(sheet.agarrarVar) or 0);					  
+					sheet.agarrar = mod;
+				end;
 			</event>
 		</dataLink>
 		
@@ -426,6 +433,7 @@
 		</layout>
 		<dataLink fields="{'penumbraBase', 'penumbraMult'}">
 			<event name="onChange">
+				if sheet~= nil then
 					local mod1 = 0;
 					local mod2 = 0;
 					if sheet.penumbraBase~=nil then
@@ -436,10 +444,12 @@
 					end;
 					local mod = (tonumber(mod1) or 0)*(tonumber(mod2) or 0);
 					sheet.penumbraTotal = mod .. "m";
+				end;
 			</event>
 		</dataLink>
 		<dataLink fields="{'luz', 'escuro', 'penumbraTotal'}">
 			<event name="onChange">
+				if sheet~= nil then
 					local mod1 = 0;
 					local mod2 = 0;
 					local mod3 = 0;
@@ -454,6 +464,7 @@
 					end;
 					local mod = (tonumber(mod1) or 0) + (tonumber(mod2) or 0) + (tonumber(mod3) or 0);
 					sheet.totalVisao = mod .. "m";
+				end;
 			</event>
 		</dataLink>
 		
@@ -469,7 +480,7 @@
 				<event name="onClick">
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
 					sheet.modificador = sheet.modificador or 0;
-					mesaDoPersonagem.activeChat:rolarDados(sheet.dvs, "Pontos de Vigor de " .. sheet.nome,
+					mesaDoPersonagem.activeChat:rolarDados(sheet.dvs, "Pontos de Vigor de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"),
 						function (rolagem)
 							local maximo = 0;
 							local media = 0;
@@ -497,26 +508,34 @@
 		</rectangle>
 		
 		<dataLink fields="{'for1', 'for3', 'for5', 'for2', 'for4', 'for6'}"> 
-			<event name="onChange">  
-				sheet.agarrarFor = getFOR();
+			<event name="onChange">
+				if sheet~= nil then
+					sheet.agarrarFor = getFOR();
+				end;
 			</event>
 		</dataLink>
 		<dataLink fields="{'des1', 'des3', 'des5', 'des2', 'des4', 'des6'}"> 
 			<event name="onChange">
-				local mod = getDES();  
-				sheet.iniDes = mod;						
-				sheet.destrezaCa = mod;
-				sheet.refAtr = mod;
+				if sheet~= nil then
+					local mod = getDES();  
+					sheet.iniDes = mod;						
+					sheet.destrezaCa = mod;
+					sheet.refAtr = mod;
+				end;
 			</event>
 		</dataLink>
 		<dataLink fields="{'con1', 'con2', 'con3', 'con4', 'con5', 'con6'}"> 
 			<event name="onChange">
-				sheet.fortAtr = getCON();
+				if sheet~= nil then
+					sheet.fortAtr = getCON();
+				end;
 			</event>
 		</dataLink>
 		<dataLink fields="{'sab1', 'sab3', 'sab5', 'sab2', 'sab4', 'sab6'}"> 
 			<event name="onChange">
-				sheet.vonAtr = getSAB();
+				if sheet~= nil then
+					sheet.vonAtr = getSAB();
+				end;
 			</event>
 		</dataLink>
 		
@@ -541,30 +560,31 @@
 			
 			<script>
 				local function caSecreta()
-					local jogadores = rrpg.getMesaDe(sheet).jogadores;
-					local current = nil;
-					
-					for i = 1, #jogadores, 1 do
-						if jogadores[i].login==rrpg.getCurrentUser().login then
-							current = jogadores[i];
+					if sheet~= nil then
+						local jogadores = rrpg.getMesaDe(sheet).jogadores;
+						local current = nil;
+						
+						for i = 1, #jogadores, 1 do
+							if jogadores[i].login==rrpg.getCurrentUser().login then
+								current = jogadores[i];
+							end;
+						end; 
+						
+						
+						if current~=nil and current.isMestre then
+							self.alvo1.visible = true;
+							self.alvo2.visible = true;
+							self.alvo3.visible = true;
+							self.alvo4.visible = true;
+							self.alvo5.visible = true;
+						else
+							self.alvo1.visible = false;
+							self.alvo2.visible = false;
+							self.alvo3.visible = false;
+							self.alvo4.visible = false;
+							self.alvo5.visible = false;
 						end;
-					end; 
-					
-					
-					if current~=nil and current.isMestre then
-						self.alvo1.visible = true;
-						self.alvo2.visible = true;
-						self.alvo3.visible = true;
-						self.alvo4.visible = true;
-						self.alvo5.visible = true;
-					else
-						self.alvo1.visible = false;
-						self.alvo2.visible = false;
-						self.alvo3.visible = false;
-						self.alvo4.visible = false;
-						self.alvo5.visible = false;
 					end;
-					
 				end;
 			</script>
 			
@@ -577,8 +597,8 @@
 			<edit vertTextAlign="center" left="60" top="80" width="70" height="25" field="buffDanoCritico"/>
 			<label left="5" top="105" width="50" height="20" text="TR"/>
 			<edit vertTextAlign="center" left="60" top="105" width="70" height="25" field="buffTR"/>
-			<label left="5" top="130" width="50" height="20" text="CA"/>
-			<edit vertTextAlign="center" left="60" top="130" width="70" height="25" field="buffCA"/>
+			<label left="5" top="130" width="50" height="20" text="PERICIA"/>
+			<edit vertTextAlign="center" left="60" top="130" width="70" height="25" field="buffPericia"/>
 		</layout>
 	</scrollBox>
 </form>

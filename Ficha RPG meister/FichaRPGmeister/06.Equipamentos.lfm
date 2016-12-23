@@ -34,18 +34,17 @@
 
 						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
 						
-						
 						local mod = 0;
 						if newValue~=nil and oldValue~=nil then
 							mod = newValue - oldValue;
 						end;
 						
 						if mod>0 then
-							mesaDoPersonagem.activeChat:enviarMensagem(sheet.nome .. " recuperou " .. mod .. " usos de " .. sheet.equipamento$(slot));
+							mesaDoPersonagem.activeChat:enviarMensagem((sheet.nome or "PONHA UM NOME NO PERSONAGEM") .. " recuperou " .. mod .. " usos de " .. sheet.equipamento$(slot));
 						end;
 						if 0>mod then
 							mod = mod * -1;
-							mesaDoPersonagem.activeChat:enviarMensagem(sheet.nome .. " gastou " .. mod .. " usos de " .. sheet.equipamento$(slot));
+							mesaDoPersonagem.activeChat:enviarMensagem((sheet.nome or "PONHA UM NOME NO PERSONAGEM") .. " gastou " .. mod .. " usos de " .. sheet.equipamento$(slot));
 						end;
 					else
 						sheet.usos$(slot) = 0;
@@ -85,7 +84,67 @@
 			<Equipamento slot="Torso" nome="TORSO"/>
 		</layout>
 		<layout left="252" top="224" width="250" height="222">
-			<Equipamento slot="Corpo" nome="CORPO"/>
+			<rectangle align="client" color="black"/>
+			<label left="5" top="1" width="200" height="20" text="CORPO (ARMADURA)"/>
+			<edit vertTextAlign="center" left="5" top="20" width="240" height="25" field="equipamentoCorpo"/>
+
+			<label left="5" top="50" width="50" height="20" text="CA"/>
+			<edit vertTextAlign="center" left="25" top="50" width="40" height="20" field="equipamentoCorpoCA"/>
+			<edit vertTextAlign="center" left="65" top="50" width="40" height="20" field="equipamentoCorpoCAmelhoria"/>
+			<label left="110" top="50" width="50" height="20" text="CAT"/>
+			<comboBox left="140" top="50" width="105" height="20" field="equipamentoCorpoCategoria" items="{'Leve', 'Média', 'Pesada', 'Massiva'}"/>
+
+			<label left="10" top="75" width="50" height="20" text="DES"/>
+			<edit vertTextAlign="center" left="45" top="75" width="40" height="20" field="equipamentoCorpoDesMax"/>
+			<label left="90" top="75" width="50" height="20" text="PEN"/>
+			<edit vertTextAlign="center" left="125" top="75" width="40" height="20" field="equipamentoCorpoPen"/>
+			<label left="170" top="75" width="50" height="20" text="Falha" fontSize="13"/>
+			<edit vertTextAlign="center" left="205" top="75" width="40" height="20" field="equipamentoCorpoFalha"/>
+
+			<label left="10" top="100" width="50" height="20" text="Desl"/>
+			<edit vertTextAlign="center" left="45" top="100" width="40" height="20" field="equipamentoCorpoDesl"/>
+			<label left="90" top="100" width="50" height="20" text="Peso"/>
+			<edit vertTextAlign="center" left="125" top="100" width="40" height="20" field="equipamentoCorpoPeso"/>
+			<label left="170" top="100" width="50" height="20" text="Correr" fontSize="12"/>
+			<edit vertTextAlign="center" left="205" top="100" width="40" height="20" field="equipamentoCorpoCorrer"/>
+
+			<textEditor left="5" top="122" width="240" height="65" field="descricaoCorpo"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="64" top="190" width="25" height="25" field="minCorpo"/>
+			<dataLink field="minCorpo">
+				<event name="onChange">
+					if sheet.minCorpo~=nil and sheet.maxCorpo~=nil and sheet.usosCorpo~=nil then
+						sheet.usosCorpo = (sheet.minCorpo or 0)/ (sheet.maxCorpo or 0);
+
+						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+						
+						local mod = 0;
+						if newValue~=nil and oldValue~=nil then
+							mod = newValue - oldValue;
+						end;
+						
+						if mod>0 then
+							mesaDoPersonagem.activeChat:enviarMensagem((sheet.nome or "PONHA UM NOME NO PERSONAGEM") .. " recuperou " .. mod .. " usos de " .. sheet.equipamentoCorpo);
+						end;
+						if 0>mod then
+							mod = mod * -1;
+							mesaDoPersonagem.activeChat:enviarMensagem((sheet.nome or "PONHA UM NOME NO PERSONAGEM") .. " gastou " .. mod .. " usos de " .. sheet.equipamentoCorpo);
+						end;
+					else
+						sheet.usosCorpo = 0;
+					end;
+				</event>
+			</dataLink>
+			
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="90" top="190" width="25" height="25" field="maxCorpo">
+				<event name="onUserChange">
+					if sheet.minCorpo~=nil and sheet.maxCorpo~=nil then
+						sheet.usosCorpo = (sheet.minCorpo or 0)/ (sheet.maxCorpo or 0);
+					end;
+				</event>
+			</edit>
+			<label left="117" top="193" width="50" height="20" text="PREÇO"/>
+			<edit horzTextAlign="center" vertTextAlign="center" left="160" top="190" width="84" height="25" field="precoCorpo"/>
+			<progressBar left="5" top="195" width="55" height="15" color="green" hitTest="true" max="1" field="usosCorpo"/>
 		</layout>
 		<layout left="710" top="224" width="250" height="222">
 			<Equipamento slot="Punhos" nome="PUNHOS"/>

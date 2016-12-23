@@ -37,7 +37,7 @@
 				<event name="onClick">
 					local rolagem = rrpg.interpretarRolagem("1d20 +" .. self.boxDetalhesDoItem.node.NC);
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de conjurador de " .. (sheet.nome or 0));
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de conjurador de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			<edit vertTextAlign="center" left="235" top="5" width="100" height="25" field="NC"/>

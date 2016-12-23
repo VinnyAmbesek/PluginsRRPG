@@ -21,7 +21,7 @@
 			<rectangle align="client" color="black"/>
 			<label left="5" top="1" width="200" height="20" text="DINHEIRO"/>
 			<textEditor left="5" top="25" width="145" height="110" field="dinheiro"/>
-			<label left="20" top="140" width="50" height="20" text="GASTOS"/>
+			<label left="10" top="140" width="50" height="20" text="GASTOS"/>
 			<rectangle left="65" top="140" width="85" height="20" color="black" strokeColor="white" strokeSize="1"/>
 			<label field="gastos" text="0" left="65" top="140" width="85" height="20" horzTextAlign="center"/>
 		</layout>

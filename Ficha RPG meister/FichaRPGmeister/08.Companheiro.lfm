@@ -4,9 +4,15 @@
 		<template name="AtributoComp">
 			<button left="0" top="3" width="42" height="20" text="$(ATR)">
 				<event name="onClick">
-					local rolagem = rrpg.interpretarRolagem("1d20" .. (sheet.$(atr)ModComp or 0));
+					local node = self.rclListaDosCompanheiros.selectedNode;
+					local dado = "1d20 ";
+					local bonus = tonumber(node.$(atr)ModComp) or 0;
+					if bonus &gt;= 0 then
+						dado = "1d20 + ";
+					end;
+					local rolagem = rrpg.interpretarRolagem(dado .. bonus);
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(nome) de " .. (sheet.nomeComp or 0));
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(nome) de " .. (node.nomeComp or "Companheiro"));
 				</event>
 			</button>
 			<edit left="45" top="0" width="30" height="25" field="$(atr)Comp">
@@ -15,7 +21,7 @@
 					if node~=nil then
 						local mod = (tonumber(node.$(atr)Comp) or 0);
 						mod = math.floor((mod-10)/2);
-						if mod>=0 then
+						if mod &gt;=0 then
 							mod = "+" .. mod;
 						end;
 						node.$(atr)ModComp = mod;
@@ -30,9 +36,15 @@
 		<template name="TRComp">
 			<button left="0" top="3" width="42" height="20" text="$(ATR)">
 				<event name="onClick">
-					local rolagem = rrpg.interpretarRolagem("1d20 +" .. (sheet.$(atr)ModComp or 0));
+					local node = self.rclListaDosCompanheiros.selectedNode;
+					local dado = "1d20 ";
+					local bonus = tonumber(node.$(atr)ModComp) or 0;
+					if bonus &gt;= 0 then
+						dado = "1d20 + ";
+					end;
+					local rolagem = rrpg.interpretarRolagem(dado .. bonus);
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(nome) de " .. (sheet.nomeComp or 0));
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(nome) de " .. (node.nomeComp or "Companheiro"));
 				</event>
 			</button>
 			<edit left="45" top="0" width="30" height="25" field="$(atr)Comp"/>
@@ -79,9 +91,10 @@
 			<rectangle left="0" top="251" width="200" height="110" color="black">
 				<button left="5" top="8" width="70" height="20" text="Iniciativa">
 					<event name="onClick">
-						local rolagem = rrpg.interpretarRolagem("1d20 + " .. sheet.iniciativaComp);
+						local node = self.rclListaDosCompanheiros.selectedNode;
+						local rolagem = rrpg.interpretarRolagem("1d20 + " .. (node.iniciativaComp or 0));
 						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de iniciativa de " .. (sheet.nomeComp or 0));
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de iniciativa de " .. (node.nomeComp or "Companheiro"));
 					</event>
 				</button>
 				<edit left="80" top="5" width="30" height="25" field="iniciativaComp"/>
@@ -95,9 +108,10 @@
 
 				<button left="90" top="58" width="60" height="20" text="Agarrar">
 					<event name="onClick">
-						local rolagem = rrpg.interpretarRolagem("1d20 + " .. sheet.agarrarComp);
+						local node = self.rclListaDosCompanheiros.selectedNode;
+						local rolagem = rrpg.interpretarRolagem("1d20 + " .. (node.agarrarComp or 0));
 						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de agarrar de " .. (sheet.nomeComp or 0));
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de agarrar de " .. (node.nomeComp or "Companheiro"));
 					</event>
 				</button>
 				<edit left="150" top="55" width="45" height="25" field="agarrarComp"/>
@@ -195,7 +209,7 @@
 			<event name="onEndEnumeration">
 				if self.rclListaDosCompanheiros.selectedNode == nil and sheet ~= nil then
 					local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);               
-					if #nodes > 0 then
+					if #nodes &gt; 0 then
 						self.rclListaDosCompanheiros.selectedNode = nodes[1];
 					end;
 				end;

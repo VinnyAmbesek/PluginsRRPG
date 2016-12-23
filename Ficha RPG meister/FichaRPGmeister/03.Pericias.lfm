@@ -13,9 +13,9 @@
 						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
 						
 						local value = string.gsub(sheet.total$(num), "+", "");
-						local mod = tonumber(sheet.total$(num));
+						local mod = math.floor(tonumber(sheet.total$(num)) or 0) + (tonumber(sheet.buffPericia) or 0);
 						local rolagem = rrpg.interpretarRolagem("1d20 + " .. mod);
-						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de " .. sheet.pericia$(num) .. " de " .. sheet.nome);
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de " .. (sheet.pericia$(num) or "Pericia") .. " de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 					</event>
 				</button>
 				<rectangle left="267" top="$(altura)" width="33" height="24" color="black" strokeColor="white" strokeSize="1" compilerOrder="0"/>

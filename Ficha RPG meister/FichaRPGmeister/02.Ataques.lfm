@@ -74,7 +74,7 @@
 					if sheet.buffAtaque ~= nil then
 					rolagem = rolagem:concatenar(sheet.buffAtaque);
 					end;
-					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque " .. i .. " com " .. armamento .. " de " .. sheet.nome, 
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque " .. i .. " com " .. armamento .. " de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"), 
 						function (rolado)
 							pos(rolado)
 						end);
@@ -139,7 +139,7 @@
 						if sheet.buffAtaque ~= nil then
 							rolagem = rolagem:concatenar(sheet.buffAtaque);
 						end;
-						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque " .. i .. " com " .. armamento .. " de " .. sheet.nome, 
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque " .. i .. " com " .. armamento .. " de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"), 
 							function (rolado)
 								pos(rolado)
 							end);
@@ -172,7 +172,7 @@
 						armamento = sheet.arma$(num);
 					end;
 					
-					mesaDoPersonagem.activeChat:rolarDados(dano, "Dano" .. " com " .. armamento .. " de " .. sheet.nome);
+					mesaDoPersonagem.activeChat:rolarDados(dano, "Dano" .. " com " .. armamento .. " de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			<edit vertTextAlign="center" left="352" top="30" width="82" height="25" field="dano$(num)"/>
@@ -190,7 +190,7 @@
 						armamento = sheet.arma$(num);
 					end;
 					
-					mesaDoPersonagem.activeChat:rolarDados(danoCritico, "Dano Critico" .. " com " .. armamento .. " de " .. sheet.nome);
+					mesaDoPersonagem.activeChat:rolarDados(danoCritico, "Dano Critico" .. " com " .. armamento .. " de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
 				</event>
 			</button>
 			<edit vertTextAlign="center" left="493" top="30" width="82" height="25" field="danoCritico$(num)"/>

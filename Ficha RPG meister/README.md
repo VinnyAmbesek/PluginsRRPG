@@ -1,4 +1,24 @@
 # fichaRPGmeister
++ Alterar campo de luz para ficar de acordo com o usado pelos tokens do rrpg.
++ Permitir jogar token no scene a partir de imagem do personagem e companheiros.  
++ Campo de ataques 2.0 (usando recordlist + datascope).
+
+7 de Dezembro de 2016
+Versao 18
+- Corrigido BUG na soma da iniciativa. 
+- Campo de Equipamento/Corpo alterado para melhor representar armadura. 
+- Corrigido BUG que permitia jogadores alterarem as anotações do mestre. 
+ATENCAO: Proxima versao vai exigir RRPG7.0 (SDK3.3)
+
+17 de Novembro de 2016
+Versão 17 
+ - Corrigido BUG nas rolagens automaticas dos companheiros. 
+ - Corrigido BUG nas rolagens de pericias quando o personagem possui meia graduação. 
+ - Corrigido BUG que acontecia quando se tentava fazer um teste com personagem sem nome. O sistema alerta de maneira educada para se nomear o personagem. 
+ - Criado text box editavel apenas por mestre para evitar que fiquem apagando minhas malditas anotacoes. Serio pessoal, se o mestre por algo na sua ficha: NAO APAGUE.
+ - Espaco para bonus temporarios de CA trocado por pericias. 
+ - Otimizações de codigo. 
+
 3 de Setembro de 2016
 Versao 16
  - Ajustes no layout para telas maiores e menores que 1366*768.

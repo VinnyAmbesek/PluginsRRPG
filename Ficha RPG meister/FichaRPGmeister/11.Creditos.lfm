@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="frmFichaRPGmeister11_svg" align="client" theme="dark" margins="{top=1}">
+<form name="frmFichaRPGmeister11_svg" align="client" theme="dark">
     <scrollBox align="client">
         <image left="0" top="0" width="600" height="600" src="images/RPGmeister.jpg" style="stretch" optimize="true" compilerOrder="0"/>
 		
@@ -10,10 +10,36 @@
 			<label left="0" top="95" width="200" height="20" text="Ficha feita para a mesa: " horzTextAlign="center"/>
 			<label left="0" top="120" width="200" height="20" text="RPGmeister" horzTextAlign="center"/>
 		</layout>
+
+		<layout left="830" top="0" width="400" height="350">
+			<rectangle align="client" color="black"/>
+			<label left="0" top="0" width="400" height="20" text="ANOTAÇÕES DO MESTRE" horzTextAlign="center"/>
+			<textEditor left="10" top="25" width="380" height="320" field="anotacoes_do_mestre">
+				<event name="onChange">
+					if sheet~=nil and sheet.anotacoes_do_mestre~=nil then
+						local jogadores = rrpg.getMesaDe(sheet).jogadores;
+						local current = nil;
+						
+						for i = 1, #jogadores, 1 do
+							if jogadores[i].login==rrpg.getCurrentUser().login then
+								current = jogadores[i];
+							end;
+						end; 
+					
+						if current~=nil and current.isMestre then
+							sheet.anotacoes_do_mestre_backup = sheet.anotacoes_do_mestre;
+						else
+							sheet.anotacoes_do_mestre = sheet.anotacoes_do_mestre_backup;
+							showMessage("Apenas o Mestre pode editar!");
+						end;
+					end;
+				</event>
+			</textEditor>
+		</layout>
 		
 		<label left="630" top="400" width="90" height="20" text="SUA VERSÃO:"/>
 		<rectangle left="724" top="399" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
-		<image left="725" top="400" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao16.png"/>
+		<image left="725" top="400" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao18.png"/>
 		
 		<label left="620" top="430" width="100" height="20" text="VERSÃO ATUAL:"/>
 		<rectangle left="724" top="429" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
