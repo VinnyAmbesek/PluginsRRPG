@@ -6,6 +6,8 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
 - Biblioteca RPGmeister: VinnyAmbesek
 - Ficha ACN: VinnyAmbesek
   - Ficha para o sistema Ao Cair da Noite.
+- Ficha A&D 2e: VinnyAmbesek
+  - Ficha para o sistema Advanced Dungeons and Dragons 2Âª ediÃ§Ã£o.
 - Ficha RPG meister: VinnyAmbesek
   - Ficha para o sistema D&D3.5.
 - Fira: Yiotoo
@@ -18,14 +20,14 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
 
 #Contribuir
 Para contribuir com seus plugins:
-- Faça um "Fork" do projeto principal (de VinnyAmbesek).
+- FaÃ§a um "Fork" do projeto principal (de VinnyAmbesek).
 - Adicione seus plugins.
 - Realize um commit (de preferencia explicando o plugin nos comentarios do commit).
 - Realize um pull request.
 
-Para contribuir com alteraçoes no plugin de outra pessoa:
-- Faça um "Fork" do projeto da pessoa dona do plugin.
-- Adicione suas modificaçoes.
+Para contribuir com alteraÃ§oes no plugin de outra pessoa:
+- FaÃ§a um "Fork" do projeto da pessoa dona do plugin.
+- Adicione suas modificaÃ§oes.
 - Realize um commit (de preferencia explicando porque e o que mudou nos comentarios do commit).
 - Realize um pull request para o dono do plugin.
-  - Se a pessoa aprovar os plugins vai realizar um pull request para o projeto principal. Apenas o dono do plugin vai ter alteraçoes aceitas nos pull requests para VinnyAmbesek. Se voce tentar alterar um plugin de outra pessoa com um pull request direto para VinnyAmbesek seu pedido sera negado.  
+  - Se a pessoa aprovar os plugins vai realizar um pull request para o projeto principal. Apenas o dono do plugin vai ter alteraÃ§oes aceitas nos pull requests para VinnyAmbesek. Se voce tentar alterar um plugin de outra pessoa com um pull request direto para VinnyAmbesek seu pedido sera negado.  
