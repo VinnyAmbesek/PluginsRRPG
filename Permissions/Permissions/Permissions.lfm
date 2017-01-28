@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmPermissionsTeste" formType="sheetTemplate" dataType="br.com.rrpg.permissionsTeste" title="Teste Permissions" align="client" theme="dark">
+	<button left="5" top="5" width="50" text="Show">
+		<event name="onClick">
+			if sheet.filho1==nil then
+				sheet.filho1 = {};
+				sheet.filho1.neto1_1 = {};
+				sheet.filho1.neto1_1.bisneto1_1_1 = {};
+				sheet.filho1.neto1_1.bisneto1_1_1.tataraneto1_1_1_1 = {};
+				sheet.filho1.neto1_1.bisneto1_1_1.t1_1_1_2 = {};
+				sheet.filho1.neto1_2 = {};
+				sheet.filho1.neto1_3 = {};
+				sheet.filho2 = {};
+				sheet.filho2.neto2_1 = {};
+				sheet.filho2.neto2_2 = {};
+				sheet.filho3 = {};
+				sheet.filho3.neto3_1 = {};
+				sheet.filho4 = {};
+				sheet.filho5 = {};
+				sheet.filho6 = {};
+				sheet.filho7 = {};
+				sheet.filho8 = {};
+				sheet.filho9 = {};
+			end;
+			
+			permissions.show(sheet);
+		</event>
+	</button>
+</form>

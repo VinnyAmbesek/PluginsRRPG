@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module sdkVersion="3.3">
+	<id>TESTE_PERMISSIONS</id>
+	<version>0.1</version>
+	<name>Teste Permissões RRPG</name>
+	<description>Plugin de Teste para sistema de gerenciamento de permissões</description>
+	<author>Ambesek</author>
+	<site></site>
+	<contact>vinnyrpgmeister@gmail.com</contact>
+</module>
