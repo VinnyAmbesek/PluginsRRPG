@@ -10,6 +10,8 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
   - Ficha para o sistema Ao Cair da Noite.
 - Ficha RPG meister: VinnyAmbesek
   - Ficha para o sistema D&D3.5.
+- Ficha Saint Seya Forever
+  - Ficha para a mesa Ficha Saint Seya Forever, Sistema GURPS adaptado. 
 - Fira: Yiotoo
 - Gerenciador de Campanha: VinnyAmbesek
   - Gerenciador de XP, tesouros, npcs, jogador, logs e aventuras para D&D3.5.
