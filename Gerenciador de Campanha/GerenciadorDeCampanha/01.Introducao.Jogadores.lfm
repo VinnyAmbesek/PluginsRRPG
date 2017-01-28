@@ -24,7 +24,7 @@
 	</rectangle>
 	<dataLink field="xp">
 			<event name="onChange">
-					local mod = sheet.xp;
+					local mod = sheet.xp or "0";
 					mod = string.gsub(mod, "X", "");
 					mod = string.gsub(mod, "P", "");
 					mod = string.gsub(mod, "x", "");

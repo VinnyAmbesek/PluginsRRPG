@@ -185,3 +185,32 @@ messaging.addMessageAdapter("MesaJoined", _mesaJoinPartAdapter);
 messaging.addMessageAdapter("MesaParted", _mesaJoinPartAdapter);	
 messaging.addMessageAdapter("TablesDockClosedByUser", _mesaMsgAdapter);	
 messaging.addMessageAdapter("TablesDockPosChanged", _mesaMsgAdapter);	
+
+-- Mensagens do Scene 3
+
+local _SceneWrappers = nil;	
+	
+local _sceneMsgAdapter = {prepareFilters = 
+		function(filters)
+			if filters.scene ~= nil then
+				filters.sceneObjectID = filters.scene.objectID;
+				filters.scene = nil;
+			else
+				filters.sceneObjectID = nil;
+			end;
+		end,
+		
+	 prepareMessage = 
+		function(message)
+			if _SceneWrappers == nil then
+				_SceneWrappers = require("sceneWrappers.dlua");
+			end;
+		
+			message.scene = _SceneWrappers.objectFromID(message.sceneObjectID);			
+		end,		
+	};	
+	
+	
+messaging.addMessageAdapter("SC3SceneLoaded", _sceneMsgAdapter);		
+messaging.addMessageAdapter("SC3SceneUnloaded", _sceneMsgAdapter);		
+	

@@ -93,7 +93,7 @@ local function __unsetupTemporizador(timerId, temporizador)
 	if (temporizador ~= nil) and (temporizador.timer ~= nil) then
 		local timer = temporizador.timer;
 		timer.enabled = false;
-		timer:removeEventListener(temporizador.onTimerEventListenerId);
+		--timer:removeEventListener(temporizador.onTimerEventListenerId);
 		temporizador.callback = nil;
 		temporizador.parametros = nil;
 		temporizador.timer = nil; -- liberar para o garbage collector		
@@ -439,5 +439,11 @@ end;
 function utils.openSharedStream(sharedId)
 	return utils.streamFromHandle(_util_openSharedStream(sharedId));
 end;
+
+utils.colorToRGBA = _gui_colorToRGBA;
+utils.RGBAToColor = _gui_RGBAToColor;
+
+colorToRGBA = utils.colorToRGBA;
+RGBAToColor = utils.RGBAToColor;
 
 return utils;
