@@ -4,7 +4,10 @@
         <tab title="Introdução">
             <import file="01.Introducao.lfm"/>
         </tab>
-		<tab title="NPCs">
+        <tab title="NPCs">
+            <import file="MainDockNPCs.lfm"/>
+        </tab>
+		<tab title="NPCs Old">
             <import file="02.npcs.lfm"/>
         </tab>
 		<tab title="Aventuras">

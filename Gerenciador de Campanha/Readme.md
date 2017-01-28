@@ -1,6 +1,14 @@
 #Gerenciador de Campanha
 Gerenciador de informações de campanha. Feito para ajudar jogadores e mestres a manterem notas organizadas sobre o jogo. 
 
+Versao 03:
+* Minor bug fixes. 
+* Unido a lista de NPCs da Mia.
+
+13 de Setembro de 2016
+Versao 02:
+* Separa NPCs em grupos. 
+
 29 de Julho de 1016
 Versao 01 Lancada. 
 

@@ -6,14 +6,16 @@
 		<layout left="620" top="10" width="200" height="150">
 			<rectangle left="0" top="0" width="200" height="150" color="black" xradius="15" yradius="15" cornerType="round"/>
 			<label left="0" top="10" width="200" height="20" text="Programador: Vinny (Ambesek)" horzTextAlign="center"/>
-			<label left="0" top="35" width="200" height="20" text="Arte: Nefer (Nefertyne)" horzTextAlign="center"/>
+			<label left="0" top="35" width="200" height="20" text="Lista de NPCs: Mia" horzTextAlign="center"/>
+			<label left="0" top="60" width="200" height="20" text="Arte: Nefer (Nefertyne)" horzTextAlign="center"/>
+
 			<label left="0" top="95" width="200" height="20" text="Ficha feita para a mesa: " horzTextAlign="center"/>
 			<label left="0" top="120" width="200" height="20" text="RPGmeister" horzTextAlign="center"/>
 		</layout>
 		
 		<label left="630" top="400" width="90" height="20" text="SUA VERSÃO:"/>
 		<rectangle left="724" top="399" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
-		<image left="725" top="400" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/Plugins/Gerenciador%20de%20Campanha%20releases/versao02.png"/>
+		<image left="725" top="400" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/Plugins/Gerenciador%20de%20Campanha%20releases/versao03.png"/>
 		
 		<label left="620" top="430" width="100" height="20" text="VERSÃO ATUAL:"/>
 		<rectangle left="724" top="429" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
