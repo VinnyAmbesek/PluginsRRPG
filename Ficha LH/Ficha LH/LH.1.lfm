@@ -342,9 +342,6 @@
 		<rectangle left="560" top="75" width="250" height="250" color="DimGray" xradius="5" yradius="5" cornerType="innerLine"/>
 		<image left="560" top="75" width="250" height="250" field="avatar" editable="true" style="autoFit"/>
 
-
-		
-
 		<image align="client" src="https://dl.dropboxusercontent.com/u/31086811/Plugins/Ficha%20LH%20releases/imagens/block.png" style="autoFit"/>
 	</scrollBox>
 </form>
