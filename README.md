@@ -8,8 +8,16 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
   - Ficha basica do sistema D&D 5e (D&D next).
 - Ficha ACN: VinnyAmbesek
   - Ficha para o sistema Ao Cair da Noite.
+- Ficha AD&D 2e: VinnyAmbesek
+  - Ficha para o sistema Advanced Dungeons and Dragons 2ª edição. 
+- Ficha Log Horizon: VinnyAmbesek
+  - Ficha para o sistema Log Horizon. 
+- Ficha PKMN: VinnyAmbesek
+  - Ficha incompleta para o sistema Pokémon d20.
 - Ficha RPG meister: VinnyAmbesek
   - Ficha para o sistema D&D3.5.
+- Ficha Reinos de Ferro: VinnyAmbesek
+  - Ficha para o sistema e cenario Reinos de Ferro.
 - Ficha Saint Seya Forever
   - Ficha para a mesa Ficha Saint Seya Forever, Sistema GURPS adaptado. 
 - Fira: Yiotoo
@@ -19,6 +27,8 @@ Se busca apenas pelos plugins, olhe na pasta output do projeto.
   - Imita a interface de Avatares do RRPg para adição de NPCs.
 - Macros: VinnyAmbesek
   - Acervo de Macros para sistemas diversos e utilitarios.
+- Permissions: VinnyAmbesek
+  - Plugin usado nos testes e criação do Node Explorer. 
 - MG: Yiotoo 
   - Ficha para Malditos Globins.
 
