@@ -404,7 +404,7 @@
 				
 				<textEditor align="client" fontSize="12" name="TextoMensagem" field="TextoMensagem" margins="{left=4, right=4, top=4, bottom=4}"/>
 				
-				<layout align="bottom" height="18" margins="{bottom=4, top=4}">
+				<layout align="bottom" height="20" margins="{bottom=4, top=4}">
 					<label align="left" width="100" fontSize="12" text="Formatar:" fontStyle="bold" margins="{left=8}" />
 					<button align="right" width="48" text="Enter" margins="{right=2}">
 						<event name="onClick">
@@ -417,8 +417,8 @@
 						</event>
 					</button>
 					<layout align="right" width="132">
-						<label fontColor="white" align="left" fontSize="12" autoSize="true" text="Aplicar Cor:"/>
-						<comboBox align="left" name="CorN" field="CorN" margins="{left=8}" width="48" fontColor="white" items="{' ', '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'}" values="{'0', '01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'}" value="0">
+						<label left="0" fontColor="white" fontSize="12" autoSize="true" text="Aplicar Cor:"/>
+						<comboBox left="70" height="20" name="CorN" field="CorN" margins="{left=4}" width="48" fontColor="white" items="{' ', '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'}" values="{'0', '01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'}" value="0">
 						</comboBox>
 					</layout>
 					

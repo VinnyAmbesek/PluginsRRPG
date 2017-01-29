@@ -1139,7 +1139,7 @@ function newCaixaFichaNPC2()
     obj.layout40 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout40:setParent(obj.layout37);
     obj.layout40:setAlign("bottom");
-    obj.layout40:setHeight(18);
+    obj.layout40:setHeight(20);
     obj.layout40:setMargins({bottom=4, top=4});
     obj.layout40:setName("layout40");
 
@@ -1177,8 +1177,8 @@ function newCaixaFichaNPC2()
 
     obj.label7 = gui.fromHandle(_obj_newObject("label"));
     obj.label7:setParent(obj.layout41);
+    obj.label7:setLeft(0);
     obj.label7:setFontColor("white");
-    obj.label7:setAlign("left");
     obj.label7:setFontSize(12);
     obj.label7:setAutoSize(true);
     obj.label7:setText("Aplicar Cor:");
@@ -1186,10 +1186,11 @@ function newCaixaFichaNPC2()
 
     obj.CorN = gui.fromHandle(_obj_newObject("comboBox"));
     obj.CorN:setParent(obj.layout41);
-    obj.CorN:setAlign("left");
+    obj.CorN:setLeft(70);
+    obj.CorN:setHeight(20);
     obj.CorN:setName("CorN");
     obj.CorN:setField("CorN");
-    obj.CorN:setMargins({left=8});
+    obj.CorN:setMargins({left=4});
     obj.CorN:setWidth(48);
     obj.CorN:setFontColor("white");
     obj.CorN:setItems({' ', '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28'});
