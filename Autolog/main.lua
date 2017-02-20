@@ -115,7 +115,7 @@ rrpg.messaging.listen("ChatMessage",
 			
 			--Se o objeto jogadorPVT não é nil, então foi um PVT Privado.
 			if(message.jogadorPVT ~= nil) then
-				logFile = logFile .. "(PVT com " .. utils.removerFmtChat(message.jogadorPVT.nick) .. ")";				
+				logFile = logFile .. "(PVT com " .. utils.removerFmtChat(message.jogadorPVT.login) .. ")";				
 			--Se o objeto jogadorPVT é nil, mas o chat não é o  chat principal da mesa, então eh um PVT em grupo.
 			elseif(message.chat.objectID ~= message.mesa.chat.objectID) then
 				logFile = logFile .. "(Conversa Em Grupo ID " .. message.chat.objectID .. ")";	

@@ -1266,7 +1266,7 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					local dado = "1d20 ";
-            					local bonus = tonumber(node.fortModComp) or 0;
+            					local bonus = tonumber(node.fortComp) or 0;
             					if bonus >= 0 then
             						dado = "1d20 + ";
             					end;
@@ -1279,7 +1279,7 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					local dado = "1d20 ";
-            					local bonus = tonumber(node.refModComp) or 0;
+            					local bonus = tonumber(node.refComp) or 0;
             					if bonus >= 0 then
             						dado = "1d20 + ";
             					end;
@@ -1292,7 +1292,7 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					local dado = "1d20 ";
-            					local bonus = tonumber(node.vonModComp) or 0;
+            					local bonus = tonumber(node.vonComp) or 0;
             					if bonus >= 0 then
             						dado = "1d20 + ";
             					end;

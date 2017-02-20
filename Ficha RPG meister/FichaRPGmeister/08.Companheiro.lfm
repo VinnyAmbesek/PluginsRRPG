@@ -38,7 +38,7 @@
 				<event name="onClick">
 					local node = self.rclListaDosCompanheiros.selectedNode;
 					local dado = "1d20 ";
-					local bonus = tonumber(node.$(atr)ModComp) or 0;
+					local bonus = tonumber(node.$(atr)Comp) or 0;
 					if bonus &gt;= 0 then
 						dado = "1d20 + ";
 					end;

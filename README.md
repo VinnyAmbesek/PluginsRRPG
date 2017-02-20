@@ -3,6 +3,8 @@ Esse repositorio foi criado com o intuito de armazenar o codigo de projetos de p
 Se busca apenas pelos plugins, olhe na pasta output do projeto. 
 
 #Responsaveis pelos projetos:
+- Autolog: Dniester "Tyras" Amorim de Aguiar
+  - Salva automaticamente tudo que é dito nos chats das mesas enquanto o usuario está nelas em "Documentos\RRPG\Complementos\Autolog\Logs\". Se tiver tendo problemas para salvar os logs crie dentro da pasta Logs uma pasta com o nome da mesa. 
 - Biblioteca RPGmeister: VinnyAmbesek
 - D&D 5e: AlyssonRPG
   - Ficha basica do sistema D&D 5e (D&D next).

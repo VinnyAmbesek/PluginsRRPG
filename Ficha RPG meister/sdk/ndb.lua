@@ -337,24 +337,20 @@ function ndb.newMemNodeDatabase()
 	return ndb.getRoot(openDB);
 end;
 
-function ndb.getRoot(nodeOrDatabase)
-	if type(nodeOrDatabase) ~= "table" then
+function ndb.getRoot(node)
+	if type(node) ~= "table" then
 		return nil;
 	end;
 	
-	if nodeOrDatabase.__dbFlag then
-		return localNDB.openNodeFacade(_ndb_getRoot(nodeOrDatabase.handle)); 
-	elseif nodeOrDatabase.__nodeFacadeFlag then
-		return ndb.getRoot(rawget(nodeOrDatabase, "__node"));
-	elseif nodeOrDatabase.__nodeFlag then
-		return localNDB.openNodeFacade(_ndb_getRoot(_ndb_getNDBHandleOfNode(nodeOrDatabase.handle))); 
+	if node.__nodeFlag then
+		return localNDB.openNodeFacade(_ndb_getTheRoot(node.handle));
+	elseif node.__nodeFacadeFlag then
+		return ndb.getRoot(rawget(node, "__node"));	
+	elseif node.__dbFlag then
+		return localNDB.openNodeFacade(_ndb_getRoot(node.handle));
 	else
 		return nil;
 	end;
-end;
-
-function ndb.openNodeFacade(nodeHandle)
-	return localNDB.openNodeFacade(nodeHandle);
 end;
 
 function ndb.getParent(node)
@@ -369,6 +365,10 @@ function ndb.getParent(node)
 	else
 		return nil;
 	end;
+end;
+
+function ndb.openNodeFacade(nodeHandle)
+	return localNDB.openNodeFacade(nodeHandle);
 end;
 
 function ndb.getChildNodes(nodeObj)
@@ -580,6 +580,62 @@ function ndb.resetPermissions(node)
 	end;	
 	
 	return {};
+end;
+
+local _transactionBib = nil;
+
+function ndb.newTransaction(nodeObj)
+	if nodeObj ~= nil then
+		local node = localNDB.getNodeObjectFromFacade(nodeObj);
+		
+		if node ~= nil then
+			if _transactionBib == nil then
+				_transactionBib = require("ndb_transaction.dlua");
+			end;
+		
+			return _transactionBib.newTransaction(node.handle, nodeObj);
+		end;	
+	end;
+	
+	return nil;	
+end;
+
+function ndb.pushTransaction(nodeObj, transaction)
+	if nodeObj ~= nil then
+		local node = localNDB.getNodeObjectFromFacade(nodeObj);
+		
+		if node ~= nil then
+			local trHandle;
+		
+			if transaction ~= nil then
+				trHandle = transaction.handle or 0;
+			else
+				trHandle = 0;
+			end;
+			
+			_obj_invoke(node.handle, "PushTransaction", trHandle);			
+		end;	
+	end;
+end;
+
+function ndb.popTransaction(nodeObj)
+	if nodeObj ~= nil then
+		local node = localNDB.getNodeObjectFromFacade(nodeObj);
+		
+		if node ~= nil then		
+			_obj_invoke(node.handle, "PopTransaction");			
+		end;	
+	end;
+end;
+
+function ndb.getServerUTCTime(nodeObj)
+	if nodeObj ~= nil then
+		local node = localNDB.getNodeObjectFromFacade(nodeObj);
+		
+		if node ~= nil then		
+			return _obj_getProp(node.handle, "ServerUTCTime");			
+		end;	
+	end;
 end;
 
 -- OVERRIDE de funções nativas para funcionar com o NDB
