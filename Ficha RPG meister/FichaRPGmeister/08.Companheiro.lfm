@@ -196,9 +196,9 @@
 		</dataScopeBox>
 
 		<button text="+" left="1210" top="206" width="20" height="20">
-				<event name="onClick">
-					self.rclListaDosCompanheiros:append();
-				</event>
+			<event name="onClick">
+				self.rclListaDosCompanheiros:append();
+			</event>
 		</button>
 
 		<rectangle left="1119" top="229" width="202" height="362" color="black" strokeColor="white" strokeSize="1"/>

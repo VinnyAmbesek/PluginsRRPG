@@ -204,26 +204,37 @@ function newfrmFichaRPGmeister5M_svg()
 						if mod=='1' then
 							self.layoutMagias.visible = true;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = false;
 						elseif mod=='2' then
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = true;
+							self.layoutListaMagias.visible = false;
+							self.layoutMagiasEpicas.visible = false;
+							self.layoutMagiasAprimoradas.visible = false;
+						elseif mod=='3' then
+							self.layoutMagias.visible = false;
+							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = true;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = false;
 						elseif mod=='7' then
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = true;
 							self.layoutMagiasAprimoradas.visible = false;
 						elseif mod=='8' then
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = true;
 						else
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = false;
 						end
@@ -2388,6 +2399,1656 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor20:setField("descricaoSigno9");
     obj.textEditor20:setName("textEditor20");
 
+    obj.layoutListaMagias = gui.fromHandle(_obj_newObject("layout"));
+    obj.layoutListaMagias:setParent(obj.boxDetalhesDoItem);
+    obj.layoutListaMagias:setLeft(0);
+    obj.layoutListaMagias:setTop(50);
+    obj.layoutListaMagias:setWidth(1200);
+    obj.layoutListaMagias:setHeight(550);
+    obj.layoutListaMagias:setName("layoutListaMagias");
+
+    obj.layout47 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout47:setParent(obj.layoutListaMagias);
+    obj.layout47:setLeft(10);
+    obj.layout47:setTop(0);
+    obj.layout47:setWidth(350);
+    obj.layout47:setHeight(350);
+    obj.layout47:setName("layout47");
+
+    obj.comboBox4 = gui.fromHandle(_obj_newObject("comboBox"));
+    obj.comboBox4:setParent(obj.layout47);
+    obj.comboBox4:setLeft(115);
+    obj.comboBox4:setTop(0);
+    obj.comboBox4:setWidth(60);
+    obj.comboBox4:setHeight(25);
+    obj.comboBox4:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
+    obj.comboBox4:setValues({'1', '2', '3', '4', '5', '6'});
+    obj.comboBox4:setField("atributoBonus");
+    obj.comboBox4:setName("comboBox4");
+
+    obj.comboBox5 = gui.fromHandle(_obj_newObject("comboBox"));
+    obj.comboBox5:setParent(obj.layout47);
+    obj.comboBox5:setLeft(260);
+    obj.comboBox5:setTop(0);
+    obj.comboBox5:setWidth(60);
+    obj.comboBox5:setHeight(25);
+    obj.comboBox5:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
+    obj.comboBox5:setValues({'1', '2', '3', '4', '5', '6'});
+    obj.comboBox5:setField("atributoCD");
+    obj.comboBox5:setName("comboBox5");
+
+    obj.rectangle4 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle4:setParent(obj.layout47);
+    obj.rectangle4:setLeft(210);
+    obj.rectangle4:setTop(0);
+    obj.rectangle4:setWidth(30);
+    obj.rectangle4:setHeight(25);
+    obj.rectangle4:setColor("black");
+    obj.rectangle4:setStrokeColor("white");
+    obj.rectangle4:setStrokeSize(1);
+    obj.rectangle4:setName("rectangle4");
+
+    obj.label56 = gui.fromHandle(_obj_newObject("label"));
+    obj.label56:setParent(obj.layout47);
+    obj.label56:setLeft(211);
+    obj.label56:setTop(0);
+    obj.label56:setWidth(30);
+    obj.label56:setHeight(25);
+    obj.label56:setField("grimorio");
+    obj.label56:setHorzTextAlign("center");
+    obj.label56:setName("label56");
+    obj.label56:setFontColor("white");
+    obj.label56:setTextTrimming("none");
+    obj.label56:setWordWrap(false);
+    obj.label56:setAutoSize(true);
+
+    obj.dataLink33 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink33:setParent(obj.layout47);
+    obj.dataLink33:setFields({'conhecidas0', 'conhecidas1', 'conhecidas2', 'conhecidas3', 'conhecidas4', 'conhecidas5', 'conhecidas6', 'conhecidas7', 'conhecidas8', 'conhecidas9'});
+    obj.dataLink33:setName("dataLink33");
+
+    obj.layout48 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout48:setParent(obj.layout47);
+    obj.layout48:setLeft(0);
+    obj.layout48:setTop(25);
+    obj.layout48:setWidth(350);
+    obj.layout48:setHeight(25);
+    obj.layout48:setName("layout48");
+
+    obj.label57 = gui.fromHandle(_obj_newObject("label"));
+    obj.label57:setParent(obj.layout48);
+    obj.label57:setVertTextAlign("center");
+    obj.label57:setLeft(0);
+    obj.label57:setTop(3);
+    obj.label57:setWidth(25);
+    obj.label57:setHeight(22);
+    obj.label57:setText("NÍVEL");
+    obj.label57:setName("label57");
+    obj.label57:setFontColor("white");
+    obj.label57:setTextTrimming("none");
+    obj.label57:setWordWrap(false);
+    obj.label57:setAutoSize(true);
+
+    obj.label58 = gui.fromHandle(_obj_newObject("label"));
+    obj.label58:setParent(obj.layout48);
+    obj.label58:setVertTextAlign("center");
+    obj.label58:setLeft(40);
+    obj.label58:setTop(3);
+    obj.label58:setWidth(25);
+    obj.label58:setHeight(22);
+    obj.label58:setText("TOTAL");
+    obj.label58:setName("label58");
+    obj.label58:setFontColor("white");
+    obj.label58:setTextTrimming("none");
+    obj.label58:setWordWrap(false);
+    obj.label58:setAutoSize(true);
+
+    obj.label59 = gui.fromHandle(_obj_newObject("label"));
+    obj.label59:setParent(obj.layout48);
+    obj.label59:setVertTextAlign("center");
+    obj.label59:setLeft(85);
+    obj.label59:setTop(3);
+    obj.label59:setWidth(25);
+    obj.label59:setHeight(22);
+    obj.label59:setText("BASE");
+    obj.label59:setName("label59");
+    obj.label59:setFontColor("white");
+    obj.label59:setTextTrimming("none");
+    obj.label59:setWordWrap(false);
+    obj.label59:setAutoSize(true);
+
+    obj.label60 = gui.fromHandle(_obj_newObject("label"));
+    obj.label60:setParent(obj.layout48);
+    obj.label60:setVertTextAlign("center");
+    obj.label60:setLeft(125);
+    obj.label60:setTop(3);
+    obj.label60:setWidth(25);
+    obj.label60:setHeight(22);
+    obj.label60:setText("BONUS");
+    obj.label60:setName("label60");
+    obj.label60:setFontColor("white");
+    obj.label60:setTextTrimming("none");
+    obj.label60:setWordWrap(false);
+    obj.label60:setAutoSize(true);
+
+    obj.label61 = gui.fromHandle(_obj_newObject("label"));
+    obj.label61:setParent(obj.layout48);
+    obj.label61:setVertTextAlign("center");
+    obj.label61:setLeft(180);
+    obj.label61:setTop(3);
+    obj.label61:setWidth(25);
+    obj.label61:setHeight(22);
+    obj.label61:setText("CONHECIDAS");
+    obj.label61:setName("label61");
+    obj.label61:setFontColor("white");
+    obj.label61:setTextTrimming("none");
+    obj.label61:setWordWrap(false);
+    obj.label61:setAutoSize(true);
+
+    obj.label62 = gui.fromHandle(_obj_newObject("label"));
+    obj.label62:setParent(obj.layout48);
+    obj.label62:setVertTextAlign("center");
+    obj.label62:setLeft(270);
+    obj.label62:setTop(3);
+    obj.label62:setWidth(25);
+    obj.label62:setHeight(22);
+    obj.label62:setText("CD");
+    obj.label62:setName("label62");
+    obj.label62:setFontColor("white");
+    obj.label62:setTextTrimming("none");
+    obj.label62:setWordWrap(false);
+    obj.label62:setAutoSize(true);
+
+    obj.layout49 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout49:setParent(obj.layout47);
+    obj.layout49:setLeft(0);
+    obj.layout49:setTop(55);
+    obj.layout49:setWidth(350);
+    obj.layout49:setHeight(25);
+    obj.layout49:setName("layout49");
+
+    obj.label63 = gui.fromHandle(_obj_newObject("label"));
+    obj.label63:setParent(obj.layout49);
+    obj.label63:setVertTextAlign("center");
+    obj.label63:setLeft(10);
+    obj.label63:setTop(3);
+    obj.label63:setWidth(25);
+    obj.label63:setHeight(22);
+    obj.label63:setText("0");
+    obj.label63:setName("label63");
+    obj.label63:setFontColor("white");
+    obj.label63:setTextTrimming("none");
+    obj.label63:setWordWrap(false);
+    obj.label63:setAutoSize(true);
+
+    obj.edit70 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit70:setParent(obj.layout49);
+    obj.edit70:setVertTextAlign("center");
+    obj.edit70:setLeft(45);
+    obj.edit70:setTop(0);
+    obj.edit70:setWidth(30);
+    obj.edit70:setHeight(25);
+    obj.edit70:setField("total0");
+    obj.edit70:setType("number");
+    obj.edit70:setName("edit70");
+
+    obj.edit71 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit71:setParent(obj.layout49);
+    obj.edit71:setVertTextAlign("center");
+    obj.edit71:setLeft(85);
+    obj.edit71:setTop(0);
+    obj.edit71:setWidth(30);
+    obj.edit71:setHeight(25);
+    obj.edit71:setField("base0");
+    obj.edit71:setType("number");
+    obj.edit71:setName("edit71");
+
+    obj.label64 = gui.fromHandle(_obj_newObject("label"));
+    obj.label64:setParent(obj.layout49);
+    obj.label64:setVertTextAlign("center");
+    obj.label64:setLeft(140);
+    obj.label64:setTop(0);
+    obj.label64:setWidth(30);
+    obj.label64:setHeight(25);
+    obj.label64:setField("bonus0");
+    obj.label64:setName("label64");
+    obj.label64:setFontColor("white");
+    obj.label64:setTextTrimming("none");
+    obj.label64:setWordWrap(false);
+    obj.label64:setAutoSize(true);
+
+    obj.dataLink34 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink34:setParent(obj.layout49);
+    obj.dataLink34:setFields({'base0', 'bonus0'});
+    obj.dataLink34:setName("dataLink34");
+
+    obj.dataLink35 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink35:setParent(obj.layout49);
+    obj.dataLink35:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink35:setName("dataLink35");
+
+    obj.edit72 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit72:setParent(obj.layout49);
+    obj.edit72:setVertTextAlign("center");
+    obj.edit72:setLeft(210);
+    obj.edit72:setTop(0);
+    obj.edit72:setWidth(30);
+    obj.edit72:setHeight(25);
+    obj.edit72:setField("conhecidas0");
+    obj.edit72:setType("number");
+    obj.edit72:setName("edit72");
+
+    obj.label65 = gui.fromHandle(_obj_newObject("label"));
+    obj.label65:setParent(obj.layout49);
+    obj.label65:setVertTextAlign("center");
+    obj.label65:setLeft(270);
+    obj.label65:setTop(0);
+    obj.label65:setWidth(30);
+    obj.label65:setHeight(25);
+    obj.label65:setField("cd0");
+    obj.label65:setName("label65");
+    obj.label65:setFontColor("white");
+    obj.label65:setTextTrimming("none");
+    obj.label65:setWordWrap(false);
+    obj.label65:setAutoSize(true);
+
+    obj.dataLink36 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink36:setParent(obj.layout49);
+    obj.dataLink36:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink36:setName("dataLink36");
+
+    obj.layout50 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout50:setParent(obj.layout47);
+    obj.layout50:setLeft(0);
+    obj.layout50:setTop(85);
+    obj.layout50:setWidth(350);
+    obj.layout50:setHeight(25);
+    obj.layout50:setName("layout50");
+
+    obj.label66 = gui.fromHandle(_obj_newObject("label"));
+    obj.label66:setParent(obj.layout50);
+    obj.label66:setVertTextAlign("center");
+    obj.label66:setLeft(10);
+    obj.label66:setTop(3);
+    obj.label66:setWidth(25);
+    obj.label66:setHeight(22);
+    obj.label66:setText("1");
+    obj.label66:setName("label66");
+    obj.label66:setFontColor("white");
+    obj.label66:setTextTrimming("none");
+    obj.label66:setWordWrap(false);
+    obj.label66:setAutoSize(true);
+
+    obj.edit73 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit73:setParent(obj.layout50);
+    obj.edit73:setVertTextAlign("center");
+    obj.edit73:setLeft(45);
+    obj.edit73:setTop(0);
+    obj.edit73:setWidth(30);
+    obj.edit73:setHeight(25);
+    obj.edit73:setField("total1");
+    obj.edit73:setType("number");
+    obj.edit73:setName("edit73");
+
+    obj.edit74 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit74:setParent(obj.layout50);
+    obj.edit74:setVertTextAlign("center");
+    obj.edit74:setLeft(85);
+    obj.edit74:setTop(0);
+    obj.edit74:setWidth(30);
+    obj.edit74:setHeight(25);
+    obj.edit74:setField("base1");
+    obj.edit74:setType("number");
+    obj.edit74:setName("edit74");
+
+    obj.label67 = gui.fromHandle(_obj_newObject("label"));
+    obj.label67:setParent(obj.layout50);
+    obj.label67:setVertTextAlign("center");
+    obj.label67:setLeft(140);
+    obj.label67:setTop(0);
+    obj.label67:setWidth(30);
+    obj.label67:setHeight(25);
+    obj.label67:setField("bonus1");
+    obj.label67:setName("label67");
+    obj.label67:setFontColor("white");
+    obj.label67:setTextTrimming("none");
+    obj.label67:setWordWrap(false);
+    obj.label67:setAutoSize(true);
+
+    obj.dataLink37 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink37:setParent(obj.layout50);
+    obj.dataLink37:setFields({'base1', 'bonus1'});
+    obj.dataLink37:setName("dataLink37");
+
+    obj.dataLink38 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink38:setParent(obj.layout50);
+    obj.dataLink38:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink38:setName("dataLink38");
+
+    obj.edit75 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit75:setParent(obj.layout50);
+    obj.edit75:setVertTextAlign("center");
+    obj.edit75:setLeft(210);
+    obj.edit75:setTop(0);
+    obj.edit75:setWidth(30);
+    obj.edit75:setHeight(25);
+    obj.edit75:setField("conhecidas1");
+    obj.edit75:setType("number");
+    obj.edit75:setName("edit75");
+
+    obj.label68 = gui.fromHandle(_obj_newObject("label"));
+    obj.label68:setParent(obj.layout50);
+    obj.label68:setVertTextAlign("center");
+    obj.label68:setLeft(270);
+    obj.label68:setTop(0);
+    obj.label68:setWidth(30);
+    obj.label68:setHeight(25);
+    obj.label68:setField("cd1");
+    obj.label68:setName("label68");
+    obj.label68:setFontColor("white");
+    obj.label68:setTextTrimming("none");
+    obj.label68:setWordWrap(false);
+    obj.label68:setAutoSize(true);
+
+    obj.dataLink39 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink39:setParent(obj.layout50);
+    obj.dataLink39:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink39:setName("dataLink39");
+
+    obj.layout51 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout51:setParent(obj.layout47);
+    obj.layout51:setLeft(0);
+    obj.layout51:setTop(115);
+    obj.layout51:setWidth(350);
+    obj.layout51:setHeight(25);
+    obj.layout51:setName("layout51");
+
+    obj.label69 = gui.fromHandle(_obj_newObject("label"));
+    obj.label69:setParent(obj.layout51);
+    obj.label69:setVertTextAlign("center");
+    obj.label69:setLeft(10);
+    obj.label69:setTop(3);
+    obj.label69:setWidth(25);
+    obj.label69:setHeight(22);
+    obj.label69:setText("2");
+    obj.label69:setName("label69");
+    obj.label69:setFontColor("white");
+    obj.label69:setTextTrimming("none");
+    obj.label69:setWordWrap(false);
+    obj.label69:setAutoSize(true);
+
+    obj.edit76 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit76:setParent(obj.layout51);
+    obj.edit76:setVertTextAlign("center");
+    obj.edit76:setLeft(45);
+    obj.edit76:setTop(0);
+    obj.edit76:setWidth(30);
+    obj.edit76:setHeight(25);
+    obj.edit76:setField("total2");
+    obj.edit76:setType("number");
+    obj.edit76:setName("edit76");
+
+    obj.edit77 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit77:setParent(obj.layout51);
+    obj.edit77:setVertTextAlign("center");
+    obj.edit77:setLeft(85);
+    obj.edit77:setTop(0);
+    obj.edit77:setWidth(30);
+    obj.edit77:setHeight(25);
+    obj.edit77:setField("base2");
+    obj.edit77:setType("number");
+    obj.edit77:setName("edit77");
+
+    obj.label70 = gui.fromHandle(_obj_newObject("label"));
+    obj.label70:setParent(obj.layout51);
+    obj.label70:setVertTextAlign("center");
+    obj.label70:setLeft(140);
+    obj.label70:setTop(0);
+    obj.label70:setWidth(30);
+    obj.label70:setHeight(25);
+    obj.label70:setField("bonus2");
+    obj.label70:setName("label70");
+    obj.label70:setFontColor("white");
+    obj.label70:setTextTrimming("none");
+    obj.label70:setWordWrap(false);
+    obj.label70:setAutoSize(true);
+
+    obj.dataLink40 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink40:setParent(obj.layout51);
+    obj.dataLink40:setFields({'base2', 'bonus2'});
+    obj.dataLink40:setName("dataLink40");
+
+    obj.dataLink41 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink41:setParent(obj.layout51);
+    obj.dataLink41:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink41:setName("dataLink41");
+
+    obj.edit78 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit78:setParent(obj.layout51);
+    obj.edit78:setVertTextAlign("center");
+    obj.edit78:setLeft(210);
+    obj.edit78:setTop(0);
+    obj.edit78:setWidth(30);
+    obj.edit78:setHeight(25);
+    obj.edit78:setField("conhecidas2");
+    obj.edit78:setType("number");
+    obj.edit78:setName("edit78");
+
+    obj.label71 = gui.fromHandle(_obj_newObject("label"));
+    obj.label71:setParent(obj.layout51);
+    obj.label71:setVertTextAlign("center");
+    obj.label71:setLeft(270);
+    obj.label71:setTop(0);
+    obj.label71:setWidth(30);
+    obj.label71:setHeight(25);
+    obj.label71:setField("cd2");
+    obj.label71:setName("label71");
+    obj.label71:setFontColor("white");
+    obj.label71:setTextTrimming("none");
+    obj.label71:setWordWrap(false);
+    obj.label71:setAutoSize(true);
+
+    obj.dataLink42 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink42:setParent(obj.layout51);
+    obj.dataLink42:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink42:setName("dataLink42");
+
+    obj.layout52 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout52:setParent(obj.layout47);
+    obj.layout52:setLeft(0);
+    obj.layout52:setTop(145);
+    obj.layout52:setWidth(350);
+    obj.layout52:setHeight(25);
+    obj.layout52:setName("layout52");
+
+    obj.label72 = gui.fromHandle(_obj_newObject("label"));
+    obj.label72:setParent(obj.layout52);
+    obj.label72:setVertTextAlign("center");
+    obj.label72:setLeft(10);
+    obj.label72:setTop(3);
+    obj.label72:setWidth(25);
+    obj.label72:setHeight(22);
+    obj.label72:setText("3");
+    obj.label72:setName("label72");
+    obj.label72:setFontColor("white");
+    obj.label72:setTextTrimming("none");
+    obj.label72:setWordWrap(false);
+    obj.label72:setAutoSize(true);
+
+    obj.edit79 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit79:setParent(obj.layout52);
+    obj.edit79:setVertTextAlign("center");
+    obj.edit79:setLeft(45);
+    obj.edit79:setTop(0);
+    obj.edit79:setWidth(30);
+    obj.edit79:setHeight(25);
+    obj.edit79:setField("total3");
+    obj.edit79:setType("number");
+    obj.edit79:setName("edit79");
+
+    obj.edit80 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit80:setParent(obj.layout52);
+    obj.edit80:setVertTextAlign("center");
+    obj.edit80:setLeft(85);
+    obj.edit80:setTop(0);
+    obj.edit80:setWidth(30);
+    obj.edit80:setHeight(25);
+    obj.edit80:setField("base3");
+    obj.edit80:setType("number");
+    obj.edit80:setName("edit80");
+
+    obj.label73 = gui.fromHandle(_obj_newObject("label"));
+    obj.label73:setParent(obj.layout52);
+    obj.label73:setVertTextAlign("center");
+    obj.label73:setLeft(140);
+    obj.label73:setTop(0);
+    obj.label73:setWidth(30);
+    obj.label73:setHeight(25);
+    obj.label73:setField("bonus3");
+    obj.label73:setName("label73");
+    obj.label73:setFontColor("white");
+    obj.label73:setTextTrimming("none");
+    obj.label73:setWordWrap(false);
+    obj.label73:setAutoSize(true);
+
+    obj.dataLink43 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink43:setParent(obj.layout52);
+    obj.dataLink43:setFields({'base3', 'bonus3'});
+    obj.dataLink43:setName("dataLink43");
+
+    obj.dataLink44 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink44:setParent(obj.layout52);
+    obj.dataLink44:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink44:setName("dataLink44");
+
+    obj.edit81 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit81:setParent(obj.layout52);
+    obj.edit81:setVertTextAlign("center");
+    obj.edit81:setLeft(210);
+    obj.edit81:setTop(0);
+    obj.edit81:setWidth(30);
+    obj.edit81:setHeight(25);
+    obj.edit81:setField("conhecidas3");
+    obj.edit81:setType("number");
+    obj.edit81:setName("edit81");
+
+    obj.label74 = gui.fromHandle(_obj_newObject("label"));
+    obj.label74:setParent(obj.layout52);
+    obj.label74:setVertTextAlign("center");
+    obj.label74:setLeft(270);
+    obj.label74:setTop(0);
+    obj.label74:setWidth(30);
+    obj.label74:setHeight(25);
+    obj.label74:setField("cd3");
+    obj.label74:setName("label74");
+    obj.label74:setFontColor("white");
+    obj.label74:setTextTrimming("none");
+    obj.label74:setWordWrap(false);
+    obj.label74:setAutoSize(true);
+
+    obj.dataLink45 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink45:setParent(obj.layout52);
+    obj.dataLink45:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink45:setName("dataLink45");
+
+    obj.layout53 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout53:setParent(obj.layout47);
+    obj.layout53:setLeft(0);
+    obj.layout53:setTop(175);
+    obj.layout53:setWidth(350);
+    obj.layout53:setHeight(25);
+    obj.layout53:setName("layout53");
+
+    obj.label75 = gui.fromHandle(_obj_newObject("label"));
+    obj.label75:setParent(obj.layout53);
+    obj.label75:setVertTextAlign("center");
+    obj.label75:setLeft(10);
+    obj.label75:setTop(3);
+    obj.label75:setWidth(25);
+    obj.label75:setHeight(22);
+    obj.label75:setText("4");
+    obj.label75:setName("label75");
+    obj.label75:setFontColor("white");
+    obj.label75:setTextTrimming("none");
+    obj.label75:setWordWrap(false);
+    obj.label75:setAutoSize(true);
+
+    obj.edit82 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit82:setParent(obj.layout53);
+    obj.edit82:setVertTextAlign("center");
+    obj.edit82:setLeft(45);
+    obj.edit82:setTop(0);
+    obj.edit82:setWidth(30);
+    obj.edit82:setHeight(25);
+    obj.edit82:setField("total4");
+    obj.edit82:setType("number");
+    obj.edit82:setName("edit82");
+
+    obj.edit83 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit83:setParent(obj.layout53);
+    obj.edit83:setVertTextAlign("center");
+    obj.edit83:setLeft(85);
+    obj.edit83:setTop(0);
+    obj.edit83:setWidth(30);
+    obj.edit83:setHeight(25);
+    obj.edit83:setField("base4");
+    obj.edit83:setType("number");
+    obj.edit83:setName("edit83");
+
+    obj.label76 = gui.fromHandle(_obj_newObject("label"));
+    obj.label76:setParent(obj.layout53);
+    obj.label76:setVertTextAlign("center");
+    obj.label76:setLeft(140);
+    obj.label76:setTop(0);
+    obj.label76:setWidth(30);
+    obj.label76:setHeight(25);
+    obj.label76:setField("bonus4");
+    obj.label76:setName("label76");
+    obj.label76:setFontColor("white");
+    obj.label76:setTextTrimming("none");
+    obj.label76:setWordWrap(false);
+    obj.label76:setAutoSize(true);
+
+    obj.dataLink46 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink46:setParent(obj.layout53);
+    obj.dataLink46:setFields({'base4', 'bonus4'});
+    obj.dataLink46:setName("dataLink46");
+
+    obj.dataLink47 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink47:setParent(obj.layout53);
+    obj.dataLink47:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink47:setName("dataLink47");
+
+    obj.edit84 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit84:setParent(obj.layout53);
+    obj.edit84:setVertTextAlign("center");
+    obj.edit84:setLeft(210);
+    obj.edit84:setTop(0);
+    obj.edit84:setWidth(30);
+    obj.edit84:setHeight(25);
+    obj.edit84:setField("conhecidas4");
+    obj.edit84:setType("number");
+    obj.edit84:setName("edit84");
+
+    obj.label77 = gui.fromHandle(_obj_newObject("label"));
+    obj.label77:setParent(obj.layout53);
+    obj.label77:setVertTextAlign("center");
+    obj.label77:setLeft(270);
+    obj.label77:setTop(0);
+    obj.label77:setWidth(30);
+    obj.label77:setHeight(25);
+    obj.label77:setField("cd4");
+    obj.label77:setName("label77");
+    obj.label77:setFontColor("white");
+    obj.label77:setTextTrimming("none");
+    obj.label77:setWordWrap(false);
+    obj.label77:setAutoSize(true);
+
+    obj.dataLink48 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink48:setParent(obj.layout53);
+    obj.dataLink48:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink48:setName("dataLink48");
+
+    obj.layout54 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout54:setParent(obj.layout47);
+    obj.layout54:setLeft(0);
+    obj.layout54:setTop(205);
+    obj.layout54:setWidth(350);
+    obj.layout54:setHeight(25);
+    obj.layout54:setName("layout54");
+
+    obj.label78 = gui.fromHandle(_obj_newObject("label"));
+    obj.label78:setParent(obj.layout54);
+    obj.label78:setVertTextAlign("center");
+    obj.label78:setLeft(10);
+    obj.label78:setTop(3);
+    obj.label78:setWidth(25);
+    obj.label78:setHeight(22);
+    obj.label78:setText("5");
+    obj.label78:setName("label78");
+    obj.label78:setFontColor("white");
+    obj.label78:setTextTrimming("none");
+    obj.label78:setWordWrap(false);
+    obj.label78:setAutoSize(true);
+
+    obj.edit85 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit85:setParent(obj.layout54);
+    obj.edit85:setVertTextAlign("center");
+    obj.edit85:setLeft(45);
+    obj.edit85:setTop(0);
+    obj.edit85:setWidth(30);
+    obj.edit85:setHeight(25);
+    obj.edit85:setField("total5");
+    obj.edit85:setType("number");
+    obj.edit85:setName("edit85");
+
+    obj.edit86 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit86:setParent(obj.layout54);
+    obj.edit86:setVertTextAlign("center");
+    obj.edit86:setLeft(85);
+    obj.edit86:setTop(0);
+    obj.edit86:setWidth(30);
+    obj.edit86:setHeight(25);
+    obj.edit86:setField("base5");
+    obj.edit86:setType("number");
+    obj.edit86:setName("edit86");
+
+    obj.label79 = gui.fromHandle(_obj_newObject("label"));
+    obj.label79:setParent(obj.layout54);
+    obj.label79:setVertTextAlign("center");
+    obj.label79:setLeft(140);
+    obj.label79:setTop(0);
+    obj.label79:setWidth(30);
+    obj.label79:setHeight(25);
+    obj.label79:setField("bonus5");
+    obj.label79:setName("label79");
+    obj.label79:setFontColor("white");
+    obj.label79:setTextTrimming("none");
+    obj.label79:setWordWrap(false);
+    obj.label79:setAutoSize(true);
+
+    obj.dataLink49 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink49:setParent(obj.layout54);
+    obj.dataLink49:setFields({'base5', 'bonus5'});
+    obj.dataLink49:setName("dataLink49");
+
+    obj.dataLink50 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink50:setParent(obj.layout54);
+    obj.dataLink50:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink50:setName("dataLink50");
+
+    obj.edit87 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit87:setParent(obj.layout54);
+    obj.edit87:setVertTextAlign("center");
+    obj.edit87:setLeft(210);
+    obj.edit87:setTop(0);
+    obj.edit87:setWidth(30);
+    obj.edit87:setHeight(25);
+    obj.edit87:setField("conhecidas5");
+    obj.edit87:setType("number");
+    obj.edit87:setName("edit87");
+
+    obj.label80 = gui.fromHandle(_obj_newObject("label"));
+    obj.label80:setParent(obj.layout54);
+    obj.label80:setVertTextAlign("center");
+    obj.label80:setLeft(270);
+    obj.label80:setTop(0);
+    obj.label80:setWidth(30);
+    obj.label80:setHeight(25);
+    obj.label80:setField("cd5");
+    obj.label80:setName("label80");
+    obj.label80:setFontColor("white");
+    obj.label80:setTextTrimming("none");
+    obj.label80:setWordWrap(false);
+    obj.label80:setAutoSize(true);
+
+    obj.dataLink51 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink51:setParent(obj.layout54);
+    obj.dataLink51:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink51:setName("dataLink51");
+
+    obj.layout55 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout55:setParent(obj.layout47);
+    obj.layout55:setLeft(0);
+    obj.layout55:setTop(235);
+    obj.layout55:setWidth(350);
+    obj.layout55:setHeight(25);
+    obj.layout55:setName("layout55");
+
+    obj.label81 = gui.fromHandle(_obj_newObject("label"));
+    obj.label81:setParent(obj.layout55);
+    obj.label81:setVertTextAlign("center");
+    obj.label81:setLeft(10);
+    obj.label81:setTop(3);
+    obj.label81:setWidth(25);
+    obj.label81:setHeight(22);
+    obj.label81:setText("6");
+    obj.label81:setName("label81");
+    obj.label81:setFontColor("white");
+    obj.label81:setTextTrimming("none");
+    obj.label81:setWordWrap(false);
+    obj.label81:setAutoSize(true);
+
+    obj.edit88 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit88:setParent(obj.layout55);
+    obj.edit88:setVertTextAlign("center");
+    obj.edit88:setLeft(45);
+    obj.edit88:setTop(0);
+    obj.edit88:setWidth(30);
+    obj.edit88:setHeight(25);
+    obj.edit88:setField("total6");
+    obj.edit88:setType("number");
+    obj.edit88:setName("edit88");
+
+    obj.edit89 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit89:setParent(obj.layout55);
+    obj.edit89:setVertTextAlign("center");
+    obj.edit89:setLeft(85);
+    obj.edit89:setTop(0);
+    obj.edit89:setWidth(30);
+    obj.edit89:setHeight(25);
+    obj.edit89:setField("base6");
+    obj.edit89:setType("number");
+    obj.edit89:setName("edit89");
+
+    obj.label82 = gui.fromHandle(_obj_newObject("label"));
+    obj.label82:setParent(obj.layout55);
+    obj.label82:setVertTextAlign("center");
+    obj.label82:setLeft(140);
+    obj.label82:setTop(0);
+    obj.label82:setWidth(30);
+    obj.label82:setHeight(25);
+    obj.label82:setField("bonus6");
+    obj.label82:setName("label82");
+    obj.label82:setFontColor("white");
+    obj.label82:setTextTrimming("none");
+    obj.label82:setWordWrap(false);
+    obj.label82:setAutoSize(true);
+
+    obj.dataLink52 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink52:setParent(obj.layout55);
+    obj.dataLink52:setFields({'base6', 'bonus6'});
+    obj.dataLink52:setName("dataLink52");
+
+    obj.dataLink53 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink53:setParent(obj.layout55);
+    obj.dataLink53:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink53:setName("dataLink53");
+
+    obj.edit90 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit90:setParent(obj.layout55);
+    obj.edit90:setVertTextAlign("center");
+    obj.edit90:setLeft(210);
+    obj.edit90:setTop(0);
+    obj.edit90:setWidth(30);
+    obj.edit90:setHeight(25);
+    obj.edit90:setField("conhecidas6");
+    obj.edit90:setType("number");
+    obj.edit90:setName("edit90");
+
+    obj.label83 = gui.fromHandle(_obj_newObject("label"));
+    obj.label83:setParent(obj.layout55);
+    obj.label83:setVertTextAlign("center");
+    obj.label83:setLeft(270);
+    obj.label83:setTop(0);
+    obj.label83:setWidth(30);
+    obj.label83:setHeight(25);
+    obj.label83:setField("cd6");
+    obj.label83:setName("label83");
+    obj.label83:setFontColor("white");
+    obj.label83:setTextTrimming("none");
+    obj.label83:setWordWrap(false);
+    obj.label83:setAutoSize(true);
+
+    obj.dataLink54 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink54:setParent(obj.layout55);
+    obj.dataLink54:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink54:setName("dataLink54");
+
+    obj.layout56 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout56:setParent(obj.layout47);
+    obj.layout56:setLeft(0);
+    obj.layout56:setTop(265);
+    obj.layout56:setWidth(350);
+    obj.layout56:setHeight(25);
+    obj.layout56:setName("layout56");
+
+    obj.label84 = gui.fromHandle(_obj_newObject("label"));
+    obj.label84:setParent(obj.layout56);
+    obj.label84:setVertTextAlign("center");
+    obj.label84:setLeft(10);
+    obj.label84:setTop(3);
+    obj.label84:setWidth(25);
+    obj.label84:setHeight(22);
+    obj.label84:setText("7");
+    obj.label84:setName("label84");
+    obj.label84:setFontColor("white");
+    obj.label84:setTextTrimming("none");
+    obj.label84:setWordWrap(false);
+    obj.label84:setAutoSize(true);
+
+    obj.edit91 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit91:setParent(obj.layout56);
+    obj.edit91:setVertTextAlign("center");
+    obj.edit91:setLeft(45);
+    obj.edit91:setTop(0);
+    obj.edit91:setWidth(30);
+    obj.edit91:setHeight(25);
+    obj.edit91:setField("total7");
+    obj.edit91:setType("number");
+    obj.edit91:setName("edit91");
+
+    obj.edit92 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit92:setParent(obj.layout56);
+    obj.edit92:setVertTextAlign("center");
+    obj.edit92:setLeft(85);
+    obj.edit92:setTop(0);
+    obj.edit92:setWidth(30);
+    obj.edit92:setHeight(25);
+    obj.edit92:setField("base7");
+    obj.edit92:setType("number");
+    obj.edit92:setName("edit92");
+
+    obj.label85 = gui.fromHandle(_obj_newObject("label"));
+    obj.label85:setParent(obj.layout56);
+    obj.label85:setVertTextAlign("center");
+    obj.label85:setLeft(140);
+    obj.label85:setTop(0);
+    obj.label85:setWidth(30);
+    obj.label85:setHeight(25);
+    obj.label85:setField("bonus7");
+    obj.label85:setName("label85");
+    obj.label85:setFontColor("white");
+    obj.label85:setTextTrimming("none");
+    obj.label85:setWordWrap(false);
+    obj.label85:setAutoSize(true);
+
+    obj.dataLink55 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink55:setParent(obj.layout56);
+    obj.dataLink55:setFields({'base7', 'bonus7'});
+    obj.dataLink55:setName("dataLink55");
+
+    obj.dataLink56 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink56:setParent(obj.layout56);
+    obj.dataLink56:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink56:setName("dataLink56");
+
+    obj.edit93 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit93:setParent(obj.layout56);
+    obj.edit93:setVertTextAlign("center");
+    obj.edit93:setLeft(210);
+    obj.edit93:setTop(0);
+    obj.edit93:setWidth(30);
+    obj.edit93:setHeight(25);
+    obj.edit93:setField("conhecidas7");
+    obj.edit93:setType("number");
+    obj.edit93:setName("edit93");
+
+    obj.label86 = gui.fromHandle(_obj_newObject("label"));
+    obj.label86:setParent(obj.layout56);
+    obj.label86:setVertTextAlign("center");
+    obj.label86:setLeft(270);
+    obj.label86:setTop(0);
+    obj.label86:setWidth(30);
+    obj.label86:setHeight(25);
+    obj.label86:setField("cd7");
+    obj.label86:setName("label86");
+    obj.label86:setFontColor("white");
+    obj.label86:setTextTrimming("none");
+    obj.label86:setWordWrap(false);
+    obj.label86:setAutoSize(true);
+
+    obj.dataLink57 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink57:setParent(obj.layout56);
+    obj.dataLink57:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink57:setName("dataLink57");
+
+    obj.layout57 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout57:setParent(obj.layout47);
+    obj.layout57:setLeft(0);
+    obj.layout57:setTop(295);
+    obj.layout57:setWidth(350);
+    obj.layout57:setHeight(25);
+    obj.layout57:setName("layout57");
+
+    obj.label87 = gui.fromHandle(_obj_newObject("label"));
+    obj.label87:setParent(obj.layout57);
+    obj.label87:setVertTextAlign("center");
+    obj.label87:setLeft(10);
+    obj.label87:setTop(3);
+    obj.label87:setWidth(25);
+    obj.label87:setHeight(22);
+    obj.label87:setText("8");
+    obj.label87:setName("label87");
+    obj.label87:setFontColor("white");
+    obj.label87:setTextTrimming("none");
+    obj.label87:setWordWrap(false);
+    obj.label87:setAutoSize(true);
+
+    obj.edit94 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit94:setParent(obj.layout57);
+    obj.edit94:setVertTextAlign("center");
+    obj.edit94:setLeft(45);
+    obj.edit94:setTop(0);
+    obj.edit94:setWidth(30);
+    obj.edit94:setHeight(25);
+    obj.edit94:setField("total8");
+    obj.edit94:setType("number");
+    obj.edit94:setName("edit94");
+
+    obj.edit95 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit95:setParent(obj.layout57);
+    obj.edit95:setVertTextAlign("center");
+    obj.edit95:setLeft(85);
+    obj.edit95:setTop(0);
+    obj.edit95:setWidth(30);
+    obj.edit95:setHeight(25);
+    obj.edit95:setField("base8");
+    obj.edit95:setType("number");
+    obj.edit95:setName("edit95");
+
+    obj.label88 = gui.fromHandle(_obj_newObject("label"));
+    obj.label88:setParent(obj.layout57);
+    obj.label88:setVertTextAlign("center");
+    obj.label88:setLeft(140);
+    obj.label88:setTop(0);
+    obj.label88:setWidth(30);
+    obj.label88:setHeight(25);
+    obj.label88:setField("bonus8");
+    obj.label88:setName("label88");
+    obj.label88:setFontColor("white");
+    obj.label88:setTextTrimming("none");
+    obj.label88:setWordWrap(false);
+    obj.label88:setAutoSize(true);
+
+    obj.dataLink58 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink58:setParent(obj.layout57);
+    obj.dataLink58:setFields({'base8', 'bonus8'});
+    obj.dataLink58:setName("dataLink58");
+
+    obj.dataLink59 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink59:setParent(obj.layout57);
+    obj.dataLink59:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink59:setName("dataLink59");
+
+    obj.edit96 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit96:setParent(obj.layout57);
+    obj.edit96:setVertTextAlign("center");
+    obj.edit96:setLeft(210);
+    obj.edit96:setTop(0);
+    obj.edit96:setWidth(30);
+    obj.edit96:setHeight(25);
+    obj.edit96:setField("conhecidas8");
+    obj.edit96:setType("number");
+    obj.edit96:setName("edit96");
+
+    obj.label89 = gui.fromHandle(_obj_newObject("label"));
+    obj.label89:setParent(obj.layout57);
+    obj.label89:setVertTextAlign("center");
+    obj.label89:setLeft(270);
+    obj.label89:setTop(0);
+    obj.label89:setWidth(30);
+    obj.label89:setHeight(25);
+    obj.label89:setField("cd8");
+    obj.label89:setName("label89");
+    obj.label89:setFontColor("white");
+    obj.label89:setTextTrimming("none");
+    obj.label89:setWordWrap(false);
+    obj.label89:setAutoSize(true);
+
+    obj.dataLink60 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink60:setParent(obj.layout57);
+    obj.dataLink60:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink60:setName("dataLink60");
+
+    obj.layout58 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout58:setParent(obj.layout47);
+    obj.layout58:setLeft(0);
+    obj.layout58:setTop(325);
+    obj.layout58:setWidth(350);
+    obj.layout58:setHeight(25);
+    obj.layout58:setName("layout58");
+
+    obj.label90 = gui.fromHandle(_obj_newObject("label"));
+    obj.label90:setParent(obj.layout58);
+    obj.label90:setVertTextAlign("center");
+    obj.label90:setLeft(10);
+    obj.label90:setTop(3);
+    obj.label90:setWidth(25);
+    obj.label90:setHeight(22);
+    obj.label90:setText("9");
+    obj.label90:setName("label90");
+    obj.label90:setFontColor("white");
+    obj.label90:setTextTrimming("none");
+    obj.label90:setWordWrap(false);
+    obj.label90:setAutoSize(true);
+
+    obj.edit97 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit97:setParent(obj.layout58);
+    obj.edit97:setVertTextAlign("center");
+    obj.edit97:setLeft(45);
+    obj.edit97:setTop(0);
+    obj.edit97:setWidth(30);
+    obj.edit97:setHeight(25);
+    obj.edit97:setField("total9");
+    obj.edit97:setType("number");
+    obj.edit97:setName("edit97");
+
+    obj.edit98 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit98:setParent(obj.layout58);
+    obj.edit98:setVertTextAlign("center");
+    obj.edit98:setLeft(85);
+    obj.edit98:setTop(0);
+    obj.edit98:setWidth(30);
+    obj.edit98:setHeight(25);
+    obj.edit98:setField("base9");
+    obj.edit98:setType("number");
+    obj.edit98:setName("edit98");
+
+    obj.label91 = gui.fromHandle(_obj_newObject("label"));
+    obj.label91:setParent(obj.layout58);
+    obj.label91:setVertTextAlign("center");
+    obj.label91:setLeft(140);
+    obj.label91:setTop(0);
+    obj.label91:setWidth(30);
+    obj.label91:setHeight(25);
+    obj.label91:setField("bonus9");
+    obj.label91:setName("label91");
+    obj.label91:setFontColor("white");
+    obj.label91:setTextTrimming("none");
+    obj.label91:setWordWrap(false);
+    obj.label91:setAutoSize(true);
+
+    obj.dataLink61 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink61:setParent(obj.layout58);
+    obj.dataLink61:setFields({'base9', 'bonus9'});
+    obj.dataLink61:setName("dataLink61");
+
+    obj.dataLink62 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink62:setParent(obj.layout58);
+    obj.dataLink62:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink62:setName("dataLink62");
+
+    obj.edit99 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit99:setParent(obj.layout58);
+    obj.edit99:setVertTextAlign("center");
+    obj.edit99:setLeft(210);
+    obj.edit99:setTop(0);
+    obj.edit99:setWidth(30);
+    obj.edit99:setHeight(25);
+    obj.edit99:setField("conhecidas9");
+    obj.edit99:setType("number");
+    obj.edit99:setName("edit99");
+
+    obj.label92 = gui.fromHandle(_obj_newObject("label"));
+    obj.label92:setParent(obj.layout58);
+    obj.label92:setVertTextAlign("center");
+    obj.label92:setLeft(270);
+    obj.label92:setTop(0);
+    obj.label92:setWidth(30);
+    obj.label92:setHeight(25);
+    obj.label92:setField("cd9");
+    obj.label92:setName("label92");
+    obj.label92:setFontColor("white");
+    obj.label92:setTextTrimming("none");
+    obj.label92:setWordWrap(false);
+    obj.label92:setAutoSize(true);
+
+    obj.dataLink63 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink63:setParent(obj.layout58);
+    obj.dataLink63:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink63:setName("dataLink63");
+
+    obj.layout59 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout59:setParent(obj.layoutListaMagias);
+    obj.layout59:setLeft(50);
+    obj.layout59:setTop(360);
+    obj.layout59:setWidth(280);
+    obj.layout59:setHeight(180);
+    obj.layout59:setName("layout59");
+
+    obj.rectangle5 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle5:setParent(obj.layout59);
+    obj.rectangle5:setAlign("client");
+    obj.rectangle5:setColor("black");
+    obj.rectangle5:setStrokeColor("white");
+    obj.rectangle5:setStrokeSize(1);
+    obj.rectangle5:setName("rectangle5");
+
+    obj.button3 = gui.fromHandle(_obj_newObject("button"));
+    obj.button3:setParent(obj.layout59);
+    obj.button3:setText("+");
+    obj.button3:setLeft(5);
+    obj.button3:setTop(5);
+    obj.button3:setWidth(20);
+    obj.button3:setHeight(20);
+    obj.button3:setName("button3");
+
+    obj.label93 = gui.fromHandle(_obj_newObject("label"));
+    obj.label93:setParent(obj.layout59);
+    obj.label93:setVertTextAlign("center");
+    obj.label93:setLeft(30);
+    obj.label93:setTop(5);
+    obj.label93:setWidth(100);
+    obj.label93:setHeight(20);
+    obj.label93:setText("Magias Nível 6");
+    obj.label93:setName("label93");
+    obj.label93:setFontColor("white");
+    obj.label93:setTextTrimming("none");
+    obj.label93:setWordWrap(false);
+    obj.label93:setAutoSize(true);
+
+    obj.rclListaDasMagias6 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias6:setParent(obj.layout59);
+    obj.rclListaDasMagias6:setName("rclListaDasMagias6");
+    obj.rclListaDasMagias6:setField("campoDasMagias6");
+    obj.rclListaDasMagias6:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias6:setLeft(5);
+    obj.rclListaDasMagias6:setTop(25);
+    obj.rclListaDasMagias6:setWidth(270);
+    obj.rclListaDasMagias6:setHeight(150);
+    obj.rclListaDasMagias6:setLayout("vertical");
+    obj.rclListaDasMagias6:setMinQt(1);
+
+    obj.layout60 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout60:setParent(obj.layoutListaMagias);
+    obj.layout60:setLeft(340);
+    obj.layout60:setTop(0);
+    obj.layout60:setWidth(280);
+    obj.layout60:setHeight(180);
+    obj.layout60:setName("layout60");
+
+    obj.rectangle6 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle6:setParent(obj.layout60);
+    obj.rectangle6:setAlign("client");
+    obj.rectangle6:setColor("black");
+    obj.rectangle6:setStrokeColor("white");
+    obj.rectangle6:setStrokeSize(1);
+    obj.rectangle6:setName("rectangle6");
+
+    obj.button4 = gui.fromHandle(_obj_newObject("button"));
+    obj.button4:setParent(obj.layout60);
+    obj.button4:setText("+");
+    obj.button4:setLeft(5);
+    obj.button4:setTop(5);
+    obj.button4:setWidth(20);
+    obj.button4:setHeight(20);
+    obj.button4:setName("button4");
+
+    obj.label94 = gui.fromHandle(_obj_newObject("label"));
+    obj.label94:setParent(obj.layout60);
+    obj.label94:setVertTextAlign("center");
+    obj.label94:setLeft(30);
+    obj.label94:setTop(5);
+    obj.label94:setWidth(100);
+    obj.label94:setHeight(20);
+    obj.label94:setText("Magias Nível 0");
+    obj.label94:setName("label94");
+    obj.label94:setFontColor("white");
+    obj.label94:setTextTrimming("none");
+    obj.label94:setWordWrap(false);
+    obj.label94:setAutoSize(true);
+
+    obj.rclListaDasMagias0 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias0:setParent(obj.layout60);
+    obj.rclListaDasMagias0:setName("rclListaDasMagias0");
+    obj.rclListaDasMagias0:setField("campoDasMagias0");
+    obj.rclListaDasMagias0:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias0:setLeft(5);
+    obj.rclListaDasMagias0:setTop(25);
+    obj.rclListaDasMagias0:setWidth(270);
+    obj.rclListaDasMagias0:setHeight(150);
+    obj.rclListaDasMagias0:setLayout("vertical");
+    obj.rclListaDasMagias0:setMinQt(1);
+
+    obj.layout61 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout61:setParent(obj.layoutListaMagias);
+    obj.layout61:setLeft(340);
+    obj.layout61:setTop(180);
+    obj.layout61:setWidth(280);
+    obj.layout61:setHeight(180);
+    obj.layout61:setName("layout61");
+
+    obj.rectangle7 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle7:setParent(obj.layout61);
+    obj.rectangle7:setAlign("client");
+    obj.rectangle7:setColor("black");
+    obj.rectangle7:setStrokeColor("white");
+    obj.rectangle7:setStrokeSize(1);
+    obj.rectangle7:setName("rectangle7");
+
+    obj.button5 = gui.fromHandle(_obj_newObject("button"));
+    obj.button5:setParent(obj.layout61);
+    obj.button5:setText("+");
+    obj.button5:setLeft(5);
+    obj.button5:setTop(5);
+    obj.button5:setWidth(20);
+    obj.button5:setHeight(20);
+    obj.button5:setName("button5");
+
+    obj.label95 = gui.fromHandle(_obj_newObject("label"));
+    obj.label95:setParent(obj.layout61);
+    obj.label95:setVertTextAlign("center");
+    obj.label95:setLeft(30);
+    obj.label95:setTop(5);
+    obj.label95:setWidth(100);
+    obj.label95:setHeight(20);
+    obj.label95:setText("Magias Nível 3");
+    obj.label95:setName("label95");
+    obj.label95:setFontColor("white");
+    obj.label95:setTextTrimming("none");
+    obj.label95:setWordWrap(false);
+    obj.label95:setAutoSize(true);
+
+    obj.rclListaDasMagias3 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias3:setParent(obj.layout61);
+    obj.rclListaDasMagias3:setName("rclListaDasMagias3");
+    obj.rclListaDasMagias3:setField("campoDasMagias3");
+    obj.rclListaDasMagias3:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias3:setLeft(5);
+    obj.rclListaDasMagias3:setTop(25);
+    obj.rclListaDasMagias3:setWidth(270);
+    obj.rclListaDasMagias3:setHeight(150);
+    obj.rclListaDasMagias3:setLayout("vertical");
+    obj.rclListaDasMagias3:setMinQt(1);
+
+    obj.layout62 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout62:setParent(obj.layoutListaMagias);
+    obj.layout62:setLeft(340);
+    obj.layout62:setTop(360);
+    obj.layout62:setWidth(280);
+    obj.layout62:setHeight(180);
+    obj.layout62:setName("layout62");
+
+    obj.rectangle8 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle8:setParent(obj.layout62);
+    obj.rectangle8:setAlign("client");
+    obj.rectangle8:setColor("black");
+    obj.rectangle8:setStrokeColor("white");
+    obj.rectangle8:setStrokeSize(1);
+    obj.rectangle8:setName("rectangle8");
+
+    obj.button6 = gui.fromHandle(_obj_newObject("button"));
+    obj.button6:setParent(obj.layout62);
+    obj.button6:setText("+");
+    obj.button6:setLeft(5);
+    obj.button6:setTop(5);
+    obj.button6:setWidth(20);
+    obj.button6:setHeight(20);
+    obj.button6:setName("button6");
+
+    obj.label96 = gui.fromHandle(_obj_newObject("label"));
+    obj.label96:setParent(obj.layout62);
+    obj.label96:setVertTextAlign("center");
+    obj.label96:setLeft(30);
+    obj.label96:setTop(5);
+    obj.label96:setWidth(100);
+    obj.label96:setHeight(20);
+    obj.label96:setText("Magias Nível 7");
+    obj.label96:setName("label96");
+    obj.label96:setFontColor("white");
+    obj.label96:setTextTrimming("none");
+    obj.label96:setWordWrap(false);
+    obj.label96:setAutoSize(true);
+
+    obj.rclListaDasMagias7 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias7:setParent(obj.layout62);
+    obj.rclListaDasMagias7:setName("rclListaDasMagias7");
+    obj.rclListaDasMagias7:setField("campoDasMagias7");
+    obj.rclListaDasMagias7:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias7:setLeft(5);
+    obj.rclListaDasMagias7:setTop(25);
+    obj.rclListaDasMagias7:setWidth(270);
+    obj.rclListaDasMagias7:setHeight(150);
+    obj.rclListaDasMagias7:setLayout("vertical");
+    obj.rclListaDasMagias7:setMinQt(1);
+
+    obj.layout63 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout63:setParent(obj.layoutListaMagias);
+    obj.layout63:setLeft(630);
+    obj.layout63:setTop(0);
+    obj.layout63:setWidth(280);
+    obj.layout63:setHeight(180);
+    obj.layout63:setName("layout63");
+
+    obj.rectangle9 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle9:setParent(obj.layout63);
+    obj.rectangle9:setAlign("client");
+    obj.rectangle9:setColor("black");
+    obj.rectangle9:setStrokeColor("white");
+    obj.rectangle9:setStrokeSize(1);
+    obj.rectangle9:setName("rectangle9");
+
+    obj.button7 = gui.fromHandle(_obj_newObject("button"));
+    obj.button7:setParent(obj.layout63);
+    obj.button7:setText("+");
+    obj.button7:setLeft(5);
+    obj.button7:setTop(5);
+    obj.button7:setWidth(20);
+    obj.button7:setHeight(20);
+    obj.button7:setName("button7");
+
+    obj.label97 = gui.fromHandle(_obj_newObject("label"));
+    obj.label97:setParent(obj.layout63);
+    obj.label97:setVertTextAlign("center");
+    obj.label97:setLeft(30);
+    obj.label97:setTop(5);
+    obj.label97:setWidth(100);
+    obj.label97:setHeight(20);
+    obj.label97:setText("Magias Nível 1");
+    obj.label97:setName("label97");
+    obj.label97:setFontColor("white");
+    obj.label97:setTextTrimming("none");
+    obj.label97:setWordWrap(false);
+    obj.label97:setAutoSize(true);
+
+    obj.rclListaDasMagias1 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias1:setParent(obj.layout63);
+    obj.rclListaDasMagias1:setName("rclListaDasMagias1");
+    obj.rclListaDasMagias1:setField("campoDasMagias1");
+    obj.rclListaDasMagias1:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias1:setLeft(5);
+    obj.rclListaDasMagias1:setTop(25);
+    obj.rclListaDasMagias1:setWidth(270);
+    obj.rclListaDasMagias1:setHeight(150);
+    obj.rclListaDasMagias1:setLayout("vertical");
+    obj.rclListaDasMagias1:setMinQt(1);
+
+    obj.layout64 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout64:setParent(obj.layoutListaMagias);
+    obj.layout64:setLeft(630);
+    obj.layout64:setTop(180);
+    obj.layout64:setWidth(280);
+    obj.layout64:setHeight(180);
+    obj.layout64:setName("layout64");
+
+    obj.rectangle10 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle10:setParent(obj.layout64);
+    obj.rectangle10:setAlign("client");
+    obj.rectangle10:setColor("black");
+    obj.rectangle10:setStrokeColor("white");
+    obj.rectangle10:setStrokeSize(1);
+    obj.rectangle10:setName("rectangle10");
+
+    obj.button8 = gui.fromHandle(_obj_newObject("button"));
+    obj.button8:setParent(obj.layout64);
+    obj.button8:setText("+");
+    obj.button8:setLeft(5);
+    obj.button8:setTop(5);
+    obj.button8:setWidth(20);
+    obj.button8:setHeight(20);
+    obj.button8:setName("button8");
+
+    obj.label98 = gui.fromHandle(_obj_newObject("label"));
+    obj.label98:setParent(obj.layout64);
+    obj.label98:setVertTextAlign("center");
+    obj.label98:setLeft(30);
+    obj.label98:setTop(5);
+    obj.label98:setWidth(100);
+    obj.label98:setHeight(20);
+    obj.label98:setText("Magias Nível 4");
+    obj.label98:setName("label98");
+    obj.label98:setFontColor("white");
+    obj.label98:setTextTrimming("none");
+    obj.label98:setWordWrap(false);
+    obj.label98:setAutoSize(true);
+
+    obj.rclListaDasMagias4 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias4:setParent(obj.layout64);
+    obj.rclListaDasMagias4:setName("rclListaDasMagias4");
+    obj.rclListaDasMagias4:setField("campoDasMagias4");
+    obj.rclListaDasMagias4:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias4:setLeft(5);
+    obj.rclListaDasMagias4:setTop(25);
+    obj.rclListaDasMagias4:setWidth(270);
+    obj.rclListaDasMagias4:setHeight(150);
+    obj.rclListaDasMagias4:setLayout("vertical");
+    obj.rclListaDasMagias4:setMinQt(1);
+
+    obj.layout65 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout65:setParent(obj.layoutListaMagias);
+    obj.layout65:setLeft(630);
+    obj.layout65:setTop(360);
+    obj.layout65:setWidth(280);
+    obj.layout65:setHeight(180);
+    obj.layout65:setName("layout65");
+
+    obj.rectangle11 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle11:setParent(obj.layout65);
+    obj.rectangle11:setAlign("client");
+    obj.rectangle11:setColor("black");
+    obj.rectangle11:setStrokeColor("white");
+    obj.rectangle11:setStrokeSize(1);
+    obj.rectangle11:setName("rectangle11");
+
+    obj.button9 = gui.fromHandle(_obj_newObject("button"));
+    obj.button9:setParent(obj.layout65);
+    obj.button9:setText("+");
+    obj.button9:setLeft(5);
+    obj.button9:setTop(5);
+    obj.button9:setWidth(20);
+    obj.button9:setHeight(20);
+    obj.button9:setName("button9");
+
+    obj.label99 = gui.fromHandle(_obj_newObject("label"));
+    obj.label99:setParent(obj.layout65);
+    obj.label99:setVertTextAlign("center");
+    obj.label99:setLeft(30);
+    obj.label99:setTop(5);
+    obj.label99:setWidth(100);
+    obj.label99:setHeight(20);
+    obj.label99:setText("Magias Nível 8");
+    obj.label99:setName("label99");
+    obj.label99:setFontColor("white");
+    obj.label99:setTextTrimming("none");
+    obj.label99:setWordWrap(false);
+    obj.label99:setAutoSize(true);
+
+    obj.rclListaDasMagias8 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias8:setParent(obj.layout65);
+    obj.rclListaDasMagias8:setName("rclListaDasMagias8");
+    obj.rclListaDasMagias8:setField("campoDasMagias8");
+    obj.rclListaDasMagias8:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias8:setLeft(5);
+    obj.rclListaDasMagias8:setTop(25);
+    obj.rclListaDasMagias8:setWidth(270);
+    obj.rclListaDasMagias8:setHeight(150);
+    obj.rclListaDasMagias8:setLayout("vertical");
+    obj.rclListaDasMagias8:setMinQt(1);
+
+    obj.layout66 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout66:setParent(obj.layoutListaMagias);
+    obj.layout66:setLeft(920);
+    obj.layout66:setTop(0);
+    obj.layout66:setWidth(280);
+    obj.layout66:setHeight(180);
+    obj.layout66:setName("layout66");
+
+    obj.rectangle12 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle12:setParent(obj.layout66);
+    obj.rectangle12:setAlign("client");
+    obj.rectangle12:setColor("black");
+    obj.rectangle12:setStrokeColor("white");
+    obj.rectangle12:setStrokeSize(1);
+    obj.rectangle12:setName("rectangle12");
+
+    obj.button10 = gui.fromHandle(_obj_newObject("button"));
+    obj.button10:setParent(obj.layout66);
+    obj.button10:setText("+");
+    obj.button10:setLeft(5);
+    obj.button10:setTop(5);
+    obj.button10:setWidth(20);
+    obj.button10:setHeight(20);
+    obj.button10:setName("button10");
+
+    obj.label100 = gui.fromHandle(_obj_newObject("label"));
+    obj.label100:setParent(obj.layout66);
+    obj.label100:setVertTextAlign("center");
+    obj.label100:setLeft(30);
+    obj.label100:setTop(5);
+    obj.label100:setWidth(100);
+    obj.label100:setHeight(20);
+    obj.label100:setText("Magias Nível 2");
+    obj.label100:setName("label100");
+    obj.label100:setFontColor("white");
+    obj.label100:setTextTrimming("none");
+    obj.label100:setWordWrap(false);
+    obj.label100:setAutoSize(true);
+
+    obj.rclListaDasMagias2 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias2:setParent(obj.layout66);
+    obj.rclListaDasMagias2:setName("rclListaDasMagias2");
+    obj.rclListaDasMagias2:setField("campoDasMagias2");
+    obj.rclListaDasMagias2:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias2:setLeft(5);
+    obj.rclListaDasMagias2:setTop(25);
+    obj.rclListaDasMagias2:setWidth(270);
+    obj.rclListaDasMagias2:setHeight(150);
+    obj.rclListaDasMagias2:setLayout("vertical");
+    obj.rclListaDasMagias2:setMinQt(1);
+
+    obj.layout67 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout67:setParent(obj.layoutListaMagias);
+    obj.layout67:setLeft(920);
+    obj.layout67:setTop(180);
+    obj.layout67:setWidth(280);
+    obj.layout67:setHeight(180);
+    obj.layout67:setName("layout67");
+
+    obj.rectangle13 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle13:setParent(obj.layout67);
+    obj.rectangle13:setAlign("client");
+    obj.rectangle13:setColor("black");
+    obj.rectangle13:setStrokeColor("white");
+    obj.rectangle13:setStrokeSize(1);
+    obj.rectangle13:setName("rectangle13");
+
+    obj.button11 = gui.fromHandle(_obj_newObject("button"));
+    obj.button11:setParent(obj.layout67);
+    obj.button11:setText("+");
+    obj.button11:setLeft(5);
+    obj.button11:setTop(5);
+    obj.button11:setWidth(20);
+    obj.button11:setHeight(20);
+    obj.button11:setName("button11");
+
+    obj.label101 = gui.fromHandle(_obj_newObject("label"));
+    obj.label101:setParent(obj.layout67);
+    obj.label101:setVertTextAlign("center");
+    obj.label101:setLeft(30);
+    obj.label101:setTop(5);
+    obj.label101:setWidth(100);
+    obj.label101:setHeight(20);
+    obj.label101:setText("Magias Nível 5");
+    obj.label101:setName("label101");
+    obj.label101:setFontColor("white");
+    obj.label101:setTextTrimming("none");
+    obj.label101:setWordWrap(false);
+    obj.label101:setAutoSize(true);
+
+    obj.rclListaDasMagias5 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias5:setParent(obj.layout67);
+    obj.rclListaDasMagias5:setName("rclListaDasMagias5");
+    obj.rclListaDasMagias5:setField("campoDasMagias5");
+    obj.rclListaDasMagias5:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias5:setLeft(5);
+    obj.rclListaDasMagias5:setTop(25);
+    obj.rclListaDasMagias5:setWidth(270);
+    obj.rclListaDasMagias5:setHeight(150);
+    obj.rclListaDasMagias5:setLayout("vertical");
+    obj.rclListaDasMagias5:setMinQt(1);
+
+    obj.layout68 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout68:setParent(obj.layoutListaMagias);
+    obj.layout68:setLeft(920);
+    obj.layout68:setTop(360);
+    obj.layout68:setWidth(280);
+    obj.layout68:setHeight(180);
+    obj.layout68:setName("layout68");
+
+    obj.rectangle14 = gui.fromHandle(_obj_newObject("rectangle"));
+    obj.rectangle14:setParent(obj.layout68);
+    obj.rectangle14:setAlign("client");
+    obj.rectangle14:setColor("black");
+    obj.rectangle14:setStrokeColor("white");
+    obj.rectangle14:setStrokeSize(1);
+    obj.rectangle14:setName("rectangle14");
+
+    obj.button12 = gui.fromHandle(_obj_newObject("button"));
+    obj.button12:setParent(obj.layout68);
+    obj.button12:setText("+");
+    obj.button12:setLeft(5);
+    obj.button12:setTop(5);
+    obj.button12:setWidth(20);
+    obj.button12:setHeight(20);
+    obj.button12:setName("button12");
+
+    obj.label102 = gui.fromHandle(_obj_newObject("label"));
+    obj.label102:setParent(obj.layout68);
+    obj.label102:setVertTextAlign("center");
+    obj.label102:setLeft(30);
+    obj.label102:setTop(5);
+    obj.label102:setWidth(100);
+    obj.label102:setHeight(20);
+    obj.label102:setText("Magias Nível 9");
+    obj.label102:setName("label102");
+    obj.label102:setFontColor("white");
+    obj.label102:setTextTrimming("none");
+    obj.label102:setWordWrap(false);
+    obj.label102:setAutoSize(true);
+
+    obj.rclListaDasMagias9 = gui.fromHandle(_obj_newObject("recordList"));
+    obj.rclListaDasMagias9:setParent(obj.layout68);
+    obj.rclListaDasMagias9:setName("rclListaDasMagias9");
+    obj.rclListaDasMagias9:setField("campoDasMagias9");
+    obj.rclListaDasMagias9:setTemplateForm("frmFichaRPGmeister5D_svg");
+    obj.rclListaDasMagias9:setLeft(5);
+    obj.rclListaDasMagias9:setTop(25);
+    obj.rclListaDasMagias9:setWidth(270);
+    obj.rclListaDasMagias9:setHeight(150);
+    obj.rclListaDasMagias9:setLayout("vertical");
+    obj.rclListaDasMagias9:setMinQt(1);
+
     obj.layoutMagiasEpicas = gui.fromHandle(_obj_newObject("layout"));
     obj.layoutMagiasEpicas:setParent(obj.boxDetalhesDoItem);
     obj.layoutMagiasEpicas:setLeft(0);
@@ -2396,50 +4057,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.layoutMagiasEpicas:setHeight(550);
     obj.layoutMagiasEpicas:setName("layoutMagiasEpicas");
 
-    obj.layout47 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout47:setParent(obj.layoutMagiasEpicas);
-    obj.layout47:setLeft(50);
-    obj.layout47:setTop(360);
-    obj.layout47:setWidth(280);
-    obj.layout47:setHeight(180);
-    obj.layout47:setName("layout47");
+    obj.layout69 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout69:setParent(obj.layoutMagiasEpicas);
+    obj.layout69:setLeft(50);
+    obj.layout69:setTop(360);
+    obj.layout69:setWidth(280);
+    obj.layout69:setHeight(180);
+    obj.layout69:setName("layout69");
 
-    obj.edit70 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit70:setParent(obj.layout47);
-    obj.edit70:setVertTextAlign("center");
-    obj.edit70:setLeft(0);
-    obj.edit70:setTop(5);
-    obj.edit70:setWidth(200);
-    obj.edit70:setHeight(20);
-    obj.edit70:setField("nomeMagiaEpica0");
-    obj.edit70:setName("edit70");
+    obj.edit100 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit100:setParent(obj.layout69);
+    obj.edit100:setVertTextAlign("center");
+    obj.edit100:setLeft(0);
+    obj.edit100:setTop(5);
+    obj.edit100:setWidth(200);
+    obj.edit100:setHeight(20);
+    obj.edit100:setField("nomeMagiaEpica0");
+    obj.edit100:setName("edit100");
 
-    obj.label56 = gui.fromHandle(_obj_newObject("label"));
-    obj.label56:setParent(obj.layout47);
-    obj.label56:setVertTextAlign("center");
-    obj.label56:setLeft(205);
-    obj.label56:setTop(5);
-    obj.label56:setWidth(30);
-    obj.label56:setHeight(20);
-    obj.label56:setText("Teste");
-    obj.label56:setName("label56");
-    obj.label56:setFontColor("white");
-    obj.label56:setTextTrimming("none");
-    obj.label56:setWordWrap(false);
-    obj.label56:setAutoSize(true);
+    obj.label103 = gui.fromHandle(_obj_newObject("label"));
+    obj.label103:setParent(obj.layout69);
+    obj.label103:setVertTextAlign("center");
+    obj.label103:setLeft(205);
+    obj.label103:setTop(5);
+    obj.label103:setWidth(30);
+    obj.label103:setHeight(20);
+    obj.label103:setText("Teste");
+    obj.label103:setName("label103");
+    obj.label103:setFontColor("white");
+    obj.label103:setTextTrimming("none");
+    obj.label103:setWordWrap(false);
+    obj.label103:setAutoSize(true);
 
-    obj.edit71 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit71:setParent(obj.layout47);
-    obj.edit71:setVertTextAlign("center");
-    obj.edit71:setLeft(240);
-    obj.edit71:setTop(5);
-    obj.edit71:setWidth(40);
-    obj.edit71:setHeight(20);
-    obj.edit71:setField("cdMagiaEpica0");
-    obj.edit71:setName("edit71");
+    obj.edit101 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit101:setParent(obj.layout69);
+    obj.edit101:setVertTextAlign("center");
+    obj.edit101:setLeft(240);
+    obj.edit101:setTop(5);
+    obj.edit101:setWidth(40);
+    obj.edit101:setHeight(20);
+    obj.edit101:setField("cdMagiaEpica0");
+    obj.edit101:setName("edit101");
 
     obj.textEditor21 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor21:setParent(obj.layout47);
+    obj.textEditor21:setParent(obj.layout69);
     obj.textEditor21:setTop(25);
     obj.textEditor21:setWidth(280);
     obj.textEditor21:setHeight(155);
@@ -2447,50 +4108,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor21:setField("descricaoMagiaEpica0");
     obj.textEditor21:setName("textEditor21");
 
-    obj.layout48 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout48:setParent(obj.layoutMagiasEpicas);
-    obj.layout48:setLeft(340);
-    obj.layout48:setTop(0);
-    obj.layout48:setWidth(280);
-    obj.layout48:setHeight(180);
-    obj.layout48:setName("layout48");
+    obj.layout70 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout70:setParent(obj.layoutMagiasEpicas);
+    obj.layout70:setLeft(340);
+    obj.layout70:setTop(0);
+    obj.layout70:setWidth(280);
+    obj.layout70:setHeight(180);
+    obj.layout70:setName("layout70");
 
-    obj.edit72 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit72:setParent(obj.layout48);
-    obj.edit72:setVertTextAlign("center");
-    obj.edit72:setLeft(0);
-    obj.edit72:setTop(5);
-    obj.edit72:setWidth(200);
-    obj.edit72:setHeight(20);
-    obj.edit72:setField("nomeMagiaEpica1");
-    obj.edit72:setName("edit72");
+    obj.edit102 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit102:setParent(obj.layout70);
+    obj.edit102:setVertTextAlign("center");
+    obj.edit102:setLeft(0);
+    obj.edit102:setTop(5);
+    obj.edit102:setWidth(200);
+    obj.edit102:setHeight(20);
+    obj.edit102:setField("nomeMagiaEpica1");
+    obj.edit102:setName("edit102");
 
-    obj.label57 = gui.fromHandle(_obj_newObject("label"));
-    obj.label57:setParent(obj.layout48);
-    obj.label57:setVertTextAlign("center");
-    obj.label57:setLeft(205);
-    obj.label57:setTop(5);
-    obj.label57:setWidth(30);
-    obj.label57:setHeight(20);
-    obj.label57:setText("Teste");
-    obj.label57:setName("label57");
-    obj.label57:setFontColor("white");
-    obj.label57:setTextTrimming("none");
-    obj.label57:setWordWrap(false);
-    obj.label57:setAutoSize(true);
+    obj.label104 = gui.fromHandle(_obj_newObject("label"));
+    obj.label104:setParent(obj.layout70);
+    obj.label104:setVertTextAlign("center");
+    obj.label104:setLeft(205);
+    obj.label104:setTop(5);
+    obj.label104:setWidth(30);
+    obj.label104:setHeight(20);
+    obj.label104:setText("Teste");
+    obj.label104:setName("label104");
+    obj.label104:setFontColor("white");
+    obj.label104:setTextTrimming("none");
+    obj.label104:setWordWrap(false);
+    obj.label104:setAutoSize(true);
 
-    obj.edit73 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit73:setParent(obj.layout48);
-    obj.edit73:setVertTextAlign("center");
-    obj.edit73:setLeft(240);
-    obj.edit73:setTop(5);
-    obj.edit73:setWidth(40);
-    obj.edit73:setHeight(20);
-    obj.edit73:setField("cdMagiaEpica1");
-    obj.edit73:setName("edit73");
+    obj.edit103 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit103:setParent(obj.layout70);
+    obj.edit103:setVertTextAlign("center");
+    obj.edit103:setLeft(240);
+    obj.edit103:setTop(5);
+    obj.edit103:setWidth(40);
+    obj.edit103:setHeight(20);
+    obj.edit103:setField("cdMagiaEpica1");
+    obj.edit103:setName("edit103");
 
     obj.textEditor22 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor22:setParent(obj.layout48);
+    obj.textEditor22:setParent(obj.layout70);
     obj.textEditor22:setTop(25);
     obj.textEditor22:setWidth(280);
     obj.textEditor22:setHeight(155);
@@ -2498,50 +4159,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor22:setField("descricaoMagiaEpica1");
     obj.textEditor22:setName("textEditor22");
 
-    obj.layout49 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout49:setParent(obj.layoutMagiasEpicas);
-    obj.layout49:setLeft(340);
-    obj.layout49:setTop(180);
-    obj.layout49:setWidth(280);
-    obj.layout49:setHeight(180);
-    obj.layout49:setName("layout49");
+    obj.layout71 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout71:setParent(obj.layoutMagiasEpicas);
+    obj.layout71:setLeft(340);
+    obj.layout71:setTop(180);
+    obj.layout71:setWidth(280);
+    obj.layout71:setHeight(180);
+    obj.layout71:setName("layout71");
 
-    obj.edit74 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit74:setParent(obj.layout49);
-    obj.edit74:setVertTextAlign("center");
-    obj.edit74:setLeft(0);
-    obj.edit74:setTop(5);
-    obj.edit74:setWidth(200);
-    obj.edit74:setHeight(20);
-    obj.edit74:setField("nomeMagiaEpica2");
-    obj.edit74:setName("edit74");
+    obj.edit104 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit104:setParent(obj.layout71);
+    obj.edit104:setVertTextAlign("center");
+    obj.edit104:setLeft(0);
+    obj.edit104:setTop(5);
+    obj.edit104:setWidth(200);
+    obj.edit104:setHeight(20);
+    obj.edit104:setField("nomeMagiaEpica2");
+    obj.edit104:setName("edit104");
 
-    obj.label58 = gui.fromHandle(_obj_newObject("label"));
-    obj.label58:setParent(obj.layout49);
-    obj.label58:setVertTextAlign("center");
-    obj.label58:setLeft(205);
-    obj.label58:setTop(5);
-    obj.label58:setWidth(30);
-    obj.label58:setHeight(20);
-    obj.label58:setText("Teste");
-    obj.label58:setName("label58");
-    obj.label58:setFontColor("white");
-    obj.label58:setTextTrimming("none");
-    obj.label58:setWordWrap(false);
-    obj.label58:setAutoSize(true);
+    obj.label105 = gui.fromHandle(_obj_newObject("label"));
+    obj.label105:setParent(obj.layout71);
+    obj.label105:setVertTextAlign("center");
+    obj.label105:setLeft(205);
+    obj.label105:setTop(5);
+    obj.label105:setWidth(30);
+    obj.label105:setHeight(20);
+    obj.label105:setText("Teste");
+    obj.label105:setName("label105");
+    obj.label105:setFontColor("white");
+    obj.label105:setTextTrimming("none");
+    obj.label105:setWordWrap(false);
+    obj.label105:setAutoSize(true);
 
-    obj.edit75 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit75:setParent(obj.layout49);
-    obj.edit75:setVertTextAlign("center");
-    obj.edit75:setLeft(240);
-    obj.edit75:setTop(5);
-    obj.edit75:setWidth(40);
-    obj.edit75:setHeight(20);
-    obj.edit75:setField("cdMagiaEpica2");
-    obj.edit75:setName("edit75");
+    obj.edit105 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit105:setParent(obj.layout71);
+    obj.edit105:setVertTextAlign("center");
+    obj.edit105:setLeft(240);
+    obj.edit105:setTop(5);
+    obj.edit105:setWidth(40);
+    obj.edit105:setHeight(20);
+    obj.edit105:setField("cdMagiaEpica2");
+    obj.edit105:setName("edit105");
 
     obj.textEditor23 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor23:setParent(obj.layout49);
+    obj.textEditor23:setParent(obj.layout71);
     obj.textEditor23:setTop(25);
     obj.textEditor23:setWidth(280);
     obj.textEditor23:setHeight(155);
@@ -2549,50 +4210,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor23:setField("descricaoMagiaEpica2");
     obj.textEditor23:setName("textEditor23");
 
-    obj.layout50 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout50:setParent(obj.layoutMagiasEpicas);
-    obj.layout50:setLeft(340);
-    obj.layout50:setTop(360);
-    obj.layout50:setWidth(280);
-    obj.layout50:setHeight(180);
-    obj.layout50:setName("layout50");
+    obj.layout72 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout72:setParent(obj.layoutMagiasEpicas);
+    obj.layout72:setLeft(340);
+    obj.layout72:setTop(360);
+    obj.layout72:setWidth(280);
+    obj.layout72:setHeight(180);
+    obj.layout72:setName("layout72");
 
-    obj.edit76 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit76:setParent(obj.layout50);
-    obj.edit76:setVertTextAlign("center");
-    obj.edit76:setLeft(0);
-    obj.edit76:setTop(5);
-    obj.edit76:setWidth(200);
-    obj.edit76:setHeight(20);
-    obj.edit76:setField("nomeMagiaEpica3");
-    obj.edit76:setName("edit76");
+    obj.edit106 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit106:setParent(obj.layout72);
+    obj.edit106:setVertTextAlign("center");
+    obj.edit106:setLeft(0);
+    obj.edit106:setTop(5);
+    obj.edit106:setWidth(200);
+    obj.edit106:setHeight(20);
+    obj.edit106:setField("nomeMagiaEpica3");
+    obj.edit106:setName("edit106");
 
-    obj.label59 = gui.fromHandle(_obj_newObject("label"));
-    obj.label59:setParent(obj.layout50);
-    obj.label59:setVertTextAlign("center");
-    obj.label59:setLeft(205);
-    obj.label59:setTop(5);
-    obj.label59:setWidth(30);
-    obj.label59:setHeight(20);
-    obj.label59:setText("Teste");
-    obj.label59:setName("label59");
-    obj.label59:setFontColor("white");
-    obj.label59:setTextTrimming("none");
-    obj.label59:setWordWrap(false);
-    obj.label59:setAutoSize(true);
+    obj.label106 = gui.fromHandle(_obj_newObject("label"));
+    obj.label106:setParent(obj.layout72);
+    obj.label106:setVertTextAlign("center");
+    obj.label106:setLeft(205);
+    obj.label106:setTop(5);
+    obj.label106:setWidth(30);
+    obj.label106:setHeight(20);
+    obj.label106:setText("Teste");
+    obj.label106:setName("label106");
+    obj.label106:setFontColor("white");
+    obj.label106:setTextTrimming("none");
+    obj.label106:setWordWrap(false);
+    obj.label106:setAutoSize(true);
 
-    obj.edit77 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit77:setParent(obj.layout50);
-    obj.edit77:setVertTextAlign("center");
-    obj.edit77:setLeft(240);
-    obj.edit77:setTop(5);
-    obj.edit77:setWidth(40);
-    obj.edit77:setHeight(20);
-    obj.edit77:setField("cdMagiaEpica3");
-    obj.edit77:setName("edit77");
+    obj.edit107 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit107:setParent(obj.layout72);
+    obj.edit107:setVertTextAlign("center");
+    obj.edit107:setLeft(240);
+    obj.edit107:setTop(5);
+    obj.edit107:setWidth(40);
+    obj.edit107:setHeight(20);
+    obj.edit107:setField("cdMagiaEpica3");
+    obj.edit107:setName("edit107");
 
     obj.textEditor24 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor24:setParent(obj.layout50);
+    obj.textEditor24:setParent(obj.layout72);
     obj.textEditor24:setTop(25);
     obj.textEditor24:setWidth(280);
     obj.textEditor24:setHeight(155);
@@ -2600,50 +4261,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor24:setField("descricaoMagiaEpica3");
     obj.textEditor24:setName("textEditor24");
 
-    obj.layout51 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout51:setParent(obj.layoutMagiasEpicas);
-    obj.layout51:setLeft(630);
-    obj.layout51:setTop(0);
-    obj.layout51:setWidth(280);
-    obj.layout51:setHeight(180);
-    obj.layout51:setName("layout51");
+    obj.layout73 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout73:setParent(obj.layoutMagiasEpicas);
+    obj.layout73:setLeft(630);
+    obj.layout73:setTop(0);
+    obj.layout73:setWidth(280);
+    obj.layout73:setHeight(180);
+    obj.layout73:setName("layout73");
 
-    obj.edit78 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit78:setParent(obj.layout51);
-    obj.edit78:setVertTextAlign("center");
-    obj.edit78:setLeft(0);
-    obj.edit78:setTop(5);
-    obj.edit78:setWidth(200);
-    obj.edit78:setHeight(20);
-    obj.edit78:setField("nomeMagiaEpica4");
-    obj.edit78:setName("edit78");
+    obj.edit108 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit108:setParent(obj.layout73);
+    obj.edit108:setVertTextAlign("center");
+    obj.edit108:setLeft(0);
+    obj.edit108:setTop(5);
+    obj.edit108:setWidth(200);
+    obj.edit108:setHeight(20);
+    obj.edit108:setField("nomeMagiaEpica4");
+    obj.edit108:setName("edit108");
 
-    obj.label60 = gui.fromHandle(_obj_newObject("label"));
-    obj.label60:setParent(obj.layout51);
-    obj.label60:setVertTextAlign("center");
-    obj.label60:setLeft(205);
-    obj.label60:setTop(5);
-    obj.label60:setWidth(30);
-    obj.label60:setHeight(20);
-    obj.label60:setText("Teste");
-    obj.label60:setName("label60");
-    obj.label60:setFontColor("white");
-    obj.label60:setTextTrimming("none");
-    obj.label60:setWordWrap(false);
-    obj.label60:setAutoSize(true);
+    obj.label107 = gui.fromHandle(_obj_newObject("label"));
+    obj.label107:setParent(obj.layout73);
+    obj.label107:setVertTextAlign("center");
+    obj.label107:setLeft(205);
+    obj.label107:setTop(5);
+    obj.label107:setWidth(30);
+    obj.label107:setHeight(20);
+    obj.label107:setText("Teste");
+    obj.label107:setName("label107");
+    obj.label107:setFontColor("white");
+    obj.label107:setTextTrimming("none");
+    obj.label107:setWordWrap(false);
+    obj.label107:setAutoSize(true);
 
-    obj.edit79 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit79:setParent(obj.layout51);
-    obj.edit79:setVertTextAlign("center");
-    obj.edit79:setLeft(240);
-    obj.edit79:setTop(5);
-    obj.edit79:setWidth(40);
-    obj.edit79:setHeight(20);
-    obj.edit79:setField("cdMagiaEpica4");
-    obj.edit79:setName("edit79");
+    obj.edit109 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit109:setParent(obj.layout73);
+    obj.edit109:setVertTextAlign("center");
+    obj.edit109:setLeft(240);
+    obj.edit109:setTop(5);
+    obj.edit109:setWidth(40);
+    obj.edit109:setHeight(20);
+    obj.edit109:setField("cdMagiaEpica4");
+    obj.edit109:setName("edit109");
 
     obj.textEditor25 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor25:setParent(obj.layout51);
+    obj.textEditor25:setParent(obj.layout73);
     obj.textEditor25:setTop(25);
     obj.textEditor25:setWidth(280);
     obj.textEditor25:setHeight(155);
@@ -2651,50 +4312,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor25:setField("descricaoMagiaEpica4");
     obj.textEditor25:setName("textEditor25");
 
-    obj.layout52 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout52:setParent(obj.layoutMagiasEpicas);
-    obj.layout52:setLeft(630);
-    obj.layout52:setTop(180);
-    obj.layout52:setWidth(280);
-    obj.layout52:setHeight(180);
-    obj.layout52:setName("layout52");
+    obj.layout74 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout74:setParent(obj.layoutMagiasEpicas);
+    obj.layout74:setLeft(630);
+    obj.layout74:setTop(180);
+    obj.layout74:setWidth(280);
+    obj.layout74:setHeight(180);
+    obj.layout74:setName("layout74");
 
-    obj.edit80 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit80:setParent(obj.layout52);
-    obj.edit80:setVertTextAlign("center");
-    obj.edit80:setLeft(0);
-    obj.edit80:setTop(5);
-    obj.edit80:setWidth(200);
-    obj.edit80:setHeight(20);
-    obj.edit80:setField("nomeMagiaEpica5");
-    obj.edit80:setName("edit80");
+    obj.edit110 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit110:setParent(obj.layout74);
+    obj.edit110:setVertTextAlign("center");
+    obj.edit110:setLeft(0);
+    obj.edit110:setTop(5);
+    obj.edit110:setWidth(200);
+    obj.edit110:setHeight(20);
+    obj.edit110:setField("nomeMagiaEpica5");
+    obj.edit110:setName("edit110");
 
-    obj.label61 = gui.fromHandle(_obj_newObject("label"));
-    obj.label61:setParent(obj.layout52);
-    obj.label61:setVertTextAlign("center");
-    obj.label61:setLeft(205);
-    obj.label61:setTop(5);
-    obj.label61:setWidth(30);
-    obj.label61:setHeight(20);
-    obj.label61:setText("Teste");
-    obj.label61:setName("label61");
-    obj.label61:setFontColor("white");
-    obj.label61:setTextTrimming("none");
-    obj.label61:setWordWrap(false);
-    obj.label61:setAutoSize(true);
+    obj.label108 = gui.fromHandle(_obj_newObject("label"));
+    obj.label108:setParent(obj.layout74);
+    obj.label108:setVertTextAlign("center");
+    obj.label108:setLeft(205);
+    obj.label108:setTop(5);
+    obj.label108:setWidth(30);
+    obj.label108:setHeight(20);
+    obj.label108:setText("Teste");
+    obj.label108:setName("label108");
+    obj.label108:setFontColor("white");
+    obj.label108:setTextTrimming("none");
+    obj.label108:setWordWrap(false);
+    obj.label108:setAutoSize(true);
 
-    obj.edit81 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit81:setParent(obj.layout52);
-    obj.edit81:setVertTextAlign("center");
-    obj.edit81:setLeft(240);
-    obj.edit81:setTop(5);
-    obj.edit81:setWidth(40);
-    obj.edit81:setHeight(20);
-    obj.edit81:setField("cdMagiaEpica5");
-    obj.edit81:setName("edit81");
+    obj.edit111 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit111:setParent(obj.layout74);
+    obj.edit111:setVertTextAlign("center");
+    obj.edit111:setLeft(240);
+    obj.edit111:setTop(5);
+    obj.edit111:setWidth(40);
+    obj.edit111:setHeight(20);
+    obj.edit111:setField("cdMagiaEpica5");
+    obj.edit111:setName("edit111");
 
     obj.textEditor26 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor26:setParent(obj.layout52);
+    obj.textEditor26:setParent(obj.layout74);
     obj.textEditor26:setTop(25);
     obj.textEditor26:setWidth(280);
     obj.textEditor26:setHeight(155);
@@ -2702,50 +4363,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor26:setField("descricaoMagiaEpica5");
     obj.textEditor26:setName("textEditor26");
 
-    obj.layout53 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout53:setParent(obj.layoutMagiasEpicas);
-    obj.layout53:setLeft(630);
-    obj.layout53:setTop(360);
-    obj.layout53:setWidth(280);
-    obj.layout53:setHeight(180);
-    obj.layout53:setName("layout53");
+    obj.layout75 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout75:setParent(obj.layoutMagiasEpicas);
+    obj.layout75:setLeft(630);
+    obj.layout75:setTop(360);
+    obj.layout75:setWidth(280);
+    obj.layout75:setHeight(180);
+    obj.layout75:setName("layout75");
 
-    obj.edit82 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit82:setParent(obj.layout53);
-    obj.edit82:setVertTextAlign("center");
-    obj.edit82:setLeft(0);
-    obj.edit82:setTop(5);
-    obj.edit82:setWidth(200);
-    obj.edit82:setHeight(20);
-    obj.edit82:setField("nomeMagiaEpica6");
-    obj.edit82:setName("edit82");
+    obj.edit112 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit112:setParent(obj.layout75);
+    obj.edit112:setVertTextAlign("center");
+    obj.edit112:setLeft(0);
+    obj.edit112:setTop(5);
+    obj.edit112:setWidth(200);
+    obj.edit112:setHeight(20);
+    obj.edit112:setField("nomeMagiaEpica6");
+    obj.edit112:setName("edit112");
 
-    obj.label62 = gui.fromHandle(_obj_newObject("label"));
-    obj.label62:setParent(obj.layout53);
-    obj.label62:setVertTextAlign("center");
-    obj.label62:setLeft(205);
-    obj.label62:setTop(5);
-    obj.label62:setWidth(30);
-    obj.label62:setHeight(20);
-    obj.label62:setText("Teste");
-    obj.label62:setName("label62");
-    obj.label62:setFontColor("white");
-    obj.label62:setTextTrimming("none");
-    obj.label62:setWordWrap(false);
-    obj.label62:setAutoSize(true);
+    obj.label109 = gui.fromHandle(_obj_newObject("label"));
+    obj.label109:setParent(obj.layout75);
+    obj.label109:setVertTextAlign("center");
+    obj.label109:setLeft(205);
+    obj.label109:setTop(5);
+    obj.label109:setWidth(30);
+    obj.label109:setHeight(20);
+    obj.label109:setText("Teste");
+    obj.label109:setName("label109");
+    obj.label109:setFontColor("white");
+    obj.label109:setTextTrimming("none");
+    obj.label109:setWordWrap(false);
+    obj.label109:setAutoSize(true);
 
-    obj.edit83 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit83:setParent(obj.layout53);
-    obj.edit83:setVertTextAlign("center");
-    obj.edit83:setLeft(240);
-    obj.edit83:setTop(5);
-    obj.edit83:setWidth(40);
-    obj.edit83:setHeight(20);
-    obj.edit83:setField("cdMagiaEpica6");
-    obj.edit83:setName("edit83");
+    obj.edit113 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit113:setParent(obj.layout75);
+    obj.edit113:setVertTextAlign("center");
+    obj.edit113:setLeft(240);
+    obj.edit113:setTop(5);
+    obj.edit113:setWidth(40);
+    obj.edit113:setHeight(20);
+    obj.edit113:setField("cdMagiaEpica6");
+    obj.edit113:setName("edit113");
 
     obj.textEditor27 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor27:setParent(obj.layout53);
+    obj.textEditor27:setParent(obj.layout75);
     obj.textEditor27:setTop(25);
     obj.textEditor27:setWidth(280);
     obj.textEditor27:setHeight(155);
@@ -2753,50 +4414,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor27:setField("descricaoMagiaEpica6");
     obj.textEditor27:setName("textEditor27");
 
-    obj.layout54 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout54:setParent(obj.layoutMagiasEpicas);
-    obj.layout54:setLeft(920);
-    obj.layout54:setTop(0);
-    obj.layout54:setWidth(280);
-    obj.layout54:setHeight(180);
-    obj.layout54:setName("layout54");
+    obj.layout76 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout76:setParent(obj.layoutMagiasEpicas);
+    obj.layout76:setLeft(920);
+    obj.layout76:setTop(0);
+    obj.layout76:setWidth(280);
+    obj.layout76:setHeight(180);
+    obj.layout76:setName("layout76");
 
-    obj.edit84 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit84:setParent(obj.layout54);
-    obj.edit84:setVertTextAlign("center");
-    obj.edit84:setLeft(0);
-    obj.edit84:setTop(5);
-    obj.edit84:setWidth(200);
-    obj.edit84:setHeight(20);
-    obj.edit84:setField("nomeMagiaEpica7");
-    obj.edit84:setName("edit84");
+    obj.edit114 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit114:setParent(obj.layout76);
+    obj.edit114:setVertTextAlign("center");
+    obj.edit114:setLeft(0);
+    obj.edit114:setTop(5);
+    obj.edit114:setWidth(200);
+    obj.edit114:setHeight(20);
+    obj.edit114:setField("nomeMagiaEpica7");
+    obj.edit114:setName("edit114");
 
-    obj.label63 = gui.fromHandle(_obj_newObject("label"));
-    obj.label63:setParent(obj.layout54);
-    obj.label63:setVertTextAlign("center");
-    obj.label63:setLeft(205);
-    obj.label63:setTop(5);
-    obj.label63:setWidth(30);
-    obj.label63:setHeight(20);
-    obj.label63:setText("Teste");
-    obj.label63:setName("label63");
-    obj.label63:setFontColor("white");
-    obj.label63:setTextTrimming("none");
-    obj.label63:setWordWrap(false);
-    obj.label63:setAutoSize(true);
+    obj.label110 = gui.fromHandle(_obj_newObject("label"));
+    obj.label110:setParent(obj.layout76);
+    obj.label110:setVertTextAlign("center");
+    obj.label110:setLeft(205);
+    obj.label110:setTop(5);
+    obj.label110:setWidth(30);
+    obj.label110:setHeight(20);
+    obj.label110:setText("Teste");
+    obj.label110:setName("label110");
+    obj.label110:setFontColor("white");
+    obj.label110:setTextTrimming("none");
+    obj.label110:setWordWrap(false);
+    obj.label110:setAutoSize(true);
 
-    obj.edit85 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit85:setParent(obj.layout54);
-    obj.edit85:setVertTextAlign("center");
-    obj.edit85:setLeft(240);
-    obj.edit85:setTop(5);
-    obj.edit85:setWidth(40);
-    obj.edit85:setHeight(20);
-    obj.edit85:setField("cdMagiaEpica7");
-    obj.edit85:setName("edit85");
+    obj.edit115 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit115:setParent(obj.layout76);
+    obj.edit115:setVertTextAlign("center");
+    obj.edit115:setLeft(240);
+    obj.edit115:setTop(5);
+    obj.edit115:setWidth(40);
+    obj.edit115:setHeight(20);
+    obj.edit115:setField("cdMagiaEpica7");
+    obj.edit115:setName("edit115");
 
     obj.textEditor28 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor28:setParent(obj.layout54);
+    obj.textEditor28:setParent(obj.layout76);
     obj.textEditor28:setTop(25);
     obj.textEditor28:setWidth(280);
     obj.textEditor28:setHeight(155);
@@ -2804,50 +4465,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor28:setField("descricaoMagiaEpica7");
     obj.textEditor28:setName("textEditor28");
 
-    obj.layout55 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout55:setParent(obj.layoutMagiasEpicas);
-    obj.layout55:setLeft(920);
-    obj.layout55:setTop(180);
-    obj.layout55:setWidth(280);
-    obj.layout55:setHeight(180);
-    obj.layout55:setName("layout55");
+    obj.layout77 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout77:setParent(obj.layoutMagiasEpicas);
+    obj.layout77:setLeft(920);
+    obj.layout77:setTop(180);
+    obj.layout77:setWidth(280);
+    obj.layout77:setHeight(180);
+    obj.layout77:setName("layout77");
 
-    obj.edit86 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit86:setParent(obj.layout55);
-    obj.edit86:setVertTextAlign("center");
-    obj.edit86:setLeft(0);
-    obj.edit86:setTop(5);
-    obj.edit86:setWidth(200);
-    obj.edit86:setHeight(20);
-    obj.edit86:setField("nomeMagiaEpica8");
-    obj.edit86:setName("edit86");
+    obj.edit116 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit116:setParent(obj.layout77);
+    obj.edit116:setVertTextAlign("center");
+    obj.edit116:setLeft(0);
+    obj.edit116:setTop(5);
+    obj.edit116:setWidth(200);
+    obj.edit116:setHeight(20);
+    obj.edit116:setField("nomeMagiaEpica8");
+    obj.edit116:setName("edit116");
 
-    obj.label64 = gui.fromHandle(_obj_newObject("label"));
-    obj.label64:setParent(obj.layout55);
-    obj.label64:setVertTextAlign("center");
-    obj.label64:setLeft(205);
-    obj.label64:setTop(5);
-    obj.label64:setWidth(30);
-    obj.label64:setHeight(20);
-    obj.label64:setText("Teste");
-    obj.label64:setName("label64");
-    obj.label64:setFontColor("white");
-    obj.label64:setTextTrimming("none");
-    obj.label64:setWordWrap(false);
-    obj.label64:setAutoSize(true);
+    obj.label111 = gui.fromHandle(_obj_newObject("label"));
+    obj.label111:setParent(obj.layout77);
+    obj.label111:setVertTextAlign("center");
+    obj.label111:setLeft(205);
+    obj.label111:setTop(5);
+    obj.label111:setWidth(30);
+    obj.label111:setHeight(20);
+    obj.label111:setText("Teste");
+    obj.label111:setName("label111");
+    obj.label111:setFontColor("white");
+    obj.label111:setTextTrimming("none");
+    obj.label111:setWordWrap(false);
+    obj.label111:setAutoSize(true);
 
-    obj.edit87 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit87:setParent(obj.layout55);
-    obj.edit87:setVertTextAlign("center");
-    obj.edit87:setLeft(240);
-    obj.edit87:setTop(5);
-    obj.edit87:setWidth(40);
-    obj.edit87:setHeight(20);
-    obj.edit87:setField("cdMagiaEpica8");
-    obj.edit87:setName("edit87");
+    obj.edit117 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit117:setParent(obj.layout77);
+    obj.edit117:setVertTextAlign("center");
+    obj.edit117:setLeft(240);
+    obj.edit117:setTop(5);
+    obj.edit117:setWidth(40);
+    obj.edit117:setHeight(20);
+    obj.edit117:setField("cdMagiaEpica8");
+    obj.edit117:setName("edit117");
 
     obj.textEditor29 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor29:setParent(obj.layout55);
+    obj.textEditor29:setParent(obj.layout77);
     obj.textEditor29:setTop(25);
     obj.textEditor29:setWidth(280);
     obj.textEditor29:setHeight(155);
@@ -2855,50 +4516,50 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor29:setField("descricaoMagiaEpica8");
     obj.textEditor29:setName("textEditor29");
 
-    obj.layout56 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout56:setParent(obj.layoutMagiasEpicas);
-    obj.layout56:setLeft(920);
-    obj.layout56:setTop(360);
-    obj.layout56:setWidth(280);
-    obj.layout56:setHeight(180);
-    obj.layout56:setName("layout56");
+    obj.layout78 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout78:setParent(obj.layoutMagiasEpicas);
+    obj.layout78:setLeft(920);
+    obj.layout78:setTop(360);
+    obj.layout78:setWidth(280);
+    obj.layout78:setHeight(180);
+    obj.layout78:setName("layout78");
 
-    obj.edit88 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit88:setParent(obj.layout56);
-    obj.edit88:setVertTextAlign("center");
-    obj.edit88:setLeft(0);
-    obj.edit88:setTop(5);
-    obj.edit88:setWidth(200);
-    obj.edit88:setHeight(20);
-    obj.edit88:setField("nomeMagiaEpica9");
-    obj.edit88:setName("edit88");
+    obj.edit118 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit118:setParent(obj.layout78);
+    obj.edit118:setVertTextAlign("center");
+    obj.edit118:setLeft(0);
+    obj.edit118:setTop(5);
+    obj.edit118:setWidth(200);
+    obj.edit118:setHeight(20);
+    obj.edit118:setField("nomeMagiaEpica9");
+    obj.edit118:setName("edit118");
 
-    obj.label65 = gui.fromHandle(_obj_newObject("label"));
-    obj.label65:setParent(obj.layout56);
-    obj.label65:setVertTextAlign("center");
-    obj.label65:setLeft(205);
-    obj.label65:setTop(5);
-    obj.label65:setWidth(30);
-    obj.label65:setHeight(20);
-    obj.label65:setText("Teste");
-    obj.label65:setName("label65");
-    obj.label65:setFontColor("white");
-    obj.label65:setTextTrimming("none");
-    obj.label65:setWordWrap(false);
-    obj.label65:setAutoSize(true);
+    obj.label112 = gui.fromHandle(_obj_newObject("label"));
+    obj.label112:setParent(obj.layout78);
+    obj.label112:setVertTextAlign("center");
+    obj.label112:setLeft(205);
+    obj.label112:setTop(5);
+    obj.label112:setWidth(30);
+    obj.label112:setHeight(20);
+    obj.label112:setText("Teste");
+    obj.label112:setName("label112");
+    obj.label112:setFontColor("white");
+    obj.label112:setTextTrimming("none");
+    obj.label112:setWordWrap(false);
+    obj.label112:setAutoSize(true);
 
-    obj.edit89 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit89:setParent(obj.layout56);
-    obj.edit89:setVertTextAlign("center");
-    obj.edit89:setLeft(240);
-    obj.edit89:setTop(5);
-    obj.edit89:setWidth(40);
-    obj.edit89:setHeight(20);
-    obj.edit89:setField("cdMagiaEpica9");
-    obj.edit89:setName("edit89");
+    obj.edit119 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit119:setParent(obj.layout78);
+    obj.edit119:setVertTextAlign("center");
+    obj.edit119:setLeft(240);
+    obj.edit119:setTop(5);
+    obj.edit119:setWidth(40);
+    obj.edit119:setHeight(20);
+    obj.edit119:setField("cdMagiaEpica9");
+    obj.edit119:setName("edit119");
 
     obj.textEditor30 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor30:setParent(obj.layout56);
+    obj.textEditor30:setParent(obj.layout78);
     obj.textEditor30:setTop(25);
     obj.textEditor30:setWidth(280);
     obj.textEditor30:setHeight(155);
@@ -2914,1132 +4575,1132 @@ function newfrmFichaRPGmeister5M_svg()
     obj.layoutMagiasAprimoradas:setHeight(550);
     obj.layoutMagiasAprimoradas:setName("layoutMagiasAprimoradas");
 
-    obj.layout57 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout57:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout57:setLeft(10);
-    obj.layout57:setTop(0);
-    obj.layout57:setWidth(350);
-    obj.layout57:setHeight(350);
-    obj.layout57:setName("layout57");
-
-    obj.comboBox4 = gui.fromHandle(_obj_newObject("comboBox"));
-    obj.comboBox4:setParent(obj.layout57);
-    obj.comboBox4:setLeft(115);
-    obj.comboBox4:setTop(0);
-    obj.comboBox4:setWidth(60);
-    obj.comboBox4:setHeight(25);
-    obj.comboBox4:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
-    obj.comboBox4:setValues({'1', '2', '3', '4', '5', '6'});
-    obj.comboBox4:setField("atributoBonus");
-    obj.comboBox4:setName("comboBox4");
-
-    obj.comboBox5 = gui.fromHandle(_obj_newObject("comboBox"));
-    obj.comboBox5:setParent(obj.layout57);
-    obj.comboBox5:setLeft(260);
-    obj.comboBox5:setTop(0);
-    obj.comboBox5:setWidth(60);
-    obj.comboBox5:setHeight(25);
-    obj.comboBox5:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
-    obj.comboBox5:setValues({'1', '2', '3', '4', '5', '6'});
-    obj.comboBox5:setField("atributoCD");
-    obj.comboBox5:setName("comboBox5");
-
-    obj.layout58 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout58:setParent(obj.layout57);
-    obj.layout58:setLeft(0);
-    obj.layout58:setTop(25);
-    obj.layout58:setWidth(350);
-    obj.layout58:setHeight(25);
-    obj.layout58:setName("layout58");
-
-    obj.label66 = gui.fromHandle(_obj_newObject("label"));
-    obj.label66:setParent(obj.layout58);
-    obj.label66:setVertTextAlign("center");
-    obj.label66:setLeft(0);
-    obj.label66:setTop(3);
-    obj.label66:setWidth(25);
-    obj.label66:setHeight(22);
-    obj.label66:setText("NÍVEL");
-    obj.label66:setName("label66");
-    obj.label66:setFontColor("white");
-    obj.label66:setTextTrimming("none");
-    obj.label66:setWordWrap(false);
-    obj.label66:setAutoSize(true);
-
-    obj.label67 = gui.fromHandle(_obj_newObject("label"));
-    obj.label67:setParent(obj.layout58);
-    obj.label67:setVertTextAlign("center");
-    obj.label67:setLeft(40);
-    obj.label67:setTop(3);
-    obj.label67:setWidth(25);
-    obj.label67:setHeight(22);
-    obj.label67:setText("TOTAL");
-    obj.label67:setName("label67");
-    obj.label67:setFontColor("white");
-    obj.label67:setTextTrimming("none");
-    obj.label67:setWordWrap(false);
-    obj.label67:setAutoSize(true);
-
-    obj.label68 = gui.fromHandle(_obj_newObject("label"));
-    obj.label68:setParent(obj.layout58);
-    obj.label68:setVertTextAlign("center");
-    obj.label68:setLeft(85);
-    obj.label68:setTop(3);
-    obj.label68:setWidth(25);
-    obj.label68:setHeight(22);
-    obj.label68:setText("BASE");
-    obj.label68:setName("label68");
-    obj.label68:setFontColor("white");
-    obj.label68:setTextTrimming("none");
-    obj.label68:setWordWrap(false);
-    obj.label68:setAutoSize(true);
-
-    obj.label69 = gui.fromHandle(_obj_newObject("label"));
-    obj.label69:setParent(obj.layout58);
-    obj.label69:setVertTextAlign("center");
-    obj.label69:setLeft(125);
-    obj.label69:setTop(3);
-    obj.label69:setWidth(25);
-    obj.label69:setHeight(22);
-    obj.label69:setText("BONUS");
-    obj.label69:setName("label69");
-    obj.label69:setFontColor("white");
-    obj.label69:setTextTrimming("none");
-    obj.label69:setWordWrap(false);
-    obj.label69:setAutoSize(true);
-
-    obj.label70 = gui.fromHandle(_obj_newObject("label"));
-    obj.label70:setParent(obj.layout58);
-    obj.label70:setVertTextAlign("center");
-    obj.label70:setLeft(180);
-    obj.label70:setTop(3);
-    obj.label70:setWidth(25);
-    obj.label70:setHeight(22);
-    obj.label70:setText("CONHECIDAS");
-    obj.label70:setName("label70");
-    obj.label70:setFontColor("white");
-    obj.label70:setTextTrimming("none");
-    obj.label70:setWordWrap(false);
-    obj.label70:setAutoSize(true);
-
-    obj.label71 = gui.fromHandle(_obj_newObject("label"));
-    obj.label71:setParent(obj.layout58);
-    obj.label71:setVertTextAlign("center");
-    obj.label71:setLeft(270);
-    obj.label71:setTop(3);
-    obj.label71:setWidth(25);
-    obj.label71:setHeight(22);
-    obj.label71:setText("CD");
-    obj.label71:setName("label71");
-    obj.label71:setFontColor("white");
-    obj.label71:setTextTrimming("none");
-    obj.label71:setWordWrap(false);
-    obj.label71:setAutoSize(true);
-
-    obj.layout59 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout59:setParent(obj.layout57);
-    obj.layout59:setLeft(0);
-    obj.layout59:setTop(55);
-    obj.layout59:setWidth(350);
-    obj.layout59:setHeight(25);
-    obj.layout59:setName("layout59");
-
-    obj.label72 = gui.fromHandle(_obj_newObject("label"));
-    obj.label72:setParent(obj.layout59);
-    obj.label72:setVertTextAlign("center");
-    obj.label72:setLeft(10);
-    obj.label72:setTop(3);
-    obj.label72:setWidth(25);
-    obj.label72:setHeight(22);
-    obj.label72:setText("10");
-    obj.label72:setName("label72");
-    obj.label72:setFontColor("white");
-    obj.label72:setTextTrimming("none");
-    obj.label72:setWordWrap(false);
-    obj.label72:setAutoSize(true);
-
-    obj.edit90 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit90:setParent(obj.layout59);
-    obj.edit90:setVertTextAlign("center");
-    obj.edit90:setLeft(45);
-    obj.edit90:setTop(0);
-    obj.edit90:setWidth(30);
-    obj.edit90:setHeight(25);
-    obj.edit90:setField("total10");
-    obj.edit90:setType("number");
-    obj.edit90:setName("edit90");
-
-    obj.edit91 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit91:setParent(obj.layout59);
-    obj.edit91:setVertTextAlign("center");
-    obj.edit91:setLeft(85);
-    obj.edit91:setTop(0);
-    obj.edit91:setWidth(30);
-    obj.edit91:setHeight(25);
-    obj.edit91:setField("base10");
-    obj.edit91:setType("number");
-    obj.edit91:setName("edit91");
-
-    obj.label73 = gui.fromHandle(_obj_newObject("label"));
-    obj.label73:setParent(obj.layout59);
-    obj.label73:setVertTextAlign("center");
-    obj.label73:setLeft(140);
-    obj.label73:setTop(0);
-    obj.label73:setWidth(30);
-    obj.label73:setHeight(25);
-    obj.label73:setField("bonus10");
-    obj.label73:setName("label73");
-    obj.label73:setFontColor("white");
-    obj.label73:setTextTrimming("none");
-    obj.label73:setWordWrap(false);
-    obj.label73:setAutoSize(true);
-
-    obj.dataLink33 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink33:setParent(obj.layout59);
-    obj.dataLink33:setFields({'base10', 'bonus10'});
-    obj.dataLink33:setName("dataLink33");
-
-    obj.dataLink34 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink34:setParent(obj.layout59);
-    obj.dataLink34:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink34:setName("dataLink34");
-
-    obj.edit92 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit92:setParent(obj.layout59);
-    obj.edit92:setVertTextAlign("center");
-    obj.edit92:setLeft(210);
-    obj.edit92:setTop(0);
-    obj.edit92:setWidth(30);
-    obj.edit92:setHeight(25);
-    obj.edit92:setField("conhecidas10");
-    obj.edit92:setType("number");
-    obj.edit92:setName("edit92");
-
-    obj.label74 = gui.fromHandle(_obj_newObject("label"));
-    obj.label74:setParent(obj.layout59);
-    obj.label74:setVertTextAlign("center");
-    obj.label74:setLeft(270);
-    obj.label74:setTop(0);
-    obj.label74:setWidth(30);
-    obj.label74:setHeight(25);
-    obj.label74:setField("cd10");
-    obj.label74:setName("label74");
-    obj.label74:setFontColor("white");
-    obj.label74:setTextTrimming("none");
-    obj.label74:setWordWrap(false);
-    obj.label74:setAutoSize(true);
-
-    obj.dataLink35 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink35:setParent(obj.layout59);
-    obj.dataLink35:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink35:setName("dataLink35");
-
-    obj.layout60 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout60:setParent(obj.layout57);
-    obj.layout60:setLeft(0);
-    obj.layout60:setTop(85);
-    obj.layout60:setWidth(350);
-    obj.layout60:setHeight(25);
-    obj.layout60:setName("layout60");
-
-    obj.label75 = gui.fromHandle(_obj_newObject("label"));
-    obj.label75:setParent(obj.layout60);
-    obj.label75:setVertTextAlign("center");
-    obj.label75:setLeft(10);
-    obj.label75:setTop(3);
-    obj.label75:setWidth(25);
-    obj.label75:setHeight(22);
-    obj.label75:setText("11");
-    obj.label75:setName("label75");
-    obj.label75:setFontColor("white");
-    obj.label75:setTextTrimming("none");
-    obj.label75:setWordWrap(false);
-    obj.label75:setAutoSize(true);
-
-    obj.edit93 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit93:setParent(obj.layout60);
-    obj.edit93:setVertTextAlign("center");
-    obj.edit93:setLeft(45);
-    obj.edit93:setTop(0);
-    obj.edit93:setWidth(30);
-    obj.edit93:setHeight(25);
-    obj.edit93:setField("total11");
-    obj.edit93:setType("number");
-    obj.edit93:setName("edit93");
-
-    obj.edit94 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit94:setParent(obj.layout60);
-    obj.edit94:setVertTextAlign("center");
-    obj.edit94:setLeft(85);
-    obj.edit94:setTop(0);
-    obj.edit94:setWidth(30);
-    obj.edit94:setHeight(25);
-    obj.edit94:setField("base11");
-    obj.edit94:setType("number");
-    obj.edit94:setName("edit94");
-
-    obj.label76 = gui.fromHandle(_obj_newObject("label"));
-    obj.label76:setParent(obj.layout60);
-    obj.label76:setVertTextAlign("center");
-    obj.label76:setLeft(140);
-    obj.label76:setTop(0);
-    obj.label76:setWidth(30);
-    obj.label76:setHeight(25);
-    obj.label76:setField("bonus11");
-    obj.label76:setName("label76");
-    obj.label76:setFontColor("white");
-    obj.label76:setTextTrimming("none");
-    obj.label76:setWordWrap(false);
-    obj.label76:setAutoSize(true);
-
-    obj.dataLink36 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink36:setParent(obj.layout60);
-    obj.dataLink36:setFields({'base11', 'bonus11'});
-    obj.dataLink36:setName("dataLink36");
-
-    obj.dataLink37 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink37:setParent(obj.layout60);
-    obj.dataLink37:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink37:setName("dataLink37");
-
-    obj.edit95 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit95:setParent(obj.layout60);
-    obj.edit95:setVertTextAlign("center");
-    obj.edit95:setLeft(210);
-    obj.edit95:setTop(0);
-    obj.edit95:setWidth(30);
-    obj.edit95:setHeight(25);
-    obj.edit95:setField("conhecidas11");
-    obj.edit95:setType("number");
-    obj.edit95:setName("edit95");
-
-    obj.label77 = gui.fromHandle(_obj_newObject("label"));
-    obj.label77:setParent(obj.layout60);
-    obj.label77:setVertTextAlign("center");
-    obj.label77:setLeft(270);
-    obj.label77:setTop(0);
-    obj.label77:setWidth(30);
-    obj.label77:setHeight(25);
-    obj.label77:setField("cd11");
-    obj.label77:setName("label77");
-    obj.label77:setFontColor("white");
-    obj.label77:setTextTrimming("none");
-    obj.label77:setWordWrap(false);
-    obj.label77:setAutoSize(true);
-
-    obj.dataLink38 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink38:setParent(obj.layout60);
-    obj.dataLink38:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink38:setName("dataLink38");
-
-    obj.layout61 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout61:setParent(obj.layout57);
-    obj.layout61:setLeft(0);
-    obj.layout61:setTop(115);
-    obj.layout61:setWidth(350);
-    obj.layout61:setHeight(25);
-    obj.layout61:setName("layout61");
-
-    obj.label78 = gui.fromHandle(_obj_newObject("label"));
-    obj.label78:setParent(obj.layout61);
-    obj.label78:setVertTextAlign("center");
-    obj.label78:setLeft(10);
-    obj.label78:setTop(3);
-    obj.label78:setWidth(25);
-    obj.label78:setHeight(22);
-    obj.label78:setText("12");
-    obj.label78:setName("label78");
-    obj.label78:setFontColor("white");
-    obj.label78:setTextTrimming("none");
-    obj.label78:setWordWrap(false);
-    obj.label78:setAutoSize(true);
-
-    obj.edit96 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit96:setParent(obj.layout61);
-    obj.edit96:setVertTextAlign("center");
-    obj.edit96:setLeft(45);
-    obj.edit96:setTop(0);
-    obj.edit96:setWidth(30);
-    obj.edit96:setHeight(25);
-    obj.edit96:setField("total12");
-    obj.edit96:setType("number");
-    obj.edit96:setName("edit96");
-
-    obj.edit97 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit97:setParent(obj.layout61);
-    obj.edit97:setVertTextAlign("center");
-    obj.edit97:setLeft(85);
-    obj.edit97:setTop(0);
-    obj.edit97:setWidth(30);
-    obj.edit97:setHeight(25);
-    obj.edit97:setField("base12");
-    obj.edit97:setType("number");
-    obj.edit97:setName("edit97");
-
-    obj.label79 = gui.fromHandle(_obj_newObject("label"));
-    obj.label79:setParent(obj.layout61);
-    obj.label79:setVertTextAlign("center");
-    obj.label79:setLeft(140);
-    obj.label79:setTop(0);
-    obj.label79:setWidth(30);
-    obj.label79:setHeight(25);
-    obj.label79:setField("bonus12");
-    obj.label79:setName("label79");
-    obj.label79:setFontColor("white");
-    obj.label79:setTextTrimming("none");
-    obj.label79:setWordWrap(false);
-    obj.label79:setAutoSize(true);
-
-    obj.dataLink39 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink39:setParent(obj.layout61);
-    obj.dataLink39:setFields({'base12', 'bonus12'});
-    obj.dataLink39:setName("dataLink39");
-
-    obj.dataLink40 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink40:setParent(obj.layout61);
-    obj.dataLink40:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink40:setName("dataLink40");
-
-    obj.edit98 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit98:setParent(obj.layout61);
-    obj.edit98:setVertTextAlign("center");
-    obj.edit98:setLeft(210);
-    obj.edit98:setTop(0);
-    obj.edit98:setWidth(30);
-    obj.edit98:setHeight(25);
-    obj.edit98:setField("conhecidas12");
-    obj.edit98:setType("number");
-    obj.edit98:setName("edit98");
-
-    obj.label80 = gui.fromHandle(_obj_newObject("label"));
-    obj.label80:setParent(obj.layout61);
-    obj.label80:setVertTextAlign("center");
-    obj.label80:setLeft(270);
-    obj.label80:setTop(0);
-    obj.label80:setWidth(30);
-    obj.label80:setHeight(25);
-    obj.label80:setField("cd12");
-    obj.label80:setName("label80");
-    obj.label80:setFontColor("white");
-    obj.label80:setTextTrimming("none");
-    obj.label80:setWordWrap(false);
-    obj.label80:setAutoSize(true);
-
-    obj.dataLink41 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink41:setParent(obj.layout61);
-    obj.dataLink41:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink41:setName("dataLink41");
-
-    obj.layout62 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout62:setParent(obj.layout57);
-    obj.layout62:setLeft(0);
-    obj.layout62:setTop(145);
-    obj.layout62:setWidth(350);
-    obj.layout62:setHeight(25);
-    obj.layout62:setName("layout62");
-
-    obj.label81 = gui.fromHandle(_obj_newObject("label"));
-    obj.label81:setParent(obj.layout62);
-    obj.label81:setVertTextAlign("center");
-    obj.label81:setLeft(10);
-    obj.label81:setTop(3);
-    obj.label81:setWidth(25);
-    obj.label81:setHeight(22);
-    obj.label81:setText("13");
-    obj.label81:setName("label81");
-    obj.label81:setFontColor("white");
-    obj.label81:setTextTrimming("none");
-    obj.label81:setWordWrap(false);
-    obj.label81:setAutoSize(true);
-
-    obj.edit99 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit99:setParent(obj.layout62);
-    obj.edit99:setVertTextAlign("center");
-    obj.edit99:setLeft(45);
-    obj.edit99:setTop(0);
-    obj.edit99:setWidth(30);
-    obj.edit99:setHeight(25);
-    obj.edit99:setField("total13");
-    obj.edit99:setType("number");
-    obj.edit99:setName("edit99");
-
-    obj.edit100 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit100:setParent(obj.layout62);
-    obj.edit100:setVertTextAlign("center");
-    obj.edit100:setLeft(85);
-    obj.edit100:setTop(0);
-    obj.edit100:setWidth(30);
-    obj.edit100:setHeight(25);
-    obj.edit100:setField("base13");
-    obj.edit100:setType("number");
-    obj.edit100:setName("edit100");
-
-    obj.label82 = gui.fromHandle(_obj_newObject("label"));
-    obj.label82:setParent(obj.layout62);
-    obj.label82:setVertTextAlign("center");
-    obj.label82:setLeft(140);
-    obj.label82:setTop(0);
-    obj.label82:setWidth(30);
-    obj.label82:setHeight(25);
-    obj.label82:setField("bonus13");
-    obj.label82:setName("label82");
-    obj.label82:setFontColor("white");
-    obj.label82:setTextTrimming("none");
-    obj.label82:setWordWrap(false);
-    obj.label82:setAutoSize(true);
-
-    obj.dataLink42 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink42:setParent(obj.layout62);
-    obj.dataLink42:setFields({'base13', 'bonus13'});
-    obj.dataLink42:setName("dataLink42");
-
-    obj.dataLink43 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink43:setParent(obj.layout62);
-    obj.dataLink43:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink43:setName("dataLink43");
-
-    obj.edit101 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit101:setParent(obj.layout62);
-    obj.edit101:setVertTextAlign("center");
-    obj.edit101:setLeft(210);
-    obj.edit101:setTop(0);
-    obj.edit101:setWidth(30);
-    obj.edit101:setHeight(25);
-    obj.edit101:setField("conhecidas13");
-    obj.edit101:setType("number");
-    obj.edit101:setName("edit101");
-
-    obj.label83 = gui.fromHandle(_obj_newObject("label"));
-    obj.label83:setParent(obj.layout62);
-    obj.label83:setVertTextAlign("center");
-    obj.label83:setLeft(270);
-    obj.label83:setTop(0);
-    obj.label83:setWidth(30);
-    obj.label83:setHeight(25);
-    obj.label83:setField("cd13");
-    obj.label83:setName("label83");
-    obj.label83:setFontColor("white");
-    obj.label83:setTextTrimming("none");
-    obj.label83:setWordWrap(false);
-    obj.label83:setAutoSize(true);
-
-    obj.dataLink44 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink44:setParent(obj.layout62);
-    obj.dataLink44:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink44:setName("dataLink44");
-
-    obj.layout63 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout63:setParent(obj.layout57);
-    obj.layout63:setLeft(0);
-    obj.layout63:setTop(175);
-    obj.layout63:setWidth(350);
-    obj.layout63:setHeight(25);
-    obj.layout63:setName("layout63");
-
-    obj.label84 = gui.fromHandle(_obj_newObject("label"));
-    obj.label84:setParent(obj.layout63);
-    obj.label84:setVertTextAlign("center");
-    obj.label84:setLeft(10);
-    obj.label84:setTop(3);
-    obj.label84:setWidth(25);
-    obj.label84:setHeight(22);
-    obj.label84:setText("14");
-    obj.label84:setName("label84");
-    obj.label84:setFontColor("white");
-    obj.label84:setTextTrimming("none");
-    obj.label84:setWordWrap(false);
-    obj.label84:setAutoSize(true);
-
-    obj.edit102 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit102:setParent(obj.layout63);
-    obj.edit102:setVertTextAlign("center");
-    obj.edit102:setLeft(45);
-    obj.edit102:setTop(0);
-    obj.edit102:setWidth(30);
-    obj.edit102:setHeight(25);
-    obj.edit102:setField("total14");
-    obj.edit102:setType("number");
-    obj.edit102:setName("edit102");
-
-    obj.edit103 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit103:setParent(obj.layout63);
-    obj.edit103:setVertTextAlign("center");
-    obj.edit103:setLeft(85);
-    obj.edit103:setTop(0);
-    obj.edit103:setWidth(30);
-    obj.edit103:setHeight(25);
-    obj.edit103:setField("base14");
-    obj.edit103:setType("number");
-    obj.edit103:setName("edit103");
-
-    obj.label85 = gui.fromHandle(_obj_newObject("label"));
-    obj.label85:setParent(obj.layout63);
-    obj.label85:setVertTextAlign("center");
-    obj.label85:setLeft(140);
-    obj.label85:setTop(0);
-    obj.label85:setWidth(30);
-    obj.label85:setHeight(25);
-    obj.label85:setField("bonus14");
-    obj.label85:setName("label85");
-    obj.label85:setFontColor("white");
-    obj.label85:setTextTrimming("none");
-    obj.label85:setWordWrap(false);
-    obj.label85:setAutoSize(true);
-
-    obj.dataLink45 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink45:setParent(obj.layout63);
-    obj.dataLink45:setFields({'base14', 'bonus14'});
-    obj.dataLink45:setName("dataLink45");
-
-    obj.dataLink46 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink46:setParent(obj.layout63);
-    obj.dataLink46:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink46:setName("dataLink46");
-
-    obj.edit104 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit104:setParent(obj.layout63);
-    obj.edit104:setVertTextAlign("center");
-    obj.edit104:setLeft(210);
-    obj.edit104:setTop(0);
-    obj.edit104:setWidth(30);
-    obj.edit104:setHeight(25);
-    obj.edit104:setField("conhecidas14");
-    obj.edit104:setType("number");
-    obj.edit104:setName("edit104");
-
-    obj.label86 = gui.fromHandle(_obj_newObject("label"));
-    obj.label86:setParent(obj.layout63);
-    obj.label86:setVertTextAlign("center");
-    obj.label86:setLeft(270);
-    obj.label86:setTop(0);
-    obj.label86:setWidth(30);
-    obj.label86:setHeight(25);
-    obj.label86:setField("cd14");
-    obj.label86:setName("label86");
-    obj.label86:setFontColor("white");
-    obj.label86:setTextTrimming("none");
-    obj.label86:setWordWrap(false);
-    obj.label86:setAutoSize(true);
-
-    obj.dataLink47 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink47:setParent(obj.layout63);
-    obj.dataLink47:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink47:setName("dataLink47");
-
-    obj.layout64 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout64:setParent(obj.layout57);
-    obj.layout64:setLeft(0);
-    obj.layout64:setTop(205);
-    obj.layout64:setWidth(350);
-    obj.layout64:setHeight(25);
-    obj.layout64:setName("layout64");
-
-    obj.label87 = gui.fromHandle(_obj_newObject("label"));
-    obj.label87:setParent(obj.layout64);
-    obj.label87:setVertTextAlign("center");
-    obj.label87:setLeft(10);
-    obj.label87:setTop(3);
-    obj.label87:setWidth(25);
-    obj.label87:setHeight(22);
-    obj.label87:setText("15");
-    obj.label87:setName("label87");
-    obj.label87:setFontColor("white");
-    obj.label87:setTextTrimming("none");
-    obj.label87:setWordWrap(false);
-    obj.label87:setAutoSize(true);
-
-    obj.edit105 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit105:setParent(obj.layout64);
-    obj.edit105:setVertTextAlign("center");
-    obj.edit105:setLeft(45);
-    obj.edit105:setTop(0);
-    obj.edit105:setWidth(30);
-    obj.edit105:setHeight(25);
-    obj.edit105:setField("total15");
-    obj.edit105:setType("number");
-    obj.edit105:setName("edit105");
-
-    obj.edit106 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit106:setParent(obj.layout64);
-    obj.edit106:setVertTextAlign("center");
-    obj.edit106:setLeft(85);
-    obj.edit106:setTop(0);
-    obj.edit106:setWidth(30);
-    obj.edit106:setHeight(25);
-    obj.edit106:setField("base15");
-    obj.edit106:setType("number");
-    obj.edit106:setName("edit106");
-
-    obj.label88 = gui.fromHandle(_obj_newObject("label"));
-    obj.label88:setParent(obj.layout64);
-    obj.label88:setVertTextAlign("center");
-    obj.label88:setLeft(140);
-    obj.label88:setTop(0);
-    obj.label88:setWidth(30);
-    obj.label88:setHeight(25);
-    obj.label88:setField("bonus15");
-    obj.label88:setName("label88");
-    obj.label88:setFontColor("white");
-    obj.label88:setTextTrimming("none");
-    obj.label88:setWordWrap(false);
-    obj.label88:setAutoSize(true);
-
-    obj.dataLink48 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink48:setParent(obj.layout64);
-    obj.dataLink48:setFields({'base15', 'bonus15'});
-    obj.dataLink48:setName("dataLink48");
-
-    obj.dataLink49 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink49:setParent(obj.layout64);
-    obj.dataLink49:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink49:setName("dataLink49");
-
-    obj.edit107 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit107:setParent(obj.layout64);
-    obj.edit107:setVertTextAlign("center");
-    obj.edit107:setLeft(210);
-    obj.edit107:setTop(0);
-    obj.edit107:setWidth(30);
-    obj.edit107:setHeight(25);
-    obj.edit107:setField("conhecidas15");
-    obj.edit107:setType("number");
-    obj.edit107:setName("edit107");
-
-    obj.label89 = gui.fromHandle(_obj_newObject("label"));
-    obj.label89:setParent(obj.layout64);
-    obj.label89:setVertTextAlign("center");
-    obj.label89:setLeft(270);
-    obj.label89:setTop(0);
-    obj.label89:setWidth(30);
-    obj.label89:setHeight(25);
-    obj.label89:setField("cd15");
-    obj.label89:setName("label89");
-    obj.label89:setFontColor("white");
-    obj.label89:setTextTrimming("none");
-    obj.label89:setWordWrap(false);
-    obj.label89:setAutoSize(true);
-
-    obj.dataLink50 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink50:setParent(obj.layout64);
-    obj.dataLink50:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink50:setName("dataLink50");
-
-    obj.layout65 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout65:setParent(obj.layout57);
-    obj.layout65:setLeft(0);
-    obj.layout65:setTop(235);
-    obj.layout65:setWidth(350);
-    obj.layout65:setHeight(25);
-    obj.layout65:setName("layout65");
-
-    obj.label90 = gui.fromHandle(_obj_newObject("label"));
-    obj.label90:setParent(obj.layout65);
-    obj.label90:setVertTextAlign("center");
-    obj.label90:setLeft(10);
-    obj.label90:setTop(3);
-    obj.label90:setWidth(25);
-    obj.label90:setHeight(22);
-    obj.label90:setText("16");
-    obj.label90:setName("label90");
-    obj.label90:setFontColor("white");
-    obj.label90:setTextTrimming("none");
-    obj.label90:setWordWrap(false);
-    obj.label90:setAutoSize(true);
-
-    obj.edit108 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit108:setParent(obj.layout65);
-    obj.edit108:setVertTextAlign("center");
-    obj.edit108:setLeft(45);
-    obj.edit108:setTop(0);
-    obj.edit108:setWidth(30);
-    obj.edit108:setHeight(25);
-    obj.edit108:setField("total16");
-    obj.edit108:setType("number");
-    obj.edit108:setName("edit108");
-
-    obj.edit109 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit109:setParent(obj.layout65);
-    obj.edit109:setVertTextAlign("center");
-    obj.edit109:setLeft(85);
-    obj.edit109:setTop(0);
-    obj.edit109:setWidth(30);
-    obj.edit109:setHeight(25);
-    obj.edit109:setField("base16");
-    obj.edit109:setType("number");
-    obj.edit109:setName("edit109");
-
-    obj.label91 = gui.fromHandle(_obj_newObject("label"));
-    obj.label91:setParent(obj.layout65);
-    obj.label91:setVertTextAlign("center");
-    obj.label91:setLeft(140);
-    obj.label91:setTop(0);
-    obj.label91:setWidth(30);
-    obj.label91:setHeight(25);
-    obj.label91:setField("bonus16");
-    obj.label91:setName("label91");
-    obj.label91:setFontColor("white");
-    obj.label91:setTextTrimming("none");
-    obj.label91:setWordWrap(false);
-    obj.label91:setAutoSize(true);
-
-    obj.dataLink51 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink51:setParent(obj.layout65);
-    obj.dataLink51:setFields({'base16', 'bonus16'});
-    obj.dataLink51:setName("dataLink51");
-
-    obj.dataLink52 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink52:setParent(obj.layout65);
-    obj.dataLink52:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink52:setName("dataLink52");
-
-    obj.edit110 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit110:setParent(obj.layout65);
-    obj.edit110:setVertTextAlign("center");
-    obj.edit110:setLeft(210);
-    obj.edit110:setTop(0);
-    obj.edit110:setWidth(30);
-    obj.edit110:setHeight(25);
-    obj.edit110:setField("conhecidas16");
-    obj.edit110:setType("number");
-    obj.edit110:setName("edit110");
-
-    obj.label92 = gui.fromHandle(_obj_newObject("label"));
-    obj.label92:setParent(obj.layout65);
-    obj.label92:setVertTextAlign("center");
-    obj.label92:setLeft(270);
-    obj.label92:setTop(0);
-    obj.label92:setWidth(30);
-    obj.label92:setHeight(25);
-    obj.label92:setField("cd16");
-    obj.label92:setName("label92");
-    obj.label92:setFontColor("white");
-    obj.label92:setTextTrimming("none");
-    obj.label92:setWordWrap(false);
-    obj.label92:setAutoSize(true);
-
-    obj.dataLink53 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink53:setParent(obj.layout65);
-    obj.dataLink53:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink53:setName("dataLink53");
-
-    obj.layout66 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout66:setParent(obj.layout57);
-    obj.layout66:setLeft(0);
-    obj.layout66:setTop(265);
-    obj.layout66:setWidth(350);
-    obj.layout66:setHeight(25);
-    obj.layout66:setName("layout66");
-
-    obj.label93 = gui.fromHandle(_obj_newObject("label"));
-    obj.label93:setParent(obj.layout66);
-    obj.label93:setVertTextAlign("center");
-    obj.label93:setLeft(10);
-    obj.label93:setTop(3);
-    obj.label93:setWidth(25);
-    obj.label93:setHeight(22);
-    obj.label93:setText("17");
-    obj.label93:setName("label93");
-    obj.label93:setFontColor("white");
-    obj.label93:setTextTrimming("none");
-    obj.label93:setWordWrap(false);
-    obj.label93:setAutoSize(true);
-
-    obj.edit111 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit111:setParent(obj.layout66);
-    obj.edit111:setVertTextAlign("center");
-    obj.edit111:setLeft(45);
-    obj.edit111:setTop(0);
-    obj.edit111:setWidth(30);
-    obj.edit111:setHeight(25);
-    obj.edit111:setField("total17");
-    obj.edit111:setType("number");
-    obj.edit111:setName("edit111");
-
-    obj.edit112 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit112:setParent(obj.layout66);
-    obj.edit112:setVertTextAlign("center");
-    obj.edit112:setLeft(85);
-    obj.edit112:setTop(0);
-    obj.edit112:setWidth(30);
-    obj.edit112:setHeight(25);
-    obj.edit112:setField("base17");
-    obj.edit112:setType("number");
-    obj.edit112:setName("edit112");
-
-    obj.label94 = gui.fromHandle(_obj_newObject("label"));
-    obj.label94:setParent(obj.layout66);
-    obj.label94:setVertTextAlign("center");
-    obj.label94:setLeft(140);
-    obj.label94:setTop(0);
-    obj.label94:setWidth(30);
-    obj.label94:setHeight(25);
-    obj.label94:setField("bonus17");
-    obj.label94:setName("label94");
-    obj.label94:setFontColor("white");
-    obj.label94:setTextTrimming("none");
-    obj.label94:setWordWrap(false);
-    obj.label94:setAutoSize(true);
-
-    obj.dataLink54 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink54:setParent(obj.layout66);
-    obj.dataLink54:setFields({'base17', 'bonus17'});
-    obj.dataLink54:setName("dataLink54");
-
-    obj.dataLink55 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink55:setParent(obj.layout66);
-    obj.dataLink55:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink55:setName("dataLink55");
-
-    obj.edit113 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit113:setParent(obj.layout66);
-    obj.edit113:setVertTextAlign("center");
-    obj.edit113:setLeft(210);
-    obj.edit113:setTop(0);
-    obj.edit113:setWidth(30);
-    obj.edit113:setHeight(25);
-    obj.edit113:setField("conhecidas17");
-    obj.edit113:setType("number");
-    obj.edit113:setName("edit113");
-
-    obj.label95 = gui.fromHandle(_obj_newObject("label"));
-    obj.label95:setParent(obj.layout66);
-    obj.label95:setVertTextAlign("center");
-    obj.label95:setLeft(270);
-    obj.label95:setTop(0);
-    obj.label95:setWidth(30);
-    obj.label95:setHeight(25);
-    obj.label95:setField("cd17");
-    obj.label95:setName("label95");
-    obj.label95:setFontColor("white");
-    obj.label95:setTextTrimming("none");
-    obj.label95:setWordWrap(false);
-    obj.label95:setAutoSize(true);
-
-    obj.dataLink56 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink56:setParent(obj.layout66);
-    obj.dataLink56:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink56:setName("dataLink56");
-
-    obj.layout67 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout67:setParent(obj.layout57);
-    obj.layout67:setLeft(0);
-    obj.layout67:setTop(295);
-    obj.layout67:setWidth(350);
-    obj.layout67:setHeight(25);
-    obj.layout67:setName("layout67");
-
-    obj.label96 = gui.fromHandle(_obj_newObject("label"));
-    obj.label96:setParent(obj.layout67);
-    obj.label96:setVertTextAlign("center");
-    obj.label96:setLeft(10);
-    obj.label96:setTop(3);
-    obj.label96:setWidth(25);
-    obj.label96:setHeight(22);
-    obj.label96:setText("18");
-    obj.label96:setName("label96");
-    obj.label96:setFontColor("white");
-    obj.label96:setTextTrimming("none");
-    obj.label96:setWordWrap(false);
-    obj.label96:setAutoSize(true);
-
-    obj.edit114 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit114:setParent(obj.layout67);
-    obj.edit114:setVertTextAlign("center");
-    obj.edit114:setLeft(45);
-    obj.edit114:setTop(0);
-    obj.edit114:setWidth(30);
-    obj.edit114:setHeight(25);
-    obj.edit114:setField("total18");
-    obj.edit114:setType("number");
-    obj.edit114:setName("edit114");
-
-    obj.edit115 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit115:setParent(obj.layout67);
-    obj.edit115:setVertTextAlign("center");
-    obj.edit115:setLeft(85);
-    obj.edit115:setTop(0);
-    obj.edit115:setWidth(30);
-    obj.edit115:setHeight(25);
-    obj.edit115:setField("base18");
-    obj.edit115:setType("number");
-    obj.edit115:setName("edit115");
-
-    obj.label97 = gui.fromHandle(_obj_newObject("label"));
-    obj.label97:setParent(obj.layout67);
-    obj.label97:setVertTextAlign("center");
-    obj.label97:setLeft(140);
-    obj.label97:setTop(0);
-    obj.label97:setWidth(30);
-    obj.label97:setHeight(25);
-    obj.label97:setField("bonus18");
-    obj.label97:setName("label97");
-    obj.label97:setFontColor("white");
-    obj.label97:setTextTrimming("none");
-    obj.label97:setWordWrap(false);
-    obj.label97:setAutoSize(true);
-
-    obj.dataLink57 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink57:setParent(obj.layout67);
-    obj.dataLink57:setFields({'base18', 'bonus18'});
-    obj.dataLink57:setName("dataLink57");
-
-    obj.dataLink58 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink58:setParent(obj.layout67);
-    obj.dataLink58:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink58:setName("dataLink58");
-
-    obj.edit116 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit116:setParent(obj.layout67);
-    obj.edit116:setVertTextAlign("center");
-    obj.edit116:setLeft(210);
-    obj.edit116:setTop(0);
-    obj.edit116:setWidth(30);
-    obj.edit116:setHeight(25);
-    obj.edit116:setField("conhecidas18");
-    obj.edit116:setType("number");
-    obj.edit116:setName("edit116");
-
-    obj.label98 = gui.fromHandle(_obj_newObject("label"));
-    obj.label98:setParent(obj.layout67);
-    obj.label98:setVertTextAlign("center");
-    obj.label98:setLeft(270);
-    obj.label98:setTop(0);
-    obj.label98:setWidth(30);
-    obj.label98:setHeight(25);
-    obj.label98:setField("cd18");
-    obj.label98:setName("label98");
-    obj.label98:setFontColor("white");
-    obj.label98:setTextTrimming("none");
-    obj.label98:setWordWrap(false);
-    obj.label98:setAutoSize(true);
-
-    obj.dataLink59 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink59:setParent(obj.layout67);
-    obj.dataLink59:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink59:setName("dataLink59");
-
-    obj.layout68 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout68:setParent(obj.layout57);
-    obj.layout68:setLeft(0);
-    obj.layout68:setTop(325);
-    obj.layout68:setWidth(350);
-    obj.layout68:setHeight(25);
-    obj.layout68:setName("layout68");
-
-    obj.label99 = gui.fromHandle(_obj_newObject("label"));
-    obj.label99:setParent(obj.layout68);
-    obj.label99:setVertTextAlign("center");
-    obj.label99:setLeft(10);
-    obj.label99:setTop(3);
-    obj.label99:setWidth(25);
-    obj.label99:setHeight(22);
-    obj.label99:setText("19");
-    obj.label99:setName("label99");
-    obj.label99:setFontColor("white");
-    obj.label99:setTextTrimming("none");
-    obj.label99:setWordWrap(false);
-    obj.label99:setAutoSize(true);
-
-    obj.edit117 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit117:setParent(obj.layout68);
-    obj.edit117:setVertTextAlign("center");
-    obj.edit117:setLeft(45);
-    obj.edit117:setTop(0);
-    obj.edit117:setWidth(30);
-    obj.edit117:setHeight(25);
-    obj.edit117:setField("total19");
-    obj.edit117:setType("number");
-    obj.edit117:setName("edit117");
-
-    obj.edit118 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit118:setParent(obj.layout68);
-    obj.edit118:setVertTextAlign("center");
-    obj.edit118:setLeft(85);
-    obj.edit118:setTop(0);
-    obj.edit118:setWidth(30);
-    obj.edit118:setHeight(25);
-    obj.edit118:setField("base19");
-    obj.edit118:setType("number");
-    obj.edit118:setName("edit118");
-
-    obj.label100 = gui.fromHandle(_obj_newObject("label"));
-    obj.label100:setParent(obj.layout68);
-    obj.label100:setVertTextAlign("center");
-    obj.label100:setLeft(140);
-    obj.label100:setTop(0);
-    obj.label100:setWidth(30);
-    obj.label100:setHeight(25);
-    obj.label100:setField("bonus19");
-    obj.label100:setName("label100");
-    obj.label100:setFontColor("white");
-    obj.label100:setTextTrimming("none");
-    obj.label100:setWordWrap(false);
-    obj.label100:setAutoSize(true);
-
-    obj.dataLink60 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink60:setParent(obj.layout68);
-    obj.dataLink60:setFields({'base19', 'bonus19'});
-    obj.dataLink60:setName("dataLink60");
-
-    obj.dataLink61 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink61:setParent(obj.layout68);
-    obj.dataLink61:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink61:setName("dataLink61");
-
-    obj.edit119 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit119:setParent(obj.layout68);
-    obj.edit119:setVertTextAlign("center");
-    obj.edit119:setLeft(210);
-    obj.edit119:setTop(0);
-    obj.edit119:setWidth(30);
-    obj.edit119:setHeight(25);
-    obj.edit119:setField("conhecidas19");
-    obj.edit119:setType("number");
-    obj.edit119:setName("edit119");
-
-    obj.label101 = gui.fromHandle(_obj_newObject("label"));
-    obj.label101:setParent(obj.layout68);
-    obj.label101:setVertTextAlign("center");
-    obj.label101:setLeft(270);
-    obj.label101:setTop(0);
-    obj.label101:setWidth(30);
-    obj.label101:setHeight(25);
-    obj.label101:setField("cd19");
-    obj.label101:setName("label101");
-    obj.label101:setFontColor("white");
-    obj.label101:setTextTrimming("none");
-    obj.label101:setWordWrap(false);
-    obj.label101:setAutoSize(true);
-
-    obj.dataLink62 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink62:setParent(obj.layout68);
-    obj.dataLink62:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
-    obj.dataLink62:setName("dataLink62");
-
-    obj.layout69 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout69:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout69:setLeft(50);
-    obj.layout69:setTop(360);
-    obj.layout69:setWidth(280);
-    obj.layout69:setHeight(180);
-    obj.layout69:setName("layout69");
-
-    obj.label102 = gui.fromHandle(_obj_newObject("label"));
-    obj.label102:setParent(obj.layout69);
-    obj.label102:setVertTextAlign("center");
-    obj.label102:setLeft(0);
-    obj.label102:setTop(0);
-    obj.label102:setWidth(100);
-    obj.label102:setHeight(20);
-    obj.label102:setText("Magias Nível 16");
-    obj.label102:setName("label102");
-    obj.label102:setFontColor("white");
-    obj.label102:setTextTrimming("none");
-    obj.label102:setWordWrap(false);
-    obj.label102:setAutoSize(true);
+    obj.layout79 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout79:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout79:setLeft(10);
+    obj.layout79:setTop(0);
+    obj.layout79:setWidth(350);
+    obj.layout79:setHeight(350);
+    obj.layout79:setName("layout79");
+
+    obj.comboBox6 = gui.fromHandle(_obj_newObject("comboBox"));
+    obj.comboBox6:setParent(obj.layout79);
+    obj.comboBox6:setLeft(115);
+    obj.comboBox6:setTop(0);
+    obj.comboBox6:setWidth(60);
+    obj.comboBox6:setHeight(25);
+    obj.comboBox6:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
+    obj.comboBox6:setValues({'1', '2', '3', '4', '5', '6'});
+    obj.comboBox6:setField("atributoBonus");
+    obj.comboBox6:setName("comboBox6");
+
+    obj.comboBox7 = gui.fromHandle(_obj_newObject("comboBox"));
+    obj.comboBox7:setParent(obj.layout79);
+    obj.comboBox7:setLeft(260);
+    obj.comboBox7:setTop(0);
+    obj.comboBox7:setWidth(60);
+    obj.comboBox7:setHeight(25);
+    obj.comboBox7:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
+    obj.comboBox7:setValues({'1', '2', '3', '4', '5', '6'});
+    obj.comboBox7:setField("atributoCD");
+    obj.comboBox7:setName("comboBox7");
+
+    obj.layout80 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout80:setParent(obj.layout79);
+    obj.layout80:setLeft(0);
+    obj.layout80:setTop(25);
+    obj.layout80:setWidth(350);
+    obj.layout80:setHeight(25);
+    obj.layout80:setName("layout80");
+
+    obj.label113 = gui.fromHandle(_obj_newObject("label"));
+    obj.label113:setParent(obj.layout80);
+    obj.label113:setVertTextAlign("center");
+    obj.label113:setLeft(0);
+    obj.label113:setTop(3);
+    obj.label113:setWidth(25);
+    obj.label113:setHeight(22);
+    obj.label113:setText("NÍVEL");
+    obj.label113:setName("label113");
+    obj.label113:setFontColor("white");
+    obj.label113:setTextTrimming("none");
+    obj.label113:setWordWrap(false);
+    obj.label113:setAutoSize(true);
+
+    obj.label114 = gui.fromHandle(_obj_newObject("label"));
+    obj.label114:setParent(obj.layout80);
+    obj.label114:setVertTextAlign("center");
+    obj.label114:setLeft(40);
+    obj.label114:setTop(3);
+    obj.label114:setWidth(25);
+    obj.label114:setHeight(22);
+    obj.label114:setText("TOTAL");
+    obj.label114:setName("label114");
+    obj.label114:setFontColor("white");
+    obj.label114:setTextTrimming("none");
+    obj.label114:setWordWrap(false);
+    obj.label114:setAutoSize(true);
+
+    obj.label115 = gui.fromHandle(_obj_newObject("label"));
+    obj.label115:setParent(obj.layout80);
+    obj.label115:setVertTextAlign("center");
+    obj.label115:setLeft(85);
+    obj.label115:setTop(3);
+    obj.label115:setWidth(25);
+    obj.label115:setHeight(22);
+    obj.label115:setText("BASE");
+    obj.label115:setName("label115");
+    obj.label115:setFontColor("white");
+    obj.label115:setTextTrimming("none");
+    obj.label115:setWordWrap(false);
+    obj.label115:setAutoSize(true);
+
+    obj.label116 = gui.fromHandle(_obj_newObject("label"));
+    obj.label116:setParent(obj.layout80);
+    obj.label116:setVertTextAlign("center");
+    obj.label116:setLeft(125);
+    obj.label116:setTop(3);
+    obj.label116:setWidth(25);
+    obj.label116:setHeight(22);
+    obj.label116:setText("BONUS");
+    obj.label116:setName("label116");
+    obj.label116:setFontColor("white");
+    obj.label116:setTextTrimming("none");
+    obj.label116:setWordWrap(false);
+    obj.label116:setAutoSize(true);
+
+    obj.label117 = gui.fromHandle(_obj_newObject("label"));
+    obj.label117:setParent(obj.layout80);
+    obj.label117:setVertTextAlign("center");
+    obj.label117:setLeft(180);
+    obj.label117:setTop(3);
+    obj.label117:setWidth(25);
+    obj.label117:setHeight(22);
+    obj.label117:setText("CONHECIDAS");
+    obj.label117:setName("label117");
+    obj.label117:setFontColor("white");
+    obj.label117:setTextTrimming("none");
+    obj.label117:setWordWrap(false);
+    obj.label117:setAutoSize(true);
+
+    obj.label118 = gui.fromHandle(_obj_newObject("label"));
+    obj.label118:setParent(obj.layout80);
+    obj.label118:setVertTextAlign("center");
+    obj.label118:setLeft(270);
+    obj.label118:setTop(3);
+    obj.label118:setWidth(25);
+    obj.label118:setHeight(22);
+    obj.label118:setText("CD");
+    obj.label118:setName("label118");
+    obj.label118:setFontColor("white");
+    obj.label118:setTextTrimming("none");
+    obj.label118:setWordWrap(false);
+    obj.label118:setAutoSize(true);
+
+    obj.layout81 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout81:setParent(obj.layout79);
+    obj.layout81:setLeft(0);
+    obj.layout81:setTop(55);
+    obj.layout81:setWidth(350);
+    obj.layout81:setHeight(25);
+    obj.layout81:setName("layout81");
+
+    obj.label119 = gui.fromHandle(_obj_newObject("label"));
+    obj.label119:setParent(obj.layout81);
+    obj.label119:setVertTextAlign("center");
+    obj.label119:setLeft(10);
+    obj.label119:setTop(3);
+    obj.label119:setWidth(25);
+    obj.label119:setHeight(22);
+    obj.label119:setText("10");
+    obj.label119:setName("label119");
+    obj.label119:setFontColor("white");
+    obj.label119:setTextTrimming("none");
+    obj.label119:setWordWrap(false);
+    obj.label119:setAutoSize(true);
+
+    obj.edit120 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit120:setParent(obj.layout81);
+    obj.edit120:setVertTextAlign("center");
+    obj.edit120:setLeft(45);
+    obj.edit120:setTop(0);
+    obj.edit120:setWidth(30);
+    obj.edit120:setHeight(25);
+    obj.edit120:setField("total10");
+    obj.edit120:setType("number");
+    obj.edit120:setName("edit120");
+
+    obj.edit121 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit121:setParent(obj.layout81);
+    obj.edit121:setVertTextAlign("center");
+    obj.edit121:setLeft(85);
+    obj.edit121:setTop(0);
+    obj.edit121:setWidth(30);
+    obj.edit121:setHeight(25);
+    obj.edit121:setField("base10");
+    obj.edit121:setType("number");
+    obj.edit121:setName("edit121");
+
+    obj.label120 = gui.fromHandle(_obj_newObject("label"));
+    obj.label120:setParent(obj.layout81);
+    obj.label120:setVertTextAlign("center");
+    obj.label120:setLeft(140);
+    obj.label120:setTop(0);
+    obj.label120:setWidth(30);
+    obj.label120:setHeight(25);
+    obj.label120:setField("bonus10");
+    obj.label120:setName("label120");
+    obj.label120:setFontColor("white");
+    obj.label120:setTextTrimming("none");
+    obj.label120:setWordWrap(false);
+    obj.label120:setAutoSize(true);
+
+    obj.dataLink64 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink64:setParent(obj.layout81);
+    obj.dataLink64:setFields({'base10', 'bonus10'});
+    obj.dataLink64:setName("dataLink64");
+
+    obj.dataLink65 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink65:setParent(obj.layout81);
+    obj.dataLink65:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink65:setName("dataLink65");
+
+    obj.edit122 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit122:setParent(obj.layout81);
+    obj.edit122:setVertTextAlign("center");
+    obj.edit122:setLeft(210);
+    obj.edit122:setTop(0);
+    obj.edit122:setWidth(30);
+    obj.edit122:setHeight(25);
+    obj.edit122:setField("conhecidas10");
+    obj.edit122:setType("number");
+    obj.edit122:setName("edit122");
+
+    obj.label121 = gui.fromHandle(_obj_newObject("label"));
+    obj.label121:setParent(obj.layout81);
+    obj.label121:setVertTextAlign("center");
+    obj.label121:setLeft(270);
+    obj.label121:setTop(0);
+    obj.label121:setWidth(30);
+    obj.label121:setHeight(25);
+    obj.label121:setField("cd10");
+    obj.label121:setName("label121");
+    obj.label121:setFontColor("white");
+    obj.label121:setTextTrimming("none");
+    obj.label121:setWordWrap(false);
+    obj.label121:setAutoSize(true);
+
+    obj.dataLink66 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink66:setParent(obj.layout81);
+    obj.dataLink66:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink66:setName("dataLink66");
+
+    obj.layout82 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout82:setParent(obj.layout79);
+    obj.layout82:setLeft(0);
+    obj.layout82:setTop(85);
+    obj.layout82:setWidth(350);
+    obj.layout82:setHeight(25);
+    obj.layout82:setName("layout82");
+
+    obj.label122 = gui.fromHandle(_obj_newObject("label"));
+    obj.label122:setParent(obj.layout82);
+    obj.label122:setVertTextAlign("center");
+    obj.label122:setLeft(10);
+    obj.label122:setTop(3);
+    obj.label122:setWidth(25);
+    obj.label122:setHeight(22);
+    obj.label122:setText("11");
+    obj.label122:setName("label122");
+    obj.label122:setFontColor("white");
+    obj.label122:setTextTrimming("none");
+    obj.label122:setWordWrap(false);
+    obj.label122:setAutoSize(true);
+
+    obj.edit123 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit123:setParent(obj.layout82);
+    obj.edit123:setVertTextAlign("center");
+    obj.edit123:setLeft(45);
+    obj.edit123:setTop(0);
+    obj.edit123:setWidth(30);
+    obj.edit123:setHeight(25);
+    obj.edit123:setField("total11");
+    obj.edit123:setType("number");
+    obj.edit123:setName("edit123");
+
+    obj.edit124 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit124:setParent(obj.layout82);
+    obj.edit124:setVertTextAlign("center");
+    obj.edit124:setLeft(85);
+    obj.edit124:setTop(0);
+    obj.edit124:setWidth(30);
+    obj.edit124:setHeight(25);
+    obj.edit124:setField("base11");
+    obj.edit124:setType("number");
+    obj.edit124:setName("edit124");
+
+    obj.label123 = gui.fromHandle(_obj_newObject("label"));
+    obj.label123:setParent(obj.layout82);
+    obj.label123:setVertTextAlign("center");
+    obj.label123:setLeft(140);
+    obj.label123:setTop(0);
+    obj.label123:setWidth(30);
+    obj.label123:setHeight(25);
+    obj.label123:setField("bonus11");
+    obj.label123:setName("label123");
+    obj.label123:setFontColor("white");
+    obj.label123:setTextTrimming("none");
+    obj.label123:setWordWrap(false);
+    obj.label123:setAutoSize(true);
+
+    obj.dataLink67 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink67:setParent(obj.layout82);
+    obj.dataLink67:setFields({'base11', 'bonus11'});
+    obj.dataLink67:setName("dataLink67");
+
+    obj.dataLink68 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink68:setParent(obj.layout82);
+    obj.dataLink68:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink68:setName("dataLink68");
+
+    obj.edit125 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit125:setParent(obj.layout82);
+    obj.edit125:setVertTextAlign("center");
+    obj.edit125:setLeft(210);
+    obj.edit125:setTop(0);
+    obj.edit125:setWidth(30);
+    obj.edit125:setHeight(25);
+    obj.edit125:setField("conhecidas11");
+    obj.edit125:setType("number");
+    obj.edit125:setName("edit125");
+
+    obj.label124 = gui.fromHandle(_obj_newObject("label"));
+    obj.label124:setParent(obj.layout82);
+    obj.label124:setVertTextAlign("center");
+    obj.label124:setLeft(270);
+    obj.label124:setTop(0);
+    obj.label124:setWidth(30);
+    obj.label124:setHeight(25);
+    obj.label124:setField("cd11");
+    obj.label124:setName("label124");
+    obj.label124:setFontColor("white");
+    obj.label124:setTextTrimming("none");
+    obj.label124:setWordWrap(false);
+    obj.label124:setAutoSize(true);
+
+    obj.dataLink69 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink69:setParent(obj.layout82);
+    obj.dataLink69:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink69:setName("dataLink69");
+
+    obj.layout83 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout83:setParent(obj.layout79);
+    obj.layout83:setLeft(0);
+    obj.layout83:setTop(115);
+    obj.layout83:setWidth(350);
+    obj.layout83:setHeight(25);
+    obj.layout83:setName("layout83");
+
+    obj.label125 = gui.fromHandle(_obj_newObject("label"));
+    obj.label125:setParent(obj.layout83);
+    obj.label125:setVertTextAlign("center");
+    obj.label125:setLeft(10);
+    obj.label125:setTop(3);
+    obj.label125:setWidth(25);
+    obj.label125:setHeight(22);
+    obj.label125:setText("12");
+    obj.label125:setName("label125");
+    obj.label125:setFontColor("white");
+    obj.label125:setTextTrimming("none");
+    obj.label125:setWordWrap(false);
+    obj.label125:setAutoSize(true);
+
+    obj.edit126 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit126:setParent(obj.layout83);
+    obj.edit126:setVertTextAlign("center");
+    obj.edit126:setLeft(45);
+    obj.edit126:setTop(0);
+    obj.edit126:setWidth(30);
+    obj.edit126:setHeight(25);
+    obj.edit126:setField("total12");
+    obj.edit126:setType("number");
+    obj.edit126:setName("edit126");
+
+    obj.edit127 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit127:setParent(obj.layout83);
+    obj.edit127:setVertTextAlign("center");
+    obj.edit127:setLeft(85);
+    obj.edit127:setTop(0);
+    obj.edit127:setWidth(30);
+    obj.edit127:setHeight(25);
+    obj.edit127:setField("base12");
+    obj.edit127:setType("number");
+    obj.edit127:setName("edit127");
+
+    obj.label126 = gui.fromHandle(_obj_newObject("label"));
+    obj.label126:setParent(obj.layout83);
+    obj.label126:setVertTextAlign("center");
+    obj.label126:setLeft(140);
+    obj.label126:setTop(0);
+    obj.label126:setWidth(30);
+    obj.label126:setHeight(25);
+    obj.label126:setField("bonus12");
+    obj.label126:setName("label126");
+    obj.label126:setFontColor("white");
+    obj.label126:setTextTrimming("none");
+    obj.label126:setWordWrap(false);
+    obj.label126:setAutoSize(true);
+
+    obj.dataLink70 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink70:setParent(obj.layout83);
+    obj.dataLink70:setFields({'base12', 'bonus12'});
+    obj.dataLink70:setName("dataLink70");
+
+    obj.dataLink71 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink71:setParent(obj.layout83);
+    obj.dataLink71:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink71:setName("dataLink71");
+
+    obj.edit128 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit128:setParent(obj.layout83);
+    obj.edit128:setVertTextAlign("center");
+    obj.edit128:setLeft(210);
+    obj.edit128:setTop(0);
+    obj.edit128:setWidth(30);
+    obj.edit128:setHeight(25);
+    obj.edit128:setField("conhecidas12");
+    obj.edit128:setType("number");
+    obj.edit128:setName("edit128");
+
+    obj.label127 = gui.fromHandle(_obj_newObject("label"));
+    obj.label127:setParent(obj.layout83);
+    obj.label127:setVertTextAlign("center");
+    obj.label127:setLeft(270);
+    obj.label127:setTop(0);
+    obj.label127:setWidth(30);
+    obj.label127:setHeight(25);
+    obj.label127:setField("cd12");
+    obj.label127:setName("label127");
+    obj.label127:setFontColor("white");
+    obj.label127:setTextTrimming("none");
+    obj.label127:setWordWrap(false);
+    obj.label127:setAutoSize(true);
+
+    obj.dataLink72 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink72:setParent(obj.layout83);
+    obj.dataLink72:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink72:setName("dataLink72");
+
+    obj.layout84 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout84:setParent(obj.layout79);
+    obj.layout84:setLeft(0);
+    obj.layout84:setTop(145);
+    obj.layout84:setWidth(350);
+    obj.layout84:setHeight(25);
+    obj.layout84:setName("layout84");
+
+    obj.label128 = gui.fromHandle(_obj_newObject("label"));
+    obj.label128:setParent(obj.layout84);
+    obj.label128:setVertTextAlign("center");
+    obj.label128:setLeft(10);
+    obj.label128:setTop(3);
+    obj.label128:setWidth(25);
+    obj.label128:setHeight(22);
+    obj.label128:setText("13");
+    obj.label128:setName("label128");
+    obj.label128:setFontColor("white");
+    obj.label128:setTextTrimming("none");
+    obj.label128:setWordWrap(false);
+    obj.label128:setAutoSize(true);
+
+    obj.edit129 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit129:setParent(obj.layout84);
+    obj.edit129:setVertTextAlign("center");
+    obj.edit129:setLeft(45);
+    obj.edit129:setTop(0);
+    obj.edit129:setWidth(30);
+    obj.edit129:setHeight(25);
+    obj.edit129:setField("total13");
+    obj.edit129:setType("number");
+    obj.edit129:setName("edit129");
+
+    obj.edit130 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit130:setParent(obj.layout84);
+    obj.edit130:setVertTextAlign("center");
+    obj.edit130:setLeft(85);
+    obj.edit130:setTop(0);
+    obj.edit130:setWidth(30);
+    obj.edit130:setHeight(25);
+    obj.edit130:setField("base13");
+    obj.edit130:setType("number");
+    obj.edit130:setName("edit130");
+
+    obj.label129 = gui.fromHandle(_obj_newObject("label"));
+    obj.label129:setParent(obj.layout84);
+    obj.label129:setVertTextAlign("center");
+    obj.label129:setLeft(140);
+    obj.label129:setTop(0);
+    obj.label129:setWidth(30);
+    obj.label129:setHeight(25);
+    obj.label129:setField("bonus13");
+    obj.label129:setName("label129");
+    obj.label129:setFontColor("white");
+    obj.label129:setTextTrimming("none");
+    obj.label129:setWordWrap(false);
+    obj.label129:setAutoSize(true);
+
+    obj.dataLink73 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink73:setParent(obj.layout84);
+    obj.dataLink73:setFields({'base13', 'bonus13'});
+    obj.dataLink73:setName("dataLink73");
+
+    obj.dataLink74 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink74:setParent(obj.layout84);
+    obj.dataLink74:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink74:setName("dataLink74");
+
+    obj.edit131 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit131:setParent(obj.layout84);
+    obj.edit131:setVertTextAlign("center");
+    obj.edit131:setLeft(210);
+    obj.edit131:setTop(0);
+    obj.edit131:setWidth(30);
+    obj.edit131:setHeight(25);
+    obj.edit131:setField("conhecidas13");
+    obj.edit131:setType("number");
+    obj.edit131:setName("edit131");
+
+    obj.label130 = gui.fromHandle(_obj_newObject("label"));
+    obj.label130:setParent(obj.layout84);
+    obj.label130:setVertTextAlign("center");
+    obj.label130:setLeft(270);
+    obj.label130:setTop(0);
+    obj.label130:setWidth(30);
+    obj.label130:setHeight(25);
+    obj.label130:setField("cd13");
+    obj.label130:setName("label130");
+    obj.label130:setFontColor("white");
+    obj.label130:setTextTrimming("none");
+    obj.label130:setWordWrap(false);
+    obj.label130:setAutoSize(true);
+
+    obj.dataLink75 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink75:setParent(obj.layout84);
+    obj.dataLink75:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink75:setName("dataLink75");
+
+    obj.layout85 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout85:setParent(obj.layout79);
+    obj.layout85:setLeft(0);
+    obj.layout85:setTop(175);
+    obj.layout85:setWidth(350);
+    obj.layout85:setHeight(25);
+    obj.layout85:setName("layout85");
+
+    obj.label131 = gui.fromHandle(_obj_newObject("label"));
+    obj.label131:setParent(obj.layout85);
+    obj.label131:setVertTextAlign("center");
+    obj.label131:setLeft(10);
+    obj.label131:setTop(3);
+    obj.label131:setWidth(25);
+    obj.label131:setHeight(22);
+    obj.label131:setText("14");
+    obj.label131:setName("label131");
+    obj.label131:setFontColor("white");
+    obj.label131:setTextTrimming("none");
+    obj.label131:setWordWrap(false);
+    obj.label131:setAutoSize(true);
+
+    obj.edit132 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit132:setParent(obj.layout85);
+    obj.edit132:setVertTextAlign("center");
+    obj.edit132:setLeft(45);
+    obj.edit132:setTop(0);
+    obj.edit132:setWidth(30);
+    obj.edit132:setHeight(25);
+    obj.edit132:setField("total14");
+    obj.edit132:setType("number");
+    obj.edit132:setName("edit132");
+
+    obj.edit133 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit133:setParent(obj.layout85);
+    obj.edit133:setVertTextAlign("center");
+    obj.edit133:setLeft(85);
+    obj.edit133:setTop(0);
+    obj.edit133:setWidth(30);
+    obj.edit133:setHeight(25);
+    obj.edit133:setField("base14");
+    obj.edit133:setType("number");
+    obj.edit133:setName("edit133");
+
+    obj.label132 = gui.fromHandle(_obj_newObject("label"));
+    obj.label132:setParent(obj.layout85);
+    obj.label132:setVertTextAlign("center");
+    obj.label132:setLeft(140);
+    obj.label132:setTop(0);
+    obj.label132:setWidth(30);
+    obj.label132:setHeight(25);
+    obj.label132:setField("bonus14");
+    obj.label132:setName("label132");
+    obj.label132:setFontColor("white");
+    obj.label132:setTextTrimming("none");
+    obj.label132:setWordWrap(false);
+    obj.label132:setAutoSize(true);
+
+    obj.dataLink76 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink76:setParent(obj.layout85);
+    obj.dataLink76:setFields({'base14', 'bonus14'});
+    obj.dataLink76:setName("dataLink76");
+
+    obj.dataLink77 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink77:setParent(obj.layout85);
+    obj.dataLink77:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink77:setName("dataLink77");
+
+    obj.edit134 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit134:setParent(obj.layout85);
+    obj.edit134:setVertTextAlign("center");
+    obj.edit134:setLeft(210);
+    obj.edit134:setTop(0);
+    obj.edit134:setWidth(30);
+    obj.edit134:setHeight(25);
+    obj.edit134:setField("conhecidas14");
+    obj.edit134:setType("number");
+    obj.edit134:setName("edit134");
+
+    obj.label133 = gui.fromHandle(_obj_newObject("label"));
+    obj.label133:setParent(obj.layout85);
+    obj.label133:setVertTextAlign("center");
+    obj.label133:setLeft(270);
+    obj.label133:setTop(0);
+    obj.label133:setWidth(30);
+    obj.label133:setHeight(25);
+    obj.label133:setField("cd14");
+    obj.label133:setName("label133");
+    obj.label133:setFontColor("white");
+    obj.label133:setTextTrimming("none");
+    obj.label133:setWordWrap(false);
+    obj.label133:setAutoSize(true);
+
+    obj.dataLink78 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink78:setParent(obj.layout85);
+    obj.dataLink78:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink78:setName("dataLink78");
+
+    obj.layout86 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout86:setParent(obj.layout79);
+    obj.layout86:setLeft(0);
+    obj.layout86:setTop(205);
+    obj.layout86:setWidth(350);
+    obj.layout86:setHeight(25);
+    obj.layout86:setName("layout86");
+
+    obj.label134 = gui.fromHandle(_obj_newObject("label"));
+    obj.label134:setParent(obj.layout86);
+    obj.label134:setVertTextAlign("center");
+    obj.label134:setLeft(10);
+    obj.label134:setTop(3);
+    obj.label134:setWidth(25);
+    obj.label134:setHeight(22);
+    obj.label134:setText("15");
+    obj.label134:setName("label134");
+    obj.label134:setFontColor("white");
+    obj.label134:setTextTrimming("none");
+    obj.label134:setWordWrap(false);
+    obj.label134:setAutoSize(true);
+
+    obj.edit135 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit135:setParent(obj.layout86);
+    obj.edit135:setVertTextAlign("center");
+    obj.edit135:setLeft(45);
+    obj.edit135:setTop(0);
+    obj.edit135:setWidth(30);
+    obj.edit135:setHeight(25);
+    obj.edit135:setField("total15");
+    obj.edit135:setType("number");
+    obj.edit135:setName("edit135");
+
+    obj.edit136 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit136:setParent(obj.layout86);
+    obj.edit136:setVertTextAlign("center");
+    obj.edit136:setLeft(85);
+    obj.edit136:setTop(0);
+    obj.edit136:setWidth(30);
+    obj.edit136:setHeight(25);
+    obj.edit136:setField("base15");
+    obj.edit136:setType("number");
+    obj.edit136:setName("edit136");
+
+    obj.label135 = gui.fromHandle(_obj_newObject("label"));
+    obj.label135:setParent(obj.layout86);
+    obj.label135:setVertTextAlign("center");
+    obj.label135:setLeft(140);
+    obj.label135:setTop(0);
+    obj.label135:setWidth(30);
+    obj.label135:setHeight(25);
+    obj.label135:setField("bonus15");
+    obj.label135:setName("label135");
+    obj.label135:setFontColor("white");
+    obj.label135:setTextTrimming("none");
+    obj.label135:setWordWrap(false);
+    obj.label135:setAutoSize(true);
+
+    obj.dataLink79 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink79:setParent(obj.layout86);
+    obj.dataLink79:setFields({'base15', 'bonus15'});
+    obj.dataLink79:setName("dataLink79");
+
+    obj.dataLink80 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink80:setParent(obj.layout86);
+    obj.dataLink80:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink80:setName("dataLink80");
+
+    obj.edit137 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit137:setParent(obj.layout86);
+    obj.edit137:setVertTextAlign("center");
+    obj.edit137:setLeft(210);
+    obj.edit137:setTop(0);
+    obj.edit137:setWidth(30);
+    obj.edit137:setHeight(25);
+    obj.edit137:setField("conhecidas15");
+    obj.edit137:setType("number");
+    obj.edit137:setName("edit137");
+
+    obj.label136 = gui.fromHandle(_obj_newObject("label"));
+    obj.label136:setParent(obj.layout86);
+    obj.label136:setVertTextAlign("center");
+    obj.label136:setLeft(270);
+    obj.label136:setTop(0);
+    obj.label136:setWidth(30);
+    obj.label136:setHeight(25);
+    obj.label136:setField("cd15");
+    obj.label136:setName("label136");
+    obj.label136:setFontColor("white");
+    obj.label136:setTextTrimming("none");
+    obj.label136:setWordWrap(false);
+    obj.label136:setAutoSize(true);
+
+    obj.dataLink81 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink81:setParent(obj.layout86);
+    obj.dataLink81:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink81:setName("dataLink81");
+
+    obj.layout87 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout87:setParent(obj.layout79);
+    obj.layout87:setLeft(0);
+    obj.layout87:setTop(235);
+    obj.layout87:setWidth(350);
+    obj.layout87:setHeight(25);
+    obj.layout87:setName("layout87");
+
+    obj.label137 = gui.fromHandle(_obj_newObject("label"));
+    obj.label137:setParent(obj.layout87);
+    obj.label137:setVertTextAlign("center");
+    obj.label137:setLeft(10);
+    obj.label137:setTop(3);
+    obj.label137:setWidth(25);
+    obj.label137:setHeight(22);
+    obj.label137:setText("16");
+    obj.label137:setName("label137");
+    obj.label137:setFontColor("white");
+    obj.label137:setTextTrimming("none");
+    obj.label137:setWordWrap(false);
+    obj.label137:setAutoSize(true);
+
+    obj.edit138 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit138:setParent(obj.layout87);
+    obj.edit138:setVertTextAlign("center");
+    obj.edit138:setLeft(45);
+    obj.edit138:setTop(0);
+    obj.edit138:setWidth(30);
+    obj.edit138:setHeight(25);
+    obj.edit138:setField("total16");
+    obj.edit138:setType("number");
+    obj.edit138:setName("edit138");
+
+    obj.edit139 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit139:setParent(obj.layout87);
+    obj.edit139:setVertTextAlign("center");
+    obj.edit139:setLeft(85);
+    obj.edit139:setTop(0);
+    obj.edit139:setWidth(30);
+    obj.edit139:setHeight(25);
+    obj.edit139:setField("base16");
+    obj.edit139:setType("number");
+    obj.edit139:setName("edit139");
+
+    obj.label138 = gui.fromHandle(_obj_newObject("label"));
+    obj.label138:setParent(obj.layout87);
+    obj.label138:setVertTextAlign("center");
+    obj.label138:setLeft(140);
+    obj.label138:setTop(0);
+    obj.label138:setWidth(30);
+    obj.label138:setHeight(25);
+    obj.label138:setField("bonus16");
+    obj.label138:setName("label138");
+    obj.label138:setFontColor("white");
+    obj.label138:setTextTrimming("none");
+    obj.label138:setWordWrap(false);
+    obj.label138:setAutoSize(true);
+
+    obj.dataLink82 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink82:setParent(obj.layout87);
+    obj.dataLink82:setFields({'base16', 'bonus16'});
+    obj.dataLink82:setName("dataLink82");
+
+    obj.dataLink83 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink83:setParent(obj.layout87);
+    obj.dataLink83:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink83:setName("dataLink83");
+
+    obj.edit140 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit140:setParent(obj.layout87);
+    obj.edit140:setVertTextAlign("center");
+    obj.edit140:setLeft(210);
+    obj.edit140:setTop(0);
+    obj.edit140:setWidth(30);
+    obj.edit140:setHeight(25);
+    obj.edit140:setField("conhecidas16");
+    obj.edit140:setType("number");
+    obj.edit140:setName("edit140");
+
+    obj.label139 = gui.fromHandle(_obj_newObject("label"));
+    obj.label139:setParent(obj.layout87);
+    obj.label139:setVertTextAlign("center");
+    obj.label139:setLeft(270);
+    obj.label139:setTop(0);
+    obj.label139:setWidth(30);
+    obj.label139:setHeight(25);
+    obj.label139:setField("cd16");
+    obj.label139:setName("label139");
+    obj.label139:setFontColor("white");
+    obj.label139:setTextTrimming("none");
+    obj.label139:setWordWrap(false);
+    obj.label139:setAutoSize(true);
+
+    obj.dataLink84 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink84:setParent(obj.layout87);
+    obj.dataLink84:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink84:setName("dataLink84");
+
+    obj.layout88 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout88:setParent(obj.layout79);
+    obj.layout88:setLeft(0);
+    obj.layout88:setTop(265);
+    obj.layout88:setWidth(350);
+    obj.layout88:setHeight(25);
+    obj.layout88:setName("layout88");
+
+    obj.label140 = gui.fromHandle(_obj_newObject("label"));
+    obj.label140:setParent(obj.layout88);
+    obj.label140:setVertTextAlign("center");
+    obj.label140:setLeft(10);
+    obj.label140:setTop(3);
+    obj.label140:setWidth(25);
+    obj.label140:setHeight(22);
+    obj.label140:setText("17");
+    obj.label140:setName("label140");
+    obj.label140:setFontColor("white");
+    obj.label140:setTextTrimming("none");
+    obj.label140:setWordWrap(false);
+    obj.label140:setAutoSize(true);
+
+    obj.edit141 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit141:setParent(obj.layout88);
+    obj.edit141:setVertTextAlign("center");
+    obj.edit141:setLeft(45);
+    obj.edit141:setTop(0);
+    obj.edit141:setWidth(30);
+    obj.edit141:setHeight(25);
+    obj.edit141:setField("total17");
+    obj.edit141:setType("number");
+    obj.edit141:setName("edit141");
+
+    obj.edit142 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit142:setParent(obj.layout88);
+    obj.edit142:setVertTextAlign("center");
+    obj.edit142:setLeft(85);
+    obj.edit142:setTop(0);
+    obj.edit142:setWidth(30);
+    obj.edit142:setHeight(25);
+    obj.edit142:setField("base17");
+    obj.edit142:setType("number");
+    obj.edit142:setName("edit142");
+
+    obj.label141 = gui.fromHandle(_obj_newObject("label"));
+    obj.label141:setParent(obj.layout88);
+    obj.label141:setVertTextAlign("center");
+    obj.label141:setLeft(140);
+    obj.label141:setTop(0);
+    obj.label141:setWidth(30);
+    obj.label141:setHeight(25);
+    obj.label141:setField("bonus17");
+    obj.label141:setName("label141");
+    obj.label141:setFontColor("white");
+    obj.label141:setTextTrimming("none");
+    obj.label141:setWordWrap(false);
+    obj.label141:setAutoSize(true);
+
+    obj.dataLink85 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink85:setParent(obj.layout88);
+    obj.dataLink85:setFields({'base17', 'bonus17'});
+    obj.dataLink85:setName("dataLink85");
+
+    obj.dataLink86 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink86:setParent(obj.layout88);
+    obj.dataLink86:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink86:setName("dataLink86");
+
+    obj.edit143 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit143:setParent(obj.layout88);
+    obj.edit143:setVertTextAlign("center");
+    obj.edit143:setLeft(210);
+    obj.edit143:setTop(0);
+    obj.edit143:setWidth(30);
+    obj.edit143:setHeight(25);
+    obj.edit143:setField("conhecidas17");
+    obj.edit143:setType("number");
+    obj.edit143:setName("edit143");
+
+    obj.label142 = gui.fromHandle(_obj_newObject("label"));
+    obj.label142:setParent(obj.layout88);
+    obj.label142:setVertTextAlign("center");
+    obj.label142:setLeft(270);
+    obj.label142:setTop(0);
+    obj.label142:setWidth(30);
+    obj.label142:setHeight(25);
+    obj.label142:setField("cd17");
+    obj.label142:setName("label142");
+    obj.label142:setFontColor("white");
+    obj.label142:setTextTrimming("none");
+    obj.label142:setWordWrap(false);
+    obj.label142:setAutoSize(true);
+
+    obj.dataLink87 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink87:setParent(obj.layout88);
+    obj.dataLink87:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink87:setName("dataLink87");
+
+    obj.layout89 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout89:setParent(obj.layout79);
+    obj.layout89:setLeft(0);
+    obj.layout89:setTop(295);
+    obj.layout89:setWidth(350);
+    obj.layout89:setHeight(25);
+    obj.layout89:setName("layout89");
+
+    obj.label143 = gui.fromHandle(_obj_newObject("label"));
+    obj.label143:setParent(obj.layout89);
+    obj.label143:setVertTextAlign("center");
+    obj.label143:setLeft(10);
+    obj.label143:setTop(3);
+    obj.label143:setWidth(25);
+    obj.label143:setHeight(22);
+    obj.label143:setText("18");
+    obj.label143:setName("label143");
+    obj.label143:setFontColor("white");
+    obj.label143:setTextTrimming("none");
+    obj.label143:setWordWrap(false);
+    obj.label143:setAutoSize(true);
+
+    obj.edit144 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit144:setParent(obj.layout89);
+    obj.edit144:setVertTextAlign("center");
+    obj.edit144:setLeft(45);
+    obj.edit144:setTop(0);
+    obj.edit144:setWidth(30);
+    obj.edit144:setHeight(25);
+    obj.edit144:setField("total18");
+    obj.edit144:setType("number");
+    obj.edit144:setName("edit144");
+
+    obj.edit145 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit145:setParent(obj.layout89);
+    obj.edit145:setVertTextAlign("center");
+    obj.edit145:setLeft(85);
+    obj.edit145:setTop(0);
+    obj.edit145:setWidth(30);
+    obj.edit145:setHeight(25);
+    obj.edit145:setField("base18");
+    obj.edit145:setType("number");
+    obj.edit145:setName("edit145");
+
+    obj.label144 = gui.fromHandle(_obj_newObject("label"));
+    obj.label144:setParent(obj.layout89);
+    obj.label144:setVertTextAlign("center");
+    obj.label144:setLeft(140);
+    obj.label144:setTop(0);
+    obj.label144:setWidth(30);
+    obj.label144:setHeight(25);
+    obj.label144:setField("bonus18");
+    obj.label144:setName("label144");
+    obj.label144:setFontColor("white");
+    obj.label144:setTextTrimming("none");
+    obj.label144:setWordWrap(false);
+    obj.label144:setAutoSize(true);
+
+    obj.dataLink88 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink88:setParent(obj.layout89);
+    obj.dataLink88:setFields({'base18', 'bonus18'});
+    obj.dataLink88:setName("dataLink88");
+
+    obj.dataLink89 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink89:setParent(obj.layout89);
+    obj.dataLink89:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink89:setName("dataLink89");
+
+    obj.edit146 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit146:setParent(obj.layout89);
+    obj.edit146:setVertTextAlign("center");
+    obj.edit146:setLeft(210);
+    obj.edit146:setTop(0);
+    obj.edit146:setWidth(30);
+    obj.edit146:setHeight(25);
+    obj.edit146:setField("conhecidas18");
+    obj.edit146:setType("number");
+    obj.edit146:setName("edit146");
+
+    obj.label145 = gui.fromHandle(_obj_newObject("label"));
+    obj.label145:setParent(obj.layout89);
+    obj.label145:setVertTextAlign("center");
+    obj.label145:setLeft(270);
+    obj.label145:setTop(0);
+    obj.label145:setWidth(30);
+    obj.label145:setHeight(25);
+    obj.label145:setField("cd18");
+    obj.label145:setName("label145");
+    obj.label145:setFontColor("white");
+    obj.label145:setTextTrimming("none");
+    obj.label145:setWordWrap(false);
+    obj.label145:setAutoSize(true);
+
+    obj.dataLink90 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink90:setParent(obj.layout89);
+    obj.dataLink90:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink90:setName("dataLink90");
+
+    obj.layout90 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout90:setParent(obj.layout79);
+    obj.layout90:setLeft(0);
+    obj.layout90:setTop(325);
+    obj.layout90:setWidth(350);
+    obj.layout90:setHeight(25);
+    obj.layout90:setName("layout90");
+
+    obj.label146 = gui.fromHandle(_obj_newObject("label"));
+    obj.label146:setParent(obj.layout90);
+    obj.label146:setVertTextAlign("center");
+    obj.label146:setLeft(10);
+    obj.label146:setTop(3);
+    obj.label146:setWidth(25);
+    obj.label146:setHeight(22);
+    obj.label146:setText("19");
+    obj.label146:setName("label146");
+    obj.label146:setFontColor("white");
+    obj.label146:setTextTrimming("none");
+    obj.label146:setWordWrap(false);
+    obj.label146:setAutoSize(true);
+
+    obj.edit147 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit147:setParent(obj.layout90);
+    obj.edit147:setVertTextAlign("center");
+    obj.edit147:setLeft(45);
+    obj.edit147:setTop(0);
+    obj.edit147:setWidth(30);
+    obj.edit147:setHeight(25);
+    obj.edit147:setField("total19");
+    obj.edit147:setType("number");
+    obj.edit147:setName("edit147");
+
+    obj.edit148 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit148:setParent(obj.layout90);
+    obj.edit148:setVertTextAlign("center");
+    obj.edit148:setLeft(85);
+    obj.edit148:setTop(0);
+    obj.edit148:setWidth(30);
+    obj.edit148:setHeight(25);
+    obj.edit148:setField("base19");
+    obj.edit148:setType("number");
+    obj.edit148:setName("edit148");
+
+    obj.label147 = gui.fromHandle(_obj_newObject("label"));
+    obj.label147:setParent(obj.layout90);
+    obj.label147:setVertTextAlign("center");
+    obj.label147:setLeft(140);
+    obj.label147:setTop(0);
+    obj.label147:setWidth(30);
+    obj.label147:setHeight(25);
+    obj.label147:setField("bonus19");
+    obj.label147:setName("label147");
+    obj.label147:setFontColor("white");
+    obj.label147:setTextTrimming("none");
+    obj.label147:setWordWrap(false);
+    obj.label147:setAutoSize(true);
+
+    obj.dataLink91 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink91:setParent(obj.layout90);
+    obj.dataLink91:setFields({'base19', 'bonus19'});
+    obj.dataLink91:setName("dataLink91");
+
+    obj.dataLink92 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink92:setParent(obj.layout90);
+    obj.dataLink92:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink92:setName("dataLink92");
+
+    obj.edit149 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit149:setParent(obj.layout90);
+    obj.edit149:setVertTextAlign("center");
+    obj.edit149:setLeft(210);
+    obj.edit149:setTop(0);
+    obj.edit149:setWidth(30);
+    obj.edit149:setHeight(25);
+    obj.edit149:setField("conhecidas19");
+    obj.edit149:setType("number");
+    obj.edit149:setName("edit149");
+
+    obj.label148 = gui.fromHandle(_obj_newObject("label"));
+    obj.label148:setParent(obj.layout90);
+    obj.label148:setVertTextAlign("center");
+    obj.label148:setLeft(270);
+    obj.label148:setTop(0);
+    obj.label148:setWidth(30);
+    obj.label148:setHeight(25);
+    obj.label148:setField("cd19");
+    obj.label148:setName("label148");
+    obj.label148:setFontColor("white");
+    obj.label148:setTextTrimming("none");
+    obj.label148:setWordWrap(false);
+    obj.label148:setAutoSize(true);
+
+    obj.dataLink93 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink93:setParent(obj.layout90);
+    obj.dataLink93:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink93:setName("dataLink93");
+
+    obj.layout91 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout91:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout91:setLeft(50);
+    obj.layout91:setTop(360);
+    obj.layout91:setWidth(280);
+    obj.layout91:setHeight(180);
+    obj.layout91:setName("layout91");
+
+    obj.label149 = gui.fromHandle(_obj_newObject("label"));
+    obj.label149:setParent(obj.layout91);
+    obj.label149:setVertTextAlign("center");
+    obj.label149:setLeft(0);
+    obj.label149:setTop(0);
+    obj.label149:setWidth(100);
+    obj.label149:setHeight(20);
+    obj.label149:setText("Magias Nível 16");
+    obj.label149:setName("label149");
+    obj.label149:setFontColor("white");
+    obj.label149:setTextTrimming("none");
+    obj.label149:setWordWrap(false);
+    obj.label149:setAutoSize(true);
 
     obj.textEditor31 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor31:setParent(obj.layout69);
+    obj.textEditor31:setParent(obj.layout91);
     obj.textEditor31:setTop(20);
     obj.textEditor31:setWidth(280);
     obj.textEditor31:setHeight(160);
@@ -4047,30 +5708,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor31:setField("circulo16");
     obj.textEditor31:setName("textEditor31");
 
-    obj.layout70 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout70:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout70:setLeft(340);
-    obj.layout70:setTop(0);
-    obj.layout70:setWidth(280);
-    obj.layout70:setHeight(180);
-    obj.layout70:setName("layout70");
+    obj.layout92 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout92:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout92:setLeft(340);
+    obj.layout92:setTop(0);
+    obj.layout92:setWidth(280);
+    obj.layout92:setHeight(180);
+    obj.layout92:setName("layout92");
 
-    obj.label103 = gui.fromHandle(_obj_newObject("label"));
-    obj.label103:setParent(obj.layout70);
-    obj.label103:setVertTextAlign("center");
-    obj.label103:setLeft(0);
-    obj.label103:setTop(0);
-    obj.label103:setWidth(100);
-    obj.label103:setHeight(20);
-    obj.label103:setText("Magias Nível 10");
-    obj.label103:setName("label103");
-    obj.label103:setFontColor("white");
-    obj.label103:setTextTrimming("none");
-    obj.label103:setWordWrap(false);
-    obj.label103:setAutoSize(true);
+    obj.label150 = gui.fromHandle(_obj_newObject("label"));
+    obj.label150:setParent(obj.layout92);
+    obj.label150:setVertTextAlign("center");
+    obj.label150:setLeft(0);
+    obj.label150:setTop(0);
+    obj.label150:setWidth(100);
+    obj.label150:setHeight(20);
+    obj.label150:setText("Magias Nível 10");
+    obj.label150:setName("label150");
+    obj.label150:setFontColor("white");
+    obj.label150:setTextTrimming("none");
+    obj.label150:setWordWrap(false);
+    obj.label150:setAutoSize(true);
 
     obj.textEditor32 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor32:setParent(obj.layout70);
+    obj.textEditor32:setParent(obj.layout92);
     obj.textEditor32:setTop(20);
     obj.textEditor32:setWidth(280);
     obj.textEditor32:setHeight(160);
@@ -4078,30 +5739,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor32:setField("circulo10");
     obj.textEditor32:setName("textEditor32");
 
-    obj.layout71 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout71:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout71:setLeft(340);
-    obj.layout71:setTop(180);
-    obj.layout71:setWidth(280);
-    obj.layout71:setHeight(180);
-    obj.layout71:setName("layout71");
+    obj.layout93 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout93:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout93:setLeft(340);
+    obj.layout93:setTop(180);
+    obj.layout93:setWidth(280);
+    obj.layout93:setHeight(180);
+    obj.layout93:setName("layout93");
 
-    obj.label104 = gui.fromHandle(_obj_newObject("label"));
-    obj.label104:setParent(obj.layout71);
-    obj.label104:setVertTextAlign("center");
-    obj.label104:setLeft(0);
-    obj.label104:setTop(0);
-    obj.label104:setWidth(100);
-    obj.label104:setHeight(20);
-    obj.label104:setText("Magias Nível 13");
-    obj.label104:setName("label104");
-    obj.label104:setFontColor("white");
-    obj.label104:setTextTrimming("none");
-    obj.label104:setWordWrap(false);
-    obj.label104:setAutoSize(true);
+    obj.label151 = gui.fromHandle(_obj_newObject("label"));
+    obj.label151:setParent(obj.layout93);
+    obj.label151:setVertTextAlign("center");
+    obj.label151:setLeft(0);
+    obj.label151:setTop(0);
+    obj.label151:setWidth(100);
+    obj.label151:setHeight(20);
+    obj.label151:setText("Magias Nível 13");
+    obj.label151:setName("label151");
+    obj.label151:setFontColor("white");
+    obj.label151:setTextTrimming("none");
+    obj.label151:setWordWrap(false);
+    obj.label151:setAutoSize(true);
 
     obj.textEditor33 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor33:setParent(obj.layout71);
+    obj.textEditor33:setParent(obj.layout93);
     obj.textEditor33:setTop(20);
     obj.textEditor33:setWidth(280);
     obj.textEditor33:setHeight(160);
@@ -4109,30 +5770,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor33:setField("circulo13");
     obj.textEditor33:setName("textEditor33");
 
-    obj.layout72 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout72:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout72:setLeft(340);
-    obj.layout72:setTop(360);
-    obj.layout72:setWidth(280);
-    obj.layout72:setHeight(180);
-    obj.layout72:setName("layout72");
+    obj.layout94 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout94:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout94:setLeft(340);
+    obj.layout94:setTop(360);
+    obj.layout94:setWidth(280);
+    obj.layout94:setHeight(180);
+    obj.layout94:setName("layout94");
 
-    obj.label105 = gui.fromHandle(_obj_newObject("label"));
-    obj.label105:setParent(obj.layout72);
-    obj.label105:setVertTextAlign("center");
-    obj.label105:setLeft(0);
-    obj.label105:setTop(0);
-    obj.label105:setWidth(100);
-    obj.label105:setHeight(20);
-    obj.label105:setText("Magias Nível 17");
-    obj.label105:setName("label105");
-    obj.label105:setFontColor("white");
-    obj.label105:setTextTrimming("none");
-    obj.label105:setWordWrap(false);
-    obj.label105:setAutoSize(true);
+    obj.label152 = gui.fromHandle(_obj_newObject("label"));
+    obj.label152:setParent(obj.layout94);
+    obj.label152:setVertTextAlign("center");
+    obj.label152:setLeft(0);
+    obj.label152:setTop(0);
+    obj.label152:setWidth(100);
+    obj.label152:setHeight(20);
+    obj.label152:setText("Magias Nível 17");
+    obj.label152:setName("label152");
+    obj.label152:setFontColor("white");
+    obj.label152:setTextTrimming("none");
+    obj.label152:setWordWrap(false);
+    obj.label152:setAutoSize(true);
 
     obj.textEditor34 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor34:setParent(obj.layout72);
+    obj.textEditor34:setParent(obj.layout94);
     obj.textEditor34:setTop(20);
     obj.textEditor34:setWidth(280);
     obj.textEditor34:setHeight(160);
@@ -4140,30 +5801,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor34:setField("circulo17");
     obj.textEditor34:setName("textEditor34");
 
-    obj.layout73 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout73:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout73:setLeft(630);
-    obj.layout73:setTop(0);
-    obj.layout73:setWidth(280);
-    obj.layout73:setHeight(180);
-    obj.layout73:setName("layout73");
+    obj.layout95 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout95:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout95:setLeft(630);
+    obj.layout95:setTop(0);
+    obj.layout95:setWidth(280);
+    obj.layout95:setHeight(180);
+    obj.layout95:setName("layout95");
 
-    obj.label106 = gui.fromHandle(_obj_newObject("label"));
-    obj.label106:setParent(obj.layout73);
-    obj.label106:setVertTextAlign("center");
-    obj.label106:setLeft(0);
-    obj.label106:setTop(0);
-    obj.label106:setWidth(100);
-    obj.label106:setHeight(20);
-    obj.label106:setText("Magias Nível 11");
-    obj.label106:setName("label106");
-    obj.label106:setFontColor("white");
-    obj.label106:setTextTrimming("none");
-    obj.label106:setWordWrap(false);
-    obj.label106:setAutoSize(true);
+    obj.label153 = gui.fromHandle(_obj_newObject("label"));
+    obj.label153:setParent(obj.layout95);
+    obj.label153:setVertTextAlign("center");
+    obj.label153:setLeft(0);
+    obj.label153:setTop(0);
+    obj.label153:setWidth(100);
+    obj.label153:setHeight(20);
+    obj.label153:setText("Magias Nível 11");
+    obj.label153:setName("label153");
+    obj.label153:setFontColor("white");
+    obj.label153:setTextTrimming("none");
+    obj.label153:setWordWrap(false);
+    obj.label153:setAutoSize(true);
 
     obj.textEditor35 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor35:setParent(obj.layout73);
+    obj.textEditor35:setParent(obj.layout95);
     obj.textEditor35:setTop(20);
     obj.textEditor35:setWidth(280);
     obj.textEditor35:setHeight(160);
@@ -4171,30 +5832,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor35:setField("circulo11");
     obj.textEditor35:setName("textEditor35");
 
-    obj.layout74 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout74:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout74:setLeft(630);
-    obj.layout74:setTop(180);
-    obj.layout74:setWidth(280);
-    obj.layout74:setHeight(180);
-    obj.layout74:setName("layout74");
+    obj.layout96 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout96:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout96:setLeft(630);
+    obj.layout96:setTop(180);
+    obj.layout96:setWidth(280);
+    obj.layout96:setHeight(180);
+    obj.layout96:setName("layout96");
 
-    obj.label107 = gui.fromHandle(_obj_newObject("label"));
-    obj.label107:setParent(obj.layout74);
-    obj.label107:setVertTextAlign("center");
-    obj.label107:setLeft(0);
-    obj.label107:setTop(0);
-    obj.label107:setWidth(100);
-    obj.label107:setHeight(20);
-    obj.label107:setText("Magias Nível 14");
-    obj.label107:setName("label107");
-    obj.label107:setFontColor("white");
-    obj.label107:setTextTrimming("none");
-    obj.label107:setWordWrap(false);
-    obj.label107:setAutoSize(true);
+    obj.label154 = gui.fromHandle(_obj_newObject("label"));
+    obj.label154:setParent(obj.layout96);
+    obj.label154:setVertTextAlign("center");
+    obj.label154:setLeft(0);
+    obj.label154:setTop(0);
+    obj.label154:setWidth(100);
+    obj.label154:setHeight(20);
+    obj.label154:setText("Magias Nível 14");
+    obj.label154:setName("label154");
+    obj.label154:setFontColor("white");
+    obj.label154:setTextTrimming("none");
+    obj.label154:setWordWrap(false);
+    obj.label154:setAutoSize(true);
 
     obj.textEditor36 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor36:setParent(obj.layout74);
+    obj.textEditor36:setParent(obj.layout96);
     obj.textEditor36:setTop(20);
     obj.textEditor36:setWidth(280);
     obj.textEditor36:setHeight(160);
@@ -4202,30 +5863,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor36:setField("circulo14");
     obj.textEditor36:setName("textEditor36");
 
-    obj.layout75 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout75:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout75:setLeft(630);
-    obj.layout75:setTop(360);
-    obj.layout75:setWidth(280);
-    obj.layout75:setHeight(180);
-    obj.layout75:setName("layout75");
+    obj.layout97 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout97:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout97:setLeft(630);
+    obj.layout97:setTop(360);
+    obj.layout97:setWidth(280);
+    obj.layout97:setHeight(180);
+    obj.layout97:setName("layout97");
 
-    obj.label108 = gui.fromHandle(_obj_newObject("label"));
-    obj.label108:setParent(obj.layout75);
-    obj.label108:setVertTextAlign("center");
-    obj.label108:setLeft(0);
-    obj.label108:setTop(0);
-    obj.label108:setWidth(100);
-    obj.label108:setHeight(20);
-    obj.label108:setText("Magias Nível 18");
-    obj.label108:setName("label108");
-    obj.label108:setFontColor("white");
-    obj.label108:setTextTrimming("none");
-    obj.label108:setWordWrap(false);
-    obj.label108:setAutoSize(true);
+    obj.label155 = gui.fromHandle(_obj_newObject("label"));
+    obj.label155:setParent(obj.layout97);
+    obj.label155:setVertTextAlign("center");
+    obj.label155:setLeft(0);
+    obj.label155:setTop(0);
+    obj.label155:setWidth(100);
+    obj.label155:setHeight(20);
+    obj.label155:setText("Magias Nível 18");
+    obj.label155:setName("label155");
+    obj.label155:setFontColor("white");
+    obj.label155:setTextTrimming("none");
+    obj.label155:setWordWrap(false);
+    obj.label155:setAutoSize(true);
 
     obj.textEditor37 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor37:setParent(obj.layout75);
+    obj.textEditor37:setParent(obj.layout97);
     obj.textEditor37:setTop(20);
     obj.textEditor37:setWidth(280);
     obj.textEditor37:setHeight(160);
@@ -4233,30 +5894,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor37:setField("circulo18");
     obj.textEditor37:setName("textEditor37");
 
-    obj.layout76 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout76:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout76:setLeft(920);
-    obj.layout76:setTop(0);
-    obj.layout76:setWidth(280);
-    obj.layout76:setHeight(180);
-    obj.layout76:setName("layout76");
+    obj.layout98 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout98:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout98:setLeft(920);
+    obj.layout98:setTop(0);
+    obj.layout98:setWidth(280);
+    obj.layout98:setHeight(180);
+    obj.layout98:setName("layout98");
 
-    obj.label109 = gui.fromHandle(_obj_newObject("label"));
-    obj.label109:setParent(obj.layout76);
-    obj.label109:setVertTextAlign("center");
-    obj.label109:setLeft(0);
-    obj.label109:setTop(0);
-    obj.label109:setWidth(100);
-    obj.label109:setHeight(20);
-    obj.label109:setText("Magias Nível 12");
-    obj.label109:setName("label109");
-    obj.label109:setFontColor("white");
-    obj.label109:setTextTrimming("none");
-    obj.label109:setWordWrap(false);
-    obj.label109:setAutoSize(true);
+    obj.label156 = gui.fromHandle(_obj_newObject("label"));
+    obj.label156:setParent(obj.layout98);
+    obj.label156:setVertTextAlign("center");
+    obj.label156:setLeft(0);
+    obj.label156:setTop(0);
+    obj.label156:setWidth(100);
+    obj.label156:setHeight(20);
+    obj.label156:setText("Magias Nível 12");
+    obj.label156:setName("label156");
+    obj.label156:setFontColor("white");
+    obj.label156:setTextTrimming("none");
+    obj.label156:setWordWrap(false);
+    obj.label156:setAutoSize(true);
 
     obj.textEditor38 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor38:setParent(obj.layout76);
+    obj.textEditor38:setParent(obj.layout98);
     obj.textEditor38:setTop(20);
     obj.textEditor38:setWidth(280);
     obj.textEditor38:setHeight(160);
@@ -4264,30 +5925,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor38:setField("circulo12");
     obj.textEditor38:setName("textEditor38");
 
-    obj.layout77 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout77:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout77:setLeft(920);
-    obj.layout77:setTop(180);
-    obj.layout77:setWidth(280);
-    obj.layout77:setHeight(180);
-    obj.layout77:setName("layout77");
+    obj.layout99 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout99:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout99:setLeft(920);
+    obj.layout99:setTop(180);
+    obj.layout99:setWidth(280);
+    obj.layout99:setHeight(180);
+    obj.layout99:setName("layout99");
 
-    obj.label110 = gui.fromHandle(_obj_newObject("label"));
-    obj.label110:setParent(obj.layout77);
-    obj.label110:setVertTextAlign("center");
-    obj.label110:setLeft(0);
-    obj.label110:setTop(0);
-    obj.label110:setWidth(100);
-    obj.label110:setHeight(20);
-    obj.label110:setText("Magias Nível 15");
-    obj.label110:setName("label110");
-    obj.label110:setFontColor("white");
-    obj.label110:setTextTrimming("none");
-    obj.label110:setWordWrap(false);
-    obj.label110:setAutoSize(true);
+    obj.label157 = gui.fromHandle(_obj_newObject("label"));
+    obj.label157:setParent(obj.layout99);
+    obj.label157:setVertTextAlign("center");
+    obj.label157:setLeft(0);
+    obj.label157:setTop(0);
+    obj.label157:setWidth(100);
+    obj.label157:setHeight(20);
+    obj.label157:setText("Magias Nível 15");
+    obj.label157:setName("label157");
+    obj.label157:setFontColor("white");
+    obj.label157:setTextTrimming("none");
+    obj.label157:setWordWrap(false);
+    obj.label157:setAutoSize(true);
 
     obj.textEditor39 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor39:setParent(obj.layout77);
+    obj.textEditor39:setParent(obj.layout99);
     obj.textEditor39:setTop(20);
     obj.textEditor39:setWidth(280);
     obj.textEditor39:setHeight(160);
@@ -4295,30 +5956,30 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor39:setField("circulo15");
     obj.textEditor39:setName("textEditor39");
 
-    obj.layout78 = gui.fromHandle(_obj_newObject("layout"));
-    obj.layout78:setParent(obj.layoutMagiasAprimoradas);
-    obj.layout78:setLeft(920);
-    obj.layout78:setTop(360);
-    obj.layout78:setWidth(280);
-    obj.layout78:setHeight(180);
-    obj.layout78:setName("layout78");
+    obj.layout100 = gui.fromHandle(_obj_newObject("layout"));
+    obj.layout100:setParent(obj.layoutMagiasAprimoradas);
+    obj.layout100:setLeft(920);
+    obj.layout100:setTop(360);
+    obj.layout100:setWidth(280);
+    obj.layout100:setHeight(180);
+    obj.layout100:setName("layout100");
 
-    obj.label111 = gui.fromHandle(_obj_newObject("label"));
-    obj.label111:setParent(obj.layout78);
-    obj.label111:setVertTextAlign("center");
-    obj.label111:setLeft(0);
-    obj.label111:setTop(0);
-    obj.label111:setWidth(100);
-    obj.label111:setHeight(20);
-    obj.label111:setText("Magias Nível 19");
-    obj.label111:setName("label111");
-    obj.label111:setFontColor("white");
-    obj.label111:setTextTrimming("none");
-    obj.label111:setWordWrap(false);
-    obj.label111:setAutoSize(true);
+    obj.label158 = gui.fromHandle(_obj_newObject("label"));
+    obj.label158:setParent(obj.layout100);
+    obj.label158:setVertTextAlign("center");
+    obj.label158:setLeft(0);
+    obj.label158:setTop(0);
+    obj.label158:setWidth(100);
+    obj.label158:setHeight(20);
+    obj.label158:setText("Magias Nível 19");
+    obj.label158:setName("label158");
+    obj.label158:setFontColor("white");
+    obj.label158:setTextTrimming("none");
+    obj.label158:setWordWrap(false);
+    obj.label158:setAutoSize(true);
 
     obj.textEditor40 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor40:setParent(obj.layout78);
+    obj.textEditor40:setParent(obj.layout100);
     obj.textEditor40:setTop(20);
     obj.textEditor40:setWidth(280);
     obj.textEditor40:setHeight(160);
@@ -4326,17 +5987,255 @@ function newfrmFichaRPGmeister5M_svg()
     obj.textEditor40:setField("circulo19");
     obj.textEditor40:setName("textEditor40");
 
-    obj.comboBox6 = gui.fromHandle(_obj_newObject("comboBox"));
-    obj.comboBox6:setParent(obj.boxDetalhesDoItem);
-    obj.comboBox6:setLeft(10);
-    obj.comboBox6:setTop(50);
-    obj.comboBox6:setWidth(110);
-    obj.comboBox6:setHeight(25);
-    obj.comboBox6:setItems({'Magias', 'Signos', 'Magia Epica', 'Magias Aprimoradas'});
-    obj.comboBox6:setValues({'1', '2', '7', '8'});
-    obj.comboBox6:setValue("1");
-    obj.comboBox6:setField("tipoMagia");
-    obj.comboBox6:setName("comboBox6");
+    obj.comboBox8 = gui.fromHandle(_obj_newObject("comboBox"));
+    obj.comboBox8:setParent(obj.boxDetalhesDoItem);
+    obj.comboBox8:setLeft(10);
+    obj.comboBox8:setTop(50);
+    obj.comboBox8:setWidth(110);
+    obj.comboBox8:setHeight(25);
+    obj.comboBox8:setItems({'Magias', 'Signos', 'Lista Magias', 'Magia Epica', 'Magias Aprimoradas'});
+    obj.comboBox8:setValues({'1', '2', '3', '7', '8'});
+    obj.comboBox8:setValue("3");
+    obj.comboBox8:setField("tipoMagia");
+    obj.comboBox8:setName("comboBox8");
+
+    obj.popMagia = gui.fromHandle(_obj_newObject("popup"));
+    obj.popMagia:setParent(obj.boxDetalhesDoItem);
+    obj.popMagia:setName("popMagia");
+    obj.popMagia:setWidth(250);
+    obj.popMagia:setHeight(350);
+    obj.popMagia:setBackOpacity(0.4);
+
+    obj.flowLayout1 = gui.fromHandle(_obj_newObject("flowLayout"));
+    obj.flowLayout1:setParent(obj.popMagia);
+    obj.flowLayout1:setAlign("top");
+    obj.flowLayout1:setAutoHeight(true);
+    obj.flowLayout1:setMaxControlsPerLine(2);
+    obj.flowLayout1:setMargins({bottom=4});
+    obj.flowLayout1:setHorzAlign("center");
+    obj.flowLayout1:setName("flowLayout1");
+
+    obj.flowPart1 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart1:setParent(obj.flowLayout1);
+    obj.flowPart1:setMinWidth(30);
+    obj.flowPart1:setMaxWidth(400);
+    obj.flowPart1:setHeight(35);
+    obj.flowPart1:setName("flowPart1");
+
+    obj.label159 = gui.fromHandle(_obj_newObject("label"));
+    obj.label159:setParent(obj.flowPart1);
+    obj.label159:setAlign("top");
+    obj.label159:setFontSize(10);
+    obj.label159:setText("ESCOLA");
+    obj.label159:setHorzTextAlign("center");
+    obj.label159:setWordWrap(true);
+    obj.label159:setTextTrimming("none");
+    obj.label159:setAutoSize(true);
+    obj.label159:setName("label159");
+    obj.label159:setFontColor("white");
+
+    obj.edit150 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit150:setParent(obj.flowPart1);
+    obj.edit150:setAlign("client");
+    obj.edit150:setField("escola");
+    obj.edit150:setHorzTextAlign("center");
+    obj.edit150:setFontSize(12);
+    obj.edit150:setName("edit150");
+
+    obj.flowPart2 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart2:setParent(obj.flowLayout1);
+    obj.flowPart2:setMinWidth(30);
+    obj.flowPart2:setMaxWidth(400);
+    obj.flowPart2:setHeight(35);
+    obj.flowPart2:setName("flowPart2");
+
+    obj.label160 = gui.fromHandle(_obj_newObject("label"));
+    obj.label160:setParent(obj.flowPart2);
+    obj.label160:setAlign("top");
+    obj.label160:setFontSize(10);
+    obj.label160:setText("COMPONENTES");
+    obj.label160:setHorzTextAlign("center");
+    obj.label160:setWordWrap(true);
+    obj.label160:setTextTrimming("none");
+    obj.label160:setAutoSize(true);
+    obj.label160:setName("label160");
+    obj.label160:setFontColor("white");
+
+    obj.edit151 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit151:setParent(obj.flowPart2);
+    obj.edit151:setAlign("client");
+    obj.edit151:setField("componentes");
+    obj.edit151:setHorzTextAlign("center");
+    obj.edit151:setFontSize(12);
+    obj.edit151:setName("edit151");
+
+    obj.flowPart3 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart3:setParent(obj.flowLayout1);
+    obj.flowPart3:setMinWidth(30);
+    obj.flowPart3:setMaxWidth(400);
+    obj.flowPart3:setHeight(35);
+    obj.flowPart3:setName("flowPart3");
+
+    obj.label161 = gui.fromHandle(_obj_newObject("label"));
+    obj.label161:setParent(obj.flowPart3);
+    obj.label161:setAlign("top");
+    obj.label161:setFontSize(10);
+    obj.label161:setText("EXECUÇÃO");
+    obj.label161:setHorzTextAlign("center");
+    obj.label161:setWordWrap(true);
+    obj.label161:setTextTrimming("none");
+    obj.label161:setAutoSize(true);
+    obj.label161:setName("label161");
+    obj.label161:setFontColor("white");
+
+    obj.edit152 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit152:setParent(obj.flowPart3);
+    obj.edit152:setAlign("client");
+    obj.edit152:setField("execucao");
+    obj.edit152:setHorzTextAlign("center");
+    obj.edit152:setFontSize(12);
+    obj.edit152:setName("edit152");
+
+    obj.flowPart4 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart4:setParent(obj.flowLayout1);
+    obj.flowPart4:setMinWidth(30);
+    obj.flowPart4:setMaxWidth(400);
+    obj.flowPart4:setHeight(35);
+    obj.flowPart4:setName("flowPart4");
+
+    obj.label162 = gui.fromHandle(_obj_newObject("label"));
+    obj.label162:setParent(obj.flowPart4);
+    obj.label162:setAlign("top");
+    obj.label162:setFontSize(10);
+    obj.label162:setText("ALCANCE");
+    obj.label162:setHorzTextAlign("center");
+    obj.label162:setWordWrap(true);
+    obj.label162:setTextTrimming("none");
+    obj.label162:setAutoSize(true);
+    obj.label162:setName("label162");
+    obj.label162:setFontColor("white");
+
+    obj.edit153 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit153:setParent(obj.flowPart4);
+    obj.edit153:setAlign("client");
+    obj.edit153:setField("alcance");
+    obj.edit153:setHorzTextAlign("center");
+    obj.edit153:setFontSize(12);
+    obj.edit153:setName("edit153");
+
+    obj.flowPart5 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart5:setParent(obj.flowLayout1);
+    obj.flowPart5:setMinWidth(30);
+    obj.flowPart5:setMaxWidth(400);
+    obj.flowPart5:setHeight(35);
+    obj.flowPart5:setName("flowPart5");
+
+    obj.label163 = gui.fromHandle(_obj_newObject("label"));
+    obj.label163:setParent(obj.flowPart5);
+    obj.label163:setAlign("top");
+    obj.label163:setFontSize(10);
+    obj.label163:setText("ALVO");
+    obj.label163:setHorzTextAlign("center");
+    obj.label163:setWordWrap(true);
+    obj.label163:setTextTrimming("none");
+    obj.label163:setAutoSize(true);
+    obj.label163:setName("label163");
+    obj.label163:setFontColor("white");
+
+    obj.edit154 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit154:setParent(obj.flowPart5);
+    obj.edit154:setAlign("client");
+    obj.edit154:setField("alvo");
+    obj.edit154:setHorzTextAlign("center");
+    obj.edit154:setFontSize(12);
+    obj.edit154:setName("edit154");
+
+    obj.flowPart6 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart6:setParent(obj.flowLayout1);
+    obj.flowPart6:setMinWidth(30);
+    obj.flowPart6:setMaxWidth(400);
+    obj.flowPart6:setHeight(35);
+    obj.flowPart6:setName("flowPart6");
+
+    obj.label164 = gui.fromHandle(_obj_newObject("label"));
+    obj.label164:setParent(obj.flowPart6);
+    obj.label164:setAlign("top");
+    obj.label164:setFontSize(10);
+    obj.label164:setText("DURAÇÃO");
+    obj.label164:setHorzTextAlign("center");
+    obj.label164:setWordWrap(true);
+    obj.label164:setTextTrimming("none");
+    obj.label164:setAutoSize(true);
+    obj.label164:setName("label164");
+    obj.label164:setFontColor("white");
+
+    obj.edit155 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit155:setParent(obj.flowPart6);
+    obj.edit155:setAlign("client");
+    obj.edit155:setField("duracao");
+    obj.edit155:setHorzTextAlign("center");
+    obj.edit155:setFontSize(12);
+    obj.edit155:setName("edit155");
+
+    obj.flowPart7 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart7:setParent(obj.flowLayout1);
+    obj.flowPart7:setMinWidth(30);
+    obj.flowPart7:setMaxWidth(400);
+    obj.flowPart7:setHeight(35);
+    obj.flowPart7:setName("flowPart7");
+
+    obj.label165 = gui.fromHandle(_obj_newObject("label"));
+    obj.label165:setParent(obj.flowPart7);
+    obj.label165:setAlign("top");
+    obj.label165:setFontSize(10);
+    obj.label165:setText("TR");
+    obj.label165:setHorzTextAlign("center");
+    obj.label165:setWordWrap(true);
+    obj.label165:setTextTrimming("none");
+    obj.label165:setAutoSize(true);
+    obj.label165:setName("label165");
+    obj.label165:setFontColor("white");
+
+    obj.edit156 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit156:setParent(obj.flowPart7);
+    obj.edit156:setAlign("client");
+    obj.edit156:setField("tr");
+    obj.edit156:setHorzTextAlign("center");
+    obj.edit156:setFontSize(12);
+    obj.edit156:setName("edit156");
+
+    obj.flowPart8 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart8:setParent(obj.flowLayout1);
+    obj.flowPart8:setMinWidth(30);
+    obj.flowPart8:setMaxWidth(400);
+    obj.flowPart8:setHeight(35);
+    obj.flowPart8:setName("flowPart8");
+
+    obj.label166 = gui.fromHandle(_obj_newObject("label"));
+    obj.label166:setParent(obj.flowPart8);
+    obj.label166:setAlign("top");
+    obj.label166:setFontSize(10);
+    obj.label166:setText("RM");
+    obj.label166:setHorzTextAlign("center");
+    obj.label166:setWordWrap(true);
+    obj.label166:setTextTrimming("none");
+    obj.label166:setAutoSize(true);
+    obj.label166:setName("label166");
+    obj.label166:setFontColor("white");
+
+    obj.edit157 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit157:setParent(obj.flowPart8);
+    obj.edit157:setAlign("client");
+    obj.edit157:setField("rm");
+    obj.edit157:setHorzTextAlign("center");
+    obj.edit157:setFontSize(12);
+    obj.edit157:setName("edit157");
+
+    obj.textEditor41 = gui.fromHandle(_obj_newObject("textEditor"));
+    obj.textEditor41:setParent(obj.popMagia);
+    obj.textEditor41:setAlign("client");
+    obj.textEditor41:setField("descricao");
+    obj.textEditor41:setName("textEditor41");
 
     obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)
@@ -5069,10 +6968,737 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event36 = obj.dataLink33:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            self.boxDetalhesDoItem.node.total10 = (tonumber(self.boxDetalhesDoItem.node.base10) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus10) or 0);
+            if sheet~=nil then
+            								local mod = (tonumber(self.boxDetalhesDoItem.node.conhecidas0) or 0) + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas1) or 0) + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas2) or 0)*2 + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas3) or 0)*3 + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas4) or 0)*4 + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas5) or 0)*5 + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas6) or 0)*6 + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas7) or 0)*7 + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas8) or 0)*8 + 
+            											(tonumber(self.boxDetalhesDoItem.node.conhecidas9) or 0)*9;
+            								self.boxDetalhesDoItem.node.grimorio = mod;
+            							end;
         end, obj);
 
     obj._e_event37 = obj.dataLink34:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total0 = (tonumber(self.boxDetalhesDoItem.node.base0) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus0) or 0);
+        end, obj);
+
+    obj._e_event38 = obj.dataLink35:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 0;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus0 = resultado;
+        end, obj);
+
+    obj._e_event39 = obj.dataLink36:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 0;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd0 = mod;
+        end, obj);
+
+    obj._e_event40 = obj.dataLink37:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total1 = (tonumber(self.boxDetalhesDoItem.node.base1) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus1) or 0);
+        end, obj);
+
+    obj._e_event41 = obj.dataLink38:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 1;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus1 = resultado;
+        end, obj);
+
+    obj._e_event42 = obj.dataLink39:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 1;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd1 = mod;
+        end, obj);
+
+    obj._e_event43 = obj.dataLink40:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total2 = (tonumber(self.boxDetalhesDoItem.node.base2) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus2) or 0);
+        end, obj);
+
+    obj._e_event44 = obj.dataLink41:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 2;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus2 = resultado;
+        end, obj);
+
+    obj._e_event45 = obj.dataLink42:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 2;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd2 = mod;
+        end, obj);
+
+    obj._e_event46 = obj.dataLink43:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total3 = (tonumber(self.boxDetalhesDoItem.node.base3) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus3) or 0);
+        end, obj);
+
+    obj._e_event47 = obj.dataLink44:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 3;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus3 = resultado;
+        end, obj);
+
+    obj._e_event48 = obj.dataLink45:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 3;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd3 = mod;
+        end, obj);
+
+    obj._e_event49 = obj.dataLink46:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total4 = (tonumber(self.boxDetalhesDoItem.node.base4) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus4) or 0);
+        end, obj);
+
+    obj._e_event50 = obj.dataLink47:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 4;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus4 = resultado;
+        end, obj);
+
+    obj._e_event51 = obj.dataLink48:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 4;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd4 = mod;
+        end, obj);
+
+    obj._e_event52 = obj.dataLink49:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total5 = (tonumber(self.boxDetalhesDoItem.node.base5) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus5) or 0);
+        end, obj);
+
+    obj._e_event53 = obj.dataLink50:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 5;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus5 = resultado;
+        end, obj);
+
+    obj._e_event54 = obj.dataLink51:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 5;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd5 = mod;
+        end, obj);
+
+    obj._e_event55 = obj.dataLink52:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total6 = (tonumber(self.boxDetalhesDoItem.node.base6) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus6) or 0);
+        end, obj);
+
+    obj._e_event56 = obj.dataLink53:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 6;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus6 = resultado;
+        end, obj);
+
+    obj._e_event57 = obj.dataLink54:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 6;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd6 = mod;
+        end, obj);
+
+    obj._e_event58 = obj.dataLink55:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total7 = (tonumber(self.boxDetalhesDoItem.node.base7) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus7) or 0);
+        end, obj);
+
+    obj._e_event59 = obj.dataLink56:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 7;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus7 = resultado;
+        end, obj);
+
+    obj._e_event60 = obj.dataLink57:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 7;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd7 = mod;
+        end, obj);
+
+    obj._e_event61 = obj.dataLink58:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total8 = (tonumber(self.boxDetalhesDoItem.node.base8) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus8) or 0);
+        end, obj);
+
+    obj._e_event62 = obj.dataLink59:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 8;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus8 = resultado;
+        end, obj);
+
+    obj._e_event63 = obj.dataLink60:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 8;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd8 = mod;
+        end, obj);
+
+    obj._e_event64 = obj.dataLink61:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total9 = (tonumber(self.boxDetalhesDoItem.node.base9) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus9) or 0);
+        end, obj);
+
+    obj._e_event65 = obj.dataLink62:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 9;
+            						
+            						if nivel==0 then
+            							resultado = 0;
+            						else 
+            							if (nivel>mod) then
+            								result = 0;
+            							else
+            								resultado = mod + 4 - nivel;
+            								resultado = math.floor(resultado/4);
+            							end;
+            						end;
+            						
+            						self.boxDetalhesDoItem.node.bonus9 = resultado;
+        end, obj);
+
+    obj._e_event66 = obj.dataLink63:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            local resultado = 0;
+            						local mod = 0;
+            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            						
+            						if ctrl=='1' then
+            							mod = getFOR();
+            						elseif ctrl=='2' then
+            							mod = getDES();
+            						elseif ctrl=='3' then
+            							mod = getCON();
+            						elseif ctrl=='4' then
+            							mod = getINT();
+            						elseif ctrl=='5' then
+            							mod = getSAB();
+            						elseif ctrl=='6' then
+            							mod = getCAR();
+            						end;
+            						local nivel = 9;
+            						
+            						mod = 10 + mod + nivel;
+            
+            						self.boxDetalhesDoItem.node.cd9 = mod;
+        end, obj);
+
+    obj._e_event67 = obj.button3:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias6:append();
+        end, obj);
+
+    obj._e_event68 = obj.button4:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias0:append();
+        end, obj);
+
+    obj._e_event69 = obj.button5:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias3:append();
+        end, obj);
+
+    obj._e_event70 = obj.button6:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias7:append();
+        end, obj);
+
+    obj._e_event71 = obj.button7:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias1:append();
+        end, obj);
+
+    obj._e_event72 = obj.button8:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias4:append();
+        end, obj);
+
+    obj._e_event73 = obj.button9:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias8:append();
+        end, obj);
+
+    obj._e_event74 = obj.button10:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias2:append();
+        end, obj);
+
+    obj._e_event75 = obj.button11:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias5:append();
+        end, obj);
+
+    obj._e_event76 = obj.button12:addEventListener("onClick",
+        function (self)
+            self.rclListaDasMagias9:append();
+        end, obj);
+
+    obj._e_event77 = obj.dataLink64:addEventListener("onChange",
+        function (self, field, oldValue, newValue)
+            self.boxDetalhesDoItem.node.total10 = (tonumber(self.boxDetalhesDoItem.node.base10) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus10) or 0);
+        end, obj);
+
+    obj._e_event78 = obj.dataLink65:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5107,7 +7733,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus10 = resultado;
         end, obj);
 
-    obj._e_event38 = obj.dataLink35:addEventListener("onChange",
+    obj._e_event79 = obj.dataLink66:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5133,12 +7759,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd10 = mod;
         end, obj);
 
-    obj._e_event39 = obj.dataLink36:addEventListener("onChange",
+    obj._e_event80 = obj.dataLink67:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total11 = (tonumber(self.boxDetalhesDoItem.node.base11) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus11) or 0);
         end, obj);
 
-    obj._e_event40 = obj.dataLink37:addEventListener("onChange",
+    obj._e_event81 = obj.dataLink68:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5173,7 +7799,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus11 = resultado;
         end, obj);
 
-    obj._e_event41 = obj.dataLink38:addEventListener("onChange",
+    obj._e_event82 = obj.dataLink69:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5199,12 +7825,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd11 = mod;
         end, obj);
 
-    obj._e_event42 = obj.dataLink39:addEventListener("onChange",
+    obj._e_event83 = obj.dataLink70:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total12 = (tonumber(self.boxDetalhesDoItem.node.base12) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus12) or 0);
         end, obj);
 
-    obj._e_event43 = obj.dataLink40:addEventListener("onChange",
+    obj._e_event84 = obj.dataLink71:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5239,7 +7865,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus12 = resultado;
         end, obj);
 
-    obj._e_event44 = obj.dataLink41:addEventListener("onChange",
+    obj._e_event85 = obj.dataLink72:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5265,12 +7891,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd12 = mod;
         end, obj);
 
-    obj._e_event45 = obj.dataLink42:addEventListener("onChange",
+    obj._e_event86 = obj.dataLink73:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total13 = (tonumber(self.boxDetalhesDoItem.node.base13) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus13) or 0);
         end, obj);
 
-    obj._e_event46 = obj.dataLink43:addEventListener("onChange",
+    obj._e_event87 = obj.dataLink74:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5305,7 +7931,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus13 = resultado;
         end, obj);
 
-    obj._e_event47 = obj.dataLink44:addEventListener("onChange",
+    obj._e_event88 = obj.dataLink75:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5331,12 +7957,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd13 = mod;
         end, obj);
 
-    obj._e_event48 = obj.dataLink45:addEventListener("onChange",
+    obj._e_event89 = obj.dataLink76:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total14 = (tonumber(self.boxDetalhesDoItem.node.base14) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus14) or 0);
         end, obj);
 
-    obj._e_event49 = obj.dataLink46:addEventListener("onChange",
+    obj._e_event90 = obj.dataLink77:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5371,7 +7997,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus14 = resultado;
         end, obj);
 
-    obj._e_event50 = obj.dataLink47:addEventListener("onChange",
+    obj._e_event91 = obj.dataLink78:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5397,12 +8023,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd14 = mod;
         end, obj);
 
-    obj._e_event51 = obj.dataLink48:addEventListener("onChange",
+    obj._e_event92 = obj.dataLink79:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total15 = (tonumber(self.boxDetalhesDoItem.node.base15) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus15) or 0);
         end, obj);
 
-    obj._e_event52 = obj.dataLink49:addEventListener("onChange",
+    obj._e_event93 = obj.dataLink80:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5437,7 +8063,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus15 = resultado;
         end, obj);
 
-    obj._e_event53 = obj.dataLink50:addEventListener("onChange",
+    obj._e_event94 = obj.dataLink81:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5463,12 +8089,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd15 = mod;
         end, obj);
 
-    obj._e_event54 = obj.dataLink51:addEventListener("onChange",
+    obj._e_event95 = obj.dataLink82:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total16 = (tonumber(self.boxDetalhesDoItem.node.base16) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus16) or 0);
         end, obj);
 
-    obj._e_event55 = obj.dataLink52:addEventListener("onChange",
+    obj._e_event96 = obj.dataLink83:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5503,7 +8129,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus16 = resultado;
         end, obj);
 
-    obj._e_event56 = obj.dataLink53:addEventListener("onChange",
+    obj._e_event97 = obj.dataLink84:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5529,12 +8155,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd16 = mod;
         end, obj);
 
-    obj._e_event57 = obj.dataLink54:addEventListener("onChange",
+    obj._e_event98 = obj.dataLink85:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total17 = (tonumber(self.boxDetalhesDoItem.node.base17) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus17) or 0);
         end, obj);
 
-    obj._e_event58 = obj.dataLink55:addEventListener("onChange",
+    obj._e_event99 = obj.dataLink86:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5569,7 +8195,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus17 = resultado;
         end, obj);
 
-    obj._e_event59 = obj.dataLink56:addEventListener("onChange",
+    obj._e_event100 = obj.dataLink87:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5595,12 +8221,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd17 = mod;
         end, obj);
 
-    obj._e_event60 = obj.dataLink57:addEventListener("onChange",
+    obj._e_event101 = obj.dataLink88:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total18 = (tonumber(self.boxDetalhesDoItem.node.base18) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus18) or 0);
         end, obj);
 
-    obj._e_event61 = obj.dataLink58:addEventListener("onChange",
+    obj._e_event102 = obj.dataLink89:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5635,7 +8261,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus18 = resultado;
         end, obj);
 
-    obj._e_event62 = obj.dataLink59:addEventListener("onChange",
+    obj._e_event103 = obj.dataLink90:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5661,12 +8287,12 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd18 = mod;
         end, obj);
 
-    obj._e_event63 = obj.dataLink60:addEventListener("onChange",
+    obj._e_event104 = obj.dataLink91:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self.boxDetalhesDoItem.node.total19 = (tonumber(self.boxDetalhesDoItem.node.base19) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus19) or 0);
         end, obj);
 
-    obj._e_event64 = obj.dataLink61:addEventListener("onChange",
+    obj._e_event105 = obj.dataLink92:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5701,7 +8327,7 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.bonus19 = resultado;
         end, obj);
 
-    obj._e_event65 = obj.dataLink62:addEventListener("onChange",
+    obj._e_event106 = obj.dataLink93:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             local resultado = 0;
             						local mod = 0;
@@ -5727,12 +8353,53 @@ function newfrmFichaRPGmeister5M_svg()
             						self.boxDetalhesDoItem.node.cd19 = mod;
         end, obj);
 
-    obj._e_event66 = obj.comboBox6:addEventListener("onChange",
+    obj._e_event107 = obj.comboBox8:addEventListener("onChange",
         function (self)
             limpar();
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event107);
+        __o_rrpgObjs.removeEventListenerById(self._e_event106);
+        __o_rrpgObjs.removeEventListenerById(self._e_event105);
+        __o_rrpgObjs.removeEventListenerById(self._e_event104);
+        __o_rrpgObjs.removeEventListenerById(self._e_event103);
+        __o_rrpgObjs.removeEventListenerById(self._e_event102);
+        __o_rrpgObjs.removeEventListenerById(self._e_event101);
+        __o_rrpgObjs.removeEventListenerById(self._e_event100);
+        __o_rrpgObjs.removeEventListenerById(self._e_event99);
+        __o_rrpgObjs.removeEventListenerById(self._e_event98);
+        __o_rrpgObjs.removeEventListenerById(self._e_event97);
+        __o_rrpgObjs.removeEventListenerById(self._e_event96);
+        __o_rrpgObjs.removeEventListenerById(self._e_event95);
+        __o_rrpgObjs.removeEventListenerById(self._e_event94);
+        __o_rrpgObjs.removeEventListenerById(self._e_event93);
+        __o_rrpgObjs.removeEventListenerById(self._e_event92);
+        __o_rrpgObjs.removeEventListenerById(self._e_event91);
+        __o_rrpgObjs.removeEventListenerById(self._e_event90);
+        __o_rrpgObjs.removeEventListenerById(self._e_event89);
+        __o_rrpgObjs.removeEventListenerById(self._e_event88);
+        __o_rrpgObjs.removeEventListenerById(self._e_event87);
+        __o_rrpgObjs.removeEventListenerById(self._e_event86);
+        __o_rrpgObjs.removeEventListenerById(self._e_event85);
+        __o_rrpgObjs.removeEventListenerById(self._e_event84);
+        __o_rrpgObjs.removeEventListenerById(self._e_event83);
+        __o_rrpgObjs.removeEventListenerById(self._e_event82);
+        __o_rrpgObjs.removeEventListenerById(self._e_event81);
+        __o_rrpgObjs.removeEventListenerById(self._e_event80);
+        __o_rrpgObjs.removeEventListenerById(self._e_event79);
+        __o_rrpgObjs.removeEventListenerById(self._e_event78);
+        __o_rrpgObjs.removeEventListenerById(self._e_event77);
+        __o_rrpgObjs.removeEventListenerById(self._e_event76);
+        __o_rrpgObjs.removeEventListenerById(self._e_event75);
+        __o_rrpgObjs.removeEventListenerById(self._e_event74);
+        __o_rrpgObjs.removeEventListenerById(self._e_event73);
+        __o_rrpgObjs.removeEventListenerById(self._e_event72);
+        __o_rrpgObjs.removeEventListenerById(self._e_event71);
+        __o_rrpgObjs.removeEventListenerById(self._e_event70);
+        __o_rrpgObjs.removeEventListenerById(self._e_event69);
+        __o_rrpgObjs.removeEventListenerById(self._e_event68);
+        __o_rrpgObjs.removeEventListenerById(self._e_event67);
         __o_rrpgObjs.removeEventListenerById(self._e_event66);
         __o_rrpgObjs.removeEventListenerById(self._e_event65);
         __o_rrpgObjs.removeEventListenerById(self._e_event64);
@@ -5811,58 +8478,88 @@ function newfrmFichaRPGmeister5M_svg()
           self:setNodeDatabase(nil);
         end;
 
+        if self.edit150 ~= nil then self.edit150:destroy(); self.edit150 = nil; end;
         if self.label14 ~= nil then self.label14:destroy(); self.label14 = nil; end;
+        if self.layout83 ~= nil then self.layout83:destroy(); self.layout83 = nil; end;
+        if self.label119 ~= nil then self.label119:destroy(); self.label119 = nil; end;
+        if self.dataLink71 ~= nil then self.dataLink71:destroy(); self.dataLink71 = nil; end;
         if self.edit64 ~= nil then self.edit64:destroy(); self.edit64 = nil; end;
+        if self.dataLink86 ~= nil then self.dataLink86:destroy(); self.dataLink86 = nil; end;
         if self.layout15 ~= nil then self.layout15:destroy(); self.layout15 = nil; end;
         if self.edit41 ~= nil then self.edit41:destroy(); self.edit41 = nil; end;
         if self.layout10 ~= nil then self.layout10:destroy(); self.layout10 = nil; end;
+        if self.rclListaDasMagias1 ~= nil then self.rclListaDasMagias1:destroy(); self.rclListaDasMagias1 = nil; end;
         if self.dataLink33 ~= nil then self.dataLink33:destroy(); self.dataLink33 = nil; end;
         if self.edit36 ~= nil then self.edit36:destroy(); self.edit36 = nil; end;
         if self.edit9 ~= nil then self.edit9:destroy(); self.edit9 = nil; end;
         if self.label43 ~= nil then self.label43:destroy(); self.label43 = nil; end;
         if self.edit33 ~= nil then self.edit33:destroy(); self.edit33 = nil; end;
-        if self.layout64 ~= nil then self.layout64:destroy(); self.layout64 = nil; end;
         if self.label97 ~= nil then self.label97:destroy(); self.label97 = nil; end;
+        if self.layout64 ~= nil then self.layout64:destroy(); self.layout64 = nil; end;
         if self.edit29 ~= nil then self.edit29:destroy(); self.edit29 = nil; end;
         if self.label77 ~= nil then self.label77:destroy(); self.label77 = nil; end;
+        if self.label128 ~= nil then self.label128:destroy(); self.label128 = nil; end;
+        if self.dataLink89 ~= nil then self.dataLink89:destroy(); self.dataLink89 = nil; end;
         if self.layout17 ~= nil then self.layout17:destroy(); self.layout17 = nil; end;
+        if self.dataLink92 ~= nil then self.dataLink92:destroy(); self.dataLink92 = nil; end;
         if self.label45 ~= nil then self.label45:destroy(); self.label45 = nil; end;
         if self.label96 ~= nil then self.label96:destroy(); self.label96 = nil; end;
         if self.label92 ~= nil then self.label92:destroy(); self.label92 = nil; end;
+        if self.layout94 ~= nil then self.layout94:destroy(); self.layout94 = nil; end;
         if self.layout47 ~= nil then self.layout47:destroy(); self.layout47 = nil; end;
+        if self.flowLayout1 ~= nil then self.flowLayout1:destroy(); self.flowLayout1 = nil; end;
+        if self.label148 ~= nil then self.label148:destroy(); self.label148 = nil; end;
+        if self.flowPart1 ~= nil then self.flowPart1:destroy(); self.flowPart1 = nil; end;
         if self.label75 ~= nil then self.label75:destroy(); self.label75 = nil; end;
+        if self.label158 ~= nil then self.label158:destroy(); self.label158 = nil; end;
         if self.label63 ~= nil then self.label63:destroy(); self.label63 = nil; end;
         if self.dataLink18 ~= nil then self.dataLink18:destroy(); self.dataLink18 = nil; end;
         if self.layout24 ~= nil then self.layout24:destroy(); self.layout24 = nil; end;
         if self.edit76 ~= nil then self.edit76:destroy(); self.edit76 = nil; end;
         if self.label70 ~= nil then self.label70:destroy(); self.label70 = nil; end;
+        if self.label143 ~= nil then self.label143:destroy(); self.label143 = nil; end;
         if self.label35 ~= nil then self.label35:destroy(); self.label35 = nil; end;
         if self.layout23 ~= nil then self.layout23:destroy(); self.layout23 = nil; end;
         if self.edit82 ~= nil then self.edit82:destroy(); self.edit82 = nil; end;
+        if self.label164 ~= nil then self.label164:destroy(); self.label164 = nil; end;
+        if self.label122 ~= nil then self.label122:destroy(); self.label122 = nil; end;
         if self.textEditor38 ~= nil then self.textEditor38:destroy(); self.textEditor38 = nil; end;
+        if self.rectangle5 ~= nil then self.rectangle5:destroy(); self.rectangle5 = nil; end;
         if self.layout62 ~= nil then self.layout62:destroy(); self.layout62 = nil; end;
+        if self.layout89 ~= nil then self.layout89:destroy(); self.layout89 = nil; end;
+        if self.dataLink68 ~= nil then self.dataLink68:destroy(); self.dataLink68 = nil; end;
         if self.label8 ~= nil then self.label8:destroy(); self.label8 = nil; end;
+        if self.label125 ~= nil then self.label125:destroy(); self.label125 = nil; end;
+        if self.label146 ~= nil then self.label146:destroy(); self.label146 = nil; end;
         if self.edit11 ~= nil then self.edit11:destroy(); self.edit11 = nil; end;
         if self.layout9 ~= nil then self.layout9:destroy(); self.layout9 = nil; end;
+        if self.layout88 ~= nil then self.layout88:destroy(); self.layout88 = nil; end;
         if self.dataLink44 ~= nil then self.dataLink44:destroy(); self.dataLink44 = nil; end;
         if self.layout71 ~= nil then self.layout71:destroy(); self.layout71 = nil; end;
         if self.label15 ~= nil then self.label15:destroy(); self.label15 = nil; end;
         if self.dataLink9 ~= nil then self.dataLink9:destroy(); self.dataLink9 = nil; end;
-        if self.textEditor27 ~= nil then self.textEditor27:destroy(); self.textEditor27 = nil; end;
         if self.label99 ~= nil then self.label99:destroy(); self.label99 = nil; end;
+        if self.rclListaDasMagias5 ~= nil then self.rclListaDasMagias5:destroy(); self.rclListaDasMagias5 = nil; end;
         if self.label107 ~= nil then self.label107:destroy(); self.label107 = nil; end;
         if self.layout32 ~= nil then self.layout32:destroy(); self.layout32 = nil; end;
         if self.label49 ~= nil then self.label49:destroy(); self.label49 = nil; end;
+        if self.textEditor27 ~= nil then self.textEditor27:destroy(); self.textEditor27 = nil; end;
+        if self.label161 ~= nil then self.label161:destroy(); self.label161 = nil; end;
+        if self.label163 ~= nil then self.label163:destroy(); self.label163 = nil; end;
         if self.layout37 ~= nil then self.layout37:destroy(); self.layout37 = nil; end;
         if self.textEditor15 ~= nil then self.textEditor15:destroy(); self.textEditor15 = nil; end;
+        if self.edit156 ~= nil then self.edit156:destroy(); self.edit156 = nil; end;
         if self.label82 ~= nil then self.label82:destroy(); self.label82 = nil; end;
+        if self.label162 ~= nil then self.label162:destroy(); self.label162 = nil; end;
         if self.layout36 ~= nil then self.layout36:destroy(); self.layout36 = nil; end;
         if self.edit69 ~= nil then self.edit69:destroy(); self.edit69 = nil; end;
+        if self.dataLink84 ~= nil then self.dataLink84:destroy(); self.dataLink84 = nil; end;
         if self.layout52 ~= nil then self.layout52:destroy(); self.layout52 = nil; end;
         if self.label52 ~= nil then self.label52:destroy(); self.label52 = nil; end;
         if self.edit115 ~= nil then self.edit115:destroy(); self.edit115 = nil; end;
         if self.edit16 ~= nil then self.edit16:destroy(); self.edit16 = nil; end;
         if self.label47 ~= nil then self.label47:destroy(); self.label47 = nil; end;
+        if self.dataLink63 ~= nil then self.dataLink63:destroy(); self.dataLink63 = nil; end;
         if self.label48 ~= nil then self.label48:destroy(); self.label48 = nil; end;
         if self.comboBox2 ~= nil then self.comboBox2:destroy(); self.comboBox2 = nil; end;
         if self.edit116 ~= nil then self.edit116:destroy(); self.edit116 = nil; end;
@@ -5872,12 +8569,15 @@ function newfrmFichaRPGmeister5M_svg()
         if self.layoutMagias ~= nil then self.layoutMagias:destroy(); self.layoutMagias = nil; end;
         if self.textEditor4 ~= nil then self.textEditor4:destroy(); self.textEditor4 = nil; end;
         if self.layout34 ~= nil then self.layout34:destroy(); self.layout34 = nil; end;
+        if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
+        if self.rectangle7 ~= nil then self.rectangle7:destroy(); self.rectangle7 = nil; end;
         if self.edit58 ~= nil then self.edit58:destroy(); self.edit58 = nil; end;
         if self.layout42 ~= nil then self.layout42:destroy(); self.layout42 = nil; end;
         if self.layout61 ~= nil then self.layout61:destroy(); self.layout61 = nil; end;
-        if self.label109 ~= nil then self.label109:destroy(); self.label109 = nil; end;
+        if self.button7 ~= nil then self.button7:destroy(); self.button7 = nil; end;
         if self.label106 ~= nil then self.label106:destroy(); self.label106 = nil; end;
+        if self.label109 ~= nil then self.label109:destroy(); self.label109 = nil; end;
         if self.label103 ~= nil then self.label103:destroy(); self.label103 = nil; end;
         if self.edit66 ~= nil then self.edit66:destroy(); self.edit66 = nil; end;
         if self.dataLink20 ~= nil then self.dataLink20:destroy(); self.dataLink20 = nil; end;
@@ -5885,41 +8585,69 @@ function newfrmFichaRPGmeister5M_svg()
         if self.layout5 ~= nil then self.layout5:destroy(); self.layout5 = nil; end;
         if self.label94 ~= nil then self.label94:destroy(); self.label94 = nil; end;
         if self.layout55 ~= nil then self.layout55:destroy(); self.layout55 = nil; end;
+        if self.edit129 ~= nil then self.edit129:destroy(); self.edit129 = nil; end;
         if self.dataLink3 ~= nil then self.dataLink3:destroy(); self.dataLink3 = nil; end;
+        if self.edit142 ~= nil then self.edit142:destroy(); self.edit142 = nil; end;
         if self.label29 ~= nil then self.label29:destroy(); self.label29 = nil; end;
+        if self.dataLink72 ~= nil then self.dataLink72:destroy(); self.dataLink72 = nil; end;
         if self.dataLink7 ~= nil then self.dataLink7:destroy(); self.dataLink7 = nil; end;
+        if self.popMagia ~= nil then self.popMagia:destroy(); self.popMagia = nil; end;
         if self.rectangle2 ~= nil then self.rectangle2:destroy(); self.rectangle2 = nil; end;
         if self.layout78 ~= nil then self.layout78:destroy(); self.layout78 = nil; end;
+        if self.rclListaDasMagias4 ~= nil then self.rclListaDasMagias4:destroy(); self.rclListaDasMagias4 = nil; end;
         if self.label111 ~= nil then self.label111:destroy(); self.label111 = nil; end;
         if self.label91 ~= nil then self.label91:destroy(); self.label91 = nil; end;
         if self.dataLink6 ~= nil then self.dataLink6:destroy(); self.dataLink6 = nil; end;
         if self.label30 ~= nil then self.label30:destroy(); self.label30 = nil; end;
+        if self.flowPart6 ~= nil then self.flowPart6:destroy(); self.flowPart6 = nil; end;
         if self.label51 ~= nil then self.label51:destroy(); self.label51 = nil; end;
         if self.edit99 ~= nil then self.edit99:destroy(); self.edit99 = nil; end;
         if self.label19 ~= nil then self.label19:destroy(); self.label19 = nil; end;
+        if self.label116 ~= nil then self.label116:destroy(); self.label116 = nil; end;
         if self.edit67 ~= nil then self.edit67:destroy(); self.edit67 = nil; end;
+        if self.rectangle12 ~= nil then self.rectangle12:destroy(); self.rectangle12 = nil; end;
+        if self.label139 ~= nil then self.label139:destroy(); self.label139 = nil; end;
+        if self.dataLink76 ~= nil then self.dataLink76:destroy(); self.dataLink76 = nil; end;
         if self.layout35 ~= nil then self.layout35:destroy(); self.layout35 = nil; end;
         if self.layout11 ~= nil then self.layout11:destroy(); self.layout11 = nil; end;
         if self.dataLink34 ~= nil then self.dataLink34:destroy(); self.dataLink34 = nil; end;
         if self.dataLink32 ~= nil then self.dataLink32:destroy(); self.dataLink32 = nil; end;
+        if self.rectangle14 ~= nil then self.rectangle14:destroy(); self.rectangle14 = nil; end;
+        if self.dataLink81 ~= nil then self.dataLink81:destroy(); self.dataLink81 = nil; end;
+        if self.label147 ~= nil then self.label147:destroy(); self.label147 = nil; end;
+        if self.edit124 ~= nil then self.edit124:destroy(); self.edit124 = nil; end;
         if self.label2 ~= nil then self.label2:destroy(); self.label2 = nil; end;
+        if self.edit157 ~= nil then self.edit157:destroy(); self.edit157 = nil; end;
+        if self.dataLink82 ~= nil then self.dataLink82:destroy(); self.dataLink82 = nil; end;
         if self.label89 ~= nil then self.label89:destroy(); self.label89 = nil; end;
         if self.label38 ~= nil then self.label38:destroy(); self.label38 = nil; end;
         if self.edit83 ~= nil then self.edit83:destroy(); self.edit83 = nil; end;
+        if self.rclListaDasMagias0 ~= nil then self.rclListaDasMagias0:destroy(); self.rclListaDasMagias0 = nil; end;
         if self.edit27 ~= nil then self.edit27:destroy(); self.edit27 = nil; end;
         if self.layout14 ~= nil then self.layout14:destroy(); self.layout14 = nil; end;
+        if self.label115 ~= nil then self.label115:destroy(); self.label115 = nil; end;
+        if self.label159 ~= nil then self.label159:destroy(); self.label159 = nil; end;
+        if self.dataLink80 ~= nil then self.dataLink80:destroy(); self.dataLink80 = nil; end;
         if self.edit62 ~= nil then self.edit62:destroy(); self.edit62 = nil; end;
         if self.layout51 ~= nil then self.layout51:destroy(); self.layout51 = nil; end;
         if self.edit74 ~= nil then self.edit74:destroy(); self.edit74 = nil; end;
+        if self.layout100 ~= nil then self.layout100:destroy(); self.layout100 = nil; end;
         if self.layout7 ~= nil then self.layout7:destroy(); self.layout7 = nil; end;
         if self.edit60 ~= nil then self.edit60:destroy(); self.edit60 = nil; end;
+        if self.label127 ~= nil then self.label127:destroy(); self.label127 = nil; end;
+        if self.edit134 ~= nil then self.edit134:destroy(); self.edit134 = nil; end;
+        if self.label142 ~= nil then self.label142:destroy(); self.label142 = nil; end;
         if self.layout39 ~= nil then self.layout39:destroy(); self.layout39 = nil; end;
+        if self.flowPart8 ~= nil then self.flowPart8:destroy(); self.flowPart8 = nil; end;
         if self.dataLink40 ~= nil then self.dataLink40:destroy(); self.dataLink40 = nil; end;
         if self.layout69 ~= nil then self.layout69:destroy(); self.layout69 = nil; end;
+        if self.rectangle9 ~= nil then self.rectangle9:destroy(); self.rectangle9 = nil; end;
+        if self.edit121 ~= nil then self.edit121:destroy(); self.edit121 = nil; end;
         if self.textEditor9 ~= nil then self.textEditor9:destroy(); self.textEditor9 = nil; end;
         if self.dataLink55 ~= nil then self.dataLink55:destroy(); self.dataLink55 = nil; end;
         if self.dataLink47 ~= nil then self.dataLink47:destroy(); self.dataLink47 = nil; end;
         if self.layout30 ~= nil then self.layout30:destroy(); self.layout30 = nil; end;
+        if self.dataLink78 ~= nil then self.dataLink78:destroy(); self.dataLink78 = nil; end;
         if self.textEditor3 ~= nil then self.textEditor3:destroy(); self.textEditor3 = nil; end;
         if self.label73 ~= nil then self.label73:destroy(); self.label73 = nil; end;
         if self.layout59 ~= nil then self.layout59:destroy(); self.layout59 = nil; end;
@@ -5935,12 +8663,15 @@ function newfrmFichaRPGmeister5M_svg()
         if self.edit54 ~= nil then self.edit54:destroy(); self.edit54 = nil; end;
         if self.dataLink5 ~= nil then self.dataLink5:destroy(); self.dataLink5 = nil; end;
         if self.label61 ~= nil then self.label61:destroy(); self.label61 = nil; end;
-        if self.textEditor40 ~= nil then self.textEditor40:destroy(); self.textEditor40 = nil; end;
+        if self.rectangle10 ~= nil then self.rectangle10:destroy(); self.rectangle10 = nil; end;
         if self.edit100 ~= nil then self.edit100:destroy(); self.edit100 = nil; end;
         if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
         if self.edit61 ~= nil then self.edit61:destroy(); self.edit61 = nil; end;
         if self.edit84 ~= nil then self.edit84:destroy(); self.edit84 = nil; end;
+        if self.dataLink79 ~= nil then self.dataLink79:destroy(); self.dataLink79 = nil; end;
         if self.label93 ~= nil then self.label93:destroy(); self.label93 = nil; end;
+        if self.layout90 ~= nil then self.layout90:destroy(); self.layout90 = nil; end;
+        if self.textEditor40 ~= nil then self.textEditor40:destroy(); self.textEditor40 = nil; end;
         if self.edit24 ~= nil then self.edit24:destroy(); self.edit24 = nil; end;
         if self.edit59 ~= nil then self.edit59:destroy(); self.edit59 = nil; end;
         if self.layout12 ~= nil then self.layout12:destroy(); self.layout12 = nil; end;
@@ -5952,34 +8683,55 @@ function newfrmFichaRPGmeister5M_svg()
         if self.layout25 ~= nil then self.layout25:destroy(); self.layout25 = nil; end;
         if self.label6 ~= nil then self.label6:destroy(); self.label6 = nil; end;
         if self.textEditor11 ~= nil then self.textEditor11:destroy(); self.textEditor11 = nil; end;
+        if self.edit128 ~= nil then self.edit128:destroy(); self.edit128 = nil; end;
+        if self.label129 ~= nil then self.label129:destroy(); self.label129 = nil; end;
         if self.textEditor30 ~= nil then self.textEditor30:destroy(); self.textEditor30 = nil; end;
         if self.textEditor2 ~= nil then self.textEditor2:destroy(); self.textEditor2 = nil; end;
         if self.edit103 ~= nil then self.edit103:destroy(); self.edit103 = nil; end;
         if self.dataLink45 ~= nil then self.dataLink45:destroy(); self.dataLink45 = nil; end;
         if self.label37 ~= nil then self.label37:destroy(); self.label37 = nil; end;
+        if self.edit127 ~= nil then self.edit127:destroy(); self.edit127 = nil; end;
         if self.dataLink43 ~= nil then self.dataLink43:destroy(); self.dataLink43 = nil; end;
         if self.layout26 ~= nil then self.layout26:destroy(); self.layout26 = nil; end;
         if self.edit45 ~= nil then self.edit45:destroy(); self.edit45 = nil; end;
         if self.edit8 ~= nil then self.edit8:destroy(); self.edit8 = nil; end;
+        if self.edit145 ~= nil then self.edit145:destroy(); self.edit145 = nil; end;
+        if self.flowPart4 ~= nil then self.flowPart4:destroy(); self.flowPart4 = nil; end;
         if self.label86 ~= nil then self.label86:destroy(); self.label86 = nil; end;
         if self.edit96 ~= nil then self.edit96:destroy(); self.edit96 = nil; end;
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.label53 ~= nil then self.label53:destroy(); self.label53 = nil; end;
+        if self.comboBox7 ~= nil then self.comboBox7:destroy(); self.comboBox7 = nil; end;
         if self.edit109 ~= nil then self.edit109:destroy(); self.edit109 = nil; end;
+        if self.label133 ~= nil then self.label133:destroy(); self.label133 = nil; end;
         if self.edit21 ~= nil then self.edit21:destroy(); self.edit21 = nil; end;
+        if self.button3 ~= nil then self.button3:destroy(); self.button3 = nil; end;
+        if self.dataLink64 ~= nil then self.dataLink64:destroy(); self.dataLink64 = nil; end;
         if self.label42 ~= nil then self.label42:destroy(); self.label42 = nil; end;
         if self.layout76 ~= nil then self.layout76:destroy(); self.layout76 = nil; end;
+        if self.edit152 ~= nil then self.edit152:destroy(); self.edit152 = nil; end;
+        if self.edit133 ~= nil then self.edit133:destroy(); self.edit133 = nil; end;
         if self.label102 ~= nil then self.label102:destroy(); self.label102 = nil; end;
         if self.edit93 ~= nil then self.edit93:destroy(); self.edit93 = nil; end;
         if self.dataLink54 ~= nil then self.dataLink54:destroy(); self.dataLink54 = nil; end;
+        if self.edit126 ~= nil then self.edit126:destroy(); self.edit126 = nil; end;
         if self.edit13 ~= nil then self.edit13:destroy(); self.edit13 = nil; end;
         if self.dataLink24 ~= nil then self.dataLink24:destroy(); self.dataLink24 = nil; end;
         if self.dataLink35 ~= nil then self.dataLink35:destroy(); self.dataLink35 = nil; end;
+        if self.dataLink69 ~= nil then self.dataLink69:destroy(); self.dataLink69 = nil; end;
+        if self.label132 ~= nil then self.label132:destroy(); self.label132 = nil; end;
         if self.edit81 ~= nil then self.edit81:destroy(); self.edit81 = nil; end;
+        if self.button11 ~= nil then self.button11:destroy(); self.button11 = nil; end;
         if self.label81 ~= nil then self.label81:destroy(); self.label81 = nil; end;
+        if self.dataLink70 ~= nil then self.dataLink70:destroy(); self.dataLink70 = nil; end;
+        if self.layout97 ~= nil then self.layout97:destroy(); self.layout97 = nil; end;
         if self.dataLink22 ~= nil then self.dataLink22:destroy(); self.dataLink22 = nil; end;
+        if self.label166 ~= nil then self.label166:destroy(); self.label166 = nil; end;
+        if self.button6 ~= nil then self.button6:destroy(); self.button6 = nil; end;
         if self.dataLink61 ~= nil then self.dataLink61:destroy(); self.dataLink61 = nil; end;
+        if self.button5 ~= nil then self.button5:destroy(); self.button5 = nil; end;
         if self.edit37 ~= nil then self.edit37:destroy(); self.edit37 = nil; end;
+        if self.dataLink83 ~= nil then self.dataLink83:destroy(); self.dataLink83 = nil; end;
         if self.layoutSignos ~= nil then self.layoutSignos:destroy(); self.layoutSignos = nil; end;
         if self.textEditor10 ~= nil then self.textEditor10:destroy(); self.textEditor10 = nil; end;
         if self.layout70 ~= nil then self.layout70:destroy(); self.layout70 = nil; end;
@@ -5989,10 +8741,13 @@ function newfrmFichaRPGmeister5M_svg()
         if self.edit17 ~= nil then self.edit17:destroy(); self.edit17 = nil; end;
         if self.dataLink30 ~= nil then self.dataLink30:destroy(); self.dataLink30 = nil; end;
         if self.layout2 ~= nil then self.layout2:destroy(); self.layout2 = nil; end;
+        if self.button10 ~= nil then self.button10:destroy(); self.button10 = nil; end;
+        if self.edit155 ~= nil then self.edit155:destroy(); self.edit155 = nil; end;
         if self.layout67 ~= nil then self.layout67:destroy(); self.layout67 = nil; end;
         if self.edit87 ~= nil then self.edit87:destroy(); self.edit87 = nil; end;
         if self.label39 ~= nil then self.label39:destroy(); self.label39 = nil; end;
         if self.layout29 ~= nil then self.layout29:destroy(); self.layout29 = nil; end;
+        if self.flowPart3 ~= nil then self.flowPart3:destroy(); self.flowPart3 = nil; end;
         if self.label79 ~= nil then self.label79:destroy(); self.label79 = nil; end;
         if self.edit113 ~= nil then self.edit113:destroy(); self.edit113 = nil; end;
         if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
@@ -6000,29 +8755,41 @@ function newfrmFichaRPGmeister5M_svg()
         if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
         if self.label20 ~= nil then self.label20:destroy(); self.label20 = nil; end;
         if self.label108 ~= nil then self.label108:destroy(); self.label108 = nil; end;
+        if self.rclListaDasMagias2 ~= nil then self.rclListaDasMagias2:destroy(); self.rclListaDasMagias2 = nil; end;
+        if self.dataLink67 ~= nil then self.dataLink67:destroy(); self.dataLink67 = nil; end;
+        if self.edit138 ~= nil then self.edit138:destroy(); self.edit138 = nil; end;
         if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
         if self.label50 ~= nil then self.label50:destroy(); self.label50 = nil; end;
         if self.dataLink57 ~= nil then self.dataLink57:destroy(); self.dataLink57 = nil; end;
+        if self.button8 ~= nil then self.button8:destroy(); self.button8 = nil; end;
         if self.edit42 ~= nil then self.edit42:destroy(); self.edit42 = nil; end;
         if self.edit118 ~= nil then self.edit118:destroy(); self.edit118 = nil; end;
+        if self.edit154 ~= nil then self.edit154:destroy(); self.edit154 = nil; end;
+        if self.layout98 ~= nil then self.layout98:destroy(); self.layout98 = nil; end;
         if self.layout22 ~= nil then self.layout22:destroy(); self.layout22 = nil; end;
+        if self.rectangle4 ~= nil then self.rectangle4:destroy(); self.rectangle4 = nil; end;
         if self.layout48 ~= nil then self.layout48:destroy(); self.layout48 = nil; end;
         if self.layout73 ~= nil then self.layout73:destroy(); self.layout73 = nil; end;
+        if self.label124 ~= nil then self.label124:destroy(); self.label124 = nil; end;
         if self.label84 ~= nil then self.label84:destroy(); self.label84 = nil; end;
+        if self.edit135 ~= nil then self.edit135:destroy(); self.edit135 = nil; end;
         if self.edit32 ~= nil then self.edit32:destroy(); self.edit32 = nil; end;
         if self.dataLink38 ~= nil then self.dataLink38:destroy(); self.dataLink38 = nil; end;
         if self.edit102 ~= nil then self.edit102:destroy(); self.edit102 = nil; end;
         if self.textEditor25 ~= nil then self.textEditor25:destroy(); self.textEditor25 = nil; end;
         if self.edit117 ~= nil then self.edit117:destroy(); self.edit117 = nil; end;
         if self.layout75 ~= nil then self.layout75:destroy(); self.layout75 = nil; end;
+        if self.rclListaDasMagias3 ~= nil then self.rclListaDasMagias3:destroy(); self.rclListaDasMagias3 = nil; end;
         if self.dataLink12 ~= nil then self.dataLink12:destroy(); self.dataLink12 = nil; end;
         if self.label110 ~= nil then self.label110:destroy(); self.label110 = nil; end;
         if self.edit73 ~= nil then self.edit73:destroy(); self.edit73 = nil; end;
         if self.edit98 ~= nil then self.edit98:destroy(); self.edit98 = nil; end;
         if self.layout58 ~= nil then self.layout58:destroy(); self.layout58 = nil; end;
+        if self.label151 ~= nil then self.label151:destroy(); self.label151 = nil; end;
         if self.dataLink62 ~= nil then self.dataLink62:destroy(); self.dataLink62 = nil; end;
         if self.dataLink28 ~= nil then self.dataLink28:destroy(); self.dataLink28 = nil; end;
         if self.dataLink42 ~= nil then self.dataLink42:destroy(); self.dataLink42 = nil; end;
+        if self.label138 ~= nil then self.label138:destroy(); self.label138 = nil; end;
         if self.label40 ~= nil then self.label40:destroy(); self.label40 = nil; end;
         if self.dataLink4 ~= nil then self.dataLink4:destroy(); self.dataLink4 = nil; end;
         if self.layout63 ~= nil then self.layout63:destroy(); self.layout63 = nil; end;
@@ -6030,26 +8797,35 @@ function newfrmFichaRPGmeister5M_svg()
         if self.edit111 ~= nil then self.edit111:destroy(); self.edit111 = nil; end;
         if self.edit28 ~= nil then self.edit28:destroy(); self.edit28 = nil; end;
         if self.label57 ~= nil then self.label57:destroy(); self.label57 = nil; end;
+        if self.dataLink73 ~= nil then self.dataLink73:destroy(); self.dataLink73 = nil; end;
         if self.edit71 ~= nil then self.edit71:destroy(); self.edit71 = nil; end;
         if self.label71 ~= nil then self.label71:destroy(); self.label71 = nil; end;
+        if self.dataLink87 ~= nil then self.dataLink87:destroy(); self.dataLink87 = nil; end;
         if self.layout41 ~= nil then self.layout41:destroy(); self.layout41 = nil; end;
         if self.edit85 ~= nil then self.edit85:destroy(); self.edit85 = nil; end;
+        if self.label160 ~= nil then self.label160:destroy(); self.label160 = nil; end;
         if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
         if self.label22 ~= nil then self.label22:destroy(); self.label22 = nil; end;
         if self.dataLink21 ~= nil then self.dataLink21:destroy(); self.dataLink21 = nil; end;
         if self.layout38 ~= nil then self.layout38:destroy(); self.layout38 = nil; end;
         if self.layout13 ~= nil then self.layout13:destroy(); self.layout13 = nil; end;
+        if self.label144 ~= nil then self.label144:destroy(); self.label144 = nil; end;
         if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
         if self.layout8 ~= nil then self.layout8:destroy(); self.layout8 = nil; end;
+        if self.edit153 ~= nil then self.edit153:destroy(); self.edit153 = nil; end;
         if self.label27 ~= nil then self.label27:destroy(); self.label27 = nil; end;
         if self.label59 ~= nil then self.label59:destroy(); self.label59 = nil; end;
         if self.label68 ~= nil then self.label68:destroy(); self.label68 = nil; end;
+        if self.edit131 ~= nil then self.edit131:destroy(); self.edit131 = nil; end;
         if self.edit47 ~= nil then self.edit47:destroy(); self.edit47 = nil; end;
         if self.dataLink23 ~= nil then self.dataLink23:destroy(); self.dataLink23 = nil; end;
         if self.label67 ~= nil then self.label67:destroy(); self.label67 = nil; end;
         if self.layout68 ~= nil then self.layout68:destroy(); self.layout68 = nil; end;
+        if self.edit149 ~= nil then self.edit149:destroy(); self.edit149 = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.comboBox3 ~= nil then self.comboBox3:destroy(); self.comboBox3 = nil; end;
+        if self.label140 ~= nil then self.label140:destroy(); self.label140 = nil; end;
+        if self.edit120 ~= nil then self.edit120:destroy(); self.edit120 = nil; end;
         if self.edit26 ~= nil then self.edit26:destroy(); self.edit26 = nil; end;
         if self.label69 ~= nil then self.label69:destroy(); self.label69 = nil; end;
         if self.dataLink53 ~= nil then self.dataLink53:destroy(); self.dataLink53 = nil; end;
@@ -6057,24 +8833,31 @@ function newfrmFichaRPGmeister5M_svg()
         if self.label31 ~= nil then self.label31:destroy(); self.label31 = nil; end;
         if self.edit19 ~= nil then self.edit19:destroy(); self.edit19 = nil; end;
         if self.edit112 ~= nil then self.edit112:destroy(); self.edit112 = nil; end;
-        if self.edit114 ~= nil then self.edit114:destroy(); self.edit114 = nil; end;
         if self.label105 ~= nil then self.label105:destroy(); self.label105 = nil; end;
+        if self.edit114 ~= nil then self.edit114:destroy(); self.edit114 = nil; end;
+        if self.label154 ~= nil then self.label154:destroy(); self.label154 = nil; end;
         if self.label34 ~= nil then self.label34:destroy(); self.label34 = nil; end;
         if self.edit5 ~= nil then self.edit5:destroy(); self.edit5 = nil; end;
         if self.layout54 ~= nil then self.layout54:destroy(); self.layout54 = nil; end;
+        if self.label126 ~= nil then self.label126:destroy(); self.label126 = nil; end;
+        if self.dataLink93 ~= nil then self.dataLink93:destroy(); self.dataLink93 = nil; end;
         if self.layout50 ~= nil then self.layout50:destroy(); self.layout50 = nil; end;
         if self.label41 ~= nil then self.label41:destroy(); self.label41 = nil; end;
+        if self.label145 ~= nil then self.label145:destroy(); self.label145 = nil; end;
         if self.label72 ~= nil then self.label72:destroy(); self.label72 = nil; end;
         if self.label88 ~= nil then self.label88:destroy(); self.label88 = nil; end;
         if self.label12 ~= nil then self.label12:destroy(); self.label12 = nil; end;
         if self.edit68 ~= nil then self.edit68:destroy(); self.edit68 = nil; end;
         if self.edit72 ~= nil then self.edit72:destroy(); self.edit72 = nil; end;
         if self.textEditor5 ~= nil then self.textEditor5:destroy(); self.textEditor5 = nil; end;
+        if self.layout92 ~= nil then self.layout92:destroy(); self.layout92 = nil; end;
+        if self.label131 ~= nil then self.label131:destroy(); self.label131 = nil; end;
         if self.label16 ~= nil then self.label16:destroy(); self.label16 = nil; end;
         if self.textEditor7 ~= nil then self.textEditor7:destroy(); self.textEditor7 = nil; end;
         if self.edit10 ~= nil then self.edit10:destroy(); self.edit10 = nil; end;
         if self.edit106 ~= nil then self.edit106:destroy(); self.edit106 = nil; end;
         if self.edit31 ~= nil then self.edit31:destroy(); self.edit31 = nil; end;
+        if self.edit125 ~= nil then self.edit125:destroy(); self.edit125 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
         if self.edit79 ~= nil then self.edit79:destroy(); self.edit79 = nil; end;
         if self.textEditor35 ~= nil then self.textEditor35:destroy(); self.textEditor35 = nil; end;
@@ -6088,29 +8871,46 @@ function newfrmFichaRPGmeister5M_svg()
         if self.textEditor29 ~= nil then self.textEditor29:destroy(); self.textEditor29 = nil; end;
         if self.label58 ~= nil then self.label58:destroy(); self.label58 = nil; end;
         if self.comboBox1 ~= nil then self.comboBox1:destroy(); self.comboBox1 = nil; end;
+        if self.label114 ~= nil then self.label114:destroy(); self.label114 = nil; end;
+        if self.dataLink74 ~= nil then self.dataLink74:destroy(); self.dataLink74 = nil; end;
+        if self.flowPart5 ~= nil then self.flowPart5:destroy(); self.flowPart5 = nil; end;
+        if self.label135 ~= nil then self.label135:destroy(); self.label135 = nil; end;
         if self.layout20 ~= nil then self.layout20:destroy(); self.layout20 = nil; end;
         if self.edit23 ~= nil then self.edit23:destroy(); self.edit23 = nil; end;
+        if self.label155 ~= nil then self.label155:destroy(); self.label155 = nil; end;
         if self.layout18 ~= nil then self.layout18:destroy(); self.layout18 = nil; end;
         if self.label56 ~= nil then self.label56:destroy(); self.label56 = nil; end;
+        if self.edit139 ~= nil then self.edit139:destroy(); self.edit139 = nil; end;
+        if self.rectangle6 ~= nil then self.rectangle6:destroy(); self.rectangle6 = nil; end;
         if self.label21 ~= nil then self.label21:destroy(); self.label21 = nil; end;
         if self.dataLink49 ~= nil then self.dataLink49:destroy(); self.dataLink49 = nil; end;
+        if self.label120 ~= nil then self.label120:destroy(); self.label120 = nil; end;
         if self.edit40 ~= nil then self.edit40:destroy(); self.edit40 = nil; end;
         if self.textEditor26 ~= nil then self.textEditor26:destroy(); self.textEditor26 = nil; end;
         if self.textEditor6 ~= nil then self.textEditor6:destroy(); self.textEditor6 = nil; end;
         if self.edit110 ~= nil then self.edit110:destroy(); self.edit110 = nil; end;
         if self.dataLink2 ~= nil then self.dataLink2:destroy(); self.dataLink2 = nil; end;
         if self.textEditor12 ~= nil then self.textEditor12:destroy(); self.textEditor12 = nil; end;
+        if self.edit122 ~= nil then self.edit122:destroy(); self.edit122 = nil; end;
         if self.edit86 ~= nil then self.edit86:destroy(); self.edit86 = nil; end;
+        if self.textEditor41 ~= nil then self.textEditor41:destroy(); self.textEditor41 = nil; end;
         if self.edit38 ~= nil then self.edit38:destroy(); self.edit38 = nil; end;
         if self.dataLink15 ~= nil then self.dataLink15:destroy(); self.dataLink15 = nil; end;
+        if self.edit123 ~= nil then self.edit123:destroy(); self.edit123 = nil; end;
         if self.layout49 ~= nil then self.layout49:destroy(); self.layout49 = nil; end;
+        if self.label130 ~= nil then self.label130:destroy(); self.label130 = nil; end;
+        if self.edit143 ~= nil then self.edit143:destroy(); self.edit143 = nil; end;
         if self.label54 ~= nil then self.label54:destroy(); self.label54 = nil; end;
         if self.edit105 ~= nil then self.edit105:destroy(); self.edit105 = nil; end;
         if self.dataLink37 ~= nil then self.dataLink37:destroy(); self.dataLink37 = nil; end;
         if self.textEditor1 ~= nil then self.textEditor1:destroy(); self.textEditor1 = nil; end;
-        if self.textEditor31 ~= nil then self.textEditor31:destroy(); self.textEditor31 = nil; end;
+        if self.edit137 ~= nil then self.edit137:destroy(); self.edit137 = nil; end;
+        if self.edit146 ~= nil then self.edit146:destroy(); self.edit146 = nil; end;
         if self.dataLink29 ~= nil then self.dataLink29:destroy(); self.dataLink29 = nil; end;
+        if self.textEditor31 ~= nil then self.textEditor31:destroy(); self.textEditor31 = nil; end;
+        if self.button9 ~= nil then self.button9:destroy(); self.button9 = nil; end;
         if self.textEditor20 ~= nil then self.textEditor20:destroy(); self.textEditor20 = nil; end;
+        if self.label152 ~= nil then self.label152:destroy(); self.label152 = nil; end;
         if self.edit6 ~= nil then self.edit6:destroy(); self.edit6 = nil; end;
         if self.textEditor21 ~= nil then self.textEditor21:destroy(); self.textEditor21 = nil; end;
         if self.textEditor23 ~= nil then self.textEditor23:destroy(); self.textEditor23 = nil; end;
@@ -6125,8 +8925,11 @@ function newfrmFichaRPGmeister5M_svg()
         if self.edit49 ~= nil then self.edit49:destroy(); self.edit49 = nil; end;
         if self.label62 ~= nil then self.label62:destroy(); self.label62 = nil; end;
         if self.boxDetalhesDoItem ~= nil then self.boxDetalhesDoItem:destroy(); self.boxDetalhesDoItem = nil; end;
+        if self.label117 ~= nil then self.label117:destroy(); self.label117 = nil; end;
         if self.layout16 ~= nil then self.layout16:destroy(); self.layout16 = nil; end;
         if self.layout21 ~= nil then self.layout21:destroy(); self.layout21 = nil; end;
+        if self.dataLink91 ~= nil then self.dataLink91:destroy(); self.dataLink91 = nil; end;
+        if self.edit140 ~= nil then self.edit140:destroy(); self.edit140 = nil; end;
         if self.textEditor34 ~= nil then self.textEditor34:destroy(); self.textEditor34 = nil; end;
         if self.edit25 ~= nil then self.edit25:destroy(); self.edit25 = nil; end;
         if self.edit18 ~= nil then self.edit18:destroy(); self.edit18 = nil; end;
@@ -6134,38 +8937,55 @@ function newfrmFichaRPGmeister5M_svg()
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
         if self.dataLink25 ~= nil then self.dataLink25:destroy(); self.dataLink25 = nil; end;
         if self.edit94 ~= nil then self.edit94:destroy(); self.edit94 = nil; end;
+        if self.layout79 ~= nil then self.layout79:destroy(); self.layout79 = nil; end;
         if self.label33 ~= nil then self.label33:destroy(); self.label33 = nil; end;
+        if self.rectangle11 ~= nil then self.rectangle11:destroy(); self.rectangle11 = nil; end;
         if self.dataLink31 ~= nil then self.dataLink31:destroy(); self.dataLink31 = nil; end;
+        if self.label123 ~= nil then self.label123:destroy(); self.label123 = nil; end;
         if self.label44 ~= nil then self.label44:destroy(); self.label44 = nil; end;
+        if self.dataLink77 ~= nil then self.dataLink77:destroy(); self.dataLink77 = nil; end;
         if self.edit46 ~= nil then self.edit46:destroy(); self.edit46 = nil; end;
         if self.layout43 ~= nil then self.layout43:destroy(); self.layout43 = nil; end;
         if self.label95 ~= nil then self.label95:destroy(); self.label95 = nil; end;
         if self.textEditor13 ~= nil then self.textEditor13:destroy(); self.textEditor13 = nil; end;
         if self.label83 ~= nil then self.label83:destroy(); self.label83 = nil; end;
+        if self.label165 ~= nil then self.label165:destroy(); self.label165 = nil; end;
         if self.dataLink39 ~= nil then self.dataLink39:destroy(); self.dataLink39 = nil; end;
+        if self.rclListaDasMagias7 ~= nil then self.rclListaDasMagias7:destroy(); self.rclListaDasMagias7 = nil; end;
         if self.label98 ~= nil then self.label98:destroy(); self.label98 = nil; end;
         if self.edit104 ~= nil then self.edit104:destroy(); self.edit104 = nil; end;
+        if self.layout80 ~= nil then self.layout80:destroy(); self.layout80 = nil; end;
+        if self.label113 ~= nil then self.label113:destroy(); self.label113 = nil; end;
         if self.edit7 ~= nil then self.edit7:destroy(); self.edit7 = nil; end;
         if self.layout57 ~= nil then self.layout57:destroy(); self.layout57 = nil; end;
-        if self.edit108 ~= nil then self.edit108:destroy(); self.edit108 = nil; end;
+        if self.layout82 ~= nil then self.layout82:destroy(); self.layout82 = nil; end;
+        if self.rclListaDasMagias8 ~= nil then self.rclListaDasMagias8:destroy(); self.rclListaDasMagias8 = nil; end;
         if self.label55 ~= nil then self.label55:destroy(); self.label55 = nil; end;
         if self.edit12 ~= nil then self.edit12:destroy(); self.edit12 = nil; end;
-        if self.edit80 ~= nil then self.edit80:destroy(); self.edit80 = nil; end;
         if self.label66 ~= nil then self.label66:destroy(); self.label66 = nil; end;
+        if self.edit80 ~= nil then self.edit80:destroy(); self.edit80 = nil; end;
         if self.edit95 ~= nil then self.edit95:destroy(); self.edit95 = nil; end;
         if self.edit35 ~= nil then self.edit35:destroy(); self.edit35 = nil; end;
         if self.layout65 ~= nil then self.layout65:destroy(); self.layout65 = nil; end;
         if self.label26 ~= nil then self.label26:destroy(); self.label26 = nil; end;
+        if self.edit108 ~= nil then self.edit108:destroy(); self.edit108 = nil; end;
         if self.comboBox4 ~= nil then self.comboBox4:destroy(); self.comboBox4 = nil; end;
         if self.dataLink13 ~= nil then self.dataLink13:destroy(); self.dataLink13 = nil; end;
         if self.textEditor19 ~= nil then self.textEditor19:destroy(); self.textEditor19 = nil; end;
-        if self.edit97 ~= nil then self.edit97:destroy(); self.edit97 = nil; end;
         if self.dataLink59 ~= nil then self.dataLink59:destroy(); self.dataLink59 = nil; end;
+        if self.edit97 ~= nil then self.edit97:destroy(); self.edit97 = nil; end;
         if self.edit57 ~= nil then self.edit57:destroy(); self.edit57 = nil; end;
-        if self.textEditor37 ~= nil then self.textEditor37:destroy(); self.textEditor37 = nil; end;
+        if self.label112 ~= nil then self.label112:destroy(); self.label112 = nil; end;
+        if self.label121 ~= nil then self.label121:destroy(); self.label121 = nil; end;
+        if self.edit147 ~= nil then self.edit147:destroy(); self.edit147 = nil; end;
         if self.label65 ~= nil then self.label65:destroy(); self.label65 = nil; end;
         if self.layout3 ~= nil then self.layout3:destroy(); self.layout3 = nil; end;
+        if self.dataLink75 ~= nil then self.dataLink75:destroy(); self.dataLink75 = nil; end;
         if self.edit63 ~= nil then self.edit63:destroy(); self.edit63 = nil; end;
+        if self.layout93 ~= nil then self.layout93:destroy(); self.layout93 = nil; end;
+        if self.layout95 ~= nil then self.layout95:destroy(); self.layout95 = nil; end;
+        if self.layout81 ~= nil then self.layout81:destroy(); self.layout81 = nil; end;
+        if self.textEditor37 ~= nil then self.textEditor37:destroy(); self.textEditor37 = nil; end;
         if self.rectangle1 ~= nil then self.rectangle1:destroy(); self.rectangle1 = nil; end;
         if self.edit50 ~= nil then self.edit50:destroy(); self.edit50 = nil; end;
         if self.layout45 ~= nil then self.layout45:destroy(); self.layout45 = nil; end;
@@ -6173,19 +8993,27 @@ function newfrmFichaRPGmeister5M_svg()
         if self.label60 ~= nil then self.label60:destroy(); self.label60 = nil; end;
         if self.label64 ~= nil then self.label64:destroy(); self.label64 = nil; end;
         if self.layout77 ~= nil then self.layout77:destroy(); self.layout77 = nil; end;
+        if self.layout99 ~= nil then self.layout99:destroy(); self.layout99 = nil; end;
+        if self.flowPart2 ~= nil then self.flowPart2:destroy(); self.flowPart2 = nil; end;
+        if self.flowPart7 ~= nil then self.flowPart7:destroy(); self.flowPart7 = nil; end;
         if self.layout46 ~= nil then self.layout46:destroy(); self.layout46 = nil; end;
-        if self.layout56 ~= nil then self.layout56:destroy(); self.layout56 = nil; end;
-        if self.edit44 ~= nil then self.edit44:destroy(); self.edit44 = nil; end;
         if self.edit88 ~= nil then self.edit88:destroy(); self.edit88 = nil; end;
+        if self.edit44 ~= nil then self.edit44:destroy(); self.edit44 = nil; end;
+        if self.layout56 ~= nil then self.layout56:destroy(); self.layout56 = nil; end;
         if self.layoutMagiasAprimoradas ~= nil then self.layoutMagiasAprimoradas:destroy(); self.layoutMagiasAprimoradas = nil; end;
+        if self.label150 ~= nil then self.label150:destroy(); self.label150 = nil; end;
         if self.edit89 ~= nil then self.edit89:destroy(); self.edit89 = nil; end;
         if self.dataLink14 ~= nil then self.dataLink14:destroy(); self.dataLink14 = nil; end;
         if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
-        if self.textEditor24 ~= nil then self.textEditor24:destroy(); self.textEditor24 = nil; end;
         if self.layout66 ~= nil then self.layout66:destroy(); self.layout66 = nil; end;
+        if self.textEditor24 ~= nil then self.textEditor24:destroy(); self.textEditor24 = nil; end;
+        if self.dataLink65 ~= nil then self.dataLink65:destroy(); self.dataLink65 = nil; end;
+        if self.label136 ~= nil then self.label136:destroy(); self.label136 = nil; end;
         if self.label74 ~= nil then self.label74:destroy(); self.label74 = nil; end;
         if self.dataLink41 ~= nil then self.dataLink41:destroy(); self.dataLink41 = nil; end;
+        if self.label149 ~= nil then self.label149:destroy(); self.label149 = nil; end;
         if self.dataLink19 ~= nil then self.dataLink19:destroy(); self.dataLink19 = nil; end;
+        if self.edit148 ~= nil then self.edit148:destroy(); self.edit148 = nil; end;
         if self.layout27 ~= nil then self.layout27:destroy(); self.layout27 = nil; end;
         if self.dataLink36 ~= nil then self.dataLink36:destroy(); self.dataLink36 = nil; end;
         if self.dataLink60 ~= nil then self.dataLink60:destroy(); self.dataLink60 = nil; end;
@@ -6196,48 +9024,78 @@ function newfrmFichaRPGmeister5M_svg()
         if self.layout19 ~= nil then self.layout19:destroy(); self.layout19 = nil; end;
         if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
         if self.label28 ~= nil then self.label28:destroy(); self.label28 = nil; end;
+        if self.rectangle8 ~= nil then self.rectangle8:destroy(); self.rectangle8 = nil; end;
         if self.edit107 ~= nil then self.edit107:destroy(); self.edit107 = nil; end;
+        if self.label157 ~= nil then self.label157:destroy(); self.label157 = nil; end;
         if self.layout74 ~= nil then self.layout74:destroy(); self.layout74 = nil; end;
         if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
         if self.edit56 ~= nil then self.edit56:destroy(); self.edit56 = nil; end;
+        if self.label137 ~= nil then self.label137:destroy(); self.label137 = nil; end;
         if self.label80 ~= nil then self.label80:destroy(); self.label80 = nil; end;
+        if self.edit141 ~= nil then self.edit141:destroy(); self.edit141 = nil; end;
         if self.edit55 ~= nil then self.edit55:destroy(); self.edit55 = nil; end;
         if self.comboBox5 ~= nil then self.comboBox5:destroy(); self.comboBox5 = nil; end;
         if self.edit43 ~= nil then self.edit43:destroy(); self.edit43 = nil; end;
+        if self.label118 ~= nil then self.label118:destroy(); self.label118 = nil; end;
         if self.label17 ~= nil then self.label17:destroy(); self.label17 = nil; end;
         if self.label100 ~= nil then self.label100:destroy(); self.label100 = nil; end;
         if self.edit75 ~= nil then self.edit75:destroy(); self.edit75 = nil; end;
+        if self.label156 ~= nil then self.label156:destroy(); self.label156 = nil; end;
         if self.edit65 ~= nil then self.edit65:destroy(); self.edit65 = nil; end;
         if self.layout53 ~= nil then self.layout53:destroy(); self.layout53 = nil; end;
+        if self.dataLink66 ~= nil then self.dataLink66:destroy(); self.dataLink66 = nil; end;
         if self.edit39 ~= nil then self.edit39:destroy(); self.edit39 = nil; end;
+        if self.edit130 ~= nil then self.edit130:destroy(); self.edit130 = nil; end;
         if self.dataLink1 ~= nil then self.dataLink1:destroy(); self.dataLink1 = nil; end;
+        if self.edit144 ~= nil then self.edit144:destroy(); self.edit144 = nil; end;
         if self.dataLink52 ~= nil then self.dataLink52:destroy(); self.dataLink52 = nil; end;
+        if self.button12 ~= nil then self.button12:destroy(); self.button12 = nil; end;
         if self.label36 ~= nil then self.label36:destroy(); self.label36 = nil; end;
         if self.rectangle3 ~= nil then self.rectangle3:destroy(); self.rectangle3 = nil; end;
         if self.dataLink26 ~= nil then self.dataLink26:destroy(); self.dataLink26 = nil; end;
+        if self.edit151 ~= nil then self.edit151:destroy(); self.edit151 = nil; end;
+        if self.edit132 ~= nil then self.edit132:destroy(); self.edit132 = nil; end;
+        if self.comboBox8 ~= nil then self.comboBox8:destroy(); self.comboBox8 = nil; end;
         if self.edit51 ~= nil then self.edit51:destroy(); self.edit51 = nil; end;
         if self.edit119 ~= nil then self.edit119:destroy(); self.edit119 = nil; end;
+        if self.rclListaDasMagias9 ~= nil then self.rclListaDasMagias9:destroy(); self.rclListaDasMagias9 = nil; end;
         if self.edit48 ~= nil then self.edit48:destroy(); self.edit48 = nil; end;
         if self.label85 ~= nil then self.label85:destroy(); self.label85 = nil; end;
         if self.label46 ~= nil then self.label46:destroy(); self.label46 = nil; end;
         if self.dataLink48 ~= nil then self.dataLink48:destroy(); self.dataLink48 = nil; end;
         if self.textEditor14 ~= nil then self.textEditor14:destroy(); self.textEditor14 = nil; end;
+        if self.label153 ~= nil then self.label153:destroy(); self.label153 = nil; end;
         if self.edit78 ~= nil then self.edit78:destroy(); self.edit78 = nil; end;
         if self.layout40 ~= nil then self.layout40:destroy(); self.layout40 = nil; end;
+        if self.layout84 ~= nil then self.layout84:destroy(); self.layout84 = nil; end;
         if self.label87 ~= nil then self.label87:destroy(); self.label87 = nil; end;
         if self.label104 ~= nil then self.label104:destroy(); self.label104 = nil; end;
+        if self.layout87 ~= nil then self.layout87:destroy(); self.layout87 = nil; end;
+        if self.layout96 ~= nil then self.layout96:destroy(); self.layout96 = nil; end;
+        if self.dataLink85 ~= nil then self.dataLink85:destroy(); self.dataLink85 = nil; end;
         if self.edit91 ~= nil then self.edit91:destroy(); self.edit91 = nil; end;
         if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
         if self.edit70 ~= nil then self.edit70:destroy(); self.edit70 = nil; end;
-        if self.textEditor28 ~= nil then self.textEditor28:destroy(); self.textEditor28 = nil; end;
-        if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
+        if self.dataLink90 ~= nil then self.dataLink90:destroy(); self.dataLink90 = nil; end;
         if self.dataLink51 ~= nil then self.dataLink51:destroy(); self.dataLink51 = nil; end;
+        if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
+        if self.textEditor28 ~= nil then self.textEditor28:destroy(); self.textEditor28 = nil; end;
+        if self.dataLink88 ~= nil then self.dataLink88:destroy(); self.dataLink88 = nil; end;
         if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
         if self.layout6 ~= nil then self.layout6:destroy(); self.layout6 = nil; end;
         if self.dataLink11 ~= nil then self.dataLink11:destroy(); self.dataLink11 = nil; end;
         if self.dataLink46 ~= nil then self.dataLink46:destroy(); self.dataLink46 = nil; end;
         if self.textEditor18 ~= nil then self.textEditor18:destroy(); self.textEditor18 = nil; end;
+        if self.rectangle13 ~= nil then self.rectangle13:destroy(); self.rectangle13 = nil; end;
+        if self.label141 ~= nil then self.label141:destroy(); self.label141 = nil; end;
+        if self.edit136 ~= nil then self.edit136:destroy(); self.edit136 = nil; end;
         if self.dataLink50 ~= nil then self.dataLink50:destroy(); self.dataLink50 = nil; end;
+        if self.layout86 ~= nil then self.layout86:destroy(); self.layout86 = nil; end;
+        if self.layout85 ~= nil then self.layout85:destroy(); self.layout85 = nil; end;
+        if self.label134 ~= nil then self.label134:destroy(); self.label134 = nil; end;
+        if self.layoutListaMagias ~= nil then self.layoutListaMagias:destroy(); self.layoutListaMagias = nil; end;
+        if self.rclListaDasMagias6 ~= nil then self.rclListaDasMagias6:destroy(); self.rclListaDasMagias6 = nil; end;
+        if self.layout91 ~= nil then self.layout91:destroy(); self.layout91 = nil; end;
         if self.edit20 ~= nil then self.edit20:destroy(); self.edit20 = nil; end;
         self:_oldLFMDestroy();
     end;

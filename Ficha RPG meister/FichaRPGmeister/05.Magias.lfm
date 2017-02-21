@@ -56,26 +56,37 @@
 						if mod=='1' then
 							self.layoutMagias.visible = true;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = false;
 						elseif mod=='2' then
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = true;
+							self.layoutListaMagias.visible = false;
+							self.layoutMagiasEpicas.visible = false;
+							self.layoutMagiasAprimoradas.visible = false;
+						elseif mod=='3' then
+							self.layoutMagias.visible = false;
+							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = true;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = false;
 						elseif mod=='7' then
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = true;
 							self.layoutMagiasAprimoradas.visible = false;
 						elseif mod=='8' then
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = true;
 						else
 							self.layoutMagias.visible = false;
 							self.layoutSignos.visible = false;
+							self.layoutListaMagias.visible = false;
 							self.layoutMagiasEpicas.visible = false;
 							self.layoutMagiasAprimoradas.visible = false;
 						end
@@ -163,6 +174,17 @@
 			<template name="Circulo">
 				<label vertTextAlign="center" left="0" top="0" width="100" height="20" text="Magias Nível $(num)"/>
 				<textEditor top="20" width="280" height="160" fontSize="12" field="circulo$(num)"/>
+			</template>
+
+			<template name="MagiaDetalhada">
+				<rectangle align="client" color="black" strokeColor="white" strokeSize="1"/>
+				<button text="+" left="5" top="5" width="20" height="20">
+					<event name="onClick">
+						self.rclListaDasMagias$(num):append();
+					</event>
+				</button>
+				<label vertTextAlign="center" left="30" top="5" width="100" height="20" text="Magias Nível $(num)"/>
+				<recordList name="rclListaDasMagias$(num)" field="campoDasMagias$(num)" templateForm="frmFichaRPGmeister5D_svg" left="5" top="25" width="270" height="150" layout="vertical" minQt="1"/>
 			</template>
 
 			<template name="Signos">
@@ -381,6 +403,105 @@
 					<DescricaoSigno num="9"/>
 				</layout>
 			</layout>
+
+			<layout left="0" top="50" width="1200" height="550" name="layoutListaMagias">
+				<layout left="10" top="0" width="350" height="350">
+					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus"/>
+					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
+					
+					<rectangle left="210" top="0" width="30" height="25" color="black" strokeColor="white" strokeSize="1"/>
+					<label left="211" top="0" width="30" height="25" field="grimorio" horzTextAlign="center"/>
+					<dataLink fields="{'conhecidas0', 'conhecidas1', 'conhecidas2', 'conhecidas3', 'conhecidas4', 'conhecidas5', 'conhecidas6', 'conhecidas7', 'conhecidas8', 'conhecidas9'}">
+						<event name="onChange">
+							if sheet~=nil then
+								local mod = (tonumber(self.boxDetalhesDoItem.node.conhecidas0) or 0) + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas1) or 0) + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas2) or 0)*2 + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas3) or 0)*3 + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas4) or 0)*4 + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas5) or 0)*5 + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas6) or 0)*6 + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas7) or 0)*7 + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas8) or 0)*8 + 
+											(tonumber(self.boxDetalhesDoItem.node.conhecidas9) or 0)*9;
+								self.boxDetalhesDoItem.node.grimorio = mod;
+							end;
+						</event>
+					</dataLink>
+
+
+					<layout left="0" top="25" width="350" height="25">
+						<label vertTextAlign="center" left="0" top="3" width="25" height="22" text="NÍVEL"/>
+						<label vertTextAlign="center" left="40" top="3" width="25" height="22" text="TOTAL"/>
+						<label vertTextAlign="center" left="85" top="3" width="25" height="22" text="BASE"/>
+						<label vertTextAlign="center" left="125" top="3" width="25" height="22" text="BONUS"/>
+						<label vertTextAlign="center" left="180" top="3" width="25" height="22" text="CONHECIDAS"/>
+						<label vertTextAlign="center" left="270" top="3" width="25" height="22" text="CD"/>
+					</layout>
+					
+					<layout left="0" top="55" width="350" height="25">
+						<CirculoMagia num="0"/>
+					</layout>
+					<layout left="0" top="85" width="350" height="25">
+						<CirculoMagia num="1"/>
+					</layout>
+					<layout left="0" top="115" width="350" height="25">
+						<CirculoMagia num="2"/>
+					</layout>
+					<layout left="0" top="145" width="350" height="25">
+						<CirculoMagia num="3"/>
+					</layout>
+					<layout left="0" top="175" width="350" height="25">
+						<CirculoMagia num="4"/>
+					</layout>
+					<layout left="0" top="205" width="350" height="25">
+						<CirculoMagia num="5"/>
+					</layout>
+					<layout left="0" top="235" width="350" height="25">
+						<CirculoMagia num="6"/>
+					</layout>
+					<layout left="0" top="265" width="350" height="25">
+						<CirculoMagia num="7"/>
+					</layout>
+					<layout left="0" top="295" width="350" height="25">
+						<CirculoMagia num="8"/>
+					</layout>
+					<layout left="0" top="325" width="350" height="25">
+						<CirculoMagia num="9"/>
+					</layout>
+				</layout>
+				
+				<layout left="50" top="360" width="280" height="180">
+					<MagiaDetalhada num="6"/>
+				</layout>
+				<layout left="340" top="0" width="280" height="180">
+					<MagiaDetalhada num="0"/>
+				</layout>
+				<layout left="340" top="180" width="280" height="180">
+					<MagiaDetalhada num="3"/>
+				</layout>
+				<layout left="340" top="360" width="280" height="180">
+					<MagiaDetalhada num="7"/>
+				</layout>
+				<layout left="630" top="0" width="280" height="180">
+					<MagiaDetalhada num="1"/>
+				</layout>
+				<layout left="630" top="180" width="280" height="180">
+					<MagiaDetalhada num="4"/>
+				</layout>
+				<layout left="630" top="360" width="280" height="180">
+					<MagiaDetalhada num="8"/>
+				</layout>
+				<layout left="920" top="0" width="280" height="180">
+					<MagiaDetalhada num="2"/>
+				</layout>
+				<layout left="920" top="180" width="280" height="180">
+					<MagiaDetalhada num="5"/>
+				</layout>
+				<layout left="920" top="360" width="280" height="180">
+					<MagiaDetalhada num="9"/>
+				</layout>
+			</layout>
 			
 			<layout left="0" top="50" width="1200" height="550" name="layoutMagiasEpicas">
 				<layout left="50" top="360" width="280" height="180">
@@ -493,12 +614,33 @@
 				</layout>
 			</layout>
 			
-			
-			<comboBox left="10" top="50" width="110" height="25" items="{'Magias', 'Signos', 'Magia Epica', 'Magias Aprimoradas'}" values="{'1', '2', '7', '8'}" value="1" field="tipoMagia">
+			<comboBox left="10" top="50" width="110" height="25" items="{'Magias', 'Signos', 'Lista Magias', 'Magia Epica', 'Magias Aprimoradas'}" values="{'1', '2', '3', '7', '8'}" value="3" field="tipoMagia">
 				<event name="onChange">
 					limpar();
 				</event>
 			</comboBox>
+
+			<template name="magicInfoField">
+				<flowPart minWidth="30" maxWidth="400" height="35">
+					<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
+					<edit align="client" class="" field="$(field)" horzTextAlign="center" fontSize="12"/>
+				</flowPart>
+			</template>
+
+			<popup name="popMagia" width="250" height="350" backOpacity="0.4">
+				<flowLayout align="top" autoHeight="true" maxControlsPerLine="2" margins="{bottom=4}" horzAlign="center">
+					<magicInfoField text="ESCOLA" field="escola"/>
+					<magicInfoField text="COMPONENTES" field="componentes"/>
+					<magicInfoField text="EXECUÇÃO" field="execucao"/>
+					<magicInfoField text="ALCANCE" field="alcance"/>
+					<magicInfoField text="ALVO" field="alvo"/>
+					<magicInfoField text="DURAÇÃO" field="duracao"/>
+					<magicInfoField text="TR" field="tr"/>
+					<magicInfoField text="RM" field="rm"/>
+				</flowLayout>
+				
+				<textEditor align="client" field="descricao" class=""/>
+			</popup>
 		</dataScopeBox>
 	</scrollBox>
 </form>
