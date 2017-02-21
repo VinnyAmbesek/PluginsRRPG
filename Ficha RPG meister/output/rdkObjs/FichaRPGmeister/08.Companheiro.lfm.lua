@@ -961,23 +961,43 @@ function newfrmFichaRPGmeister8_svg()
 
     obj.label25 = gui.fromHandle(_obj_newObject("label"));
     obj.label25:setParent(obj.rectangle15);
-    obj.label25:setLeft(175);
+    obj.label25:setLeft(55);
     obj.label25:setTop(275);
     obj.label25:setWidth(50);
     obj.label25:setHeight(20);
-    obj.label25:setText("PREÇO");
+    obj.label25:setText("PESO");
     obj.label25:setName("label25");
 
     obj.edit37 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit37:setParent(obj.rectangle15);
-    obj.edit37:setLeft(225);
+    obj.edit37:setLeft(95);
     obj.edit37:setTop(270);
     obj.edit37:setWidth(70);
     obj.edit37:setHeight(25);
-    obj.edit37:setField("precoInventorioComp");
+    obj.edit37:setField("pesoInventorioComp");
     obj.edit37:setVertTextAlign("center");
     obj.edit37:setHorzTextAlign("center");
     obj.edit37:setName("edit37");
+
+    obj.label26 = gui.fromHandle(_obj_newObject("label"));
+    obj.label26:setParent(obj.rectangle15);
+    obj.label26:setLeft(175);
+    obj.label26:setTop(275);
+    obj.label26:setWidth(50);
+    obj.label26:setHeight(20);
+    obj.label26:setText("PREÇO");
+    obj.label26:setName("label26");
+
+    obj.edit38 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit38:setParent(obj.rectangle15);
+    obj.edit38:setLeft(225);
+    obj.edit38:setTop(270);
+    obj.edit38:setWidth(70);
+    obj.edit38:setHeight(25);
+    obj.edit38:setField("precoInventorioComp");
+    obj.edit38:setVertTextAlign("center");
+    obj.edit38:setHorzTextAlign("center");
+    obj.edit38:setName("edit38");
 
     obj.rectangle16 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle16:setParent(obj.boxDetalhesDoCompanheiro);
@@ -988,15 +1008,15 @@ function newfrmFichaRPGmeister8_svg()
     obj.rectangle16:setColor("black");
     obj.rectangle16:setName("rectangle16");
 
-    obj.label26 = gui.fromHandle(_obj_newObject("label"));
-    obj.label26:setParent(obj.rectangle16);
-    obj.label26:setLeft(0);
-    obj.label26:setTop(0);
-    obj.label26:setWidth(300);
-    obj.label26:setHeight(25);
-    obj.label26:setText("ATAQUES");
-    obj.label26:setHorzTextAlign("center");
-    obj.label26:setName("label26");
+    obj.label27 = gui.fromHandle(_obj_newObject("label"));
+    obj.label27:setParent(obj.rectangle16);
+    obj.label27:setLeft(0);
+    obj.label27:setTop(0);
+    obj.label27:setWidth(300);
+    obj.label27:setHeight(25);
+    obj.label27:setText("ATAQUES");
+    obj.label27:setHorzTextAlign("center");
+    obj.label27:setName("label27");
 
     obj.textEditor6 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor6:setParent(obj.rectangle16);
@@ -1016,15 +1036,15 @@ function newfrmFichaRPGmeister8_svg()
     obj.rectangle17:setColor("black");
     obj.rectangle17:setName("rectangle17");
 
-    obj.label27 = gui.fromHandle(_obj_newObject("label"));
-    obj.label27:setParent(obj.rectangle17);
-    obj.label27:setLeft(0);
-    obj.label27:setTop(0);
-    obj.label27:setWidth(300);
-    obj.label27:setHeight(25);
-    obj.label27:setText("OUTROS");
-    obj.label27:setHorzTextAlign("center");
-    obj.label27:setName("label27");
+    obj.label28 = gui.fromHandle(_obj_newObject("label"));
+    obj.label28:setParent(obj.rectangle17);
+    obj.label28:setLeft(0);
+    obj.label28:setTop(0);
+    obj.label28:setWidth(300);
+    obj.label28:setHeight(25);
+    obj.label28:setText("OUTROS");
+    obj.label28:setHorzTextAlign("center");
+    obj.label28:setName("label28");
 
     obj.textEditor7 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor7:setParent(obj.rectangle17);
@@ -1414,6 +1434,7 @@ function newfrmFichaRPGmeister8_svg()
         if self.edit16 ~= nil then self.edit16:destroy(); self.edit16 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
         if self.rectangle8 ~= nil then self.rectangle8:destroy(); self.rectangle8 = nil; end;
+        if self.label28 ~= nil then self.label28:destroy(); self.label28 = nil; end;
         if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
         if self.edit21 ~= nil then self.edit21:destroy(); self.edit21 = nil; end;
         if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
@@ -1442,6 +1463,7 @@ function newfrmFichaRPGmeister8_svg()
         if self.label19 ~= nil then self.label19:destroy(); self.label19 = nil; end;
         if self.layout2 ~= nil then self.layout2:destroy(); self.layout2 = nil; end;
         if self.button10 ~= nil then self.button10:destroy(); self.button10 = nil; end;
+        if self.edit38 ~= nil then self.edit38:destroy(); self.edit38 = nil; end;
         if self.rectangle12 ~= nil then self.rectangle12:destroy(); self.rectangle12 = nil; end;
         if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
         if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;

@@ -1,29 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmFichaRPGmeister7_svg" align="client" theme="dark" margins="{top=1}">
 	<scrollBox align="client">
-		<layout left="0" top="0" width="315" height="330">
+		<layout left="0" top="0" width="475" height="330">
 			<rectangle align="client" color="black"/>
 			<label left="5" top="1" width="200" height="20" text="ARMAS E ESCUDOS"/>
-			   <textEditor left="5" top="25" width="306" height="275" field="armas"/>
-			<label left="185" top="305" width="50" height="20" text="PREÇO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="235" top="305" width="71" height="20" field="precoArmas"/>
-		   </layout>
+			<textEditor left="5" top="25" width="465" height="275" field="armas"/>
+			<label left="280" top="305" width="50" height="20" text="Kg"/>
+			<edit vertTextAlign="center" horzTextAlign="center" left="300" top="305" width="70" height="20" field="pesoArmas"/>
+			<label left="380" top="305" width="50" height="20" text="$"/>
+			<edit vertTextAlign="center" horzTextAlign="center" left="395" top="305" width="71" height="20" field="precoArmas"/>
+		</layout>
 		
 		<layout left="0" top="335" width="475" height="335">
 			<rectangle align="client" color="black"/>
 			<label left="5" top="1" width="200" height="20" text="MOCHILA"/>
 			<textEditor left="5" top="25" width="465" height="280" field="mochila"/>
-			<label left="345" top="310" width="50" height="20" text="PREÇO"/>
+			<label left="280" top="310" width="50" height="20" text="Kg"/>
+			<edit vertTextAlign="center" horzTextAlign="center" left="300" top="310" width="70" height="20" field="pesoMochila"/>
+			<label left="380" top="310" width="50" height="20" text="$"/>
 			<edit vertTextAlign="center" horzTextAlign="center" left="395" top="310" width="71" height="20" field="precoMochila"/>
 		</layout>
-	
-		<layout left="320" top="0" width="155" height="165">
+
+		<template name="smallInventory">
+			<rectangle align="client" color="black"/>
+			<label left="5" top="1" width="150" height="20" text="$(title)"/>
+			
+			<textEditor left="5" top="25" width="190" height="165" field="$(field)"/>
+			
+			<label left="5" top="195" width="50" height="20" text="Kg"/>
+			<edit vertTextAlign="center" horzTextAlign="center" left="25" top="195" width="70" height="20" field="peso$(field2)"/>
+			<label left="105" top="195" width="50" height="20" text="$"/>
+			<edit vertTextAlign="center" horzTextAlign="center" left="120" top="195" width="70" height="20" field="preco$(field2)"/>
+		</template>
+		
+		<layout left="480" top="0" width="200" height="220">
+			<smallInventory title="PERMANENCIAS" field="permanencias" field2="Permanencias"/>
+		</layout>
+		<layout left="685" top="0" width="200" height="220">
+			<smallInventory title="LIVRES" field="livres" field2="Livres"/>
+		</layout>
+		<layout left="480" top="225" width="200" height="220">
+			<smallInventory title="OUTROS" field="outros" field2="Outros"/>
+		</layout>
+		<layout left="685" top="225" width="200" height="220">
+			<smallInventory title="MUNIÇÕES" field="municoes" field2="Municoes"/>
+		</layout>
+		<layout left="480" top="450" width="200" height="221">
+			<smallInventory title="BOLSOS" field="bolsos" field2="Bolsos"/>
+		</layout>
+		<layout left="685" top="450" width="200" height="221">
+			<smallInventory title="IMOVEIS" field="moveis" field2="Imoveis"/>
+		</layout>
+		
+		<layout left="890" top="0" width="315" height="480">
+			<rectangle align="client" color="#0000007F"  strokeColor="black" strokeSize="1"/>
+			<button left="5" top="5" height="20" width="305" text="Novo Item" onClick="self.rclConsumiveis:append();"/>
+			<recordList left="5" top="30" width="305" height="445" name="rclConsumiveis" field="itensConsumiveis" templateForm="frmConsumiveis" />
+		</layout>
+
+		<layout left="890" top="485" width="155" height="185">
 			<rectangle align="client" color="black"/>
 			<label left="5" top="1" width="200" height="20" text="DINHEIRO"/>
-			<textEditor left="5" top="25" width="145" height="110" field="dinheiro"/>
-			<label left="10" top="140" width="50" height="20" text="GASTOS"/>
-			<rectangle left="65" top="140" width="85" height="20" color="black" strokeColor="white" strokeSize="1"/>
-			<label field="gastos" text="0" left="65" top="140" width="85" height="20" horzTextAlign="center"/>
+			<textEditor left="5" top="25" width="145" height="130" field="dinheiro"/>
+			<label left="10" top="160" width="50" height="20" text="GASTOS"/>
+			<rectangle left="65" top="160" width="85" height="20" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="gastos" text="0" left="65" top="160" width="85" height="20" horzTextAlign="center"/>
 		</layout>
 		<dataLink fields="{'precoCabeca', 'precoOlhos', 'precoPescoco', 'precoOmbros', 'precoTorso', 'precoCorpo', 'precoPunhos', 'precoCintura', 'precoMaos', 'precoDedosI', 'precoDesdosII', 'precoPes', 'precoArmas', 'precoMochila', 'precoPermanencias', 'precoLivres', 'precoOutros', 'precoMunicoes', 'precoBolsos', 'precoImoveis', 'precoInventorioComp'}">
 			<event name="onChange">
@@ -54,6 +95,7 @@
 					mod2 = mod2 + (getNumber(nodes[i].precoInventorioComp) or 0);
 				end
 				mod = mod + mod2;
+				mod = string.gsub(mod, "%.", "_");
 				while true do  
 					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
 					if (k==0) then
@@ -61,68 +103,12 @@
 						end
 					end
 				mod = string.gsub(mod, ",", ".");
+				mod = string.gsub(mod, "_", ",");
 				sheet.gastos = mod .. "PO";
 			</event>
 		</dataLink>
-		
-		<layout left="480" top="0" width="200" height="220">
-			<rectangle align="client" color="black"/>
-			<label left="5" top="1" width="150" height="20" text="PERMANENCIAS"/>
-			
-			<textEditor left="5" top="25" width="190" height="165" field="permanencias"/>
-			
-			<label left="70" top="195" width="50" height="20" text="PREÇO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="120" top="195" width="70" height="20" field="precoPermanencias"/>
-		</layout>
-		<layout left="685" top="0" width="200" height="220">
-			<rectangle align="client" color="black"/>
-			<label left="5" top="1" width="150" height="20" text="LIVRES"/>
-			
-			<textEditor left="5" top="25" width="190" height="165" field="livres"/>
-			
-			<label left="70" top="195" width="50" height="20" text="PREÇO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="120" top="195" width="70" height="20" field="precoLivres"/>
-		</layout>
-		
-		<layout left="480" top="225" width="200" height="220">
-			<rectangle align="client" color="black"/>
-			<label left="5" top="1" width="150" height="20" text="OUTROS"/>
-		
-			<textEditor left="5" top="25" width="190" height="165" field="outros"/>
-			
-			<label left="70" top="195" width="50" height="20" text="PREÇO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="120" top="195" width="70" height="20" field="precoOutros"/>
-		</layout>
-		<layout left="685" top="225" width="200" height="220">
-			<rectangle align="client" color="black"/>
-			<label left="5" top="1" width="150" height="20" text="MUNIÇÕES"/>
-		
-			<textEditor left="5" top="25" width="190" height="165" field="municoes"/>
-			
-			<label left="70" top="195" width="50" height="20" text="PREÇO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="120" top="195" width="70" height="20" field="precoMunicoes"/>
-		</layout>
-		
-		<layout left="480" top="450" width="200" height="221">
-			<rectangle align="client" color="black"/>
-			<label left="5" top="1" width="150" height="20" text="BOLSOS"/>
-			
-			<textEditor left="5" top="25" width="190" height="165" field="bolsos"/>
-			
-			<label left="70" top="195" width="50" height="20" text="PREÇO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="120" top="195" width="70" height="20" field="precoBolsos"/>
-		</layout>
-		<layout left="685" top="450" width="200" height="221">
-			<rectangle align="client" color="black"/>
-			<label left="5" top="1" width="150" height="20" text="IMOVEIS"/>
-			
-			<textEditor left="5" top="25" width="190" height="165" field="imoveis"/>
-			
-			<label left="70" top="195" width="50" height="20" text="PREÇO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="120" top="195" width="70" height="20" field="precoImoveis"/>
-		</layout>
-		
-		<layout left="320" top="170" width="155" height="160">
+
+		<layout left="1050" top="485" width="155" height="185">
 			<rectangle align="client" color="black"/>
 			<label left="5" top="1" width="150" height="20" text="CARGA"/>
 			
@@ -142,8 +128,10 @@
 			<rectangle width="70" height="20" left="80" top="135" color="black" strokeColor="white" strokeSize="1"/>
 			<label left="10" top="135" width="65" height="20" text="LEVANTAR"/>
 			<label field="cargaEmpurrar" text="valor" width="70" height="20" left="80" top="135" horzTextAlign="center"/>
+			<rectangle width="70" height="20" left="80" top="160" color="white" strokeColor="gray" strokeSize="1"/>
+			<label left="20" top="160" width="65" height="20" text="ATUAL"/>
+			<label field="cargaAtual" text="valor" width="70" height="20" left="80" top="160" horzTextAlign="center" fontColor="black" fontStyle="bold"/>
 		</layout>
-		
 		<dataLink field="cargaPesada">
 			<event name="onChange">
 					local mod1 = sheet.cargaPesada;
@@ -155,17 +143,46 @@
 					mod1 = string.gsub(mod1, "k", "");
 					mod1 = string.gsub(mod1, "G", "");
 					mod1 = string.gsub(mod1, "g", "");
+					mod1 = string.gsub(mod1, ",", ".");
 					local mod = (tonumber(mod1) or 0);
 					sheet.cargaErguer = mod .. "Kg";
 					sheet.cargaLevantar = (2*mod) .. "Kg";
 					sheet.cargaEmpurrar = (5*mod) .. "Kg";
 			</event>
 		</dataLink>
-		
-		<layout left="890" top="0" width="305" height="670">
-			<rectangle align="client" color="#0000007F"  strokeColor="black" strokeSize="1"/>
-			<button left="5" top="5" height="20" width="295" text="Novo Item" onClick="self.rclConsumiveis:append();"/>
-			<recordList left="5" top="30" width="295" height="635" name="rclConsumiveis" field="itensConsumiveis" templateForm="frmConsumiveis" />
-		</layout>
+		<dataLink fields="{'pesoCabeca', 'pesoOlhos', 'pesoPescoco', 'pesoOmbros', 'pesoTorso', 'pesoCorpo', 'pesoPunhos', 'pesoCintura', 'pesoMaos', 'pesoDedosI', 'pesoDesdosII', 'pesoPes', 'pesoArmas', 'pesoMochila', 'pesoPermanencias', 'pesoLivres', 'pesoOutros', 'pesoMunicoes', 'pesoBolsos', 'pesoImoveis', 'pesoInventorioComp'}">
+			<event name="onChange">
+				local mod = 0;
+				mod = (getNumber(sheet.pesoCabeca) or 0) +
+							(getNumber(sheet.pesoOlhos) or 0) +
+							(getNumber(sheet.pesoPescoco) or 0) +
+							(getNumber(sheet.pesoOmbros) or 0) +
+							(getNumber(sheet.pesoTorso) or 0) +
+							(getNumber(sheet.pesoCorpo) or 0) +
+							(getNumber(sheet.pesoPunhos) or 0) +
+							(getNumber(sheet.pesoCintura) or 0) +
+							(getNumber(sheet.pesoMaos) or 0) +
+							(getNumber(sheet.pesoDedosI) or 0) +
+							(getNumber(sheet.pesoDesdosII) or 0) +
+							(getNumber(sheet.pesoPes) or 0) +
+							(getNumber(sheet.pesoArmas) or 0) +
+							(getNumber(sheet.pesoMochila) or 0) +
+							(getNumber(sheet.pesoPermanencias) or 0) +
+							(getNumber(sheet.pesoLivres) or 0) +
+							(getNumber(sheet.pesoOutros) or 0) +
+							(getNumber(sheet.pesoMunicoes) or 0) +
+							(getNumber(sheet.pesoBolsos) or 0) +
+							(getNumber(sheet.pesoImoveis) or 0);
+				while true do  
+					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+					if (k==0) then
+						break
+						end
+					end
+				mod = string.gsub(mod, ",", ".");
+				sheet.cargaAtual = mod .. "Kg";
+			</event>
+		</dataLink>
+
 	</scrollBox>
 </form>

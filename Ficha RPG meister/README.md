@@ -2,11 +2,14 @@
 + Alterar campo de luz para ficar de acordo com o usado pelos tokens do rrpg.
 + Permitir jogar token no scene a partir de imagem do personagem e companheiros.  
 + Campo de ataques 2.0 (usando recordlist + datascope).
++ Campo de magias por record list e campo de "i"nformação para por dados da magia.
++ Inventario de armas e mochila aprimorado. 
 
 Versao 19
 - Corrigido bug nos testes de resistencia dos companheiros.
 - Barra de cargas de itens atualizada. Pegando emprestado codigo da Lista de NPCs da Mia.
-
+- Carga total somada automaticamente. 
+- Carga e Dinheiro agora aceita numeros decimais com virgula. 
 
 7 de Dezembro de 2016
 Versao 18
