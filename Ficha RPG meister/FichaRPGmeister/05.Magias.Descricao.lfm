@@ -3,7 +3,7 @@
 	<script> 
 		<![CDATA[			
 		local function askForDelete()
-			dialogs.confirmYesNo("Deseja realmente apagar este item?",
+			dialogs.confirmYesNo("Deseja realmente apagar essa magia?",
 								 function (confirmado)
 									if confirmado then
 										ndb.deleteNode(sheet);

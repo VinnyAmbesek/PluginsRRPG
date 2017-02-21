@@ -5,7 +5,7 @@ require("rrpgDialogs.lua");
 require("rrpgLFM.lua");
 require("ndb.lua");
 
-function newfrmFichaRPGmeister5D_svg()
+function newfrmFichaRPGmeister7A_svg()
     __o_rrpgObjs.beginObjectsLoading();
 
     local obj = gui.fromHandle(_obj_newObject("form"));
@@ -26,15 +26,15 @@ function newfrmFichaRPGmeister5D_svg()
 
     _gui_assignInitialParentForForm(obj.handle);
     obj:beginUpdate();
-    obj:setName("frmFichaRPGmeister5D_svg");
-    obj:setWidth(250);
+    obj:setName("frmFichaRPGmeister7A_svg");
+    obj:setWidth(465);
     obj:setHeight(25);
     obj:setTheme("dark");
     obj:setMargins({top=1});
 
 			
 		local function askForDelete()
-			dialogs.confirmYesNo("Deseja realmente apagar essa magia?",
+			dialogs.confirmYesNo("Deseja realmente apagar essa arma?",
 								 function (confirmado)
 									if confirmado then
 										ndb.deleteNode(sheet);
@@ -42,15 +42,76 @@ function newfrmFichaRPGmeister5D_svg()
 								 end);
 		end;
 
-		local function showMagiaPopup()
-			local pop = self:findControlByName("popMagia");
+		local function showArmaPopup()
+			local pop = self:findControlByName("popArma");
 				
 			if pop ~= nil then
 				pop:setNodeObject(self.sheet);
 				pop:showPopupEx("bottomCenter", self);
 			else
-				showMessage("Ops, bug.. nao encontrei o popup de magia para exibir");
+				showMessage("Ops, bug.. nao encontrei o popup de arma para exibir");
 			end;				
+		end;
+
+		local function getNumber(text)
+			local mod = "0";
+			if text~= nil then
+				mod = string.gsub(text, "%.", "");
+				mod = string.gsub(mod, "k", "000");
+				mod = string.gsub(mod, "K", "");
+				mod = string.gsub(mod, "g", "");
+				mod = string.gsub(mod, "P", "");
+				mod = string.gsub(mod, "p", "");
+				mod = string.gsub(mod, "O", "");
+				mod = string.gsub(mod, "o", "");
+				mod = string.gsub(mod, "X", "");
+				mod = string.gsub(mod, "x", "");
+				mod = string.gsub(mod, " ", "");
+				mod = string.gsub(mod, ",", ".");
+			end
+			return tonumber(mod);
+		end;
+
+		local function weaponPrice()
+			if sheet~= nil then
+				local node = ndb.getRoot(sheet);
+				local mod = 0;
+				local nodes = ndb.getChildNodes(node.campoDasArmas); 
+				for i=1, #nodes, 1 do
+					mod = mod + (getNumber(nodes[i].preco) or 0);
+				end
+				mod = string.gsub(mod, "%.", "_");
+				while true do  
+					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+					if (k==0) then
+						break
+					end
+				end
+				mod = string.gsub(mod, ",", ".");
+				mod = string.gsub(mod, "_", ",");
+				node.precoArmas = mod .. "PO";
+			end;
+		end;
+
+		local function weaponWeight()
+			if sheet~= nil then
+				local node = ndb.getRoot(sheet);
+				local mod = 0;
+				local nodes = ndb.getChildNodes(node.campoDasArmas); 
+				for i=1, #nodes, 1 do
+					mod = mod + (getNumber(nodes[i].peso) or 0);
+				end
+				mod = string.gsub(mod, "%.", "_");
+				while true do  
+					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+					if (k==0) then
+						break
+					end
+				end
+				mod = string.gsub(mod, ",", ".");
+				mod = string.gsub(mod, "_", ",");
+				node.pesoArmas = mod .. "Kg";
+			end;
 		end;
 		
 
@@ -59,32 +120,32 @@ function newfrmFichaRPGmeister5D_svg()
     obj.edit1:setParent(obj);
     obj.edit1:setLeft(0);
     obj.edit1:setTop(1);
-    obj.edit1:setWidth(140);
+    obj.edit1:setWidth(270);
     obj.edit1:setHeight(23);
-    obj.edit1:setField("nomeMagia");
+    obj.edit1:setField("nome");
     obj.edit1:setName("edit1");
 
     obj.edit2 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit2:setParent(obj);
-    obj.edit2:setLeft(140);
+    obj.edit2:setLeft(270);
     obj.edit2:setTop(1);
-    obj.edit2:setWidth(30);
+    obj.edit2:setWidth(50);
     obj.edit2:setHeight(23);
-    obj.edit2:setField("dispMagia");
+    obj.edit2:setField("peso");
     obj.edit2:setName("edit2");
 
     obj.edit3 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit3:setParent(obj);
-    obj.edit3:setLeft(170);
+    obj.edit3:setLeft(320);
     obj.edit3:setTop(1);
-    obj.edit3:setWidth(30);
+    obj.edit3:setWidth(75);
     obj.edit3:setHeight(23);
-    obj.edit3:setField("prepMagia");
+    obj.edit3:setField("preco");
     obj.edit3:setName("edit3");
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj);
-    obj.button1:setLeft(200);
+    obj.button1:setLeft(395);
     obj.button1:setTop(1);
     obj.button1:setWidth(23);
     obj.button1:setHeight(23);
@@ -93,24 +154,36 @@ function newfrmFichaRPGmeister5D_svg()
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
     obj.button2:setParent(obj);
-    obj.button2:setLeft(225);
+    obj.button2:setLeft(420);
     obj.button2:setTop(1);
     obj.button2:setWidth(23);
     obj.button2:setHeight(23);
     obj.button2:setText("X");
     obj.button2:setName("button2");
 
-    obj._e_event0 = obj.button1:addEventListener("onClick",
+    obj._e_event0 = obj.edit2:addEventListener("onUserChange",
         function (self)
-            showMagiaPopup();
+            weaponWeight();
         end, obj);
 
-    obj._e_event1 = obj.button2:addEventListener("onClick",
+    obj._e_event1 = obj.edit3:addEventListener("onUserChange",
+        function (self)
+            weaponPrice();
+        end, obj);
+
+    obj._e_event2 = obj.button1:addEventListener("onClick",
+        function (self)
+            showArmaPopup();
+        end, obj);
+
+    obj._e_event3 = obj.button2:addEventListener("onClick",
         function (self)
             askForDelete();
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event3);
+        __o_rrpgObjs.removeEventListenerById(self._e_event2);
         __o_rrpgObjs.removeEventListenerById(self._e_event1);
         __o_rrpgObjs.removeEventListenerById(self._e_event0);
     end;
@@ -139,17 +212,17 @@ function newfrmFichaRPGmeister5D_svg()
     return obj;
 end;
 
-local _frmFichaRPGmeister5D_svg = {
-    newEditor = newfrmFichaRPGmeister5D_svg, 
-    new = newfrmFichaRPGmeister5D_svg, 
-    name = "frmFichaRPGmeister5D_svg", 
+local _frmFichaRPGmeister7A_svg = {
+    newEditor = newfrmFichaRPGmeister7A_svg, 
+    new = newfrmFichaRPGmeister7A_svg, 
+    name = "frmFichaRPGmeister7A_svg", 
     dataType = "", 
     formType = "undefined", 
     formComponentName = "form", 
     title = "", 
     description=""};
 
-frmFichaRPGmeister5D_svg = _frmFichaRPGmeister5D_svg;
-rrpg.registrarForm(_frmFichaRPGmeister5D_svg);
+frmFichaRPGmeister7A_svg = _frmFichaRPGmeister7A_svg;
+rrpg.registrarForm(_frmFichaRPGmeister7A_svg);
 
-return _frmFichaRPGmeister5D_svg;
+return _frmFichaRPGmeister7A_svg;

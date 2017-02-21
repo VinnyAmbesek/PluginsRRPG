@@ -64,6 +64,8 @@ function newfrmFichaRPGmeister6_svg()
 				if text~= nil then
 					mod = string.gsub(text, "%.", "");
 					mod = string.gsub(mod, "k", "000");
+					mod = string.gsub(mod, "K", "");
+					mod = string.gsub(mod, "g", "");
 					mod = string.gsub(mod, "P", "");
 					mod = string.gsub(mod, "p", "");
 					mod = string.gsub(mod, "O", "");

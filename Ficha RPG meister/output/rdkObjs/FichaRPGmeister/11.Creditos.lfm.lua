@@ -256,7 +256,6 @@ function newfrmFichaRPGmeister11_svg()
             							sheet.anotacoes_do_mestre_backup = sheet.anotacoes_do_mestre;
             						else
             							sheet.anotacoes_do_mestre = sheet.anotacoes_do_mestre_backup;
-            							showMessage("Apenas o Mestre pode editar!");
             						end;
             					end;
         end, obj);

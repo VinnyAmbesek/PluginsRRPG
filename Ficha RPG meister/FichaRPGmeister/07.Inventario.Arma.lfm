@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmFichaRPGmeister7A_svg" width="465" height="25" theme="dark" margins="{top=1}">
+	<script> 
+		<![CDATA[			
+		local function askForDelete()
+			dialogs.confirmYesNo("Deseja realmente apagar essa arma?",
+								 function (confirmado)
+									if confirmado then
+										ndb.deleteNode(sheet);
+									end;
+								 end);
+		end;
+
+		local function showArmaPopup()
+			local pop = self:findControlByName("popArma");
+				
+			if pop ~= nil then
+				pop:setNodeObject(self.sheet);
+				pop:showPopupEx("bottomCenter", self);
+			else
+				showMessage("Ops, bug.. nao encontrei o popup de arma para exibir");
+			end;				
+		end;
+
+		local function getNumber(text)
+			local mod = "0";
+			if text~= nil then
+				mod = string.gsub(text, "%.", "");
+				mod = string.gsub(mod, "k", "000");
+				mod = string.gsub(mod, "K", "");
+				mod = string.gsub(mod, "g", "");
+				mod = string.gsub(mod, "P", "");
+				mod = string.gsub(mod, "p", "");
+				mod = string.gsub(mod, "O", "");
+				mod = string.gsub(mod, "o", "");
+				mod = string.gsub(mod, "X", "");
+				mod = string.gsub(mod, "x", "");
+				mod = string.gsub(mod, " ", "");
+				mod = string.gsub(mod, ",", ".");
+			end
+			return tonumber(mod);
+		end;
+
+		local function weaponPrice()
+			if sheet~= nil then
+				local node = ndb.getRoot(sheet);
+				local mod = 0;
+				local nodes = ndb.getChildNodes(node.campoDasArmas); 
+				for i=1, #nodes, 1 do
+					mod = mod + (getNumber(nodes[i].preco) or 0);
+				end
+				mod = string.gsub(mod, "%.", "_");
+				while true do  
+					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+					if (k==0) then
+						break
+					end
+				end
+				mod = string.gsub(mod, ",", ".");
+				mod = string.gsub(mod, "_", ",");
+				node.precoArmas = mod .. "PO";
+			end;
+		end;
+
+		local function weaponWeight()
+			if sheet~= nil then
+				local node = ndb.getRoot(sheet);
+				local mod = 0;
+				local nodes = ndb.getChildNodes(node.campoDasArmas); 
+				for i=1, #nodes, 1 do
+					mod = mod + (getNumber(nodes[i].peso) or 0);
+				end
+				mod = string.gsub(mod, "%.", "_");
+				while true do  
+					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+					if (k==0) then
+						break
+					end
+				end
+				mod = string.gsub(mod, ",", ".");
+				mod = string.gsub(mod, "_", ",");
+				node.pesoArmas = mod .. "Kg";
+			end;
+		end;
+		]]>	
+	</script>
+	<edit left="0" top="1" width="270" height="23" field="nome"/>
+	<edit left="270" top="1" width="50" height="23" field="peso">
+		<event name="onUserChange">
+			weaponWeight();
+		</event>
+	</edit>
+	<edit left="320" top="1" width="75" height="23" field="preco">
+		<event name="onUserChange">
+			weaponPrice();
+		</event>
+	</edit>
+	<button left="395" top="1" width="23" height="23" text="i" onClick="showArmaPopup();"/>
+	<button left="420" top="1" width="23" height="23" text="X" onClick="askForDelete();"/>
+</form>

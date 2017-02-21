@@ -10,6 +10,8 @@ Versao 19
 - Barra de cargas de itens atualizada. Pegando emprestado codigo da Lista de NPCs da Mia.
 - Carga total somada automaticamente. 
 - Carga e Dinheiro agora aceita numeros decimais com virgula. 
+- Campo de magias "Lista de Magia" que permite instanciar magias. Ao clicar no "i" permite anotar detalhes da magia. 
+- Inventario de Armas permite agora usar uma lista instanciavel. Que ja soma o preço das armas e seus pesos. Ao clicar no "i" permite anotar detalhes da arma. O antigo campo de armas vai ficar no canto direito da tela até a proxima versao para permitir que suas informações sejam copiadas. 
 
 7 de Dezembro de 2016
 Versao 18
