@@ -33649,7 +33649,7 @@ function newfrmFichaRPGmeister()
     obj.image26:setWidth(100);
     obj.image26:setHeight(20);
     obj.image26:setStyle("autoFit");
-    obj.image26:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao18.png");
+    obj.image26:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao19.png");
     obj.image26:setName("image26");
 
     obj.label898 = gui.fromHandle(_obj_newObject("label"));

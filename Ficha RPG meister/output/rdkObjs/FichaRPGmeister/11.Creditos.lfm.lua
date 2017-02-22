@@ -166,7 +166,7 @@ function newfrmFichaRPGmeister11_svg()
     obj.image2:setWidth(100);
     obj.image2:setHeight(20);
     obj.image2:setStyle("autoFit");
-    obj.image2:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao18.png");
+    obj.image2:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao19.png");
     obj.image2:setName("image2");
 
     obj.label7 = gui.fromHandle(_obj_newObject("label"));
