@@ -140,9 +140,9 @@
 			<rectangle width="70" height="20" left="80" top="135" color="black" strokeColor="white" strokeSize="1"/>
 			<label left="10" top="135" width="65" height="20" text="LEVANTAR"/>
 			<label field="cargaEmpurrar" text="valor" width="70" height="20" left="80" top="135" horzTextAlign="center"/>
-			<rectangle width="70" height="20" left="80" top="160" color="white" strokeColor="gray" strokeSize="1"/>
+			<rectangle width="70" height="20" left="80" top="160" color="#404040"/>
 			<label left="20" top="160" width="65" height="20" text="ATUAL"/>
-			<label field="cargaAtual" text="valor" width="70" height="20" left="80" top="160" horzTextAlign="center" fontColor="black" fontStyle="bold"/>
+			<label field="cargaAtual" width="70" height="20" left="80" top="160" horzTextAlign="center" fontColor="white"/>
 		</layout>
 		<dataLink field="cargaPesada">
 			<event name="onChange">
@@ -196,21 +196,28 @@
 			</event>
 		</dataLink>
 		<template name="weaponInfoField">
-			<flowPart minWidth="250" maxWidth="400" height="35">
+			<flowPart minWidth="290" maxWidth="300" height="35">
 				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
-				<edit align="client" class="" field="$(field)" horzTextAlign="center" fontSize="12"/>
+				<edit align="client" class="" field="$(field)" fontSize="12"/>
 			</flowPart>
 		</template>
 		<template name="weaponInfoFieldSmall">
-			<flowPart minWidth="50" maxWidth="75" height="35">
+			<flowPart minWidth="90" maxWidth="100" height="35">
 				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
 				<edit align="client" class="" field="$(field)" horzTextAlign="center" fontSize="12"/>
 			</flowPart>
 		</template>
-		<popup name="popArma" width="250" height="350" backOpacity="0.4">
+		<popup name="popArma" width="300" height="400" backOpacity="0.4">
 			<flowLayout align="top" autoHeight="true" maxControlsPerLine="3" margins="{bottom=4}" horzAlign="center">
-				<weaponInfoField text="MATERIAL" field="material"/>
-				<weaponInfoField text="QUALIDADE" field="qualidade"/>
+				<weaponInfoFieldSmall text="MATERIAL" field="material"/>
+				<weaponInfoFieldSmall text="QUALIDADE" field="qualidade"/>
+				<weaponInfoFieldSmall text="CATEGORIA" field="categoria"/>
+				<weaponInfoFieldSmall text="DANO" field="dano"/>
+				<weaponInfoFieldSmall text="DECISIVO" field="decisivo"/>
+				<weaponInfoFieldSmall text="MULTIPLICADOR" field="multiplicador"/>
+				<weaponInfoFieldSmall text="ALCANCE" field="alcance"/>
+				<weaponInfoFieldSmall text="ESPECIAL" field="especial"/>
+				<weaponInfoFieldSmall text="TIPO" field="tipo"/>
 				<weaponInfoField text="EFEITOS" field="efeitos"/>
 				<weaponInfoFieldSmall text="CA" field="ca"/>
 				<weaponInfoFieldSmall text="PEN" field="penalidade"/>
