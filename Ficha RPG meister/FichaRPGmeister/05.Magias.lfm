@@ -206,7 +206,7 @@
 			
 			<rectangle left="5" top="40" width="330" height="370" color="black" cornerType="round" xradius="15" yradius="15" />
 			
-			<layout left="0" top="50" width="1200" height="550" name="layoutMagias">
+			<layout left="0" top="50" width="1200" height="550" name="layoutMagias"  visible="false">
 				<layout left="10" top="0" width="350" height="350">
 					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus"/>
 					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
@@ -305,7 +305,7 @@
 				</layout>
 			</layout>
 				
-			<layout left="0" top="50" width="1200" height="550" name="layoutSignos">
+			<layout left="0" top="50" width="1200" height="550" name="layoutSignos" visible="false">
 				<label vertTextAlign="center" left="130" top="0" width="30" height="25" text="CD"/>
 				<comboBox left="160" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
 				<dataLink fields="{'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'}">
@@ -404,7 +404,7 @@
 				</layout>
 			</layout>
 
-			<layout left="0" top="50" width="1200" height="550" name="layoutListaMagias">
+			<layout left="0" top="50" width="1200" height="550" name="layoutListaMagias" visible="false">
 				<layout left="10" top="0" width="350" height="350">
 					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus"/>
 					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
@@ -503,7 +503,7 @@
 				</layout>
 			</layout>
 			
-			<layout left="0" top="50" width="1200" height="550" name="layoutMagiasEpicas">
+			<layout left="0" top="50" width="1200" height="550" name="layoutMagiasEpicas" visible="false">
 				<layout left="50" top="360" width="280" height="180">
 					<MagiaEpica num="0"/>
 				</layout>
@@ -536,7 +536,7 @@
 				</layout>
 			</layout>
 			
-			<layout left="0" top="50" width="1200" height="550" name="layoutMagiasAprimoradas">
+			<layout left="0" top="50" width="1200" height="550" name="layoutMagiasAprimoradas" visible="false">
 				<layout left="10" top="0" width="350" height="350">
 					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus"/>
 					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>

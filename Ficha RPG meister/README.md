@@ -3,6 +3,7 @@
 + Permitir jogar token no scene a partir de imagem do personagem e companheiros.  
 + Campo de ataques 2.0 (usando recordlist + datascope).
 
+22 de Fevereiro de 2017
 Versao 19
 - Corrigido bug nos testes de resistencia dos companheiros.
 - Barra de cargas de itens atualizada. Pegando emprestado codigo da Lista de NPCs da Mia.

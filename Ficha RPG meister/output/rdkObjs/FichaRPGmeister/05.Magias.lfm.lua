@@ -262,6 +262,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.layoutMagias:setWidth(1200);
     obj.layoutMagias:setHeight(550);
     obj.layoutMagias:setName("layoutMagias");
+    obj.layoutMagias:setVisible(false);
 
     obj.layout2 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout2:setParent(obj.layoutMagias);
@@ -1712,6 +1713,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.layoutSignos:setWidth(1200);
     obj.layoutSignos:setHeight(550);
     obj.layoutSignos:setName("layoutSignos");
+    obj.layoutSignos:setVisible(false);
 
     obj.label52 = gui.fromHandle(_obj_newObject("label"));
     obj.label52:setParent(obj.layoutSignos);
@@ -2406,6 +2408,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.layoutListaMagias:setWidth(1200);
     obj.layoutListaMagias:setHeight(550);
     obj.layoutListaMagias:setName("layoutListaMagias");
+    obj.layoutListaMagias:setVisible(false);
 
     obj.layout47 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout47:setParent(obj.layoutListaMagias);
@@ -4056,6 +4059,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.layoutMagiasEpicas:setWidth(1200);
     obj.layoutMagiasEpicas:setHeight(550);
     obj.layoutMagiasEpicas:setName("layoutMagiasEpicas");
+    obj.layoutMagiasEpicas:setVisible(false);
 
     obj.layout69 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout69:setParent(obj.layoutMagiasEpicas);
@@ -4574,6 +4578,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.layoutMagiasAprimoradas:setWidth(1200);
     obj.layoutMagiasAprimoradas:setHeight(550);
     obj.layoutMagiasAprimoradas:setName("layoutMagiasAprimoradas");
+    obj.layoutMagiasAprimoradas:setVisible(false);
 
     obj.layout79 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout79:setParent(obj.layoutMagiasAprimoradas);

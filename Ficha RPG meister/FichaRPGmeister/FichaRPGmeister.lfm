@@ -7,6 +7,9 @@
         <tab title="Ataques">
             <import file="02.Ataques.lfm"/>
         </tab>
+        <tab title="Ataques Avançados">
+            <import file="02.AtaquesAprimorados.lfm"/>
+        </tab>
         <tab title="Perícias">
             <import file="03.Pericias.lfm"/>
         </tab>

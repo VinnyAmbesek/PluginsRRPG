@@ -65,7 +65,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label1:setTop(5);
     obj.label1:setWidth(435);
     obj.label1:setHeight(20);
-    obj.label1:setText("ARMAS E ESCUDOS                                          Kg              $");
+    obj.label1:setText("ARMAS E ESCUDOS                                     Kg         $");
     obj.label1:setName("label1");
 
     obj.rclListaDasArmas = gui.fromHandle(_obj_newObject("recordList"));
@@ -997,7 +997,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label42:setParent(obj.flowPart1);
     obj.label42:setAlign("top");
     obj.label42:setFontSize(10);
-    obj.label42:setText("MATERIAL");
+    obj.label42:setText("NOME");
     obj.label42:setHorzTextAlign("center");
     obj.label42:setWordWrap(true);
     obj.label42:setTextTrimming("none");
@@ -1007,7 +1007,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit18:setParent(obj.flowPart1);
     obj.edit18:setAlign("client");
-    obj.edit18:setField("material");
+    obj.edit18:setField("batismo");
     obj.edit18:setHorzTextAlign("center");
     obj.edit18:setFontSize(12);
     obj.edit18:setName("edit18");
@@ -1023,7 +1023,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label43:setParent(obj.flowPart2);
     obj.label43:setAlign("top");
     obj.label43:setFontSize(10);
-    obj.label43:setText("QUALIDADE");
+    obj.label43:setText("ARMA");
     obj.label43:setHorzTextAlign("center");
     obj.label43:setWordWrap(true);
     obj.label43:setTextTrimming("none");
@@ -1033,7 +1033,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit19 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit19:setParent(obj.flowPart2);
     obj.edit19:setAlign("client");
-    obj.edit19:setField("qualidade");
+    obj.edit19:setField("arma");
     obj.edit19:setHorzTextAlign("center");
     obj.edit19:setFontSize(12);
     obj.edit19:setName("edit19");
@@ -1049,7 +1049,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label44:setParent(obj.flowPart3);
     obj.label44:setAlign("top");
     obj.label44:setFontSize(10);
-    obj.label44:setText("CATEGORIA");
+    obj.label44:setText("TAMANHO");
     obj.label44:setHorzTextAlign("center");
     obj.label44:setWordWrap(true);
     obj.label44:setTextTrimming("none");
@@ -1059,7 +1059,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit20:setParent(obj.flowPart3);
     obj.edit20:setAlign("client");
-    obj.edit20:setField("categoria");
+    obj.edit20:setField("tamanho");
     obj.edit20:setHorzTextAlign("center");
     obj.edit20:setFontSize(12);
     obj.edit20:setName("edit20");
@@ -1075,7 +1075,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label45:setParent(obj.flowPart4);
     obj.label45:setAlign("top");
     obj.label45:setFontSize(10);
-    obj.label45:setText("DANO");
+    obj.label45:setText("MATERIAL");
     obj.label45:setHorzTextAlign("center");
     obj.label45:setWordWrap(true);
     obj.label45:setTextTrimming("none");
@@ -1085,7 +1085,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit21:setParent(obj.flowPart4);
     obj.edit21:setAlign("client");
-    obj.edit21:setField("dano");
+    obj.edit21:setField("material");
     obj.edit21:setHorzTextAlign("center");
     obj.edit21:setFontSize(12);
     obj.edit21:setName("edit21");
@@ -1101,7 +1101,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label46:setParent(obj.flowPart5);
     obj.label46:setAlign("top");
     obj.label46:setFontSize(10);
-    obj.label46:setText("DECISIVO");
+    obj.label46:setText("QUALIDADE");
     obj.label46:setHorzTextAlign("center");
     obj.label46:setWordWrap(true);
     obj.label46:setTextTrimming("none");
@@ -1111,7 +1111,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit22:setParent(obj.flowPart5);
     obj.edit22:setAlign("client");
-    obj.edit22:setField("decisivo");
+    obj.edit22:setField("qualidade");
     obj.edit22:setHorzTextAlign("center");
     obj.edit22:setFontSize(12);
     obj.edit22:setName("edit22");
@@ -1127,7 +1127,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label47:setParent(obj.flowPart6);
     obj.label47:setAlign("top");
     obj.label47:setFontSize(10);
-    obj.label47:setText("MULTIPLICADOR");
+    obj.label47:setText("CATEGORIA");
     obj.label47:setHorzTextAlign("center");
     obj.label47:setWordWrap(true);
     obj.label47:setTextTrimming("none");
@@ -1137,7 +1137,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit23:setParent(obj.flowPart6);
     obj.edit23:setAlign("client");
-    obj.edit23:setField("multiplicador");
+    obj.edit23:setField("categoria");
     obj.edit23:setHorzTextAlign("center");
     obj.edit23:setFontSize(12);
     obj.edit23:setName("edit23");
@@ -1153,7 +1153,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label48:setParent(obj.flowPart7);
     obj.label48:setAlign("top");
     obj.label48:setFontSize(10);
-    obj.label48:setText("ALCANCE");
+    obj.label48:setText("DANO");
     obj.label48:setHorzTextAlign("center");
     obj.label48:setWordWrap(true);
     obj.label48:setTextTrimming("none");
@@ -1163,7 +1163,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit24:setParent(obj.flowPart7);
     obj.edit24:setAlign("client");
-    obj.edit24:setField("alcance");
+    obj.edit24:setField("dano");
     obj.edit24:setHorzTextAlign("center");
     obj.edit24:setFontSize(12);
     obj.edit24:setName("edit24");
@@ -1179,7 +1179,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label49:setParent(obj.flowPart8);
     obj.label49:setAlign("top");
     obj.label49:setFontSize(10);
-    obj.label49:setText("ESPECIAL");
+    obj.label49:setText("DECISIVO");
     obj.label49:setHorzTextAlign("center");
     obj.label49:setWordWrap(true);
     obj.label49:setTextTrimming("none");
@@ -1189,7 +1189,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit25:setParent(obj.flowPart8);
     obj.edit25:setAlign("client");
-    obj.edit25:setField("especial");
+    obj.edit25:setField("decisivo");
     obj.edit25:setHorzTextAlign("center");
     obj.edit25:setFontSize(12);
     obj.edit25:setName("edit25");
@@ -1205,7 +1205,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label50:setParent(obj.flowPart9);
     obj.label50:setAlign("top");
     obj.label50:setFontSize(10);
-    obj.label50:setText("TIPO");
+    obj.label50:setText("MULTIPLICADOR");
     obj.label50:setHorzTextAlign("center");
     obj.label50:setWordWrap(true);
     obj.label50:setTextTrimming("none");
@@ -1215,15 +1215,15 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit26:setParent(obj.flowPart9);
     obj.edit26:setAlign("client");
-    obj.edit26:setField("tipo");
+    obj.edit26:setField("multiplicador");
     obj.edit26:setHorzTextAlign("center");
     obj.edit26:setFontSize(12);
     obj.edit26:setName("edit26");
 
     obj.flowPart10 = gui.fromHandle(_obj_newObject("flowPart"));
     obj.flowPart10:setParent(obj.flowLayout1);
-    obj.flowPart10:setMinWidth(290);
-    obj.flowPart10:setMaxWidth(300);
+    obj.flowPart10:setMinWidth(90);
+    obj.flowPart10:setMaxWidth(100);
     obj.flowPart10:setHeight(35);
     obj.flowPart10:setName("flowPart10");
 
@@ -1231,7 +1231,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label51:setParent(obj.flowPart10);
     obj.label51:setAlign("top");
     obj.label51:setFontSize(10);
-    obj.label51:setText("EFEITOS");
+    obj.label51:setText("ALCANCE");
     obj.label51:setHorzTextAlign("center");
     obj.label51:setWordWrap(true);
     obj.label51:setTextTrimming("none");
@@ -1241,7 +1241,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit27 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit27:setParent(obj.flowPart10);
     obj.edit27:setAlign("client");
-    obj.edit27:setField("efeitos");
+    obj.edit27:setField("alcance");
+    obj.edit27:setHorzTextAlign("center");
     obj.edit27:setFontSize(12);
     obj.edit27:setName("edit27");
 
@@ -1256,7 +1257,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label52:setParent(obj.flowPart11);
     obj.label52:setAlign("top");
     obj.label52:setFontSize(10);
-    obj.label52:setText("CA");
+    obj.label52:setText("ESPECIAL");
     obj.label52:setHorzTextAlign("center");
     obj.label52:setWordWrap(true);
     obj.label52:setTextTrimming("none");
@@ -1266,7 +1267,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit28 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit28:setParent(obj.flowPart11);
     obj.edit28:setAlign("client");
-    obj.edit28:setField("ca");
+    obj.edit28:setField("especial");
     obj.edit28:setHorzTextAlign("center");
     obj.edit28:setFontSize(12);
     obj.edit28:setName("edit28");
@@ -1282,7 +1283,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label53:setParent(obj.flowPart12);
     obj.label53:setAlign("top");
     obj.label53:setFontSize(10);
-    obj.label53:setText("PEN");
+    obj.label53:setText("TIPO");
     obj.label53:setHorzTextAlign("center");
     obj.label53:setWordWrap(true);
     obj.label53:setTextTrimming("none");
@@ -1292,15 +1293,15 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit29:setParent(obj.flowPart12);
     obj.edit29:setAlign("client");
-    obj.edit29:setField("penalidade");
+    obj.edit29:setField("tipo");
     obj.edit29:setHorzTextAlign("center");
     obj.edit29:setFontSize(12);
     obj.edit29:setName("edit29");
 
     obj.flowPart13 = gui.fromHandle(_obj_newObject("flowPart"));
     obj.flowPart13:setParent(obj.flowLayout1);
-    obj.flowPart13:setMinWidth(90);
-    obj.flowPart13:setMaxWidth(100);
+    obj.flowPart13:setMinWidth(290);
+    obj.flowPart13:setMaxWidth(300);
     obj.flowPart13:setHeight(35);
     obj.flowPart13:setName("flowPart13");
 
@@ -1308,7 +1309,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label54:setParent(obj.flowPart13);
     obj.label54:setAlign("top");
     obj.label54:setFontSize(10);
-    obj.label54:setText("FALHA");
+    obj.label54:setText("EFEITOS");
     obj.label54:setHorzTextAlign("center");
     obj.label54:setWordWrap(true);
     obj.label54:setTextTrimming("none");
@@ -1318,10 +1319,87 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit30:setParent(obj.flowPart13);
     obj.edit30:setAlign("client");
-    obj.edit30:setField("falha");
-    obj.edit30:setHorzTextAlign("center");
+    obj.edit30:setField("efeitos");
     obj.edit30:setFontSize(12);
     obj.edit30:setName("edit30");
+
+    obj.flowPart14 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart14:setParent(obj.flowLayout1);
+    obj.flowPart14:setMinWidth(90);
+    obj.flowPart14:setMaxWidth(100);
+    obj.flowPart14:setHeight(35);
+    obj.flowPart14:setName("flowPart14");
+
+    obj.label55 = gui.fromHandle(_obj_newObject("label"));
+    obj.label55:setParent(obj.flowPart14);
+    obj.label55:setAlign("top");
+    obj.label55:setFontSize(10);
+    obj.label55:setText("CA");
+    obj.label55:setHorzTextAlign("center");
+    obj.label55:setWordWrap(true);
+    obj.label55:setTextTrimming("none");
+    obj.label55:setAutoSize(true);
+    obj.label55:setName("label55");
+
+    obj.edit31 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit31:setParent(obj.flowPart14);
+    obj.edit31:setAlign("client");
+    obj.edit31:setField("ca");
+    obj.edit31:setHorzTextAlign("center");
+    obj.edit31:setFontSize(12);
+    obj.edit31:setName("edit31");
+
+    obj.flowPart15 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart15:setParent(obj.flowLayout1);
+    obj.flowPart15:setMinWidth(90);
+    obj.flowPart15:setMaxWidth(100);
+    obj.flowPart15:setHeight(35);
+    obj.flowPart15:setName("flowPart15");
+
+    obj.label56 = gui.fromHandle(_obj_newObject("label"));
+    obj.label56:setParent(obj.flowPart15);
+    obj.label56:setAlign("top");
+    obj.label56:setFontSize(10);
+    obj.label56:setText("PEN");
+    obj.label56:setHorzTextAlign("center");
+    obj.label56:setWordWrap(true);
+    obj.label56:setTextTrimming("none");
+    obj.label56:setAutoSize(true);
+    obj.label56:setName("label56");
+
+    obj.edit32 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit32:setParent(obj.flowPart15);
+    obj.edit32:setAlign("client");
+    obj.edit32:setField("penalidade");
+    obj.edit32:setHorzTextAlign("center");
+    obj.edit32:setFontSize(12);
+    obj.edit32:setName("edit32");
+
+    obj.flowPart16 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart16:setParent(obj.flowLayout1);
+    obj.flowPart16:setMinWidth(90);
+    obj.flowPart16:setMaxWidth(100);
+    obj.flowPart16:setHeight(35);
+    obj.flowPart16:setName("flowPart16");
+
+    obj.label57 = gui.fromHandle(_obj_newObject("label"));
+    obj.label57:setParent(obj.flowPart16);
+    obj.label57:setAlign("top");
+    obj.label57:setFontSize(10);
+    obj.label57:setText("FALHA");
+    obj.label57:setHorzTextAlign("center");
+    obj.label57:setWordWrap(true);
+    obj.label57:setTextTrimming("none");
+    obj.label57:setAutoSize(true);
+    obj.label57:setName("label57");
+
+    obj.edit33 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit33:setParent(obj.flowPart16);
+    obj.edit33:setAlign("client");
+    obj.edit33:setField("falha");
+    obj.edit33:setHorzTextAlign("center");
+    obj.edit33:setFontSize(12);
+    obj.edit33:setName("edit33");
 
     obj.textEditor10 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor10:setParent(obj.popArma);
@@ -1453,6 +1531,7 @@ function newfrmFichaRPGmeister7_svg()
         if self.label14 ~= nil then self.label14:destroy(); self.label14 = nil; end;
         if self.label44 ~= nil then self.label44:destroy(); self.label44 = nil; end;
         if self.flowPart8 ~= nil then self.flowPart8:destroy(); self.flowPart8 = nil; end;
+        if self.flowPart14 ~= nil then self.flowPart14:destroy(); self.flowPart14 = nil; end;
         if self.flowPart10 ~= nil then self.flowPart10:destroy(); self.flowPart10 = nil; end;
         if self.layout10 ~= nil then self.layout10:destroy(); self.layout10 = nil; end;
         if self.rectangle9 ~= nil then self.rectangle9:destroy(); self.rectangle9 = nil; end;
@@ -1460,15 +1539,18 @@ function newfrmFichaRPGmeister7_svg()
         if self.edit9 ~= nil then self.edit9:destroy(); self.edit9 = nil; end;
         if self.label40 ~= nil then self.label40:destroy(); self.label40 = nil; end;
         if self.label43 ~= nil then self.label43:destroy(); self.label43 = nil; end;
+        if self.edit33 ~= nil then self.edit33:destroy(); self.edit33 = nil; end;
         if self.edit29 ~= nil then self.edit29:destroy(); self.edit29 = nil; end;
         if self.edit28 ~= nil then self.edit28:destroy(); self.edit28 = nil; end;
         if self.edit7 ~= nil then self.edit7:destroy(); self.edit7 = nil; end;
         if self.label45 ~= nil then self.label45:destroy(); self.label45 = nil; end;
         if self.flowPart7 ~= nil then self.flowPart7:destroy(); self.flowPart7 = nil; end;
         if self.textEditor3 ~= nil then self.textEditor3:destroy(); self.textEditor3 = nil; end;
+        if self.label55 ~= nil then self.label55:destroy(); self.label55 = nil; end;
         if self.edit12 ~= nil then self.edit12:destroy(); self.edit12 = nil; end;
         if self.flowLayout1 ~= nil then self.flowLayout1:destroy(); self.flowLayout1 = nil; end;
         if self.flowPart13 ~= nil then self.flowPart13:destroy(); self.flowPart13 = nil; end;
+        if self.label57 ~= nil then self.label57:destroy(); self.label57 = nil; end;
         if self.label26 ~= nil then self.label26:destroy(); self.label26 = nil; end;
         if self.rectangle16 ~= nil then self.rectangle16:destroy(); self.rectangle16 = nil; end;
         if self.flowPart1 ~= nil then self.flowPart1:destroy(); self.flowPart1 = nil; end;
@@ -1489,6 +1571,7 @@ function newfrmFichaRPGmeister7_svg()
         if self.edit24 ~= nil then self.edit24:destroy(); self.edit24 = nil; end;
         if self.rectangle5 ~= nil then self.rectangle5:destroy(); self.rectangle5 = nil; end;
         if self.edit14 ~= nil then self.edit14:destroy(); self.edit14 = nil; end;
+        if self.flowPart16 ~= nil then self.flowPart16:destroy(); self.flowPart16 = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.edit4 ~= nil then self.edit4:destroy(); self.edit4 = nil; end;
         if self.label8 ~= nil then self.label8:destroy(); self.label8 = nil; end;
@@ -1527,6 +1610,7 @@ function newfrmFichaRPGmeister7_svg()
         if self.label47 ~= nil then self.label47:destroy(); self.label47 = nil; end;
         if self.label48 ~= nil then self.label48:destroy(); self.label48 = nil; end;
         if self.label53 ~= nil then self.label53:destroy(); self.label53 = nil; end;
+        if self.edit31 ~= nil then self.edit31:destroy(); self.edit31 = nil; end;
         if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
         if self.textEditor4 ~= nil then self.textEditor4:destroy(); self.textEditor4 = nil; end;
         if self.edit21 ~= nil then self.edit21:destroy(); self.edit21 = nil; end;
@@ -1544,6 +1628,7 @@ function newfrmFichaRPGmeister7_svg()
         if self.dataLink1 ~= nil then self.dataLink1:destroy(); self.dataLink1 = nil; end;
         if self.rclListaDasArmas ~= nil then self.rclListaDasArmas:destroy(); self.rclListaDasArmas = nil; end;
         if self.dataLink3 ~= nil then self.dataLink3:destroy(); self.dataLink3 = nil; end;
+        if self.label56 ~= nil then self.label56:destroy(); self.label56 = nil; end;
         if self.label29 ~= nil then self.label29:destroy(); self.label29 = nil; end;
         if self.label36 ~= nil then self.label36:destroy(); self.label36 = nil; end;
         if self.rectangle2 ~= nil then self.rectangle2:destroy(); self.rectangle2 = nil; end;
@@ -1589,9 +1674,11 @@ function newfrmFichaRPGmeister7_svg()
         if self.rectangle4 ~= nil then self.rectangle4:destroy(); self.rectangle4 = nil; end;
         if self.rectangle13 ~= nil then self.rectangle13:destroy(); self.rectangle13 = nil; end;
         if self.edit27 ~= nil then self.edit27:destroy(); self.edit27 = nil; end;
+        if self.edit32 ~= nil then self.edit32:destroy(); self.edit32 = nil; end;
         if self.edit18 ~= nil then self.edit18:destroy(); self.edit18 = nil; end;
         if self.edit25 ~= nil then self.edit25:destroy(); self.edit25 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
+        if self.flowPart15 ~= nil then self.flowPart15:destroy(); self.flowPart15 = nil; end;
         if self.layout7 ~= nil then self.layout7:destroy(); self.layout7 = nil; end;
         if self.edit20 ~= nil then self.edit20:destroy(); self.edit20 = nil; end;
         self:_oldLFMDestroy();

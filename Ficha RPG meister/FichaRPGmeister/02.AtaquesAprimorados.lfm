@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmFichaRPGmeister2a_svg" align="client" theme="dark" margins="{top=1}">
+	<scrollBox align="client">
+		<button text="+" left="90" top="2" width="20" height="20">
+			<event name="onClick">
+				self.rclListaDosAtaques:append();
+			</event>
+		</button>
+		<rectangle left="0" top="25" width="205" height="600" color="black" strokeColor="white" strokeSize="1"/>
+		<recordList name="rclListaDosAtaques" field="campoDosAtaques" templateForm="frmFichaRPGmeister2AS_svg" left="2" top="27" width="200" height="595" selectable="true" layout="vertical" minQt="1">
+			<event name="onSelect">
+				local node = self.rclListaDosAtaques.selectedNode;
+				self.boxDetalhesDoAtaque.node = node;
+				self.boxDetalhesDoAtaque.visible = (node ~= nil);
+			</event>
+			<event name="onEndEnumeration">
+				if self.rclListaDosAtaques.selectedNode == nil and sheet ~= nil then
+					local nodes = ndb.getChildNodes(sheet.campoDosAtaques);               
+					if #nodes &gt; 0 then
+						self.rclListaDosAtaques.selectedNode = nodes[1];
+					end;
+				end;
+			</event>
+		</recordList>
+
+		<rectangle left="208" top="0" width="1134" height="624" color="black" strokeColor="white" strokeSize="1"/>
+		<dataScopeBox name="boxDetalhesDoAtaque" visible="false" left="210" top="2" width="1130" height="620">
+			<layout left="0" top="0" width="1130" height="25">
+				<label left="5" top="5" width="70" height="20" text="Nome"/>
+				<edit left="55" top="5" width="300" height="20" field="nomeAtaque"/>
+
+				<button text="+" left="360" top="5" width="20" height="20">
+					<event name="onClick">
+						self.rclListaDeArmas:append();
+					</event>
+				</button>
+				<button text="Ataque Total" left="385" top="5" width="100" height="20">
+					<event name="onClick">
+						if sheet==nil then
+							return;
+						end;
+						
+						local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+						local personagem = sheet.nome or "personagem";
+
+						for i=1, #weapons, 1 do
+							local acertos = weapons[i].acertos;
+							local armamento = weapons[i].nomeAtaque or "arma";
+							for j=1, weapons[i].numAtaques, 1 do
+								local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
+								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. j .. " com " .. armamento .. " de " .. personagem);
+							end;
+						end;
+					</event>
+				</button>
+
+			</layout>
+			<recordList name="rclListaDeArmas" field="campoDeArmas" templateForm="frmFichaRPGmeister2Aar_svg" left="0" top="30" width="1130" height="590" layout="vertical" minQt="1"/>
+
+		</dataScopeBox>
+	</scrollBox>
+</form>

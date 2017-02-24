@@ -113,6 +113,30 @@ function newfrmFichaRPGmeister7A_svg()
 				node.pesoArmas = mod .. "Kg";
 			end;
 		end;
+		local function createName()
+			if sheet~= nil then
+				local name = "";
+				if (sheet.arma ~= nil) then
+					name = name .. sheet.arma;
+				end;
+				if (sheet.tamanho ~= nil and sheet.tamanho ~="médio" and sheet.tamanho ~="medio" and sheet.tamanho ~="Médio" and sheet.tamanho ~="Medio" and sheet.tamanho ~="média" and sheet.tamanho ~="media" and sheet.tamanho ~="Média" and sheet.tamanho ~="Media") then
+					name = name .. " " .. sheet.tamanho;
+				end;
+				if (sheet.material ~= nil) then
+					name = name .. " de " .. sheet.material;
+				end;
+				if (sheet.qualidade ~= nil) then
+					name = name .. " " .. sheet.qualidade;
+				end;
+				if (sheet.efeitos ~= nil) then
+					name = name .. " " .. sheet.efeitos;
+				end;
+				if (sheet.batismo ~= nil) then
+					name = name .. ": " .. sheet.batismo;
+				end;
+				sheet.nome = name;
+			end;
+		end;
 		
 
 
@@ -120,14 +144,14 @@ function newfrmFichaRPGmeister7A_svg()
     obj.edit1:setParent(obj);
     obj.edit1:setLeft(0);
     obj.edit1:setTop(1);
-    obj.edit1:setWidth(270);
+    obj.edit1:setWidth(245);
     obj.edit1:setHeight(23);
     obj.edit1:setField("nome");
     obj.edit1:setName("edit1");
 
     obj.edit2 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit2:setParent(obj);
-    obj.edit2:setLeft(270);
+    obj.edit2:setLeft(245);
     obj.edit2:setTop(1);
     obj.edit2:setWidth(50);
     obj.edit2:setHeight(23);
@@ -136,7 +160,7 @@ function newfrmFichaRPGmeister7A_svg()
 
     obj.edit3 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit3:setParent(obj);
-    obj.edit3:setLeft(320);
+    obj.edit3:setLeft(295);
     obj.edit3:setTop(1);
     obj.edit3:setWidth(75);
     obj.edit3:setHeight(23);
@@ -145,7 +169,7 @@ function newfrmFichaRPGmeister7A_svg()
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj);
-    obj.button1:setLeft(395);
+    obj.button1:setLeft(370);
     obj.button1:setTop(1);
     obj.button1:setWidth(23);
     obj.button1:setHeight(23);
@@ -154,12 +178,21 @@ function newfrmFichaRPGmeister7A_svg()
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
     obj.button2:setParent(obj);
-    obj.button2:setLeft(420);
+    obj.button2:setLeft(395);
     obj.button2:setTop(1);
     obj.button2:setWidth(23);
     obj.button2:setHeight(23);
-    obj.button2:setText("X");
+    obj.button2:setText("N");
     obj.button2:setName("button2");
+
+    obj.button3 = gui.fromHandle(_obj_newObject("button"));
+    obj.button3:setParent(obj);
+    obj.button3:setLeft(420);
+    obj.button3:setTop(1);
+    obj.button3:setWidth(23);
+    obj.button3:setHeight(23);
+    obj.button3:setText("X");
+    obj.button3:setName("button3");
 
     obj._e_event0 = obj.edit2:addEventListener("onUserChange",
         function (self)
@@ -178,10 +211,16 @@ function newfrmFichaRPGmeister7A_svg()
 
     obj._e_event3 = obj.button2:addEventListener("onClick",
         function (self)
+            createName();
+        end, obj);
+
+    obj._e_event4 = obj.button3:addEventListener("onClick",
+        function (self)
             askForDelete();
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event4);
         __o_rrpgObjs.removeEventListenerById(self._e_event3);
         __o_rrpgObjs.removeEventListenerById(self._e_event2);
         __o_rrpgObjs.removeEventListenerById(self._e_event1);
@@ -197,6 +236,7 @@ function newfrmFichaRPGmeister7A_svg()
           self:setNodeDatabase(nil);
         end;
 
+        if self.button3 ~= nil then self.button3:destroy(); self.button3 = nil; end;
         if self.edit3 ~= nil then self.edit3:destroy(); self.edit3 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;

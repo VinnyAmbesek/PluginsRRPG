@@ -10,7 +10,7 @@
 					self.rclListaDasArmas:append();
 				</event>
 			</button>
-			<label left="30" top="5" width="435" height="20" text="ARMAS E ESCUDOS                                          Kg              $"/>
+			<label left="30" top="5" width="435" height="20" text="ARMAS E ESCUDOS                                     Kg         $"/>
 			<recordList name="rclListaDasArmas" field="campoDasArmas" templateForm="frmFichaRPGmeister7A_svg" left="5" top="25" width="465" height="275" layout="vertical" minQt="0"/>
 
 			<label left="280" top="305" width="50" height="20" text="Kg"/>
@@ -209,6 +209,9 @@
 		</template>
 		<popup name="popArma" width="300" height="400" backOpacity="0.4">
 			<flowLayout align="top" autoHeight="true" maxControlsPerLine="3" margins="{bottom=4}" horzAlign="center">
+				<weaponInfoFieldSmall text="NOME" field="batismo"/>
+				<weaponInfoFieldSmall text="ARMA" field="arma"/>
+				<weaponInfoFieldSmall text="TAMANHO" field="tamanho"/>
 				<weaponInfoFieldSmall text="MATERIAL" field="material"/>
 				<weaponInfoFieldSmall text="QUALIDADE" field="qualidade"/>
 				<weaponInfoFieldSmall text="CATEGORIA" field="categoria"/>
