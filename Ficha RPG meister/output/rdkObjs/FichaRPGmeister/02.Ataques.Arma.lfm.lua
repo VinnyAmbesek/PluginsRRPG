@@ -43,6 +43,10 @@ function newfrmFichaRPGmeister2Aar_svg()
 			local nodes = ndb.getChildNodes(node.campoDasArmas); 
 			sheet.weapon = nodes[num];
 
+			if sheet.weapon== nil then
+				return;
+			end;
+
 			local auto = sheet.weapon.batismo or sheet.weapon.nome or sheet.weapon.arma or "";
 			local nomeAtaque = sheet.weapon.batismo or sheet.weapon.nome or sheet.weapon.arma or "";
     		local bba = tonumber(node.bba) or 0;
@@ -303,7 +307,11 @@ function newfrmFichaRPGmeister2Aar_svg()
     		auto = auto .. " (" .. dado .. ", ";
 
     		-- Calculando a chance de critico
-    		local decisivo = tonumber(string.sub(sheet.weapon.decisivo, 1, 2));
+
+    		local decisivo = 20;
+    		if sheet.weapon.decisivo~= nil then
+    			decisivo = tonumber(string.sub(sheet.weapon.decisivo, 1, 2));
+    		end;
     		auto = auto .. (sheet.weapon.decisivo or 20) .. "/";
 
     		--Calculando multiplicador e dano extra por critico
@@ -1295,18 +1303,16 @@ function newfrmFichaRPGmeister2Aar_svg()
         function (self, event)
             local node = ndb.getRoot(sheet);
             				local nodes = ndb.getChildNodes(node.campoDasArmas); 
-            				if #nodes ~= #self.weaponType.items+1 then
-            					local selected = sheet.weaponType;
-            					local items = {};
-            					local values = {};
-            					for i=1, #nodes, 1 do
-            						items[i] = nodes[i].batismo or nodes[i].arma or nodes[i].nome;
-            						values[i] = "" .. (i);
-            					end
-            					self.weaponType.items = items;
-            					self.weaponType.values = values;
-            					sheet.weaponType = selected;
-            				end;
+            				local selected = sheet.weaponType;
+            				local items = {};
+            				local values = {};
+            				for i=1, #nodes, 1 do
+            					items[i] = nodes[i].batismo or nodes[i].arma or nodes[i].nome;
+            					values[i] = "" .. (i);
+            				end
+            				self.weaponType.items = items;
+            				self.weaponType.values = values;
+            				sheet.weaponType = selected;
         end, obj);
 
     obj._e_event2 = obj.button1:addEventListener("onClick",

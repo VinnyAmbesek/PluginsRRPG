@@ -107,6 +107,7 @@ function newfrmFichaRPGmeister2a_svg()
 						local personagem = sheet.nome or "personagem";
 
 						for i=1, #weapons, 1 do
+							local acertos = weapons[i].acertos;
 							local dado = weapons[i].dado;
 							local armamento = weapons[i].nomeAtaque or "arma";
 							local crit = weapons[i].crit;
@@ -118,6 +119,8 @@ function newfrmFichaRPGmeister2a_svg()
 
 								local pos = (i-1) * weapons[i].numAtaques + j;
 								if dadoAtaques[pos]>=decisivo then
+									local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
+									mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. j .. " com " .. armamento .. " de " .. personagem);
 									local rolagem = rrpg.interpretarRolagem(crit);
 									mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. j .. " com " .. armamento .. " de " .. personagem);
 								end;

@@ -10349,6 +10349,7 @@ function newfrmFichaRPGmeister()
 						local personagem = sheet.nome or "personagem";
 
 						for i=1, #weapons, 1 do
+							local acertos = weapons[i].acertos;
 							local dado = weapons[i].dado;
 							local armamento = weapons[i].nomeAtaque or "arma";
 							local crit = weapons[i].crit;
@@ -10360,6 +10361,8 @@ function newfrmFichaRPGmeister()
 
 								local pos = (i-1) * weapons[i].numAtaques + j;
 								if dadoAtaques[pos]>=decisivo then
+									local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
+									mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. j .. " com " .. armamento .. " de " .. personagem);
 									local rolagem = rrpg.interpretarRolagem(crit);
 									mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. j .. " com " .. armamento .. " de " .. personagem);
 								end;
@@ -33908,7 +33911,7 @@ function newfrmFichaRPGmeister()
     obj.image26:setWidth(100);
     obj.image26:setHeight(20);
     obj.image26:setStyle("autoFit");
-    obj.image26:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao19.png");
+    obj.image26:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao20.png");
     obj.image26:setName("image26");
 
     obj.label902 = gui.fromHandle(_obj_newObject("label"));
