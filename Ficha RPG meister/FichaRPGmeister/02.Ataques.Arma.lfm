@@ -102,6 +102,15 @@
     		if sheet.outros then
     			pen = pen + (tonumber(sheet.outrosAtaq) or 0);
     		end;
+    		if sheet.itens then
+    			pen = pen + (tonumber(sheet.itensAtaq) or 0);
+    		end;
+    		if sheet.magias then
+    			pen = pen + (tonumber(sheet.magiasAtaq) or 0);
+    		end;
+    		if sheet.extra then
+    			pen = pen + (tonumber(sheet.extraAtaq) or 0);
+    		end;
     		if sheet.tamanho then
     			pen = pen + (tonumber(sheet.tamanhoPen) or 0);
     		end;
@@ -178,16 +187,57 @@
     		local crit = dado;
     		-- Dano que não é necessariamente aplicado a criticos, mas se aplica a tiros multiplos
     		if sheet.talentos then
-    			dado = dado .. (sheet.talentosDano or "");
-    			tiros = tiros .. (sheet.talentosDano or "");
-    			crit = crit .. (sheet.talentosCrit or "");
+    			if sheet.talentosDano ~= "Dano" then
+    				dado = dado .. (sheet.talentosDano or "");
+    				tiros = tiros .. (sheet.talentosDano or "");
+    			end;
+    			if sheet.talentosCrit~="Crit" then
+    				crit = crit .. (sheet.talentosCrit or "");
+    			end;
+    		end;
+    		if sheet.itens then
+    			if sheet.itensDano ~= "Dano" then
+    				dado = dado .. (sheet.itensDano or "");
+    				tiros = tiros .. (sheet.itensDano or "");
+    			end;
+    			if sheet.itensCrit~="Crit" then
+    				crit = crit .. (sheet.itensCrit or "");
+    			end;
+    		end;
+    		if sheet.magias then
+    			if sheet.magiasDano ~= "Dano" then
+    				dado = dado .. (sheet.magiasDano or "");
+    				tiros = tiros .. (sheet.magiasDano or "");
+    			end;
+    			if sheet.magiasCrit~="Crit" then
+    				crit = crit .. (sheet.magiasCrit or "");
+    			end;
+    		end;
+    		if sheet.extra then
+    			if sheet.extraDano ~= "Dano" then
+    				dado = dado .. (sheet.extraDano or "");
+    				tiros = tiros .. (sheet.extraDano or "");
+    			end;
+    			if sheet.extraCrit~="Crit" then
+    				crit = crit .. (sheet.extraCrit or "");
+    			end;
     		end;
     		if sheet.outros then
-    			dado = dado .. (sheet.outrosDano or "");
-    			tiros = tiros .. (sheet.outrosDano or "");
-    			crit = crit .. (sheet.outrosCrit or "");
+    			if sheet.outrosDano ~= "Dano" then
+    				dado = dado .. (sheet.outrosDano or "");
+    				tiros = tiros .. (sheet.outrosDano or "");
+    			end;
+    			if sheet.outrosCrit~="Crit" then
+    				crit = crit .. (sheet.outrosCrit or "");
+    			end;
     		end;
-    		
+    		if node.buffDano~= nil then
+    			dado = dado .. node.buffDano;
+    			tiros = tiros .. node.buffDano;
+    		end;
+    		if node.buffDanoCritico~=nil then
+    			crit = crit .. node.buffDanoCritico;
+    		end;
 
     		--Dano que não é aplicado a criticos
     		local precisao = "";
@@ -233,7 +283,7 @@
     		local extra = crit;
     		crit = "";
     		for j=2, multiplicador, 1 do
-    			crit = crit .. extra;
+    			crit = crit .. "+" .. extra;
     		end;
     		if extraCrit~="" then
     			crit = crit .. extraCrit;
@@ -305,21 +355,6 @@
 				end;
 			</event>
 		</comboBox>
-		<button left="1055" top="0" width="25" height="25" text="A">
-			<event name="onClick">
-				updateAll();
-			</event>
-		</button>
-		<button left="1080" top="0" width="25" height="25" text="X">
-			<event name="onClick">
-				dialogs.confirmOkCancel("Tem certeza que quer apagar essa arma?",
-					function (confirmado)
-						if confirmado then
-							ndb.deleteNode(sheet);
-						end;
-				end);
-			</event>
-		</button>
 		<layout left="0" top="25" width="270" height="175">
 			<checkEdit top="0" text="Furtivo" field="furtivo" num="1" prompt1="Dano"/>
 			<checkEdit top="25" text="Ataque Poderoso" field="ataquePoderoso" num="1" prompt1="Pen"/>
@@ -327,13 +362,16 @@
 			<checkEdit top="75" text="Tiro Multiplo" field="tiroMultiplo" num="1" prompt1="Qtd"/>
 			<checkEdit top="100" text="Composto" field="composto" num="1" prompt1="Lim"/>
 			<checkEdit top="125" text="Alcance" field="alcance" num="2" prompt1="Mult" prompt2="Pen"/>
+			<checkEdit top="150" text="Dano por Energia" field="energia" num="2" prompt1="Dano" prompt2="Crit"/>
 		</layout>
 		<layout left="270" top="25" width="270" height="175">
-			<checkEdit top="0" text="Dano por Energia" field="energia" num="2" prompt1="Dano" prompt2="Crit"/>
-			<checkEdit top="25" text="Rajada" field="rajada" num="2" prompt1="Qtd" prompt2="Pen"/>
-			<checkEdit top="50" text="Tamanho" field="tamanho" num="2" prompt1="Dado" prompt2="Pen"/>
-			<checkEdit top="75" text="Talentos" field="talentos" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
-			<checkEdit top="100" text="Outros" field="outros" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="0" text="Rajada de Golpes" field="rajada" num="2" prompt1="Qtd" prompt2="Pen"/>
+			<checkEdit top="25" text="Tamanho" field="tamanho" num="2" prompt1="Dado" prompt2="Pen"/>
+			<checkEdit top="50" text="Talentos" field="talentos" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="75" text="Itens" field="itens" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="100" text="Magias" field="magias" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="125" text="Extra" field="extra" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="150" text="Outros" field="outros" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
 		</layout>
 		<layout left="570" top="25" width="150" height="175">
 			<checkBox left="0" top="0" width="150" height="25" text="Ambidestria" field="ambidestria"/>
@@ -354,7 +392,10 @@
             <label left="0" top="50" width="75" height="25" text="Mão"/>
 			<comboBox left="75" top="50" width="150" height="25" field="mao" items="{'Habil', 'Inabil'}" values="{'0', '1'}"/>
 
-			<textEditor left="0" top="75" width="225" height="100" field="anotacoes"/>
+			<label left="0" top="75" width="75" height="25" text="Munição"/>
+			<edit left="75" top="75" width="50" height="25" field="municao"/>
+
+			<textEditor left="0" top="100" width="225" height="75" field="detalhes"/>
 		</layout>
 		<layout left="950" top="25" width="100" height="225">
 			<button left="0" top="0" width="100" height="25" text="Ataque">
@@ -364,6 +405,16 @@
 					end;
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
 					if sheet.acertos[1] ~= nil then
+						
+						if sheet.municao~= nil then
+							local municao = tonumber(sheet.municao) or 0;
+							if municao == 0 then
+								mesaDoPersonagem.activeChat:enviarMensagem("Esta arma está sem munição.");
+							else
+								sheet.municao = municao - 1;
+							end;
+						end;
+
 						local rolagem = rrpg.interpretarRolagem("1d20+" .. sheet.acertos[1]);
 						local armamento = sheet.nomeAtaque or "arma";
 						local personagem = ndb.getRoot(sheet).nome or "personagem";
@@ -426,8 +477,23 @@
 					end;
 				</event>
 			</button>
+			<button left="0" top="125" width="100" height="25" text="Atualizar">
+				<event name="onClick">
+					updateAll();
+				</event>
+			</button>
+			<button left="0" top="150" width="100" height="25" text="Apagar">
+				<event name="onClick">
+					dialogs.confirmOkCancel("Tem certeza que quer apagar essa arma?",
+						function (confirmado)
+							if confirmado then
+								ndb.deleteNode(sheet);
+							end;
+					end);
+				</event>
+			</button>
 		</layout> 
-		<dataLink fields="{'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'alcance', 'composto', 'energia', 'rajada', 'tamanho', 'talentos', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'forma', 'empunhadura', 'mao'}">
+		<dataLink fields="{'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'alcance', 'composto', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'forma', 'empunhadura', 'mao'}">
 	        <event name="onChange">                
 	            updateAll();
 	        </event>

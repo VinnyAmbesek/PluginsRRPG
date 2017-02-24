@@ -1,7 +1,10 @@
 # fichaRPGmeister
 + Alterar campo de luz para ficar de acordo com o usado pelos tokens do rrpg.
 + Permitir jogar token no scene a partir de imagem do personagem e companheiros.  
-+ Campo de ataques 2.0 (usando recordlist + datascope).
+
+24 de Fevereiro de 2017
+Versao 20
+- Campo de Ataques Avançados. Gera o ataque a partir de armas. Permite combinar multiplas armas em um ataque. Permite adicionar efeitos rapidamente. 
 
 22 de Fevereiro de 2017
 Versao 19

@@ -89,6 +89,47 @@ function newfrmFichaRPGmeister2a_svg()
     obj.boxDetalhesDoAtaque:setWidth(1130);
     obj.boxDetalhesDoAtaque:setHeight(620);
 
+
+				local numeroAtaques = 0;
+				local ataquesFeitos = 0;
+				local dadoAtaques = {};
+				local resultadoAtaques = {};
+				local rolando = false;
+
+				local function esperaAtaque(rolado)
+					ataquesFeitos = ataquesFeitos + 1;
+					dadoAtaques[ataquesFeitos] = rolado.ops[1].resultados[1];
+					resultadoAtaques[ataquesFeitos] = rolado.resultado;
+
+					if ataquesFeitos == numeroAtaques then
+						local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+						local personagem = sheet.nome or "personagem";
+
+						for i=1, #weapons, 1 do
+							local dado = weapons[i].dado;
+							local armamento = weapons[i].nomeAtaque or "arma";
+							local crit = weapons[i].crit;
+							local decisivo = weapons[i].decisivo;
+
+							for j=1, weapons[i].numAtaques, 1 do
+								local rolagem = rrpg.interpretarRolagem(dado);
+								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano #" .. j .. " com " .. armamento .. " de " .. personagem);
+
+								local pos = (i-1) * weapons[i].numAtaques + j;
+								if dadoAtaques[pos]>=decisivo then
+									local rolagem = rrpg.interpretarRolagem(crit);
+									mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. j .. " com " .. armamento .. " de " .. personagem);
+								end;
+							end;
+						end;
+						rolando = false;
+					end;
+				end;
+
+			
+
+
     obj.layout1 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout1:setParent(obj.boxDetalhesDoAtaque);
     obj.layout1:setLeft(0);
@@ -132,6 +173,15 @@ function newfrmFichaRPGmeister2a_svg()
     obj.button3:setWidth(100);
     obj.button3:setHeight(20);
     obj.button3:setName("button3");
+
+    obj.button4 = gui.fromHandle(_obj_newObject("button"));
+    obj.button4:setParent(obj.layout1);
+    obj.button4:setText("Cancelar");
+    obj.button4:setLeft(490);
+    obj.button4:setTop(5);
+    obj.button4:setWidth(100);
+    obj.button4:setHeight(20);
+    obj.button4:setName("button4");
 
     obj.rclListaDeArmas = gui.fromHandle(_obj_newObject("recordList"));
     obj.rclListaDeArmas:setParent(obj.boxDetalhesDoAtaque);
@@ -177,22 +227,53 @@ function newfrmFichaRPGmeister2a_svg()
             if sheet==nil then
             							return;
             						end;
+            						if rolando then
+            							return;
+            						end;
+            						rolando = true;
             						
             						local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
             						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
             						local personagem = sheet.nome or "personagem";
             
+            						dadoAtaques = {};
+            						resultadoAtaques = {};
+            						ataquesFeitos = 0;
+            						numeroAtaques = 0;
             						for i=1, #weapons, 1 do
             							local acertos = weapons[i].acertos;
             							local armamento = weapons[i].nomeAtaque or "arma";
+            
+            							
+            							numeroAtaques = numeroAtaques + weapons[i].numAtaques;
+            
+            							if weapons[i].municao~= nil then
+            								local municao = tonumber(weapons[i].municao) or 0;
+            								if numeroAtaques > municao then
+            									weapons[i].municao = 0;
+            									mesaDoPersonagem.activeChat:enviarMensagem("Esta arma possui apenas " .. municao .. " das " .. numeroAtaques .. " munições necessarias para atacar.");
+            								else
+            									weapons[i].municao = municao - numeroAtaques;
+            								end;
+            							end;
+            
             							for j=1, weapons[i].numAtaques, 1 do
             								local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
-            								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. j .. " com " .. armamento .. " de " .. personagem);
+            								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. j .. " com " .. armamento .. " de " .. personagem, 
+            									function (rolado)
+            										esperaAtaque(rolado)
+            								end);
             							end;
             						end;
         end, obj);
 
+    obj._e_event5 = obj.button4:addEventListener("onClick",
+        function (self)
+            rolando =false;
+        end, obj);
+
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event5);
         __o_rrpgObjs.removeEventListenerById(self._e_event4);
         __o_rrpgObjs.removeEventListenerById(self._e_event3);
         __o_rrpgObjs.removeEventListenerById(self._e_event2);
@@ -210,17 +291,18 @@ function newfrmFichaRPGmeister2a_svg()
         end;
 
         if self.rclListaDeArmas ~= nil then self.rclListaDeArmas:destroy(); self.rclListaDeArmas = nil; end;
+        if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
         if self.rclListaDosAtaques ~= nil then self.rclListaDosAtaques:destroy(); self.rclListaDosAtaques = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.button3 ~= nil then self.button3:destroy(); self.button3 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.boxDetalhesDoAtaque ~= nil then self.boxDetalhesDoAtaque:destroy(); self.boxDetalhesDoAtaque = nil; end;
+        if self.rectangle2 ~= nil then self.rectangle2:destroy(); self.rectangle2 = nil; end;
+        if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
+        if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
         if self.rectangle1 ~= nil then self.rectangle1:destroy(); self.rectangle1 = nil; end;
-        if self.rectangle2 ~= nil then self.rectangle2:destroy(); self.rectangle2 = nil; end;
-        if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
-        if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
         self:_oldLFMDestroy();
     end;
 
