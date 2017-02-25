@@ -15,8 +15,8 @@
 				return;
 			end;
 
-			local auto = sheet.weapon.batismo or sheet.weapon.nome or sheet.weapon.arma or "";
-			local nomeAtaque = sheet.weapon.batismo or sheet.weapon.nome or sheet.weapon.arma or "";
+			local auto = sheet.weapon.batismo or sheet.weapon.nome or sheet.weapon.arma or "Arma";
+			local nomeAtaque = sheet.weapon.batismo or sheet.weapon.nome or sheet.weapon.arma or "Arma";
     		local bba = tonumber(node.bba) or 0;
     		local acertos = {};
     		local pen = tonumber(sheet.weapon.qualidade) or 0;
@@ -353,8 +353,8 @@
 				local items = {};
 				local values = {};
 				for i=1, #nodes, 1 do
-					items[i] = nodes[i].batismo or nodes[i].arma or nodes[i].nome;
-					values[i] = "" .. (i);
+					items[i] = nodes[i].batismo or nodes[i].arma or nodes[i].nome or "Arma";
+					values[i] = "" .. i;
 				end
 				self.weaponType.items = items;
 				self.weaponType.values = values;
