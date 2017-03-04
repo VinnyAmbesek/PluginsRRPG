@@ -58,10 +58,10 @@ rrpg.messaging.listen("HandleChatCommand",
 		if message.comando == "autolog" then
 			if autologEnabled[message.mesa.nome] ~= false then
 				autologEnabled[message.mesa.nome] = false;
-				showMessage("Log desabilitado!");
+				message.mesa.chat:escrever("Log desabilitado!");
 			else
 				autologEnabled[message.mesa.nome] = true;
-				showMessage("Log habilitado!");
+				message.mesa.chat:escrever("Log habilitado!");
 			end	
 			
 			message.response = {handled = true};
@@ -74,18 +74,18 @@ rrpg.messaging.listen("HandleChatCommand",
 				local logText = fileStream:readBinary("ansi");
 				
 				if fileStream == nil then
-					showMessage("Falha ao ler Log");
+					message.mesa.chat:escrever("Falha ao ler Log");
 				else
 					if system.setClipboardText(logText) then
-						showMessage("Log Copiado!");
+						message.mesa.chat:escrever("Log Copiado!");
 					else
-						showMessage("Falha ao copiar o log para o clipboard!");
+						message.mesa.chat:escrever("Falha ao copiar o log para o clipboard!");
 					end					
 				end
 				
 				fileStream:close();
 			else
-				showMessage("Log não encontrado!");
+				message.mesa.chat:escrever("Log não encontrado!");
 			end	
 
 			message.response = {handled = true};
@@ -96,7 +96,7 @@ rrpg.messaging.listen("HandleChatCommand",
 			if vhd.fileExists(logFile) then
 				fileStream = vhd.openFile(logFile, "w+");				
 				fileStream:close();
-				showMessage("Log Limpo!");
+				message.mesa.chat:escrever("Log Limpo!");
 			end
 
 			message.response = {handled = true};
@@ -125,6 +125,7 @@ rrpg.messaging.listen("ChatMessage",
 			
 			logFile = logFile:gsub('[\\/:*?\"<>|]', '_');
 			logTable = logTable:gsub('[\\/:*?\"<>|]', '_');
+			logTable = string.gsub(logTable, "%.", "_");
 			
 			logFile = "/Logs/" .. logTable .. "/".. logFile .. ".log";
 			
@@ -160,7 +161,8 @@ rrpg.messaging.listen("ChatMessage",
 			end
 			
 			if(fileStream == nil) then
-				showMessage("Falha ao criar arquivo de Log" .. logFile);
+				message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta " .. logTable .. " em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
+				autologEnabled[message.mesa.nome] = false;
 			else
 				fileStream:writeBinary("ansi", linha .. "\r\n");
 				fileStream:close();
@@ -179,6 +181,7 @@ function (message)
 
 		local logTable = message.mesa.nome; 
 		logTable = logTable:gsub('[\\/:*?\"<>|]', '_');
+		logTable = string.gsub(logTable, "%.", "_");
 			
 		linha = linha .. " acabou de entrar";
 			
@@ -193,7 +196,8 @@ function (message)
 		end
 			
 		if(fileStream == nil) then
-			showMessage("Falha ao criar arquivo de Log" .. logFile);
+			message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta " .. logTable .. " em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
+			autologEnabled[message.mesa.nome] = false;
 		else
 			fileStream:writeBinary("ansi", linha .. "\r\n");
 			fileStream:close();
@@ -213,6 +217,7 @@ function (message)
 
 		local logTable = message.mesa.nome; 
 		logTable = logTable:gsub('[\\/:*?\"<>|]', '_');
+		logTable = string.gsub(logTable, "%.", "_");
 			
 		--Senão, é o chat main
 		if(message.ehKick) then
@@ -232,7 +237,8 @@ function (message)
 		end
 			
 		if(fileStream == nil) then
-			showMessage("Falha ao criar arquivo de Log" .. logFile);
+			message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta " .. logTable .. " em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
+			autologEnabled[message.mesa.nome] = false;
 		else
 			fileStream:writeBinary("ansi", linha .. "\r\n");
 			fileStream:close();
