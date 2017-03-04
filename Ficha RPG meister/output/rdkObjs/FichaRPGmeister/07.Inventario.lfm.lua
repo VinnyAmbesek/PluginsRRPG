@@ -1008,7 +1008,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit18:setParent(obj.flowPart1);
     obj.edit18:setAlign("client");
     obj.edit18:setField("batismo");
-    obj.edit18:setHorzTextAlign("center");
     obj.edit18:setFontSize(12);
     obj.edit18:setName("edit18");
 
@@ -1034,7 +1033,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit19:setParent(obj.flowPart2);
     obj.edit19:setAlign("client");
     obj.edit19:setField("arma");
-    obj.edit19:setHorzTextAlign("center");
     obj.edit19:setFontSize(12);
     obj.edit19:setName("edit19");
 
@@ -1060,7 +1058,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit20:setParent(obj.flowPart3);
     obj.edit20:setAlign("client");
     obj.edit20:setField("tamanho");
-    obj.edit20:setHorzTextAlign("center");
     obj.edit20:setFontSize(12);
     obj.edit20:setName("edit20");
 
@@ -1086,7 +1083,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit21:setParent(obj.flowPart4);
     obj.edit21:setAlign("client");
     obj.edit21:setField("material");
-    obj.edit21:setHorzTextAlign("center");
     obj.edit21:setFontSize(12);
     obj.edit21:setName("edit21");
 
@@ -1138,7 +1134,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit23:setParent(obj.flowPart6);
     obj.edit23:setAlign("client");
     obj.edit23:setField("categoria");
-    obj.edit23:setHorzTextAlign("center");
     obj.edit23:setFontSize(12);
     obj.edit23:setName("edit23");
 
@@ -1242,7 +1237,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit27:setParent(obj.flowPart10);
     obj.edit27:setAlign("client");
     obj.edit27:setField("alcance");
-    obj.edit27:setHorzTextAlign("center");
     obj.edit27:setFontSize(12);
     obj.edit27:setName("edit27");
 
@@ -1268,7 +1262,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit28:setParent(obj.flowPart11);
     obj.edit28:setAlign("client");
     obj.edit28:setField("especial");
-    obj.edit28:setHorzTextAlign("center");
     obj.edit28:setFontSize(12);
     obj.edit28:setName("edit28");
 
@@ -1294,7 +1287,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit29:setParent(obj.flowPart12);
     obj.edit29:setAlign("client");
     obj.edit29:setField("tipo");
-    obj.edit29:setHorzTextAlign("center");
     obj.edit29:setFontSize(12);
     obj.edit29:setName("edit29");
 

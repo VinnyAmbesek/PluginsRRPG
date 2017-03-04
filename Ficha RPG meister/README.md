@@ -1,7 +1,10 @@
 # fichaRPGmeister
 + Alterar campo de luz para ficar de acordo com o usado pelos tokens do rrpg.
 + Permitir jogar token no scene a partir de imagem do personagem e companheiros.  
-+ Adicionar suporte a ataques naturais/multiplos nos ataques avançados. 
+
+Versao 21
+- Suporte a ataques naturais/multiplos nos ataques avançados.
+
 
 24 de Fevereiro de 2017
 Versao 20

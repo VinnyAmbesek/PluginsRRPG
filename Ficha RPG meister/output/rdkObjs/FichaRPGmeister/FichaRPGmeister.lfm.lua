@@ -31788,7 +31788,6 @@ function newfrmFichaRPGmeister()
     obj.edit1210:setParent(obj.flowPart9);
     obj.edit1210:setAlign("client");
     obj.edit1210:setField("batismo");
-    obj.edit1210:setHorzTextAlign("center");
     obj.edit1210:setFontSize(12);
     obj.edit1210:setName("edit1210");
 
@@ -31814,7 +31813,6 @@ function newfrmFichaRPGmeister()
     obj.edit1211:setParent(obj.flowPart10);
     obj.edit1211:setAlign("client");
     obj.edit1211:setField("arma");
-    obj.edit1211:setHorzTextAlign("center");
     obj.edit1211:setFontSize(12);
     obj.edit1211:setName("edit1211");
 
@@ -31840,7 +31838,6 @@ function newfrmFichaRPGmeister()
     obj.edit1212:setParent(obj.flowPart11);
     obj.edit1212:setAlign("client");
     obj.edit1212:setField("tamanho");
-    obj.edit1212:setHorzTextAlign("center");
     obj.edit1212:setFontSize(12);
     obj.edit1212:setName("edit1212");
 
@@ -31866,7 +31863,6 @@ function newfrmFichaRPGmeister()
     obj.edit1213:setParent(obj.flowPart12);
     obj.edit1213:setAlign("client");
     obj.edit1213:setField("material");
-    obj.edit1213:setHorzTextAlign("center");
     obj.edit1213:setFontSize(12);
     obj.edit1213:setName("edit1213");
 
@@ -31918,7 +31914,6 @@ function newfrmFichaRPGmeister()
     obj.edit1215:setParent(obj.flowPart14);
     obj.edit1215:setAlign("client");
     obj.edit1215:setField("categoria");
-    obj.edit1215:setHorzTextAlign("center");
     obj.edit1215:setFontSize(12);
     obj.edit1215:setName("edit1215");
 
@@ -32022,7 +32017,6 @@ function newfrmFichaRPGmeister()
     obj.edit1219:setParent(obj.flowPart18);
     obj.edit1219:setAlign("client");
     obj.edit1219:setField("alcance");
-    obj.edit1219:setHorzTextAlign("center");
     obj.edit1219:setFontSize(12);
     obj.edit1219:setName("edit1219");
 
@@ -32048,7 +32042,6 @@ function newfrmFichaRPGmeister()
     obj.edit1220:setParent(obj.flowPart19);
     obj.edit1220:setAlign("client");
     obj.edit1220:setField("especial");
-    obj.edit1220:setHorzTextAlign("center");
     obj.edit1220:setFontSize(12);
     obj.edit1220:setName("edit1220");
 
@@ -32074,7 +32067,6 @@ function newfrmFichaRPGmeister()
     obj.edit1221:setParent(obj.flowPart20);
     obj.edit1221:setAlign("client");
     obj.edit1221:setField("tipo");
-    obj.edit1221:setHorzTextAlign("center");
     obj.edit1221:setFontSize(12);
     obj.edit1221:setName("edit1221");
 
