@@ -201,10 +201,16 @@
 				<edit align="client" class="" field="$(field)" fontSize="12"/>
 			</flowPart>
 		</template>
-		<template name="weaponInfoFieldSmall">
+		<template name="weaponInfoFieldSmallCenter">
 			<flowPart minWidth="90" maxWidth="100" height="35">
 				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
 				<edit align="client" class="" field="$(field)" horzTextAlign="center" fontSize="12"/>
+			</flowPart>
+		</template>
+		<template name="weaponInfoFieldSmall">
+			<flowPart minWidth="90" maxWidth="100" height="35">
+				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
+				<edit align="client" class="" field="$(field)" fontSize="12"/>
 			</flowPart>
 		</template>
 		<popup name="popArma" width="300" height="400" backOpacity="0.4">
@@ -213,18 +219,18 @@
 				<weaponInfoFieldSmall text="ARMA" field="arma"/>
 				<weaponInfoFieldSmall text="TAMANHO" field="tamanho"/>
 				<weaponInfoFieldSmall text="MATERIAL" field="material"/>
-				<weaponInfoFieldSmall text="QUALIDADE" field="qualidade"/>
+				<weaponInfoFieldSmallCenter text="QUALIDADE" field="qualidade"/>
 				<weaponInfoFieldSmall text="CATEGORIA" field="categoria"/>
-				<weaponInfoFieldSmall text="DANO" field="dano"/>
-				<weaponInfoFieldSmall text="DECISIVO" field="decisivo"/>
-				<weaponInfoFieldSmall text="MULTIPLICADOR" field="multiplicador"/>
+				<weaponInfoFieldSmallCenter text="DANO" field="dano"/>
+				<weaponInfoFieldSmallCenter text="DECISIVO" field="decisivo"/>
+				<weaponInfoFieldSmallCenter text="MULTIPLICADOR" field="multiplicador"/>
 				<weaponInfoFieldSmall text="ALCANCE" field="alcance"/>
 				<weaponInfoFieldSmall text="ESPECIAL" field="especial"/>
 				<weaponInfoFieldSmall text="TIPO" field="tipo"/>
 				<weaponInfoField text="EFEITOS" field="efeitos"/>
-				<weaponInfoFieldSmall text="CA" field="ca"/>
-				<weaponInfoFieldSmall text="PEN" field="penalidade"/>
-				<weaponInfoFieldSmall text="FALHA" field="falha"/>
+				<weaponInfoFieldSmallCenter text="CA" field="ca"/>
+				<weaponInfoFieldSmallCenter text="PEN" field="penalidade"/>
+				<weaponInfoFieldSmallCenter text="FALHA" field="falha"/>
 			</flowLayout>
 			<textEditor align="client" field="descricao" class=""/>
 		</popup>

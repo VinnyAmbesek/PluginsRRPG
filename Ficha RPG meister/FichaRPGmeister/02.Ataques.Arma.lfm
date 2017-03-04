@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form name="frmFichaRPGmeister2Aar_svg" width="1110" height="205" theme="dark"  margins="{top=1, bottom=1}">
+<form name="frmFichaRPGmeister2Aar_svg" width="1110" height="230" theme="dark"  margins="{top=1, bottom=1}">
 	<script>
 		local function updateAll()
 			if sheet == nil then
@@ -142,6 +142,19 @@
     			pen = pen - (qtd * 2);
     		end;
 
+    		if sheet.ataqueMultiplo then
+    			acertos = {};
+    			local qtd = tonumber(sheet.ataqueMultiploQtd) or 1;
+    			for j=1, qtd, 1 do
+    				acertos[j] = bba;
+    			end;
+    			if sheet.ataqueMultiploApr and sheet.empunhadura=="4" then
+    				pen = pen -2;
+    			elseif sheet.empunhadura=="4" then
+    				pen = pen -5;
+    			end;
+    		end;
+
     		auto = auto .. " ";
     		for j=1, #acertos, 1 do
     			acertos[j] = acertos[j] + pen;
@@ -170,7 +183,7 @@
     			end;
     		elseif sheet.empunhadura=="2" and sheet.ambidestria then
     			dado = dado .. "+" .. (forc*2);
-    		elseif sheet.empunhadura=="2" then
+    		elseif sheet.empunhadura=="2" or sheet.mao=="2" then
     			dado = dado .. "+" .. math.floor(forc*1.5);
     		elseif sheet.mao=="0" then
     			dado = dado .. "+" .. forc;
@@ -361,16 +374,17 @@
 				sheet.weaponType = selected;
 			</event>
 		</comboBox>
-		<layout left="0" top="25" width="270" height="175">
+		<layout left="0" top="25" width="270" height="200">
 			<checkEdit top="0" text="Furtivo" field="furtivo" num="1" prompt1="Dano"/>
 			<checkEdit top="25" text="Ataque Poderoso" field="ataquePoderoso" num="1" prompt1="Pen"/>
 			<checkEdit top="50" text="Espec. em Combate" field="especializacaoCombate" num="1" prompt1="Pen"/>
 			<checkEdit top="75" text="Tiro Multiplo" field="tiroMultiplo" num="1" prompt1="Qtd"/>
-			<checkEdit top="100" text="Composto" field="composto" num="1" prompt1="Lim"/>
-			<checkEdit top="125" text="Alcance" field="alcance" num="2" prompt1="Mult" prompt2="Pen"/>
-			<checkEdit top="150" text="Dano por Energia" field="energia" num="2" prompt1="Dano" prompt2="Crit"/>
+			<checkEdit top="100" text="Ataque Multiplo" field="ataqueMultiplo" num="1" prompt1="Qtd"/>
+			<checkEdit top="125" text="Composto" field="composto" num="1" prompt1="Lim"/>
+			<checkEdit top="150" text="Alcance" field="alcance" num="2" prompt1="Mult" prompt2="Pen"/>
+			<checkEdit top="175" text="Dano por Energia" field="energia" num="2" prompt1="Dano" prompt2="Crit"/>
 		</layout>
-		<layout left="270" top="25" width="270" height="175">
+		<layout left="270" top="25" width="270" height="200">
 			<checkEdit top="0" text="Rajada de Golpes" field="rajada" num="2" prompt1="Qtd" prompt2="Pen"/>
 			<checkEdit top="25" text="Tamanho" field="tamanho" num="2" prompt1="Dado" prompt2="Pen"/>
 			<checkEdit top="50" text="Talentos" field="talentos" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
@@ -379,7 +393,7 @@
 			<checkEdit top="125" text="Extra" field="extra" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
 			<checkEdit top="150" text="Outros" field="outros" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
 		</layout>
-		<layout left="570" top="25" width="150" height="175">
+		<layout left="570" top="25" width="150" height="200">
 			<checkBox left="0" top="0" width="150" height="25" text="Ambidestria" field="ambidestria"/>
 			<checkBox left="0" top="25" width="150" height="25" text="Duas Armas" field="combate2armas"/>
 			<checkBox left="0" top="50" width="150" height="25" text="Duas Armas Leves" field="combate2armasLeve"/>
@@ -387,21 +401,22 @@
 			<checkBox left="0" top="100" width="150" height="25" text="Tiro Rapido" field="tiroRapido"/>
 			<checkBox left="0" top="125" width="150" height="25" text="Tiro Rapido Apr." field="tiroRapidoAprimorado"/>
 			<checkBox left="0" top="150" width="150" height="25" text="Golpe Perspicaz" field="perspicaz"/>
+			<checkBox left="0" top="175" width="150" height="25" text="Ataque Multiplo Apr" field="ataqueMultiploApr"/>
 		</layout>
-		<layout left="720" top="25" width="225" height="175">
+		<layout left="720" top="25" width="225" height="200">
 			<label left="0" top="0" width="75" height="25" text="Forma"/>
 			<comboBox left="75" top="0" width="150" height="25" field="forma" items="{'Corpo-a-Corpo', 'Distancia', 'Arremesso', 'Acuidade'}" values="{'1', '2', '3', '4'}"/>
 
             <label left="0" top="25" width="75" height="25" text="Empunhadura" fontSize="11"/>
-			<comboBox left="75" top="25" width="150" height="25" field="empunhadura" items="{'Leve', 'Uma Mão', 'Duas Mãos'}" values="{'0', '1', '2'}"/>
+			<comboBox left="75" top="25" width="150" height="25" field="empunhadura" items="{'Leve', 'Uma Mão', 'Duas Mãos', 'Natural: Primario', 'Natural: Secundario'}" values="{'0', '1', '2', '3', '4'}"/>
 
             <label left="0" top="50" width="75" height="25" text="Mão"/>
-			<comboBox left="75" top="50" width="150" height="25" field="mao" items="{'Habil', 'Inabil'}" values="{'0', '1'}"/>
+			<comboBox left="75" top="50" width="150" height="25" field="mao" items="{'Habil', 'Inabil', 'Natural: Principal'}" values="{'0', '1', '2'}"/>
 
 			<label left="0" top="75" width="75" height="25" text="Munição"/>
 			<edit left="75" top="75" width="50" height="25" field="municao"/>
 
-			<textEditor left="0" top="100" width="225" height="75" field="detalhes"/>
+			<textEditor left="0" top="100" width="225" height="100" field="detalhes"/>
 		</layout>
 		<layout left="950" top="25" width="100" height="225">
 			<button left="0" top="0" width="100" height="25" text="Ataque">
@@ -499,7 +514,7 @@
 				</event>
 			</button>
 		</layout> 
-		<dataLink fields="{'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'alcance', 'composto', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'forma', 'empunhadura', 'mao'}">
+		<dataLink fields="{'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'ataqueMultiplo', 'alcance', 'composto', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'ataqueMultiploApr', 'forma', 'empunhadura', 'mao'}">
 	        <event name="onChange">                
 	            updateAll();
 	        </event>
