@@ -521,6 +521,6 @@
 	    </dataLink>
 	</layout>
 	<layout left="2" top="2" width="1105" height="300" name="auto" visible="true">
-		<label left="205" width="900" field="auto" text="AUTO"/>
+		<label left="205" width="900" field="auto" text="Escolha uma Arma"/>
 	</layout>
 </form>
