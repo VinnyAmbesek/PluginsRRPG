@@ -78,11 +78,11 @@ function newfrmFichaRPGmeister7_svg()
     obj.rclListaDasArmas:setWidth(465);
     obj.rclListaDasArmas:setHeight(275);
     obj.rclListaDasArmas:setLayout("vertical");
-    obj.rclListaDasArmas:setMinQt(0);
+    obj.rclListaDasArmas:setMinQt(1);
 
     obj.label2 = gui.fromHandle(_obj_newObject("label"));
     obj.label2:setParent(obj.layout1);
-    obj.label2:setLeft(280);
+    obj.label2:setLeft(260);
     obj.label2:setTop(305);
     obj.label2:setWidth(50);
     obj.label2:setHeight(20);
@@ -91,7 +91,7 @@ function newfrmFichaRPGmeister7_svg()
 
     obj.rectangle2 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle2:setParent(obj.layout1);
-    obj.rectangle2:setLeft(300);
+    obj.rectangle2:setLeft(280);
     obj.rectangle2:setTop(305);
     obj.rectangle2:setWidth(70);
     obj.rectangle2:setHeight(20);
@@ -104,7 +104,7 @@ function newfrmFichaRPGmeister7_svg()
     obj.label3:setParent(obj.layout1);
     obj.label3:setVertTextAlign("center");
     obj.label3:setHorzTextAlign("center");
-    obj.label3:setLeft(300);
+    obj.label3:setLeft(280);
     obj.label3:setTop(305);
     obj.label3:setWidth(70);
     obj.label3:setHeight(20);
@@ -113,7 +113,7 @@ function newfrmFichaRPGmeister7_svg()
 
     obj.label4 = gui.fromHandle(_obj_newObject("label"));
     obj.label4:setParent(obj.layout1);
-    obj.label4:setLeft(380);
+    obj.label4:setLeft(360);
     obj.label4:setTop(305);
     obj.label4:setWidth(50);
     obj.label4:setHeight(20);
@@ -122,9 +122,9 @@ function newfrmFichaRPGmeister7_svg()
 
     obj.rectangle3 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle3:setParent(obj.layout1);
-    obj.rectangle3:setLeft(395);
+    obj.rectangle3:setLeft(375);
     obj.rectangle3:setTop(305);
-    obj.rectangle3:setWidth(71);
+    obj.rectangle3:setWidth(91);
     obj.rectangle3:setHeight(20);
     obj.rectangle3:setColor("black");
     obj.rectangle3:setStrokeColor("white");
@@ -135,9 +135,9 @@ function newfrmFichaRPGmeister7_svg()
     obj.label5:setParent(obj.layout1);
     obj.label5:setVertTextAlign("center");
     obj.label5:setHorzTextAlign("center");
-    obj.label5:setLeft(395);
+    obj.label5:setLeft(375);
     obj.label5:setTop(305);
-    obj.label5:setWidth(71);
+    obj.label5:setWidth(91);
     obj.label5:setHeight(20);
     obj.label5:setField("precoArmas");
     obj.label5:setName("label5");
@@ -755,7 +755,7 @@ function newfrmFichaRPGmeister7_svg()
 
     obj.dataLink1 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink1:setParent(obj.scrollBox1);
-    obj.dataLink1:setFields({'precoCabeca', 'precoOlhos', 'precoPescoco', 'precoOmbros', 'precoTorso', 'precoCorpo', 'precoPunhos', 'precoCintura', 'precoMaos', 'precoDedosI', 'precoDesdosII', 'precoPes', 'precoArmas', 'precoMochila', 'precoPermanencias', 'precoLivres', 'precoOutros', 'precoMunicoes', 'precoBolsos', 'precoImoveis', 'precoInventorioComp'});
+    obj.dataLink1:setFields({'precoCabeca', 'precoOlhos', 'precoPescoco', 'precoOmbros', 'precoTorso', 'precoCorpo', 'precoPunhos', 'precoCintura', 'precoMaos', 'precoDedosI', 'precoDesdosII', 'precoPes', 'precoArmas', 'precoMochila', 'precoPermanencias', 'precoLivres', 'precoOutros', 'precoMunicoes', 'precoBolsos', 'precoImoveis', 'precoInventorioComp', 'campoDosCompanheiros'});
     obj.dataLink1:setName("dataLink1");
 
     obj.layout11 = gui.fromHandle(_obj_newObject("layout"));
@@ -1432,6 +1432,7 @@ function newfrmFichaRPGmeister7_svg()
             							(getNumber(sheet.precoMunicoes) or 0) +
             							(getNumber(sheet.precoBolsos) or 0) +
             							(getNumber(sheet.precoImoveis) or 0);
+            
             				local mod2 = 0;
             				local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);   
             				for i=1, #nodes, 1 do

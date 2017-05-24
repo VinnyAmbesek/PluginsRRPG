@@ -323,6 +323,14 @@ function rrpg.registrarSpecialForm(frm)
 end;
 		
 rrpg.messaging = require("rrpgEventMessages.lua");
+
+rrpg.listen = rrpg.messaging.listen;
+rrpg.listenOnce = rrpg.messaging.listenOnce;
+rrpg.unlisten = rrpg.messaging.unlisten;
+rrpg.groupOnceListeners = rrpg.messaging.groupOnceListeners;
+rrpg.Messaging = rrpg.messaging;
+		
+RRPG = rrpg;		
 		
 require("rrpgEventMessagesAdapters.lua");
 return rrpg;

@@ -12,19 +12,19 @@
 			<label left="5" top="5" width="190" height="140" fontSize="12" autoSize="true" text=" Programador: Vinny (Ambesek)\n\n  Esse plugin foi criando tanto para\n  facilitar o acesso aos links do\n  dropbox quanto para permitir o\n  acesso por jogadores mobile da\n  biblioteca do cenario."/>
 		</layout>
 		
-		<button left="840" top="475" width="100" text="Plugin Ficha" onClick="gui.openInBrowser('https://db.tt/ZUTCSq2R')" />
-		<button left="950" top="475" width="100" text="Copiar Link" onClick="system.setClipboardText('https://db.tt/ZUTCSq2R')"/>
+		<button left="840" top="475" width="100" text="Plugin Ficha" onClick="gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister.rpk')" />
+		<button left="950" top="475" width="100" text="Copiar Link" onClick="system.setClipboardText('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister.rpk')"/>
 		
 		<label left="851" top="500" width="90" height="20" text="SUA VERSAO:"/>
 		<rectangle left="950" top="499" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
-		<image left="951" top="500" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/Biblioteca%20RPG%20meister%20releases/versao02.png"/>
+		<image left="951" top="500" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao02.png"/>
 		
 		<label left="851" top="525" width="100" height="20" text="VERSAO ATUAL:"/>
 		<rectangle left="950" top="524" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
-		<image left="951" top="525" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/Biblioteca%20RPG%20meister%20releases/release.png"/>
+		<image left="951" top="525" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Biblioteca%20RPG%20meister%20releases/release.png"/>
 		
-		<button left="840" top="550" width="100" text="Change Log" onClick="gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/Biblioteca%20RPG%20meister%20releases/Change%20Log.txt')" />
-		<button left="950" top="550" width="100" text="Atualizar" onClick="gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/Biblioteca%20RPG%20meister%20releases/BibliotecaRPGmeister.rpk')" />
+		<button left="840" top="550" width="100" text="Change Log" onClick="gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Biblioteca%20RPG%20meister%20releases/Change%20Log.txt')" />
+		<button left="950" top="550" width="100" text="Atualizar" onClick="gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Biblioteca%20RPG%20meister%20releases/BibliotecaRPGmeister.rpk')" />
 		
 		<label left="830" top="575" width="120" height="20" text="CONHECA A MESA:"/>
 		<button left="950" top="575" width="100" text="RPGmeister" onClick="gui.openInBrowser('http://firecast.rrpg.com.br:90/a?a=pagRWEMesaInfo.actInfoMesa&amp;mesaid=64070');" />

@@ -14,12 +14,12 @@
 		</layout>
 		
 		<label left="755" top="300" width="100" height="20" text="Versão Atual: " horzTextAlign="center"/>
-		<image left="867" top="300" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/ficha%20ACN%20releases/versao03.png"/>
+		<image left="867" top="300" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao04.png"/>
 		<label left="755" top="325" width="100" height="20" text="Ultima Versão: " horzTextAlign="center"/>
-		<image left="867" top="325" width="100" height="20" style="autoFit" src="https://dl.dropboxusercontent.com/u/31086811/ficha%20ACN%20releases/release.png"/>
+		<image left="867" top="325" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20ACN%20releases/release.png"/>
 			
-		<button left="755" top="350" width="100" text="Change Log" onClick="gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/ficha%20ACN%20releases/Change%20Log.txt')" />
-		<button left="867" top="350" width="100" text="Atualizar" onClick="gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/ficha%20ACN%20releases/Ficha%20ACN.rpk')" />
+		<button left="755" top="350" width="100" text="Change Log" onClick="gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20ACN%20releases/Change%20Log.txt')" />
+		<button left="867" top="350" width="100" text="Atualizar" onClick="gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20ACN%20releases/Ficha%20ACN.rpk')" />
 		
 		<label left="755" top="400" width="200" height="20" text="Conheça as Mesas:"/>
 		<button left="755" top="425" width="100" text="RPGmeister" onClick="gui.openInBrowser('http://firecast.rrpg.com.br:90/a?a=pagRWEMesaInfo.actInfoMesa&amp;mesaid=64070');" />

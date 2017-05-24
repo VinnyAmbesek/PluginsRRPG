@@ -12,6 +12,7 @@ rrpg.messaging.listen("HandleChatCommand",
 		if message.comando == "afk" then
 			if afkStatus[message.mesa.nome] == false or afkStatus[message.mesa.nome] == nil then
 				afkStatus[message.mesa.nome] = true;
+				afkBotClock[message.mesa.nome] = os.clock() - 300;
 				message.mesa.chat:escrever("AfkBot habilitado!");
 			else
 				afkStatus[message.mesa.nome] = false;
@@ -20,9 +21,12 @@ rrpg.messaging.listen("HandleChatCommand",
 			
 			message.response = {handled = true};
 		elseif message.comando == "msg" then
-			afkMessage[message.mesa.nome] = message.parametro;
-			message.mesa.chat:escrever("Sua mensagem: [" .. afkMessage[message.mesa.nome] .. "] foi salva.");
-
+			if message.parametro == "" or message.parametro == nil then
+				message.mesa.chat:escrever("Sua mensagem salva é: [" .. (afkMessage[message.mesa.nome] or "") .. "].");
+			else
+				afkMessage[message.mesa.nome] = message.parametro;
+				message.mesa.chat:escrever("Sua mensagem: [" .. afkMessage[message.mesa.nome] .. "] foi salva.");
+			end;
 			message.response = {handled = true};
 		end
 	end);
@@ -64,3 +68,10 @@ rrpg.messaging.listen("ChatMessage",
 			end;
 		end
 	end);
+
+rrpg.messaging.listen("ListChatCommands",
+        function(message)
+                message.response = {{comando="/msg <Vazio>", descricao="Mostra a mensagem atual salva no AfkBot."},
+                                    {comando="/msg <Texto>", descricao="Salva <Texto> como a mensagem automatica de resposta no AfkBot. "},
+                                    {comando="/afk", descricao="Ativa ou desativa o AfkBot"}};
+        end);

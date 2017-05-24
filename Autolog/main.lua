@@ -161,7 +161,7 @@ rrpg.messaging.listen("ChatMessage",
 			end
 			
 			if(fileStream == nil) then
-				message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta " .. logTable .. " em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
+				message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta <" .. logTable .. "> em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
 				autologEnabled[message.mesa.nome] = false;
 			else
 				fileStream:writeBinary("ansi", linha .. "\r\n");
@@ -196,7 +196,7 @@ function (message)
 		end
 			
 		if(fileStream == nil) then
-			message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta " .. logTable .. " em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
+			message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta <" .. logTable .. "> em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
 			autologEnabled[message.mesa.nome] = false;
 		else
 			fileStream:writeBinary("ansi", linha .. "\r\n");
@@ -237,7 +237,7 @@ function (message)
 		end
 			
 		if(fileStream == nil) then
-			message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta " .. logTable .. " em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
+			message.mesa.chat:escrever("Falha ao criar arquivo de Log. Se possivel tente criar a pasta <" .. logTable .. "> em Documents\\RRPG\\Complementos\\Autolog\\Logs e após isso use /autolog para reativar o autolog. ");
 			autologEnabled[message.mesa.nome] = false;
 		else
 			fileStream:writeBinary("ansi", linha .. "\r\n");
@@ -245,3 +245,9 @@ function (message)
 		end
 	end
 end);
+
+-- Add dica ao comando /help
+rrpg.messaging.listen("ListChatCommands",
+        function(message)
+                message.response = {{comando="/autolog", descricao="Ativa ou desativa o autolog na mesa atual."}};
+        end);

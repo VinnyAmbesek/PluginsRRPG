@@ -1,9 +1,15 @@
 #Gerenciador de Campanha
 Gerenciador de informações de campanha. Feito para ajudar jogadores e mestres a manterem notas organizadas sobre o jogo. 
 
+17 de Abril de 2017
+Versao 04:
+* Antiga lista de npcs removida. 
+* Combat Tracker adicionado. Permitindo cada campanha ter a sua. 
+
+28 de Janeiro de 2017
 Versao 03:
 * Minor bug fixes. 
-* Unido a lista de NPCs da Mia.
+* Uni a lista de NPCs da Mia.
 
 13 de Setembro de 2016
 Versao 02:
@@ -13,7 +19,4 @@ Versao 02:
 Versao 01 Lancada. 
 
 Versoes Antigas:
-https://www.dropbox.com/sh/fu7d6jsb696378d/AABL8MsrVRZywGEjNkhTUHNKa?dl=0
-
-Futuras Versoes (por aba): 
-Separar npcs conhecidos por abas (Record list + dataScope box);
+http://www.cin.ufpe.br/~jvdl/Plugins/Gerenciador%20de%20Campanha%20releases/old/

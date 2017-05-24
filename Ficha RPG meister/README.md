@@ -1,10 +1,25 @@
 # fichaRPGmeister
-+ Alterar campo de luz para ficar de acordo com o usado pelos tokens do rrpg.
-+ Permitir jogar token no scene a partir de imagem do personagem e companheiros.  
++ Combobox de tamanho + checkbox de quadrupede para calcular carga.
++ Calculo automatico de Carga. 
++ Esconder os bônus de atributos atrás de popups. Inicial, Racial, Nível, Inerente, Tamanho, Melhoria, Dano temp, Dano Perm, outros, temporarios. 
++ Modificar espaço de deslocamento para já exibir valor em quadrados. 
++ Record List para idiomas lingua/alfabeto.
++ Modificar pericias para usar popup de detalhes. 
++ Espaço para CMD e pericias de pathfinder.
++ Botao pra povoar pericias de pathfinder. 
++ Usar combobox nos atributos das pericias. 
++ Adicionar checkbox de flanquear nos ataques avançados. 
++ Adicionar arquearia zen a ataques avançados. 
 
 Versao 21
 - Suporte a ataques naturais/multiplos nos ataques avançados.
-
+- Possivel arrastar avatar do personagem e dos companheiros para o scene como tokens.
+- Corrigido bug que exibia de forma errado o gasto de cargas de equipamentos quando se tinha multiplas fichas abertas. 
+- Adicionada opção de limite de golpes para os ataques avançados. Util para personagens que fazem menos golpes com a arma secundaria do que o que seu BBA permite. 
+- Label do custo das armas alargado. 
+- Magias preparadas ficam no topo da lista agora. 
+- Campo de luz/visão usa o modelo dos tokens do RRPG.
+- Removido espaço para peso duplicado na armadura. 
 
 24 de Fevereiro de 2017
 Versao 20
@@ -17,7 +32,7 @@ Versao 19
 - Carga total somada automaticamente. 
 - Carga e Dinheiro agora aceita numeros decimais com virgula. 
 - Campo de magias "Lista de Magia" que permite instanciar magias. Ao clicar no "i" permite anotar detalhes da magia. 
-- Inventario de Armas permite agora usar uma lista instanciavel. Que ja soma o preço das armas e seus pesos. Ao clicar no "i" permite anotar detalhes da arma. O antigo campo de armas vai ficar no canto direito da tela até a proxima versao para permitir que suas informações sejam copiadas. 
+- Inventario de Armas permite agora usar uma lista instanciavel. Que ja soma o preço das armas e seus pesos. Ao clicar no "i" permite anotar detalhes da arma. O antigo campo de armas vai ficar no canto direito da tela até alguma proxima versao para permitir que suas informações sejam copiadas. 
 
 7 de Dezembro de 2016
 Versao 18

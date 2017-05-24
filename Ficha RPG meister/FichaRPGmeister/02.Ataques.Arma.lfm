@@ -82,15 +82,16 @@
     			pen = pen - pnl;
     		end;
 
-    		if bba-5 > 0 then
+            local limite = tonumber(sheet.limiteQtd) or 4;
+    		if bba-5 > 0 and limite>1 then
     			acertos[i] = bba -5;
     			i = i + 1;
     		end;
-    		if bba-10 > 0 then
+    		if bba-10 > 0 and limite>2 then
     			acertos[i] = bba -10;
     			i = i + 1;
     		end;
-    		if bba-15 > 0 then
+    		if bba-15 > 0 and limite>3 then
     			acertos[i] = bba -15;
     			i = i + 1;
     		end;
@@ -381,17 +382,18 @@
 			<checkEdit top="75" text="Tiro Multiplo" field="tiroMultiplo" num="1" prompt1="Qtd"/>
 			<checkEdit top="100" text="Ataque Multiplo" field="ataqueMultiplo" num="1" prompt1="Qtd"/>
 			<checkEdit top="125" text="Composto" field="composto" num="1" prompt1="Lim"/>
-			<checkEdit top="150" text="Alcance" field="alcance" num="2" prompt1="Mult" prompt2="Pen"/>
-			<checkEdit top="175" text="Dano por Energia" field="energia" num="2" prompt1="Dano" prompt2="Crit"/>
+            <checkEdit top="150" text="Limite" field="limite" num="1" prompt1="Qtd"/>
+			<checkEdit top="175" text="Alcance" field="alcance" num="2" prompt1="Mult" prompt2="Pen"/>
 		</layout>
 		<layout left="270" top="25" width="270" height="200">
 			<checkEdit top="0" text="Rajada de Golpes" field="rajada" num="2" prompt1="Qtd" prompt2="Pen"/>
 			<checkEdit top="25" text="Tamanho" field="tamanho" num="2" prompt1="Dado" prompt2="Pen"/>
-			<checkEdit top="50" text="Talentos" field="talentos" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
-			<checkEdit top="75" text="Itens" field="itens" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
-			<checkEdit top="100" text="Magias" field="magias" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
-			<checkEdit top="125" text="Extra" field="extra" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
-			<checkEdit top="150" text="Outros" field="outros" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+            <checkEdit top="50" text="Dano por Energia" field="energia" num="2" prompt1="Dano" prompt2="Crit"/>
+			<checkEdit top="75" text="Talentos" field="talentos" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="100" text="Itens" field="itens" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="125" text="Magias" field="magias" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="150" text="Extra" field="extra" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
+			<checkEdit top="175" text="Outros" field="outros" num="3" prompt1="Dano" prompt2="Crit" prompt3="Ataq"/>
 		</layout>
 		<layout left="570" top="25" width="150" height="200">
 			<checkBox left="0" top="0" width="150" height="25" text="Ambidestria" field="ambidestria"/>
@@ -514,7 +516,7 @@
 				</event>
 			</button>
 		</layout> 
-		<dataLink fields="{'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'ataqueMultiplo', 'alcance', 'composto', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'ataqueMultiploApr', 'forma', 'empunhadura', 'mao'}">
+		<dataLink fields="{'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'ataqueMultiplo', 'alcance', 'composto', 'limite', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'ataqueMultiploApr', 'forma', 'empunhadura', 'mao'}">
 	        <event name="onChange">                
 	            updateAll();
 	        </event>

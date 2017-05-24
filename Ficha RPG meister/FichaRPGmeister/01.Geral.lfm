@@ -262,7 +262,11 @@
 		</dataLink>
 
 		<rectangle left="785" top="115" width="322" height="322" color="black" strokeColor="white" strokeSize="1"/>
-		<image left="786" top="116" width="320" height="320" field="avatar" editable="true" style="autoFit" />
+		<image left="786" top="116" width="320" height="320" field="avatar" editable="true" style="autoFit" >
+			<event name="OnStartDrag">
+			    drag:addData("imageURL", sheet.avatar);
+			</event>
+		</image>
 
 		<rectangle left="520" top="175" width="260" height="440" color="black"/>
 		<label left="525" top="176" width="260" height="20" text="CLASSE DE ARMADURA"/>
@@ -409,27 +413,24 @@
 			</event>
 		</dataLink>
 		
-		<rectangle left="0" top="520" width="290" height="95" color="black"/>
-		<label left="0" top="521" width="100" height="20" text="VISÃO"/>
-			
-		<layout left="0" top="550" width="301" height="80">
-			<label left="5" top="0" width="35" height="20" text="LUZ"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="35" top="0" width="40" height="25" field="luz"/>
-			
-			<label left="85" top="0" width="50" height="20" text="ESCURO"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="140" top="0" width="40" height="25" field="escuro"/>
-			
-			<label left="190" top="0" width="50" height="20" text="TOTAL"/>
-			<rectangle left="240" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
-			<label field="totalVisao" left="240" top="0" width="35" height="25" horzTextAlign="center"/>
-			
-			<label left="5" top="30" width="70" height="20" text="PENUMBRA"/>
-			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="80" top="30" width="35" height="25" field="penumbraMult"/>
-			<label left="123" top="30" width="7" height="20" text="x"/>
-			<edit vertTextAlign="center" horzTextAlign="center" left="140" top="30" width="40" height="25" field="penumbraBase"/>
-			
-			<rectangle left="190" top="30" width="40" height="25" color="black" strokeColor="white" strokeSize="1"/>
-			<label field="penumbraTotal" text="0" width="40" height="25" left="190" top="30" horzTextAlign="center"/>
+		<rectangle left="0" top="520" width="290" height="95" color="black"/>	
+		<layout left="0" top="520" width="290" height="95">
+			<label left="60" top="5" width="50" height="25" text="Luz" />
+			<label left="100" top="5" width="55" height="25" text="Penumbra" fontSize="12"/>
+			<label left="160" top="5" width="50" height="25" text="Escuro"/>
+			<label left="215" top="5" width="50" height="25" text="Ângulo"/>
+
+			<label left="0" top="35" width="60" height="20" text="Visão" horzTextAlign="center"/>
+			<edit left="50" top="35" width="50" height="25" field="visionIntense"  type="number"/>
+			<edit left="105" top="35" width="50" height="25" field="visionWeak" type="number"/>
+			<edit left="160" top="35" width="50" height="25" field="visionDark" type="number"/>
+			<edit left="215" top="35" width="50" height="25" field="visionAngle" type="number"/>
+			<checkBox left="270" top="35" width="50" height="25" field="visionHave"/>
+
+			<label left="0" top="65" width="55" height="20" text="Luz" horzTextAlign="center"/>
+			<edit left="50" top="65" width="50" height="25" field="lightIntense"  type="number"/>
+			<edit left="105" top="65" width="50" height="25" field="lightWeak" type="number"/>
+			<edit left="215" top="65" width="50" height="25" field="lightAngle" type="number"/>
 		</layout>
 		<dataLink fields="{'penumbraBase', 'penumbraMult'}">
 			<event name="onChange">

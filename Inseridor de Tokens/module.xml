@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module sdkVersion="3.3">
+	<id>Inseridor_de_Tokens</id>
+	<!--version é a versão do seu plugin. Quando for lançar uma nova versão do seu módulo, altere aqui =) -->
+	<version>1.0</version>
+	<name>Inseridor de Tokens</name>
+	<description>Insere tokens no scene a partir de varias fontes</description>
+	<author>VinnyAmbesek</author>
+	<site>http://pt-br.rpgmeister.wikia.com/wiki/Main_Page</site>
+	<contact>vinnyrpgmeister@gmail.com</contact>
+</module>

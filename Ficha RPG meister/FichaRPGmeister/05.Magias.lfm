@@ -183,8 +183,24 @@
 						self.rclListaDasMagias$(num):append();
 					</event>
 				</button>
-				<label vertTextAlign="center" left="30" top="5" width="100" height="20" text="Magias Nível $(num)"/>
-				<recordList name="rclListaDasMagias$(num)" field="campoDasMagias$(num)" templateForm="frmFichaRPGmeister5D_svg" left="5" top="25" width="270" height="150" layout="vertical" minQt="1"/>
+				<button text="O" left="25" top="5" width="20" height="20">
+					<event name="onClick">
+						self.rclListaDasMagias$(num):sort();
+					</event>
+				</button>
+				<label vertTextAlign="center" left="50" top="5" width="100" height="20" text="Magias Nível $(num)   PREP USO"/>
+				<recordList name="rclListaDasMagias$(num)" field="campoDasMagias$(num)" templateForm="frmFichaRPGmeister5D_svg" left="5" top="25" width="270" height="150" layout="vertical" minQt="1">
+					<event name="onCompare"><![CDATA[               
+					    if (tonumber(nodeA.dispMagia) or 0) < (tonumber(nodeB.dispMagia) or 0) then
+					        return 1;
+					    elseif (tonumber(nodeA.dispMagia )or 0) > (tonumber(nodeB.dispMagia) or 0) then
+					        return -1;
+					    else   
+					        return utils.compareStringPtBr(nodeA.nomeMagia, nodeB.nomeMagia);
+					    end;               
+					    ]]>
+					</event>
+				</recordList>
 			</template>
 
 			<template name="Signos">
@@ -614,7 +630,7 @@
 				</layout>
 			</layout>
 			
-			<comboBox left="10" top="50" width="110" height="25" items="{'Magias', 'Signos', 'Lista Magias', 'Magia Epica', 'Magias Aprimoradas'}" values="{'1', '2', '3', '7', '8'}" value="3" field="tipoMagia">
+			<comboBox left="10" top="50" width="110" height="25" items="{'Lista Magias', 'Signos', 'Magias (OLD)', 'Magia Epica', 'Magias Aprimoradas'}" values="{'3', '2', '1', '7', '8'}" value="3" field="tipoMagia">
 				<event name="onChange">
 					limpar();
 				</event>

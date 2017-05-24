@@ -178,7 +178,29 @@
 					sheet["Barrinha" .. (sheet.barrinhaID or 12) .. "ValorMax"] = sheet.ValorTempMaxBarrinha;
 					
 					if ((barrinhapc ~= 0) or (barrinhapcmax ~= 0)) then
-						EnviarMudanca(barrinhapc, barrinhapcmax);
+						local nome = sheet.AtributoBarrinha or "Equipamento";
+						local personagem = sheet.nome or "nome";
+						local text = "[§K2]" .. nome .. "[§K3] de [§K2]" .. personagem.. "[§K3]: ";
+						local valor = barrinhapc;
+						local valormax = barrinhapcmax;
+						
+						if tonumber(barrinhapc) >= 0 then
+							valor = "+" .. tostring(barrinhapc);
+						end;
+						if tonumber(barrinhapcmax) >= 0 then
+							valormax = "+" .. tostring(barrinhapcmax);
+						end;
+						
+						if tonumber(valormax) == 0 then
+							text = text .. valor;
+						else
+							text = text .. valor .. "/" .. valormax;
+						end;
+						
+						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+						if mesaDoPersonagem ~= nil then
+							   mesaDoPersonagem.activeChat:enviarMensagem(text);
+						end;
 					end;
 				end, 100);
 			</event>
@@ -224,8 +246,6 @@
 
 			<label left="10" top="100" width="50" height="20" text="Desl"/>
 			<edit vertTextAlign="center" left="45" top="100" width="40" height="20" field="equipamentoCorpoDesl"/>
-			<label left="90" top="100" width="50" height="20" text="Peso"/>
-			<edit vertTextAlign="center" left="125" top="100" width="40" height="20" field="equipamentoCorpoPeso"/>
 			<label left="170" top="100" width="50" height="20" text="Correr" fontSize="12"/>
 			<edit vertTextAlign="center" left="205" top="100" width="40" height="20" field="equipamentoCorpoCorrer"/>
 

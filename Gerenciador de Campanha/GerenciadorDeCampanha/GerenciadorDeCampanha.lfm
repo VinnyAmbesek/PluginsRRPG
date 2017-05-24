@@ -7,8 +7,8 @@
         <tab title="NPCs">
             <import file="MainDockNPCs.lfm"/>
         </tab>
-		<tab title="NPCs Old">
-            <import file="02.npcs.lfm"/>
+        <tab title="Iniciativas">
+            <import file="CombatTrackerDock.lfm"/>
         </tab>
 		<tab title="Aventuras">
             <import file="03.aventuras.lfm"/>

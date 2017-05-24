@@ -166,7 +166,7 @@ function newfrmFichaRPGmeister11_svg()
     obj.image2:setWidth(100);
     obj.image2:setHeight(20);
     obj.image2:setStyle("autoFit");
-    obj.image2:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/versao20.png");
+    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao21.png");
     obj.image2:setName("image2");
 
     obj.label7 = gui.fromHandle(_obj_newObject("label"));
@@ -196,7 +196,7 @@ function newfrmFichaRPGmeister11_svg()
     obj.image3:setWidth(100);
     obj.image3:setHeight(20);
     obj.image3:setStyle("autoFit");
-    obj.image3:setSRC("https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/release.png");
+    obj.image3:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/release.png");
     obj.image3:setName("image3");
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
@@ -262,17 +262,17 @@ function newfrmFichaRPGmeister11_svg()
 
     obj._e_event1 = obj.button1:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/Change%20Log.txt')
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Change%20Log.txt')
         end, obj);
 
     obj._e_event2 = obj.button2:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister.rpk')
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister.rpk')
         end, obj);
 
     obj._e_event3 = obj.button3:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister%20-%20Tutorial.docx')
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister%20-%20Tutorial.docx')
         end, obj);
 
     obj._e_event4 = obj.button4:addEventListener("onClick",

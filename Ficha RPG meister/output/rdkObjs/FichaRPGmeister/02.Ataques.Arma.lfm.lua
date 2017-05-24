@@ -114,15 +114,16 @@ function newfrmFichaRPGmeister2Aar_svg()
     			pen = pen - pnl;
     		end;
 
-    		if bba-5 > 0 then
+            local limite = tonumber(sheet.limiteQtd) or 4;
+    		if bba-5 > 0 and limite>1 then
     			acertos[i] = bba -5;
     			i = i + 1;
     		end;
-    		if bba-10 > 0 then
+    		if bba-10 > 0 and limite>2 then
     			acertos[i] = bba -10;
     			i = i + 1;
     		end;
-    		if bba-15 > 0 then
+    		if bba-15 > 0 and limite>3 then
     			acertos[i] = bba -15;
     			i = i + 1;
     		end;
@@ -588,8 +589,8 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox7:setTop(150);
     obj.checkBox7:setWidth(150);
     obj.checkBox7:setHeight(25);
-    obj.checkBox7:setText("Alcance");
-    obj.checkBox7:setField("alcance");
+    obj.checkBox7:setText("Limite");
+    obj.checkBox7:setField("limite");
     obj.checkBox7:setName("checkBox7");
 
     obj.edit7 = gui.fromHandle(_obj_newObject("edit"));
@@ -598,34 +599,19 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.edit7:setTop(150);
     obj.edit7:setWidth(40);
     obj.edit7:setHeight(25);
-    obj.edit7:setField("alcanceMult");
+    obj.edit7:setField("limiteQtd");
     obj.edit7:setName("edit7");
 
     obj.dataLink7 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink7:setParent(obj.layout1);
-    obj.dataLink7:setField("alcanceMult");
-    obj.dataLink7:setDefaultValue("Mult");
+    obj.dataLink7:setField("limiteQtd");
+    obj.dataLink7:setDefaultValue("Qtd");
     obj.dataLink7:setName("dataLink7");
 
 
-			local num = tonumber(2);
+			local num = tonumber(1);
 		
 
-
-    obj.edit8 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit8:setParent(obj.layout1);
-    obj.edit8:setLeft(190);
-    obj.edit8:setTop(150);
-    obj.edit8:setWidth(40);
-    obj.edit8:setHeight(25);
-    obj.edit8:setField("alcancePen");
-    obj.edit8:setName("edit8");
-
-    obj.dataLink8 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink8:setParent(obj.layout1);
-    obj.dataLink8:setField("alcancePen");
-    obj.dataLink8:setDefaultValue("Pen");
-    obj.dataLink8:setName("dataLink8");
 
     obj.checkBox8 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox8:setParent(obj.layout1);
@@ -633,44 +619,44 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox8:setTop(175);
     obj.checkBox8:setWidth(150);
     obj.checkBox8:setHeight(25);
-    obj.checkBox8:setText("Dano por Energia");
-    obj.checkBox8:setField("energia");
+    obj.checkBox8:setText("Alcance");
+    obj.checkBox8:setField("alcance");
     obj.checkBox8:setName("checkBox8");
 
-    obj.edit9 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit9:setParent(obj.layout1);
-    obj.edit9:setLeft(150);
-    obj.edit9:setTop(175);
-    obj.edit9:setWidth(40);
-    obj.edit9:setHeight(25);
-    obj.edit9:setField("energiaDano");
-    obj.edit9:setName("edit9");
+    obj.edit8 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit8:setParent(obj.layout1);
+    obj.edit8:setLeft(150);
+    obj.edit8:setTop(175);
+    obj.edit8:setWidth(40);
+    obj.edit8:setHeight(25);
+    obj.edit8:setField("alcanceMult");
+    obj.edit8:setName("edit8");
 
-    obj.dataLink9 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink9:setParent(obj.layout1);
-    obj.dataLink9:setField("energiaDano");
-    obj.dataLink9:setDefaultValue("Dano");
-    obj.dataLink9:setName("dataLink9");
+    obj.dataLink8 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink8:setParent(obj.layout1);
+    obj.dataLink8:setField("alcanceMult");
+    obj.dataLink8:setDefaultValue("Mult");
+    obj.dataLink8:setName("dataLink8");
 
 
 			local num = tonumber(2);
 		
 
 
-    obj.edit10 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit10:setParent(obj.layout1);
-    obj.edit10:setLeft(190);
-    obj.edit10:setTop(175);
-    obj.edit10:setWidth(40);
-    obj.edit10:setHeight(25);
-    obj.edit10:setField("energiaCrit");
-    obj.edit10:setName("edit10");
+    obj.edit9 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit9:setParent(obj.layout1);
+    obj.edit9:setLeft(190);
+    obj.edit9:setTop(175);
+    obj.edit9:setWidth(40);
+    obj.edit9:setHeight(25);
+    obj.edit9:setField("alcancePen");
+    obj.edit9:setName("edit9");
 
-    obj.dataLink10 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink10:setParent(obj.layout1);
-    obj.dataLink10:setField("energiaCrit");
-    obj.dataLink10:setDefaultValue("Crit");
-    obj.dataLink10:setName("dataLink10");
+    obj.dataLink9 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink9:setParent(obj.layout1);
+    obj.dataLink9:setField("alcancePen");
+    obj.dataLink9:setDefaultValue("Pen");
+    obj.dataLink9:setName("dataLink9");
 
     obj.layout2 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout2:setParent(obj.default);
@@ -690,40 +676,40 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox9:setField("rajada");
     obj.checkBox9:setName("checkBox9");
 
-    obj.edit11 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit11:setParent(obj.layout2);
-    obj.edit11:setLeft(150);
-    obj.edit11:setTop(0);
-    obj.edit11:setWidth(40);
-    obj.edit11:setHeight(25);
-    obj.edit11:setField("rajadaQtd");
-    obj.edit11:setName("edit11");
+    obj.edit10 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit10:setParent(obj.layout2);
+    obj.edit10:setLeft(150);
+    obj.edit10:setTop(0);
+    obj.edit10:setWidth(40);
+    obj.edit10:setHeight(25);
+    obj.edit10:setField("rajadaQtd");
+    obj.edit10:setName("edit10");
 
-    obj.dataLink11 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink11:setParent(obj.layout2);
-    obj.dataLink11:setField("rajadaQtd");
-    obj.dataLink11:setDefaultValue("Qtd");
-    obj.dataLink11:setName("dataLink11");
+    obj.dataLink10 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink10:setParent(obj.layout2);
+    obj.dataLink10:setField("rajadaQtd");
+    obj.dataLink10:setDefaultValue("Qtd");
+    obj.dataLink10:setName("dataLink10");
 
 
 			local num = tonumber(2);
 		
 
 
-    obj.edit12 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit12:setParent(obj.layout2);
-    obj.edit12:setLeft(190);
-    obj.edit12:setTop(0);
-    obj.edit12:setWidth(40);
-    obj.edit12:setHeight(25);
-    obj.edit12:setField("rajadaPen");
-    obj.edit12:setName("edit12");
+    obj.edit11 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit11:setParent(obj.layout2);
+    obj.edit11:setLeft(190);
+    obj.edit11:setTop(0);
+    obj.edit11:setWidth(40);
+    obj.edit11:setHeight(25);
+    obj.edit11:setField("rajadaPen");
+    obj.edit11:setName("edit11");
 
-    obj.dataLink12 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink12:setParent(obj.layout2);
-    obj.dataLink12:setField("rajadaPen");
-    obj.dataLink12:setDefaultValue("Pen");
-    obj.dataLink12:setName("dataLink12");
+    obj.dataLink11 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink11:setParent(obj.layout2);
+    obj.dataLink11:setField("rajadaPen");
+    obj.dataLink11:setDefaultValue("Pen");
+    obj.dataLink11:setName("dataLink11");
 
     obj.checkBox10 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox10:setParent(obj.layout2);
@@ -735,40 +721,40 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox10:setField("tamanho");
     obj.checkBox10:setName("checkBox10");
 
-    obj.edit13 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit13:setParent(obj.layout2);
-    obj.edit13:setLeft(150);
-    obj.edit13:setTop(25);
-    obj.edit13:setWidth(40);
-    obj.edit13:setHeight(25);
-    obj.edit13:setField("tamanhoDado");
-    obj.edit13:setName("edit13");
+    obj.edit12 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit12:setParent(obj.layout2);
+    obj.edit12:setLeft(150);
+    obj.edit12:setTop(25);
+    obj.edit12:setWidth(40);
+    obj.edit12:setHeight(25);
+    obj.edit12:setField("tamanhoDado");
+    obj.edit12:setName("edit12");
 
-    obj.dataLink13 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink13:setParent(obj.layout2);
-    obj.dataLink13:setField("tamanhoDado");
-    obj.dataLink13:setDefaultValue("Dado");
-    obj.dataLink13:setName("dataLink13");
+    obj.dataLink12 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink12:setParent(obj.layout2);
+    obj.dataLink12:setField("tamanhoDado");
+    obj.dataLink12:setDefaultValue("Dado");
+    obj.dataLink12:setName("dataLink12");
 
 
 			local num = tonumber(2);
 		
 
 
-    obj.edit14 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit14:setParent(obj.layout2);
-    obj.edit14:setLeft(190);
-    obj.edit14:setTop(25);
-    obj.edit14:setWidth(40);
-    obj.edit14:setHeight(25);
-    obj.edit14:setField("tamanhoPen");
-    obj.edit14:setName("edit14");
+    obj.edit13 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit13:setParent(obj.layout2);
+    obj.edit13:setLeft(190);
+    obj.edit13:setTop(25);
+    obj.edit13:setWidth(40);
+    obj.edit13:setHeight(25);
+    obj.edit13:setField("tamanhoPen");
+    obj.edit13:setName("edit13");
 
-    obj.dataLink14 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink14:setParent(obj.layout2);
-    obj.dataLink14:setField("tamanhoPen");
-    obj.dataLink14:setDefaultValue("Pen");
-    obj.dataLink14:setName("dataLink14");
+    obj.dataLink13 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink13:setParent(obj.layout2);
+    obj.dataLink13:setField("tamanhoPen");
+    obj.dataLink13:setDefaultValue("Pen");
+    obj.dataLink13:setName("dataLink13");
 
     obj.checkBox11 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox11:setParent(obj.layout2);
@@ -776,59 +762,44 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox11:setTop(50);
     obj.checkBox11:setWidth(150);
     obj.checkBox11:setHeight(25);
-    obj.checkBox11:setText("Talentos");
-    obj.checkBox11:setField("talentos");
+    obj.checkBox11:setText("Dano por Energia");
+    obj.checkBox11:setField("energia");
     obj.checkBox11:setName("checkBox11");
+
+    obj.edit14 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit14:setParent(obj.layout2);
+    obj.edit14:setLeft(150);
+    obj.edit14:setTop(50);
+    obj.edit14:setWidth(40);
+    obj.edit14:setHeight(25);
+    obj.edit14:setField("energiaDano");
+    obj.edit14:setName("edit14");
+
+    obj.dataLink14 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink14:setParent(obj.layout2);
+    obj.dataLink14:setField("energiaDano");
+    obj.dataLink14:setDefaultValue("Dano");
+    obj.dataLink14:setName("dataLink14");
+
+
+			local num = tonumber(2);
+		
+
 
     obj.edit15 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit15:setParent(obj.layout2);
-    obj.edit15:setLeft(150);
+    obj.edit15:setLeft(190);
     obj.edit15:setTop(50);
     obj.edit15:setWidth(40);
     obj.edit15:setHeight(25);
-    obj.edit15:setField("talentosDano");
+    obj.edit15:setField("energiaCrit");
     obj.edit15:setName("edit15");
 
     obj.dataLink15 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink15:setParent(obj.layout2);
-    obj.dataLink15:setField("talentosDano");
-    obj.dataLink15:setDefaultValue("Dano");
+    obj.dataLink15:setField("energiaCrit");
+    obj.dataLink15:setDefaultValue("Crit");
     obj.dataLink15:setName("dataLink15");
-
-
-			local num = tonumber(3);
-		
-
-
-    obj.edit16 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit16:setParent(obj.layout2);
-    obj.edit16:setLeft(190);
-    obj.edit16:setTop(50);
-    obj.edit16:setWidth(40);
-    obj.edit16:setHeight(25);
-    obj.edit16:setField("talentosCrit");
-    obj.edit16:setName("edit16");
-
-    obj.dataLink16 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink16:setParent(obj.layout2);
-    obj.dataLink16:setField("talentosCrit");
-    obj.dataLink16:setDefaultValue("Crit");
-    obj.dataLink16:setName("dataLink16");
-
-    obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit17:setParent(obj.layout2);
-    obj.edit17:setLeft(230);
-    obj.edit17:setTop(50);
-    obj.edit17:setWidth(40);
-    obj.edit17:setHeight(25);
-    obj.edit17:setField("talentosAtaq");
-    obj.edit17:setName("edit17");
-
-    obj.dataLink17 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink17:setParent(obj.layout2);
-    obj.dataLink17:setField("talentosAtaq");
-    obj.dataLink17:setDefaultValue("Ataq");
-    obj.dataLink17:setName("dataLink17");
 
     obj.checkBox12 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox12:setParent(obj.layout2);
@@ -836,59 +807,59 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox12:setTop(75);
     obj.checkBox12:setWidth(150);
     obj.checkBox12:setHeight(25);
-    obj.checkBox12:setText("Itens");
-    obj.checkBox12:setField("itens");
+    obj.checkBox12:setText("Talentos");
+    obj.checkBox12:setField("talentos");
     obj.checkBox12:setName("checkBox12");
 
-    obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit18:setParent(obj.layout2);
-    obj.edit18:setLeft(150);
-    obj.edit18:setTop(75);
-    obj.edit18:setWidth(40);
-    obj.edit18:setHeight(25);
-    obj.edit18:setField("itensDano");
-    obj.edit18:setName("edit18");
+    obj.edit16 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit16:setParent(obj.layout2);
+    obj.edit16:setLeft(150);
+    obj.edit16:setTop(75);
+    obj.edit16:setWidth(40);
+    obj.edit16:setHeight(25);
+    obj.edit16:setField("talentosDano");
+    obj.edit16:setName("edit16");
 
-    obj.dataLink18 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink18:setParent(obj.layout2);
-    obj.dataLink18:setField("itensDano");
-    obj.dataLink18:setDefaultValue("Dano");
-    obj.dataLink18:setName("dataLink18");
+    obj.dataLink16 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink16:setParent(obj.layout2);
+    obj.dataLink16:setField("talentosDano");
+    obj.dataLink16:setDefaultValue("Dano");
+    obj.dataLink16:setName("dataLink16");
 
 
 			local num = tonumber(3);
 		
 
 
-    obj.edit19 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit19:setParent(obj.layout2);
-    obj.edit19:setLeft(190);
-    obj.edit19:setTop(75);
-    obj.edit19:setWidth(40);
-    obj.edit19:setHeight(25);
-    obj.edit19:setField("itensCrit");
-    obj.edit19:setName("edit19");
+    obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit17:setParent(obj.layout2);
+    obj.edit17:setLeft(190);
+    obj.edit17:setTop(75);
+    obj.edit17:setWidth(40);
+    obj.edit17:setHeight(25);
+    obj.edit17:setField("talentosCrit");
+    obj.edit17:setName("edit17");
 
-    obj.dataLink19 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink19:setParent(obj.layout2);
-    obj.dataLink19:setField("itensCrit");
-    obj.dataLink19:setDefaultValue("Crit");
-    obj.dataLink19:setName("dataLink19");
+    obj.dataLink17 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink17:setParent(obj.layout2);
+    obj.dataLink17:setField("talentosCrit");
+    obj.dataLink17:setDefaultValue("Crit");
+    obj.dataLink17:setName("dataLink17");
 
-    obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit20:setParent(obj.layout2);
-    obj.edit20:setLeft(230);
-    obj.edit20:setTop(75);
-    obj.edit20:setWidth(40);
-    obj.edit20:setHeight(25);
-    obj.edit20:setField("itensAtaq");
-    obj.edit20:setName("edit20");
+    obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit18:setParent(obj.layout2);
+    obj.edit18:setLeft(230);
+    obj.edit18:setTop(75);
+    obj.edit18:setWidth(40);
+    obj.edit18:setHeight(25);
+    obj.edit18:setField("talentosAtaq");
+    obj.edit18:setName("edit18");
 
-    obj.dataLink20 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink20:setParent(obj.layout2);
-    obj.dataLink20:setField("itensAtaq");
-    obj.dataLink20:setDefaultValue("Ataq");
-    obj.dataLink20:setName("dataLink20");
+    obj.dataLink18 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink18:setParent(obj.layout2);
+    obj.dataLink18:setField("talentosAtaq");
+    obj.dataLink18:setDefaultValue("Ataq");
+    obj.dataLink18:setName("dataLink18");
 
     obj.checkBox13 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox13:setParent(obj.layout2);
@@ -896,59 +867,59 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox13:setTop(100);
     obj.checkBox13:setWidth(150);
     obj.checkBox13:setHeight(25);
-    obj.checkBox13:setText("Magias");
-    obj.checkBox13:setField("magias");
+    obj.checkBox13:setText("Itens");
+    obj.checkBox13:setField("itens");
     obj.checkBox13:setName("checkBox13");
 
-    obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit21:setParent(obj.layout2);
-    obj.edit21:setLeft(150);
-    obj.edit21:setTop(100);
-    obj.edit21:setWidth(40);
-    obj.edit21:setHeight(25);
-    obj.edit21:setField("magiasDano");
-    obj.edit21:setName("edit21");
+    obj.edit19 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit19:setParent(obj.layout2);
+    obj.edit19:setLeft(150);
+    obj.edit19:setTop(100);
+    obj.edit19:setWidth(40);
+    obj.edit19:setHeight(25);
+    obj.edit19:setField("itensDano");
+    obj.edit19:setName("edit19");
 
-    obj.dataLink21 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink21:setParent(obj.layout2);
-    obj.dataLink21:setField("magiasDano");
-    obj.dataLink21:setDefaultValue("Dano");
-    obj.dataLink21:setName("dataLink21");
+    obj.dataLink19 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink19:setParent(obj.layout2);
+    obj.dataLink19:setField("itensDano");
+    obj.dataLink19:setDefaultValue("Dano");
+    obj.dataLink19:setName("dataLink19");
 
 
 			local num = tonumber(3);
 		
 
 
-    obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit22:setParent(obj.layout2);
-    obj.edit22:setLeft(190);
-    obj.edit22:setTop(100);
-    obj.edit22:setWidth(40);
-    obj.edit22:setHeight(25);
-    obj.edit22:setField("magiasCrit");
-    obj.edit22:setName("edit22");
+    obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit20:setParent(obj.layout2);
+    obj.edit20:setLeft(190);
+    obj.edit20:setTop(100);
+    obj.edit20:setWidth(40);
+    obj.edit20:setHeight(25);
+    obj.edit20:setField("itensCrit");
+    obj.edit20:setName("edit20");
 
-    obj.dataLink22 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink22:setParent(obj.layout2);
-    obj.dataLink22:setField("magiasCrit");
-    obj.dataLink22:setDefaultValue("Crit");
-    obj.dataLink22:setName("dataLink22");
+    obj.dataLink20 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink20:setParent(obj.layout2);
+    obj.dataLink20:setField("itensCrit");
+    obj.dataLink20:setDefaultValue("Crit");
+    obj.dataLink20:setName("dataLink20");
 
-    obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit23:setParent(obj.layout2);
-    obj.edit23:setLeft(230);
-    obj.edit23:setTop(100);
-    obj.edit23:setWidth(40);
-    obj.edit23:setHeight(25);
-    obj.edit23:setField("magiasAtaq");
-    obj.edit23:setName("edit23");
+    obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit21:setParent(obj.layout2);
+    obj.edit21:setLeft(230);
+    obj.edit21:setTop(100);
+    obj.edit21:setWidth(40);
+    obj.edit21:setHeight(25);
+    obj.edit21:setField("itensAtaq");
+    obj.edit21:setName("edit21");
 
-    obj.dataLink23 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink23:setParent(obj.layout2);
-    obj.dataLink23:setField("magiasAtaq");
-    obj.dataLink23:setDefaultValue("Ataq");
-    obj.dataLink23:setName("dataLink23");
+    obj.dataLink21 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink21:setParent(obj.layout2);
+    obj.dataLink21:setField("itensAtaq");
+    obj.dataLink21:setDefaultValue("Ataq");
+    obj.dataLink21:setName("dataLink21");
 
     obj.checkBox14 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox14:setParent(obj.layout2);
@@ -956,59 +927,59 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox14:setTop(125);
     obj.checkBox14:setWidth(150);
     obj.checkBox14:setHeight(25);
-    obj.checkBox14:setText("Extra");
-    obj.checkBox14:setField("extra");
+    obj.checkBox14:setText("Magias");
+    obj.checkBox14:setField("magias");
     obj.checkBox14:setName("checkBox14");
 
-    obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit24:setParent(obj.layout2);
-    obj.edit24:setLeft(150);
-    obj.edit24:setTop(125);
-    obj.edit24:setWidth(40);
-    obj.edit24:setHeight(25);
-    obj.edit24:setField("extraDano");
-    obj.edit24:setName("edit24");
+    obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit22:setParent(obj.layout2);
+    obj.edit22:setLeft(150);
+    obj.edit22:setTop(125);
+    obj.edit22:setWidth(40);
+    obj.edit22:setHeight(25);
+    obj.edit22:setField("magiasDano");
+    obj.edit22:setName("edit22");
 
-    obj.dataLink24 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink24:setParent(obj.layout2);
-    obj.dataLink24:setField("extraDano");
-    obj.dataLink24:setDefaultValue("Dano");
-    obj.dataLink24:setName("dataLink24");
+    obj.dataLink22 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink22:setParent(obj.layout2);
+    obj.dataLink22:setField("magiasDano");
+    obj.dataLink22:setDefaultValue("Dano");
+    obj.dataLink22:setName("dataLink22");
 
 
 			local num = tonumber(3);
 		
 
 
-    obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit25:setParent(obj.layout2);
-    obj.edit25:setLeft(190);
-    obj.edit25:setTop(125);
-    obj.edit25:setWidth(40);
-    obj.edit25:setHeight(25);
-    obj.edit25:setField("extraCrit");
-    obj.edit25:setName("edit25");
+    obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit23:setParent(obj.layout2);
+    obj.edit23:setLeft(190);
+    obj.edit23:setTop(125);
+    obj.edit23:setWidth(40);
+    obj.edit23:setHeight(25);
+    obj.edit23:setField("magiasCrit");
+    obj.edit23:setName("edit23");
 
-    obj.dataLink25 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink25:setParent(obj.layout2);
-    obj.dataLink25:setField("extraCrit");
-    obj.dataLink25:setDefaultValue("Crit");
-    obj.dataLink25:setName("dataLink25");
+    obj.dataLink23 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink23:setParent(obj.layout2);
+    obj.dataLink23:setField("magiasCrit");
+    obj.dataLink23:setDefaultValue("Crit");
+    obj.dataLink23:setName("dataLink23");
 
-    obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit26:setParent(obj.layout2);
-    obj.edit26:setLeft(230);
-    obj.edit26:setTop(125);
-    obj.edit26:setWidth(40);
-    obj.edit26:setHeight(25);
-    obj.edit26:setField("extraAtaq");
-    obj.edit26:setName("edit26");
+    obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit24:setParent(obj.layout2);
+    obj.edit24:setLeft(230);
+    obj.edit24:setTop(125);
+    obj.edit24:setWidth(40);
+    obj.edit24:setHeight(25);
+    obj.edit24:setField("magiasAtaq");
+    obj.edit24:setName("edit24");
 
-    obj.dataLink26 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink26:setParent(obj.layout2);
-    obj.dataLink26:setField("extraAtaq");
-    obj.dataLink26:setDefaultValue("Ataq");
-    obj.dataLink26:setName("dataLink26");
+    obj.dataLink24 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink24:setParent(obj.layout2);
+    obj.dataLink24:setField("magiasAtaq");
+    obj.dataLink24:setDefaultValue("Ataq");
+    obj.dataLink24:setName("dataLink24");
 
     obj.checkBox15 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox15:setParent(obj.layout2);
@@ -1016,59 +987,119 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox15:setTop(150);
     obj.checkBox15:setWidth(150);
     obj.checkBox15:setHeight(25);
-    obj.checkBox15:setText("Outros");
-    obj.checkBox15:setField("outros");
+    obj.checkBox15:setText("Extra");
+    obj.checkBox15:setField("extra");
     obj.checkBox15:setName("checkBox15");
 
-    obj.edit27 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit27:setParent(obj.layout2);
-    obj.edit27:setLeft(150);
-    obj.edit27:setTop(150);
-    obj.edit27:setWidth(40);
-    obj.edit27:setHeight(25);
-    obj.edit27:setField("outrosDano");
-    obj.edit27:setName("edit27");
+    obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit25:setParent(obj.layout2);
+    obj.edit25:setLeft(150);
+    obj.edit25:setTop(150);
+    obj.edit25:setWidth(40);
+    obj.edit25:setHeight(25);
+    obj.edit25:setField("extraDano");
+    obj.edit25:setName("edit25");
 
-    obj.dataLink27 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink27:setParent(obj.layout2);
-    obj.dataLink27:setField("outrosDano");
-    obj.dataLink27:setDefaultValue("Dano");
-    obj.dataLink27:setName("dataLink27");
+    obj.dataLink25 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink25:setParent(obj.layout2);
+    obj.dataLink25:setField("extraDano");
+    obj.dataLink25:setDefaultValue("Dano");
+    obj.dataLink25:setName("dataLink25");
 
 
 			local num = tonumber(3);
 		
 
 
+    obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit26:setParent(obj.layout2);
+    obj.edit26:setLeft(190);
+    obj.edit26:setTop(150);
+    obj.edit26:setWidth(40);
+    obj.edit26:setHeight(25);
+    obj.edit26:setField("extraCrit");
+    obj.edit26:setName("edit26");
+
+    obj.dataLink26 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink26:setParent(obj.layout2);
+    obj.dataLink26:setField("extraCrit");
+    obj.dataLink26:setDefaultValue("Crit");
+    obj.dataLink26:setName("dataLink26");
+
+    obj.edit27 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit27:setParent(obj.layout2);
+    obj.edit27:setLeft(230);
+    obj.edit27:setTop(150);
+    obj.edit27:setWidth(40);
+    obj.edit27:setHeight(25);
+    obj.edit27:setField("extraAtaq");
+    obj.edit27:setName("edit27");
+
+    obj.dataLink27 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink27:setParent(obj.layout2);
+    obj.dataLink27:setField("extraAtaq");
+    obj.dataLink27:setDefaultValue("Ataq");
+    obj.dataLink27:setName("dataLink27");
+
+    obj.checkBox16 = gui.fromHandle(_obj_newObject("checkBox"));
+    obj.checkBox16:setParent(obj.layout2);
+    obj.checkBox16:setLeft(0);
+    obj.checkBox16:setTop(175);
+    obj.checkBox16:setWidth(150);
+    obj.checkBox16:setHeight(25);
+    obj.checkBox16:setText("Outros");
+    obj.checkBox16:setField("outros");
+    obj.checkBox16:setName("checkBox16");
+
     obj.edit28 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit28:setParent(obj.layout2);
-    obj.edit28:setLeft(190);
-    obj.edit28:setTop(150);
+    obj.edit28:setLeft(150);
+    obj.edit28:setTop(175);
     obj.edit28:setWidth(40);
     obj.edit28:setHeight(25);
-    obj.edit28:setField("outrosCrit");
+    obj.edit28:setField("outrosDano");
     obj.edit28:setName("edit28");
 
     obj.dataLink28 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink28:setParent(obj.layout2);
-    obj.dataLink28:setField("outrosCrit");
-    obj.dataLink28:setDefaultValue("Crit");
+    obj.dataLink28:setField("outrosDano");
+    obj.dataLink28:setDefaultValue("Dano");
     obj.dataLink28:setName("dataLink28");
+
+
+			local num = tonumber(3);
+		
+
 
     obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit29:setParent(obj.layout2);
-    obj.edit29:setLeft(230);
-    obj.edit29:setTop(150);
+    obj.edit29:setLeft(190);
+    obj.edit29:setTop(175);
     obj.edit29:setWidth(40);
     obj.edit29:setHeight(25);
-    obj.edit29:setField("outrosAtaq");
+    obj.edit29:setField("outrosCrit");
     obj.edit29:setName("edit29");
 
     obj.dataLink29 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink29:setParent(obj.layout2);
-    obj.dataLink29:setField("outrosAtaq");
-    obj.dataLink29:setDefaultValue("Ataq");
+    obj.dataLink29:setField("outrosCrit");
+    obj.dataLink29:setDefaultValue("Crit");
     obj.dataLink29:setName("dataLink29");
+
+    obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit30:setParent(obj.layout2);
+    obj.edit30:setLeft(230);
+    obj.edit30:setTop(175);
+    obj.edit30:setWidth(40);
+    obj.edit30:setHeight(25);
+    obj.edit30:setField("outrosAtaq");
+    obj.edit30:setName("edit30");
+
+    obj.dataLink30 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink30:setParent(obj.layout2);
+    obj.dataLink30:setField("outrosAtaq");
+    obj.dataLink30:setDefaultValue("Ataq");
+    obj.dataLink30:setName("dataLink30");
 
     obj.layout3 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout3:setParent(obj.default);
@@ -1078,85 +1109,85 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.layout3:setHeight(200);
     obj.layout3:setName("layout3");
 
-    obj.checkBox16 = gui.fromHandle(_obj_newObject("checkBox"));
-    obj.checkBox16:setParent(obj.layout3);
-    obj.checkBox16:setLeft(0);
-    obj.checkBox16:setTop(0);
-    obj.checkBox16:setWidth(150);
-    obj.checkBox16:setHeight(25);
-    obj.checkBox16:setText("Ambidestria");
-    obj.checkBox16:setField("ambidestria");
-    obj.checkBox16:setName("checkBox16");
-
     obj.checkBox17 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox17:setParent(obj.layout3);
     obj.checkBox17:setLeft(0);
-    obj.checkBox17:setTop(25);
+    obj.checkBox17:setTop(0);
     obj.checkBox17:setWidth(150);
     obj.checkBox17:setHeight(25);
-    obj.checkBox17:setText("Duas Armas");
-    obj.checkBox17:setField("combate2armas");
+    obj.checkBox17:setText("Ambidestria");
+    obj.checkBox17:setField("ambidestria");
     obj.checkBox17:setName("checkBox17");
 
     obj.checkBox18 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox18:setParent(obj.layout3);
     obj.checkBox18:setLeft(0);
-    obj.checkBox18:setTop(50);
+    obj.checkBox18:setTop(25);
     obj.checkBox18:setWidth(150);
     obj.checkBox18:setHeight(25);
-    obj.checkBox18:setText("Duas Armas Leves");
-    obj.checkBox18:setField("combate2armasLeve");
+    obj.checkBox18:setText("Duas Armas");
+    obj.checkBox18:setField("combate2armas");
     obj.checkBox18:setName("checkBox18");
 
     obj.checkBox19 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox19:setParent(obj.layout3);
     obj.checkBox19:setLeft(0);
-    obj.checkBox19:setTop(75);
+    obj.checkBox19:setTop(50);
     obj.checkBox19:setWidth(150);
     obj.checkBox19:setHeight(25);
-    obj.checkBox19:setText("Velocidade");
-    obj.checkBox19:setField("velocidade");
+    obj.checkBox19:setText("Duas Armas Leves");
+    obj.checkBox19:setField("combate2armasLeve");
     obj.checkBox19:setName("checkBox19");
 
     obj.checkBox20 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox20:setParent(obj.layout3);
     obj.checkBox20:setLeft(0);
-    obj.checkBox20:setTop(100);
+    obj.checkBox20:setTop(75);
     obj.checkBox20:setWidth(150);
     obj.checkBox20:setHeight(25);
-    obj.checkBox20:setText("Tiro Rapido");
-    obj.checkBox20:setField("tiroRapido");
+    obj.checkBox20:setText("Velocidade");
+    obj.checkBox20:setField("velocidade");
     obj.checkBox20:setName("checkBox20");
 
     obj.checkBox21 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox21:setParent(obj.layout3);
     obj.checkBox21:setLeft(0);
-    obj.checkBox21:setTop(125);
+    obj.checkBox21:setTop(100);
     obj.checkBox21:setWidth(150);
     obj.checkBox21:setHeight(25);
-    obj.checkBox21:setText("Tiro Rapido Apr.");
-    obj.checkBox21:setField("tiroRapidoAprimorado");
+    obj.checkBox21:setText("Tiro Rapido");
+    obj.checkBox21:setField("tiroRapido");
     obj.checkBox21:setName("checkBox21");
 
     obj.checkBox22 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox22:setParent(obj.layout3);
     obj.checkBox22:setLeft(0);
-    obj.checkBox22:setTop(150);
+    obj.checkBox22:setTop(125);
     obj.checkBox22:setWidth(150);
     obj.checkBox22:setHeight(25);
-    obj.checkBox22:setText("Golpe Perspicaz");
-    obj.checkBox22:setField("perspicaz");
+    obj.checkBox22:setText("Tiro Rapido Apr.");
+    obj.checkBox22:setField("tiroRapidoAprimorado");
     obj.checkBox22:setName("checkBox22");
 
     obj.checkBox23 = gui.fromHandle(_obj_newObject("checkBox"));
     obj.checkBox23:setParent(obj.layout3);
     obj.checkBox23:setLeft(0);
-    obj.checkBox23:setTop(175);
+    obj.checkBox23:setTop(150);
     obj.checkBox23:setWidth(150);
     obj.checkBox23:setHeight(25);
-    obj.checkBox23:setText("Ataque Multiplo Apr");
-    obj.checkBox23:setField("ataqueMultiploApr");
+    obj.checkBox23:setText("Golpe Perspicaz");
+    obj.checkBox23:setField("perspicaz");
     obj.checkBox23:setName("checkBox23");
+
+    obj.checkBox24 = gui.fromHandle(_obj_newObject("checkBox"));
+    obj.checkBox24:setParent(obj.layout3);
+    obj.checkBox24:setLeft(0);
+    obj.checkBox24:setTop(175);
+    obj.checkBox24:setWidth(150);
+    obj.checkBox24:setHeight(25);
+    obj.checkBox24:setText("Ataque Multiplo Apr");
+    obj.checkBox24:setField("ataqueMultiploApr");
+    obj.checkBox24:setName("checkBox24");
 
     obj.layout4 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout4:setParent(obj.default);
@@ -1236,14 +1267,14 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.label4:setText("Munição");
     obj.label4:setName("label4");
 
-    obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit30:setParent(obj.layout4);
-    obj.edit30:setLeft(75);
-    obj.edit30:setTop(75);
-    obj.edit30:setWidth(50);
-    obj.edit30:setHeight(25);
-    obj.edit30:setField("municao");
-    obj.edit30:setName("edit30");
+    obj.edit31 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit31:setParent(obj.layout4);
+    obj.edit31:setLeft(75);
+    obj.edit31:setTop(75);
+    obj.edit31:setWidth(50);
+    obj.edit31:setHeight(25);
+    obj.edit31:setField("municao");
+    obj.edit31:setName("edit31");
 
     obj.textEditor1 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor1:setParent(obj.layout4);
@@ -1325,10 +1356,10 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.button7:setText("Apagar");
     obj.button7:setName("button7");
 
-    obj.dataLink30 = gui.fromHandle(_obj_newObject("dataLink"));
-    obj.dataLink30:setParent(obj.default);
-    obj.dataLink30:setFields({'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'ataqueMultiplo', 'alcance', 'composto', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'ataqueMultiploApr', 'forma', 'empunhadura', 'mao'});
-    obj.dataLink30:setName("dataLink30");
+    obj.dataLink31 = gui.fromHandle(_obj_newObject("dataLink"));
+    obj.dataLink31:setParent(obj.default);
+    obj.dataLink31:setFields({'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'ataqueMultiplo', 'alcance', 'composto', 'limite', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'ataqueMultiploApr', 'forma', 'empunhadura', 'mao'});
+    obj.dataLink31:setName("dataLink31");
 
     obj.auto = gui.fromHandle(_obj_newObject("layout"));
     obj.auto:setParent(obj);
@@ -1344,7 +1375,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.label5:setLeft(205);
     obj.label5:setWidth(900);
     obj.label5:setField("auto");
-    obj.label5:setText("AUTO");
+    obj.label5:setText("Escolha uma Arma");
     obj.label5:setName("label5");
 
     obj._e_event0 = obj.weaponType:addEventListener("onChange",
@@ -1462,7 +1493,7 @@ function newfrmFichaRPGmeister2Aar_svg()
             					end);
         end, obj);
 
-    obj._e_event9 = obj.dataLink30:addEventListener("onChange",
+    obj._e_event9 = obj.dataLink31:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             updateAll();
         end, obj);
@@ -1490,6 +1521,7 @@ function newfrmFichaRPGmeister2Aar_svg()
         end;
 
         if self.dataLink12 ~= nil then self.dataLink12:destroy(); self.dataLink12 = nil; end;
+        if self.dataLink31 ~= nil then self.dataLink31:destroy(); self.dataLink31 = nil; end;
         if self.checkBox15 ~= nil then self.checkBox15:destroy(); self.checkBox15 = nil; end;
         if self.checkBox18 ~= nil then self.checkBox18:destroy(); self.checkBox18 = nil; end;
         if self.dataLink28 ~= nil then self.dataLink28:destroy(); self.dataLink28 = nil; end;
@@ -1536,6 +1568,7 @@ function newfrmFichaRPGmeister2Aar_svg()
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.edit10 ~= nil then self.edit10:destroy(); self.edit10 = nil; end;
         if self.edit16 ~= nil then self.edit16:destroy(); self.edit16 = nil; end;
+        if self.edit31 ~= nil then self.edit31:destroy(); self.edit31 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
         if self.comboBox2 ~= nil then self.comboBox2:destroy(); self.comboBox2 = nil; end;
         if self.edit30 ~= nil then self.edit30:destroy(); self.edit30 = nil; end;
@@ -1574,6 +1607,7 @@ function newfrmFichaRPGmeister2Aar_svg()
         if self.checkBox22 ~= nil then self.checkBox22:destroy(); self.checkBox22 = nil; end;
         if self.dataLink15 ~= nil then self.dataLink15:destroy(); self.dataLink15 = nil; end;
         if self.auto ~= nil then self.auto:destroy(); self.auto = nil; end;
+        if self.checkBox24 ~= nil then self.checkBox24:destroy(); self.checkBox24 = nil; end;
         if self.checkBox2 ~= nil then self.checkBox2:destroy(); self.checkBox2 = nil; end;
         if self.checkBox19 ~= nil then self.checkBox19:destroy(); self.checkBox19 = nil; end;
         if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;

@@ -1,6 +1,11 @@
 #Ficha ACN
 Ficha criada para o sistema Ao Cair da Noite. 
 
+14 de Abril de 2017
+Versão 04
+- Links atualizados. 
+
+21 de Setembro de 2016
 Versao 03
  - Tratar rolagens de dados para exibir quantia de sucessos se baseando nas regras de ACN e nao de Storyteller. 
 
@@ -24,7 +29,7 @@ IMPORTANTE: Antes de atualizar tire prints da primeira aba. Muita coisa mudou ne
 Versao 01 Lancada. 
 
 Versoes Antigas:
-https://www.dropbox.com/sh/wmeowsr7aj393ih/AABqMs4kaY8evwDN0OkE-J0Qa?dl=0
+http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20ACN%20releases/old/
 
 Futuras Versoes (por aba): 
 GERAL

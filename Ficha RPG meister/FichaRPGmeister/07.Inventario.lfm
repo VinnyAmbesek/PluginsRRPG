@@ -11,14 +11,14 @@
 				</event>
 			</button>
 			<label left="30" top="5" width="435" height="20" text="ARMAS E ESCUDOS                                     Kg         $"/>
-			<recordList name="rclListaDasArmas" field="campoDasArmas" templateForm="frmFichaRPGmeister7A_svg" left="5" top="25" width="465" height="275" layout="vertical" minQt="0"/>
+			<recordList name="rclListaDasArmas" field="campoDasArmas" templateForm="frmFichaRPGmeister7A_svg" left="5" top="25" width="465" height="275" layout="vertical" minQt="1"/>
 
-			<label left="280" top="305" width="50" height="20" text="Kg"/>
-			<rectangle left="300" top="305" width="70" height="20" color="black" strokeColor="white" strokeSize="1"/>
-			<label vertTextAlign="center" horzTextAlign="center" left="300" top="305" width="70" height="20" field="pesoArmas"/>
-			<label left="380" top="305" width="50" height="20" text="$"/>
-			<rectangle left="395" top="305" width="71" height="20" color="black" strokeColor="white" strokeSize="1"/>
-			<label vertTextAlign="center" horzTextAlign="center" left="395" top="305" width="71" height="20" field="precoArmas"/>
+			<label left="260" top="305" width="50" height="20" text="Kg"/>
+			<rectangle left="280" top="305" width="70" height="20" color="black" strokeColor="white" strokeSize="1"/>
+			<label vertTextAlign="center" horzTextAlign="center" left="280" top="305" width="70" height="20" field="pesoArmas"/>
+			<label left="360" top="305" width="50" height="20" text="$"/>
+			<rectangle left="375" top="305" width="91" height="20" color="black" strokeColor="white" strokeSize="1"/>
+			<label vertTextAlign="center" horzTextAlign="center" left="375" top="305" width="91" height="20" field="precoArmas"/>
 		</layout>
 		
 		<layout left="0" top="335" width="475" height="335">
@@ -78,7 +78,7 @@
 			<rectangle left="65" top="160" width="85" height="20" color="black" strokeColor="white" strokeSize="1"/>
 			<label field="gastos" text="0" left="65" top="160" width="85" height="20" horzTextAlign="center"/>
 		</layout>
-		<dataLink fields="{'precoCabeca', 'precoOlhos', 'precoPescoco', 'precoOmbros', 'precoTorso', 'precoCorpo', 'precoPunhos', 'precoCintura', 'precoMaos', 'precoDedosI', 'precoDesdosII', 'precoPes', 'precoArmas', 'precoMochila', 'precoPermanencias', 'precoLivres', 'precoOutros', 'precoMunicoes', 'precoBolsos', 'precoImoveis', 'precoInventorioComp'}">
+		<dataLink fields="{'precoCabeca', 'precoOlhos', 'precoPescoco', 'precoOmbros', 'precoTorso', 'precoCorpo', 'precoPunhos', 'precoCintura', 'precoMaos', 'precoDedosI', 'precoDesdosII', 'precoPes', 'precoArmas', 'precoMochila', 'precoPermanencias', 'precoLivres', 'precoOutros', 'precoMunicoes', 'precoBolsos', 'precoImoveis', 'precoInventorioComp', 'campoDosCompanheiros'}">
 			<event name="onChange">
 				local mod = 0;
 				mod = (getNumber(sheet.precoCabeca) or 0) +
@@ -101,6 +101,7 @@
 							(getNumber(sheet.precoMunicoes) or 0) +
 							(getNumber(sheet.precoBolsos) or 0) +
 							(getNumber(sheet.precoImoveis) or 0);
+
 				local mod2 = 0;
 				local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);   
 				for i=1, #nodes, 1 do

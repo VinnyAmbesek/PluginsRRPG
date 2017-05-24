@@ -11031,7 +11031,7 @@ function newfrmRdF()
     obj.image12:setWidth(100);
     obj.image12:setHeight(20);
     obj.image12:setStyle("autoFit");
-    obj.image12:setSRC("https://dl.dropboxusercontent.com/u/31086811/Plugins/Ficha%20RdF%20releases/release.png");
+    obj.image12:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RDF%20releases/release.png");
     obj.image12:setName("image12");
 
     obj.label237 = gui.fromHandle(_obj_newObject("label"));
@@ -11051,7 +11051,7 @@ function newfrmRdF()
     obj.image13:setWidth(100);
     obj.image13:setHeight(20);
     obj.image13:setStyle("autoFit");
-    obj.image13:setSRC("https://dl.dropboxusercontent.com/u/31086811/Plugins/Ficha%20RdF%20releases/versao01.png");
+    obj.image13:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao02.png");
     obj.image13:setName("image13");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
@@ -11362,12 +11362,12 @@ function newfrmRdF()
 
     obj._e_event29 = obj.button2:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/Plugins/Ficha%20RdF%20releases/Change%20Log.txt')
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RDF%20releases/Change%20Log.txt')
         end, obj);
 
     obj._e_event30 = obj.button3:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('https://dl.dropboxusercontent.com/u/31086811/Plugins/Ficha%20RdF%20releases/Ficha%20RdF.rpk')
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RDF%20releases/Ficha%20RdF.rpk')
         end, obj);
 
     obj._e_event31 = obj.button4:addEventListener("onClick",

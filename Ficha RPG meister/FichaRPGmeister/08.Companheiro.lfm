@@ -192,7 +192,11 @@
 			</rectangle>
 
 			<rectangle left="1120" top="0" width="202" height="202" color="black" strokeColor="white" strokeSize="1"/>
-			<image left="1121" top="1" width="200" height="200" field="avatarComp" editable="true" style="autoFit" />
+			<image left="1121" top="1" width="200" height="200" field="avatarComp" editable="true" style="autoFit" >
+				<event name="OnStartDrag">
+				    drag:addData("imageURL", self.rclListaDosCompanheiros.selectedNode.avatarComp);
+				</event>
+			</image>
 		</dataScopeBox>
 
 		<button text="+" left="1210" top="206" width="20" height="20">

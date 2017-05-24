@@ -33,6 +33,10 @@ function objs.addEventListener(object, eventName, funcCallback, parameterSelf)
    		objectHandle = nil;	
     end;
 
+	if type(funcCallback) ~= "function"  then
+		error("Ops, a function is needed to listen an event");
+	end;
+	
 	if (funcCallback == nil) or (objectHandle == nil) then
 		return 0;
 	end;	
@@ -125,10 +129,18 @@ local objectMetaTable = {
 			local propKey = props[key];
 			
 			if propKey ~= nil then
-				local fgetter = rawget(table, propKey.getter);
+				local fgetter;
+				
+				if type(propKey.getter) == "function" then
+					fgetter = propKey.getter;
+				else
+					fgetter = rawget(table, propKey.getter);
+				end;
 				
 				if fgetter ~= nil then
 					return fgetter(table);
+				elseif propKey.readProp ~= nil then
+					return _obj_getProp(rawget(table, 'handle'), propKey.readProp);
 				end;
 			end	
 		end;	
@@ -164,7 +176,15 @@ local objectMetaTable = {
 			local propKey = props[key];
 			
 			if propKey ~= nil then
-				fsetter = rawget(table, propKey.setter);								
+				if type(propKey.setter) == "function" then
+					fsetter = propKey.setter;
+				else
+					fsetter = rawget(table, propKey.setter);								
+				end;
+				
+				if (fsetter == nil) and (propKey.writeProp ~= nil) then
+					return _obj_setProp(rawget(table, 'handle'), propKey.writeProp, value);
+				end;
 			end;		
 		end;
 		
