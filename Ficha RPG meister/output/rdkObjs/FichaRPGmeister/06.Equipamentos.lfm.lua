@@ -2198,7 +2198,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha0ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha0);
+            							self.BarrinhaPopup:show("top", self.Barrinha0);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2237,7 +2237,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha1ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha1);
+            							self.BarrinhaPopup:show("top", self.Barrinha1);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2276,7 +2276,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha2ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha2);
+            							self.BarrinhaPopup:show("top", self.Barrinha2);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2315,7 +2315,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha3ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha3);
+            							self.BarrinhaPopup:show("top", self.Barrinha3);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2354,7 +2354,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha4ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha4);
+            							self.BarrinhaPopup:show("top", self.Barrinha4);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2393,7 +2393,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha5ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha5);
+            							self.BarrinhaPopup:show("top", self.Barrinha5);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2432,7 +2432,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha6ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha6);
+            							self.BarrinhaPopup:show("top", self.Barrinha6);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2471,7 +2471,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha7ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha7);
+            							self.BarrinhaPopup:show("top", self.Barrinha7);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2510,7 +2510,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha8ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha8);
+            							self.BarrinhaPopup:show("top", self.Barrinha8);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2549,7 +2549,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha9ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha9);
+            							self.BarrinhaPopup:show("top", self.Barrinha9);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2588,7 +2588,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha10ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha10);
+            							self.BarrinhaPopup:show("top", self.Barrinha10);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 
@@ -2627,7 +2627,7 @@ function newfrmFichaRPGmeister6_svg()
             							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha11ValorMax;
             							self.CorPopupBarrinhas.color = "Green";
             							self.BarrinhaPopup.scopeNode = sheet;
-            							self.BarrinhaPopup:show(bottomCenter, self.Barrinha11);
+            							self.BarrinhaPopup:show("top", self.Barrinha11);
             							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
         end, obj);
 

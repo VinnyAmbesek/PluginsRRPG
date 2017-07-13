@@ -451,6 +451,7 @@
 				<Speed nome="VOO" mode="Voo"/>
 			</layout>
 
+			<label left="50" top="105" width="60" height="20" text="Manobra" fontSize="11"/>
 			<comboBox left="95" top="105" width="100" field="qualidadeVoo" items="{' ', 'Desajeitado', 'Ruim', 'Média', 'Boa', 'Perfeita'}" horzTextAlign="center"/>
 
 			<layout left="5" top="130" width="225" height="20">

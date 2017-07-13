@@ -2,18 +2,18 @@
 Proximas Versões
 + Combobox de tamanho + checkbox de quadrupede para calcular carga.
 + Calculo automatico de Carga. 
-+ Esconder os bônus de atributos atrás de popups. Inicial, Racial, Nível, Inerente, Tamanho, Melhoria, Dano temp, Dano Perm, outros, temporarios. 
-+ Modificar espaço de deslocamento para já exibir valor em quadrados. 
-
 + Tiro Multiplo Aprimorado pra ataques avançados. 
 + Dar uma olhada nas questões de ajuste de tamanho da ficha para telas pequenas. 
-+ trocar ordem de ataques avançados e simples
 
+13 de Julho de 2017
 Versao 23
 - Corrigos pequenos erros de texto. 
 - Bug: Corrigido bug que não considerava graduações em falar idioma no calculo. 
 - Espaço para BMC/BMD de pathfinder.
 - Nova aba geral. Mais limpa e organizada. 
+- Esconder os detalhes dos valores atrás de popups.
+- Deslocamento exibe valor em quadrados.
+- Mudada posição dos popups de barrinha pra ajudar telas pequenas. 
 
 15 de Junho de 2017
 Versao 22

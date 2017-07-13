@@ -94,7 +94,7 @@
 							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha$(num)ValorMax;
 							self.CorPopupBarrinhas.color = "Green";
 							self.BarrinhaPopup.scopeNode = sheet;
-							self.BarrinhaPopup:show(bottomCenter, self.Barrinha$(num));
+							self.BarrinhaPopup:show("top", self.Barrinha$(num));
 							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
 						</event>
 					</progressBar>
@@ -277,7 +277,7 @@
 							sheet.ValorMudadoMaxBarrinha = sheet.Barrinha5ValorMax;
 							self.CorPopupBarrinhas.color = "Green";
 							self.BarrinhaPopup.scopeNode = sheet;
-							self.BarrinhaPopup:show(bottomCenter, self.Barrinha5);
+							self.BarrinhaPopup:show("top", self.Barrinha5);
 							self.BarrinhaPopup.top = (self.BarrinhaPopup.top + 29 + 10);
 						</event>
 					</progressBar>
