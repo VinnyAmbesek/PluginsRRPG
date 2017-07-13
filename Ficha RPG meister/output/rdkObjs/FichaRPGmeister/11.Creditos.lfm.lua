@@ -166,7 +166,7 @@ function newfrmFichaRPGmeister11_svg()
     obj.image2:setWidth(100);
     obj.image2:setHeight(20);
     obj.image2:setStyle("autoFit");
-    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao21.png");
+    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao23.png");
     obj.image2:setName("image2");
 
     obj.label7 = gui.fromHandle(_obj_newObject("label"));
@@ -240,48 +240,27 @@ function newfrmFichaRPGmeister11_svg()
     obj.button4:setText("RPGmeister");
     obj.button4:setName("button4");
 
-    obj._e_event0 = obj.textEditor1:addEventListener("onChange",
-        function (self)
-            if sheet~=nil and sheet.anotacoes_do_mestre~=nil then
-            						local jogadores = rrpg.getMesaDe(sheet).jogadores;
-            						local current = nil;
-            						
-            						for i = 1, #jogadores, 1 do
-            							if jogadores[i].login==rrpg.getCurrentUser().login then
-            								current = jogadores[i];
-            							end;
-            						end; 
-            					
-            						if current~=nil and current.isMestre then
-            							sheet.anotacoes_do_mestre_backup = sheet.anotacoes_do_mestre;
-            						else
-            							sheet.anotacoes_do_mestre = sheet.anotacoes_do_mestre_backup;
-            						end;
-            					end;
-        end, obj);
-
-    obj._e_event1 = obj.button1:addEventListener("onClick",
+    obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)
             gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Change%20Log.txt')
         end, obj);
 
-    obj._e_event2 = obj.button2:addEventListener("onClick",
+    obj._e_event1 = obj.button2:addEventListener("onClick",
         function (self)
             gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister.rpk')
         end, obj);
 
-    obj._e_event3 = obj.button3:addEventListener("onClick",
+    obj._e_event2 = obj.button3:addEventListener("onClick",
         function (self)
             gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister%20-%20Tutorial.docx')
         end, obj);
 
-    obj._e_event4 = obj.button4:addEventListener("onClick",
+    obj._e_event3 = obj.button4:addEventListener("onClick",
         function (self)
             gui.openInBrowser('http://firecast.rrpg.com.br:90/a?a=pagRWEMesaInfo.actInfoMesa&mesaid=64070');
         end, obj);
 
     function obj:_releaseEvents()
-        __o_rrpgObjs.removeEventListenerById(self._e_event4);
         __o_rrpgObjs.removeEventListenerById(self._e_event3);
         __o_rrpgObjs.removeEventListenerById(self._e_event2);
         __o_rrpgObjs.removeEventListenerById(self._e_event1);

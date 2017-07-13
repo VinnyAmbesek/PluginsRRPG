@@ -68,8 +68,6 @@
 			<recordList left="5" top="30" width="305" height="445" name="rclConsumiveis" field="itensConsumiveis" templateForm="frmConsumiveis" />
 		</layout>
 
-		<textEditor left="1210" top="25" width="200" height="200" field="armas"/>
-
 		<layout left="890" top="485" width="155" height="185">
 			<rectangle align="client" color="black"/>
 			<label left="5" top="1" width="200" height="20" text="DINHEIRO"/>

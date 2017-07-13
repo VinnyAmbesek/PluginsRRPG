@@ -104,7 +104,7 @@
 						self.boxDetalhesDoItem.node.total$(num) = (tonumber(self.boxDetalhesDoItem.node.base$(num)) or 0) + (tonumber(self.boxDetalhesDoItem.node.bonus$(num)) or 0);
 					</event>
 				</dataLink>
-				<dataLink fields="{'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'}">    ">
+				<dataLink fields="{'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'}">
 					<event name="onChange">
 						local resultado = 0;
 						local mod = 0;
@@ -143,7 +143,7 @@
 				<edit vertTextAlign="center" left="210" top="0" width="30" height="25" field="conhecidas$(num)" type="number"/>
 				
 				<label vertTextAlign="center" left="270" top="0" width="30" height="25" field="cd$(num)"/>
-				<dataLink fields="{'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'}">
+				<dataLink fields="{'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'}">
 					<event name="onChange">
 						local resultado = 0;
 						local mod = 0;
@@ -324,7 +324,7 @@
 			<layout left="0" top="50" width="1200" height="550" name="layoutSignos" visible="false">
 				<label vertTextAlign="center" left="130" top="0" width="30" height="25" text="CD"/>
 				<comboBox left="160" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
-				<dataLink fields="{'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'}">
+				<dataLink fields="{'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'}">
 					<event name="onChange">
 						local mod = 0;
 						local ctrl = self.boxDetalhesDoItem.node.atributoCD;

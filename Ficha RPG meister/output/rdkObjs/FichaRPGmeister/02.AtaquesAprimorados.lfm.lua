@@ -38,10 +38,10 @@ function newfrmFichaRPGmeister2a_svg()
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj.scrollBox1);
-    obj.button1:setText("+");
-    obj.button1:setLeft(90);
+    obj.button1:setText("Novo Ataque");
+    obj.button1:setLeft(50);
     obj.button1:setTop(2);
-    obj.button1:setWidth(20);
+    obj.button1:setWidth(100);
     obj.button1:setHeight(20);
     obj.button1:setName("button1");
 
@@ -161,17 +161,17 @@ function newfrmFichaRPGmeister2a_svg()
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
     obj.button2:setParent(obj.layout1);
-    obj.button2:setText("+");
+    obj.button2:setText("Nova Arma");
     obj.button2:setLeft(360);
     obj.button2:setTop(5);
-    obj.button2:setWidth(20);
+    obj.button2:setWidth(100);
     obj.button2:setHeight(20);
     obj.button2:setName("button2");
 
     obj.button3 = gui.fromHandle(_obj_newObject("button"));
     obj.button3:setParent(obj.layout1);
     obj.button3:setText("Ataque Total");
-    obj.button3:setLeft(385);
+    obj.button3:setLeft(465);
     obj.button3:setTop(5);
     obj.button3:setWidth(100);
     obj.button3:setHeight(20);
@@ -180,7 +180,7 @@ function newfrmFichaRPGmeister2a_svg()
     obj.button4 = gui.fromHandle(_obj_newObject("button"));
     obj.button4:setParent(obj.layout1);
     obj.button4:setText("Cancelar");
-    obj.button4:setLeft(490);
+    obj.button4:setLeft(570);
     obj.button4:setTop(5);
     obj.button4:setWidth(100);
     obj.button4:setHeight(20);

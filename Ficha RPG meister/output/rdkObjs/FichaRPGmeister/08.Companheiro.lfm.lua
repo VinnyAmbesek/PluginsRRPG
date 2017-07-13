@@ -1079,10 +1079,10 @@ function newfrmFichaRPGmeister8_svg()
 
     obj.button12 = gui.fromHandle(_obj_newObject("button"));
     obj.button12:setParent(obj.scrollBox1);
-    obj.button12:setText("+");
-    obj.button12:setLeft(1210);
+    obj.button12:setText("Novo Companheiro");
+    obj.button12:setLeft(1140);
     obj.button12:setTop(206);
-    obj.button12:setWidth(20);
+    obj.button12:setWidth(160);
     obj.button12:setHeight(20);
     obj.button12:setName("button12");
 
@@ -1108,7 +1108,6 @@ function newfrmFichaRPGmeister8_svg()
     obj.rclListaDosCompanheiros:setHeight(360);
     obj.rclListaDosCompanheiros:setSelectable(true);
     obj.rclListaDosCompanheiros:setLayout("vertical");
-    obj.rclListaDosCompanheiros:setMinQt(1);
 
     obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)

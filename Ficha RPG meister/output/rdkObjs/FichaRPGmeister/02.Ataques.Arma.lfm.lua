@@ -28,7 +28,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj:beginUpdate();
     obj:setName("frmFichaRPGmeister2Aar_svg");
     obj:setWidth(1110);
-    obj:setHeight(230);
+    obj:setHeight(280);
     obj:setTheme("dark");
     obj:setMargins({top=1, bottom=1});
 
@@ -58,35 +58,13 @@ function newfrmFichaRPGmeister2Aar_svg()
     		pen = pen + (tonumber(node.buffAtaque) or 0);
 
     		-- Pegando o valor dos atributos
-    		local forc = tonumber(node.for6);
-            if node.for5 == nil then
-                forc = tonumber(node.for4);
-            end;
-            if node.for3 == nil then
-                forc = tonumber(node.for2);
-            end;
-            if node.for1 == nil then
-                forc = 0;
-            end;
-    		local des = tonumber(node.des6);
-            if node.des5 == nil then
-                des = tonumber(node.des4);
-            end;
-            if node.des3 == nil then
-                des = tonumber(node.des2);
-            end;
-            if node.des1 == nil then
-                des = 0;
-            end;
-    		local int = tonumber(node.int6);
-            if node.int5 == nil then
-                int = tonumber(node.int4);
-            end;
-            if node.int3 == nil then
-                int = tonumber(node.int2);
-            end;
-            if node.int1 == nil then
-                int = 0;
+    		local forc = tonumber(node.efetModFor) or 0;
+    		local des = tonumber(node.efetModDes) or 0;
+            local sab  = tonumber(node.efetModSab) or 0;
+    		local int = tonumber(node.efetModInt) or 0;
+
+            if sheet.zen then
+                des = math.max(des, sab);
             end;
 
             -- Calculando a quantidade de ataques e seus acertos
@@ -113,6 +91,9 @@ function newfrmFichaRPGmeister2Aar_svg()
     			end;
     			pen = pen - pnl;
     		end;
+            if sheet.flanquear then
+                pen = pen + 2;
+            end;
 
             local limite = tonumber(sheet.limiteQtd) or 4;
     		if bba-5 > 0 and limite>1 then
@@ -213,6 +194,9 @@ function newfrmFichaRPGmeister2Aar_svg()
     		if sheet.forma=="2" then
     			if sheet.composto then
     				dado = dado .. "+" .. math.min(forc, (tonumber(sheet.compostoLim) or 0));
+                    if forc < tonumber(sheet.compostoLim) then
+                        pen = pen - 2;
+                    end;
     			end;
     		elseif sheet.empunhadura=="2" and sheet.ambidestria then
     			dado = dado .. "+" .. (forc*2);
@@ -400,7 +384,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.layout1:setLeft(0);
     obj.layout1:setTop(25);
     obj.layout1:setWidth(270);
-    obj.layout1:setHeight(200);
+    obj.layout1:setHeight(250);
     obj.layout1:setName("layout1");
 
     obj.checkBox1 = gui.fromHandle(_obj_newObject("checkBox"));
@@ -663,7 +647,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.layout2:setLeft(270);
     obj.layout2:setTop(25);
     obj.layout2:setWidth(270);
-    obj.layout2:setHeight(200);
+    obj.layout2:setHeight(250);
     obj.layout2:setName("layout2");
 
     obj.checkBox9 = gui.fromHandle(_obj_newObject("checkBox"));
@@ -1106,7 +1090,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.layout3:setLeft(570);
     obj.layout3:setTop(25);
     obj.layout3:setWidth(150);
-    obj.layout3:setHeight(200);
+    obj.layout3:setHeight(250);
     obj.layout3:setName("layout3");
 
     obj.checkBox17 = gui.fromHandle(_obj_newObject("checkBox"));
@@ -1189,12 +1173,32 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.checkBox24:setField("ataqueMultiploApr");
     obj.checkBox24:setName("checkBox24");
 
+    obj.checkBox25 = gui.fromHandle(_obj_newObject("checkBox"));
+    obj.checkBox25:setParent(obj.layout3);
+    obj.checkBox25:setLeft(0);
+    obj.checkBox25:setTop(200);
+    obj.checkBox25:setWidth(150);
+    obj.checkBox25:setHeight(25);
+    obj.checkBox25:setText("Arquearia Zen");
+    obj.checkBox25:setField("zen");
+    obj.checkBox25:setName("checkBox25");
+
+    obj.checkBox26 = gui.fromHandle(_obj_newObject("checkBox"));
+    obj.checkBox26:setParent(obj.layout3);
+    obj.checkBox26:setLeft(0);
+    obj.checkBox26:setTop(225);
+    obj.checkBox26:setWidth(150);
+    obj.checkBox26:setHeight(25);
+    obj.checkBox26:setText("Flanquear");
+    obj.checkBox26:setField("flanquear");
+    obj.checkBox26:setName("checkBox26");
+
     obj.layout4 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout4:setParent(obj.default);
     obj.layout4:setLeft(720);
     obj.layout4:setTop(25);
     obj.layout4:setWidth(225);
-    obj.layout4:setHeight(200);
+    obj.layout4:setHeight(250);
     obj.layout4:setName("layout4");
 
     obj.label1 = gui.fromHandle(_obj_newObject("label"));
@@ -1281,7 +1285,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.textEditor1:setLeft(0);
     obj.textEditor1:setTop(100);
     obj.textEditor1:setWidth(225);
-    obj.textEditor1:setHeight(100);
+    obj.textEditor1:setHeight(150);
     obj.textEditor1:setField("detalhes");
     obj.textEditor1:setName("textEditor1");
 
@@ -1358,7 +1362,7 @@ function newfrmFichaRPGmeister2Aar_svg()
 
     obj.dataLink31 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink31:setParent(obj.default);
-    obj.dataLink31:setFields({'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'ataqueMultiplo', 'alcance', 'composto', 'limite', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'ataqueMultiploApr', 'forma', 'empunhadura', 'mao'});
+    obj.dataLink31:setFields({'furtivo', 'ataquePoderoso', 'especializacaoCombate', 'tiroMultiplo', 'ataqueMultiplo', 'alcance', 'composto', 'limite', 'energia', 'rajada', 'tamanho', 'talentos', 'itens', 'magias', 'extra', 'outros', 'ambidestria', 'combate2armas', 'combate2armasLeve', 'velocidade', 'tiroRapido', 'tiroRapidoAprimorado', 'perspicaz', 'ataqueMultiploApr', 'forma', 'empunhadura', 'mao', 'zen', 'flanquear'});
     obj.dataLink31:setName("dataLink31");
 
     obj.auto = gui.fromHandle(_obj_newObject("layout"));
@@ -1611,6 +1615,7 @@ function newfrmFichaRPGmeister2Aar_svg()
         if self.checkBox2 ~= nil then self.checkBox2:destroy(); self.checkBox2 = nil; end;
         if self.checkBox19 ~= nil then self.checkBox19:destroy(); self.checkBox19 = nil; end;
         if self.edit15 ~= nil then self.edit15:destroy(); self.edit15 = nil; end;
+        if self.checkBox25 ~= nil then self.checkBox25:destroy(); self.checkBox25 = nil; end;
         if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
         if self.checkBox23 ~= nil then self.checkBox23:destroy(); self.checkBox23 = nil; end;
         if self.textEditor1 ~= nil then self.textEditor1:destroy(); self.textEditor1 = nil; end;
@@ -1618,6 +1623,7 @@ function newfrmFichaRPGmeister2Aar_svg()
         if self.dataLink29 ~= nil then self.dataLink29:destroy(); self.dataLink29 = nil; end;
         if self.checkBox13 ~= nil then self.checkBox13:destroy(); self.checkBox13 = nil; end;
         if self.edit6 ~= nil then self.edit6:destroy(); self.edit6 = nil; end;
+        if self.checkBox26 ~= nil then self.checkBox26:destroy(); self.checkBox26 = nil; end;
         if self.label2 ~= nil then self.label2:destroy(); self.label2 = nil; end;
         if self.edit22 ~= nil then self.edit22:destroy(); self.edit22 = nil; end;
         if self.edit3 ~= nil then self.edit3:destroy(); self.edit3 = nil; end;

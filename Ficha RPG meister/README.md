@@ -1,16 +1,31 @@
 # fichaRPGmeister
+Proximas Versões
 + Combobox de tamanho + checkbox de quadrupede para calcular carga.
 + Calculo automatico de Carga. 
 + Esconder os bônus de atributos atrás de popups. Inicial, Racial, Nível, Inerente, Tamanho, Melhoria, Dano temp, Dano Perm, outros, temporarios. 
 + Modificar espaço de deslocamento para já exibir valor em quadrados. 
-+ Record List para idiomas lingua/alfabeto.
-+ Modificar pericias para usar popup de detalhes. 
-+ Espaço para CMD e pericias de pathfinder.
-+ Botao pra povoar pericias de pathfinder. 
-+ Usar combobox nos atributos das pericias. 
-+ Adicionar checkbox de flanquear nos ataques avançados. 
-+ Adicionar arquearia zen a ataques avançados. 
 
++ Tiro Multiplo Aprimorado pra ataques avançados. 
++ Dar uma olhada nas questões de ajuste de tamanho da ficha para telas pequenas. 
++ trocar ordem de ataques avançados e simples
+
+Versao 23
+- Corrigos pequenos erros de texto. 
+- Bug: Corrigido bug que não considerava graduações em falar idioma no calculo. 
+- Espaço para BMC/BMD de pathfinder.
+- Nova aba geral. Mais limpa e organizada. 
+
+15 de Junho de 2017
+Versao 22
+- Arco composto nos Ataques Avançados já aplica penalidade no acerto se a força nao for suficiente
+- Aba de ataques condensada. 
+- Ataques Avançados considera Arquearia Zen e Flanquear.
+- Nova aba de Pericias. Gera tambem pericias para Pathfinder. Considera automaticamente a penalidade de armadura da aba geral. Avisa quando o personagem faz testes de pericia que exige treinamento sem graduações. 
+- Nova lista de idiomas, usando uma lista já com espaços pra linguagem e pro alfabeto. 
+- Nova aba de talentos. 
+ATENCAO: Antigo espaço de Armas no Inventario foi deletado. Para recuperar informação volte a versão 21.
+
+17 de Abril de 2017
 Versao 21
 - Suporte a ataques naturais/multiplos nos ataques avançados.
 - Possivel arrastar avatar do personagem e dos companheiros para o scene como tokens.

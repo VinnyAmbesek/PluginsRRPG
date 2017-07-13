@@ -481,7 +481,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink3 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink3:setParent(obj.layout4);
-    obj.dataLink3:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink3:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink3:setName("dataLink3");
 
     obj.edit8 = gui.fromHandle(_obj_newObject("edit"));
@@ -511,7 +511,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink4 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink4:setParent(obj.layout4);
-    obj.dataLink4:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink4:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink4:setName("dataLink4");
 
     obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
@@ -579,7 +579,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink6 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink6:setParent(obj.layout5);
-    obj.dataLink6:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink6:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink6:setName("dataLink6");
 
     obj.edit11 = gui.fromHandle(_obj_newObject("edit"));
@@ -609,7 +609,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink7 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink7:setParent(obj.layout5);
-    obj.dataLink7:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink7:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink7:setName("dataLink7");
 
     obj.layout6 = gui.fromHandle(_obj_newObject("layout"));
@@ -677,7 +677,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink9 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink9:setParent(obj.layout6);
-    obj.dataLink9:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink9:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink9:setName("dataLink9");
 
     obj.edit14 = gui.fromHandle(_obj_newObject("edit"));
@@ -707,7 +707,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink10 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink10:setParent(obj.layout6);
-    obj.dataLink10:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink10:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink10:setName("dataLink10");
 
     obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
@@ -775,7 +775,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink12 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink12:setParent(obj.layout7);
-    obj.dataLink12:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink12:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink12:setName("dataLink12");
 
     obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
@@ -805,7 +805,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink13 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink13:setParent(obj.layout7);
-    obj.dataLink13:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink13:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink13:setName("dataLink13");
 
     obj.layout8 = gui.fromHandle(_obj_newObject("layout"));
@@ -873,7 +873,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink15 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink15:setParent(obj.layout8);
-    obj.dataLink15:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink15:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink15:setName("dataLink15");
 
     obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
@@ -903,7 +903,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink16 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink16:setParent(obj.layout8);
-    obj.dataLink16:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink16:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink16:setName("dataLink16");
 
     obj.layout9 = gui.fromHandle(_obj_newObject("layout"));
@@ -971,7 +971,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink18 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink18:setParent(obj.layout9);
-    obj.dataLink18:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink18:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink18:setName("dataLink18");
 
     obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
@@ -1001,7 +1001,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink19 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink19:setParent(obj.layout9);
-    obj.dataLink19:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink19:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink19:setName("dataLink19");
 
     obj.layout10 = gui.fromHandle(_obj_newObject("layout"));
@@ -1069,7 +1069,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink21 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink21:setParent(obj.layout10);
-    obj.dataLink21:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink21:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink21:setName("dataLink21");
 
     obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
@@ -1099,7 +1099,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink22 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink22:setParent(obj.layout10);
-    obj.dataLink22:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink22:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink22:setName("dataLink22");
 
     obj.layout11 = gui.fromHandle(_obj_newObject("layout"));
@@ -1167,7 +1167,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink24 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink24:setParent(obj.layout11);
-    obj.dataLink24:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink24:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink24:setName("dataLink24");
 
     obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
@@ -1197,7 +1197,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink25 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink25:setParent(obj.layout11);
-    obj.dataLink25:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink25:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink25:setName("dataLink25");
 
     obj.layout12 = gui.fromHandle(_obj_newObject("layout"));
@@ -1265,7 +1265,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink27 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink27:setParent(obj.layout12);
-    obj.dataLink27:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink27:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink27:setName("dataLink27");
 
     obj.edit32 = gui.fromHandle(_obj_newObject("edit"));
@@ -1295,7 +1295,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink28 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink28:setParent(obj.layout12);
-    obj.dataLink28:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink28:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink28:setName("dataLink28");
 
     obj.layout13 = gui.fromHandle(_obj_newObject("layout"));
@@ -1363,7 +1363,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink30 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink30:setParent(obj.layout13);
-    obj.dataLink30:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink30:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink30:setName("dataLink30");
 
     obj.edit35 = gui.fromHandle(_obj_newObject("edit"));
@@ -1393,7 +1393,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink31 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink31:setParent(obj.layout13);
-    obj.dataLink31:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink31:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink31:setName("dataLink31");
 
     obj.layout14 = gui.fromHandle(_obj_newObject("layout"));
@@ -1742,7 +1742,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink32 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink32:setParent(obj.layoutSignos);
-    obj.dataLink32:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink32:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink32:setName("dataLink32");
 
     obj.label53 = gui.fromHandle(_obj_newObject("label"));
@@ -2627,7 +2627,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink35 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink35:setParent(obj.layout49);
-    obj.dataLink35:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink35:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink35:setName("dataLink35");
 
     obj.edit72 = gui.fromHandle(_obj_newObject("edit"));
@@ -2657,7 +2657,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink36 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink36:setParent(obj.layout49);
-    obj.dataLink36:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink36:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink36:setName("dataLink36");
 
     obj.layout50 = gui.fromHandle(_obj_newObject("layout"));
@@ -2725,7 +2725,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink38 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink38:setParent(obj.layout50);
-    obj.dataLink38:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink38:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink38:setName("dataLink38");
 
     obj.edit75 = gui.fromHandle(_obj_newObject("edit"));
@@ -2755,7 +2755,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink39 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink39:setParent(obj.layout50);
-    obj.dataLink39:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink39:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink39:setName("dataLink39");
 
     obj.layout51 = gui.fromHandle(_obj_newObject("layout"));
@@ -2823,7 +2823,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink41 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink41:setParent(obj.layout51);
-    obj.dataLink41:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink41:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink41:setName("dataLink41");
 
     obj.edit78 = gui.fromHandle(_obj_newObject("edit"));
@@ -2853,7 +2853,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink42 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink42:setParent(obj.layout51);
-    obj.dataLink42:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink42:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink42:setName("dataLink42");
 
     obj.layout52 = gui.fromHandle(_obj_newObject("layout"));
@@ -2921,7 +2921,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink44 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink44:setParent(obj.layout52);
-    obj.dataLink44:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink44:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink44:setName("dataLink44");
 
     obj.edit81 = gui.fromHandle(_obj_newObject("edit"));
@@ -2951,7 +2951,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink45 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink45:setParent(obj.layout52);
-    obj.dataLink45:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink45:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink45:setName("dataLink45");
 
     obj.layout53 = gui.fromHandle(_obj_newObject("layout"));
@@ -3019,7 +3019,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink47 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink47:setParent(obj.layout53);
-    obj.dataLink47:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink47:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink47:setName("dataLink47");
 
     obj.edit84 = gui.fromHandle(_obj_newObject("edit"));
@@ -3049,7 +3049,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink48 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink48:setParent(obj.layout53);
-    obj.dataLink48:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink48:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink48:setName("dataLink48");
 
     obj.layout54 = gui.fromHandle(_obj_newObject("layout"));
@@ -3117,7 +3117,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink50 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink50:setParent(obj.layout54);
-    obj.dataLink50:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink50:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink50:setName("dataLink50");
 
     obj.edit87 = gui.fromHandle(_obj_newObject("edit"));
@@ -3147,7 +3147,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink51 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink51:setParent(obj.layout54);
-    obj.dataLink51:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink51:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink51:setName("dataLink51");
 
     obj.layout55 = gui.fromHandle(_obj_newObject("layout"));
@@ -3215,7 +3215,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink53 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink53:setParent(obj.layout55);
-    obj.dataLink53:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink53:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink53:setName("dataLink53");
 
     obj.edit90 = gui.fromHandle(_obj_newObject("edit"));
@@ -3245,7 +3245,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink54 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink54:setParent(obj.layout55);
-    obj.dataLink54:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink54:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink54:setName("dataLink54");
 
     obj.layout56 = gui.fromHandle(_obj_newObject("layout"));
@@ -3313,7 +3313,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink56 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink56:setParent(obj.layout56);
-    obj.dataLink56:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink56:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink56:setName("dataLink56");
 
     obj.edit93 = gui.fromHandle(_obj_newObject("edit"));
@@ -3343,7 +3343,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink57 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink57:setParent(obj.layout56);
-    obj.dataLink57:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink57:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink57:setName("dataLink57");
 
     obj.layout57 = gui.fromHandle(_obj_newObject("layout"));
@@ -3411,7 +3411,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink59 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink59:setParent(obj.layout57);
-    obj.dataLink59:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink59:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink59:setName("dataLink59");
 
     obj.edit96 = gui.fromHandle(_obj_newObject("edit"));
@@ -3441,7 +3441,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink60 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink60:setParent(obj.layout57);
-    obj.dataLink60:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink60:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink60:setName("dataLink60");
 
     obj.layout58 = gui.fromHandle(_obj_newObject("layout"));
@@ -3509,7 +3509,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink62 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink62:setParent(obj.layout58);
-    obj.dataLink62:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink62:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink62:setName("dataLink62");
 
     obj.edit99 = gui.fromHandle(_obj_newObject("edit"));
@@ -3539,7 +3539,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink63 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink63:setParent(obj.layout58);
-    obj.dataLink63:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink63:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink63:setName("dataLink63");
 
     obj.layout59 = gui.fromHandle(_obj_newObject("layout"));
@@ -4857,7 +4857,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink65 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink65:setParent(obj.layout81);
-    obj.dataLink65:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink65:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink65:setName("dataLink65");
 
     obj.edit122 = gui.fromHandle(_obj_newObject("edit"));
@@ -4887,7 +4887,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink66 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink66:setParent(obj.layout81);
-    obj.dataLink66:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink66:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink66:setName("dataLink66");
 
     obj.layout82 = gui.fromHandle(_obj_newObject("layout"));
@@ -4955,7 +4955,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink68 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink68:setParent(obj.layout82);
-    obj.dataLink68:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink68:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink68:setName("dataLink68");
 
     obj.edit125 = gui.fromHandle(_obj_newObject("edit"));
@@ -4985,7 +4985,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink69 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink69:setParent(obj.layout82);
-    obj.dataLink69:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink69:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink69:setName("dataLink69");
 
     obj.layout83 = gui.fromHandle(_obj_newObject("layout"));
@@ -5053,7 +5053,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink71 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink71:setParent(obj.layout83);
-    obj.dataLink71:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink71:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink71:setName("dataLink71");
 
     obj.edit128 = gui.fromHandle(_obj_newObject("edit"));
@@ -5083,7 +5083,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink72 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink72:setParent(obj.layout83);
-    obj.dataLink72:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink72:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink72:setName("dataLink72");
 
     obj.layout84 = gui.fromHandle(_obj_newObject("layout"));
@@ -5151,7 +5151,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink74 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink74:setParent(obj.layout84);
-    obj.dataLink74:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink74:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink74:setName("dataLink74");
 
     obj.edit131 = gui.fromHandle(_obj_newObject("edit"));
@@ -5181,7 +5181,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink75 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink75:setParent(obj.layout84);
-    obj.dataLink75:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink75:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink75:setName("dataLink75");
 
     obj.layout85 = gui.fromHandle(_obj_newObject("layout"));
@@ -5249,7 +5249,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink77 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink77:setParent(obj.layout85);
-    obj.dataLink77:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink77:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink77:setName("dataLink77");
 
     obj.edit134 = gui.fromHandle(_obj_newObject("edit"));
@@ -5279,7 +5279,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink78 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink78:setParent(obj.layout85);
-    obj.dataLink78:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink78:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink78:setName("dataLink78");
 
     obj.layout86 = gui.fromHandle(_obj_newObject("layout"));
@@ -5347,7 +5347,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink80 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink80:setParent(obj.layout86);
-    obj.dataLink80:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink80:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink80:setName("dataLink80");
 
     obj.edit137 = gui.fromHandle(_obj_newObject("edit"));
@@ -5377,7 +5377,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink81 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink81:setParent(obj.layout86);
-    obj.dataLink81:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink81:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink81:setName("dataLink81");
 
     obj.layout87 = gui.fromHandle(_obj_newObject("layout"));
@@ -5445,7 +5445,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink83 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink83:setParent(obj.layout87);
-    obj.dataLink83:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink83:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink83:setName("dataLink83");
 
     obj.edit140 = gui.fromHandle(_obj_newObject("edit"));
@@ -5475,7 +5475,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink84 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink84:setParent(obj.layout87);
-    obj.dataLink84:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink84:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink84:setName("dataLink84");
 
     obj.layout88 = gui.fromHandle(_obj_newObject("layout"));
@@ -5543,7 +5543,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink86 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink86:setParent(obj.layout88);
-    obj.dataLink86:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink86:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink86:setName("dataLink86");
 
     obj.edit143 = gui.fromHandle(_obj_newObject("edit"));
@@ -5573,7 +5573,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink87 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink87:setParent(obj.layout88);
-    obj.dataLink87:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink87:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink87:setName("dataLink87");
 
     obj.layout89 = gui.fromHandle(_obj_newObject("layout"));
@@ -5641,7 +5641,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink89 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink89:setParent(obj.layout89);
-    obj.dataLink89:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink89:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink89:setName("dataLink89");
 
     obj.edit146 = gui.fromHandle(_obj_newObject("edit"));
@@ -5671,7 +5671,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink90 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink90:setParent(obj.layout89);
-    obj.dataLink90:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink90:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink90:setName("dataLink90");
 
     obj.layout90 = gui.fromHandle(_obj_newObject("layout"));
@@ -5739,7 +5739,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink92 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink92:setParent(obj.layout90);
-    obj.dataLink92:setFields({'atributoBonus', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink92:setFields({'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink92:setName("dataLink92");
 
     obj.edit149 = gui.fromHandle(_obj_newObject("edit"));
@@ -5769,7 +5769,7 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj.dataLink93 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink93:setParent(obj.layout90);
-    obj.dataLink93:setFields({'atributoCD', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'});
+    obj.dataLink93:setFields({'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'});
     obj.dataLink93:setName("dataLink93");
 
     obj.layout91 = gui.fromHandle(_obj_newObject("layout"));

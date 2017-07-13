@@ -681,15 +681,6 @@ function newfrmFichaRPGmeister7_svg()
     obj.rclConsumiveis:setField("itensConsumiveis");
     obj.rclConsumiveis:setTemplateForm("frmConsumiveis");
 
-    obj.textEditor8 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor8:setParent(obj.scrollBox1);
-    obj.textEditor8:setLeft(1210);
-    obj.textEditor8:setTop(25);
-    obj.textEditor8:setWidth(200);
-    obj.textEditor8:setHeight(200);
-    obj.textEditor8:setField("armas");
-    obj.textEditor8:setName("textEditor8");
-
     obj.layout10 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout10:setParent(obj.scrollBox1);
     obj.layout10:setLeft(890);
@@ -713,14 +704,14 @@ function newfrmFichaRPGmeister7_svg()
     obj.label27:setText("DINHEIRO");
     obj.label27:setName("label27");
 
-    obj.textEditor9 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor9:setParent(obj.layout10);
-    obj.textEditor9:setLeft(5);
-    obj.textEditor9:setTop(25);
-    obj.textEditor9:setWidth(145);
-    obj.textEditor9:setHeight(130);
-    obj.textEditor9:setField("dinheiro");
-    obj.textEditor9:setName("textEditor9");
+    obj.textEditor8 = gui.fromHandle(_obj_newObject("textEditor"));
+    obj.textEditor8:setParent(obj.layout10);
+    obj.textEditor8:setLeft(5);
+    obj.textEditor8:setTop(25);
+    obj.textEditor8:setWidth(145);
+    obj.textEditor8:setHeight(130);
+    obj.textEditor8:setField("dinheiro");
+    obj.textEditor8:setName("textEditor8");
 
     obj.label28 = gui.fromHandle(_obj_newObject("label"));
     obj.label28:setParent(obj.layout10);
@@ -1393,11 +1384,11 @@ function newfrmFichaRPGmeister7_svg()
     obj.edit33:setFontSize(12);
     obj.edit33:setName("edit33");
 
-    obj.textEditor10 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor10:setParent(obj.popArma);
-    obj.textEditor10:setAlign("client");
-    obj.textEditor10:setField("descricao");
-    obj.textEditor10:setName("textEditor10");
+    obj.textEditor9 = gui.fromHandle(_obj_newObject("textEditor"));
+    obj.textEditor9:setParent(obj.popArma);
+    obj.textEditor9:setAlign("client");
+    obj.textEditor9:setField("descricao");
+    obj.textEditor9:setName("textEditor9");
 
     obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)
@@ -1638,7 +1629,6 @@ function newfrmFichaRPGmeister7_svg()
         if self.label19 ~= nil then self.label19:destroy(); self.label19 = nil; end;
         if self.edit17 ~= nil then self.edit17:destroy(); self.edit17 = nil; end;
         if self.layout2 ~= nil then self.layout2:destroy(); self.layout2 = nil; end;
-        if self.textEditor10 ~= nil then self.textEditor10:destroy(); self.textEditor10 = nil; end;
         if self.rectangle12 ~= nil then self.rectangle12:destroy(); self.rectangle12 = nil; end;
         if self.label46 ~= nil then self.label46:destroy(); self.label46 = nil; end;
         if self.label39 ~= nil then self.label39:destroy(); self.label39 = nil; end;

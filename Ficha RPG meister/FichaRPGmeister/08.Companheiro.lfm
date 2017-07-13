@@ -199,14 +199,14 @@
 			</image>
 		</dataScopeBox>
 
-		<button text="+" left="1210" top="206" width="20" height="20">
+		<button text="Novo Companheiro" left="1140" top="206" width="160" height="20">
 			<event name="onClick">
 				self.rclListaDosCompanheiros:append();
 			</event>
 		</button>
 
 		<rectangle left="1119" top="229" width="202" height="362" color="black" strokeColor="white" strokeSize="1"/>
-		<recordList name="rclListaDosCompanheiros" field="campoDosCompanheiros" templateForm="frmFichaRPGmeister8CS_svg" left="1120" top="230" width="200" height="360" selectable="true" layout="vertical" minQt="1">
+		<recordList name="rclListaDosCompanheiros" field="campoDosCompanheiros" templateForm="frmFichaRPGmeister8CS_svg" left="1120" top="230" width="200" height="360" selectable="true" layout="vertical">
 			<event name="onSelect">
 				local node = self.rclListaDosCompanheiros.selectedNode;
 				self.boxDetalhesDoCompanheiro.node = node;

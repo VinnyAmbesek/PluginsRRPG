@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmFichaRPGmeister1o_svg" align="client" theme="dark" margins="{top=1}">
+	<scrollBox align="client">
+		<template name="Atributo">
+			<button left="5" width="35" text="$(atrU)" fontSize="11">
+				<event name="onClick">
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. get$(atrU)());
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(atrN) de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
+				</event>
+			</button>
+			
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="45" width="35" height="25" field="$(atr)1">
+				<event name="onUserChange">
+					sheet.$(atr)2 = getMOD(sheet.$(atr)1);  
+				</event>
+			</edit>
+			<rectangle left="80" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="$(atr)2" text="0" left="80" top="3" width="35" horzTextAlign="center"/>
+			
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="120" width="35" height="25" field="$(atr)3">
+				<event name="onUserChange">
+					sheet.$(atr)4 = getMOD(sheet.$(atr)3);  
+				</event>
+			</edit>
+			<rectangle left="155" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="$(atr)4" text="0" left="155" top="3" width="35" horzTextAlign="center"/>
+			
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="195" width="35" height="25" field="$(atr)5">
+				<event name="onUserChange">
+					sheet.$(atr)6 = getMOD(sheet.$(atr)5);  
+				</event>
+			</edit>
+			<rectangle left="230" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="$(atr)6" text="0" left="230" top="3" width="35" horzTextAlign="center"/>
+		</template>
+		
+		<template name="Resistencia">
+			<button left="5" top="2" width="40" text="$(TR)" fontSize="11">
+				<event name="onClick">
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. sheet.$(tr)Total);
+					if sheet.buffTR ~= nil then
+						rolagem = rolagem:concatenar(sheet.buffTR);
+					end;
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(nome) de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
+				</event>
+			</button>
+			<rectangle left="50" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="$(tr)Total" left="50" top="0" width="35" height="25" horzTextAlign="center"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="95" top="0" width="35" height="25" field="$(tr)Base"/>
+			<rectangle left="130" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="$(tr)Atr" left="130" top="0" text="0" width="35" height="25" horzTextAlign="center"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="165" top="0" width="35" height="25" field="$(tr)Magia"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="200" top="0" width="35" height="25" field="$(tr)Var"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="235" top="0" width="35" height="25" field="$(tr)Temp"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="270" top="0" width="35" height="25" field="$(tr)Out"/>
+		</template>
+		
+		<rectangle left="0" top="0" width="1107" height="110" color="black">
+			<label left="5" top="5" width="50" height="25" text="CLASSE"/>
+			<edit vertTextAlign="center" left="60" top="5" width="380" height="25" field="classe1"/>
+			
+			<label left="5" top="30" width="50" height="25" text="RAÇA"/>
+			<edit vertTextAlign="center" left="60" top="30" width="380" height="25" field="raca"/>
+			
+			<label left="5" top="55" width="50" height="25" text="TIPO"/>
+			<edit vertTextAlign="center" left="60" top="55" width="380" height="25" field="tipo"/>
+			
+			<label left="5" top="80" width="70" height="25" text="SUBTIPO"/>
+			<edit vertTextAlign="center" left="60" top="80" width="380" height="25" field="subtipo"/>
+			
+			
+			<label left="445" top="5" width="50" height="25" text="NOME"/>
+			<edit vertTextAlign="center" left="520" top="5" width="290" height="25" field="nome"/>
+			
+			<label left="445" top="30" width="70" height="25" text="TENDÊNCIA"/>
+			<edit vertTextAlign="center" left="520" top="30" width="290" height="25" field="tendencia"/>
+			
+			<label left="445" top="55" width="70" height="25" text="CULTO"/>
+			<edit vertTextAlign="center" left="520" top="55" width="290" height="25" field="culto"/>
+			
+			<label left="445" top="80" width="70" height="25" text="TITULO"/>
+			<edit vertTextAlign="center" left="520" top="80" width="290" height="25" field="posto"/>
+			
+			
+			<label left="815" top="5" width="70" height="25" text="NEP"/>
+			<rectangle left="890" top="5" width="70" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="nep" left="890" top="5" width="70" height="25" horzTextAlign="center"/>
+
+			<label left="975" top="5" width="60" height="25" text="AJUSTE"/>
+			<edit vertTextAlign="center" left="1030" top="5" width="70" height="25" field="ajuste"/>
+			
+			<label left="815" top="30" width="70" height="25" text="XP ATUAL"/>
+			<edit vertTextAlign="center" left="890" top="30" width="210" height="25" field="xpAtual"/>
+			
+			<button left="815" top="56" width="50" text="ADD">
+				<event name="onClick">
+						local mod = (getNumber(sheet.xpAtual) or 0) + (getNumber(sheet.xpNova) or 0);
+						
+						while true do  
+							mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+							if (k==0) then
+							  break
+							end
+						end
+						mod = string.gsub(mod, ",", ".");
+						
+						sheet.xpAtual = mod .. "XP";
+						sheet.xpNova = "0";
+					</event>
+			</button>
+			<edit vertTextAlign="center" left="890" top="55" width="210" height="25" field="xpNova"/>
+			
+			<label left="815" top="80" width="70" height="25" text="XP ALVO"/>
+			<rectangle left="890" top="80" width="210" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="xpNivel" left="890" top="80" width="210" height="25" horzTextAlign="center"/>
+		</rectangle>
+		
+		<rectangle left="0" top="115" width="275" height="190" color="black">
+			<label left="5" top="1" width="100" height="25" text="ATRIBUTOS"/>
+
+			<layout left="0" top="30" width="275" height="25">
+				<Atributo atr="for" atrU="FOR" atrN="Força"/>
+			</layout>
+			<layout left="0" top="55" width="275" height="25">
+				<Atributo atr="des" atrU="DES" atrN="Destreza"/>
+			</layout>
+			<layout left="0" top="80" width="275" height="25">
+				<Atributo atr="con" atrU="CON" atrN="Constituição"/>
+			</layout>
+			<layout left="0" top="105" width="275" height="25">
+				<Atributo atr="int" atrU="INT" atrN="Inteligência"/>
+			</layout>
+			<layout left="0" top="130" width="275" height="25">
+				<Atributo atr="sab" atrU="SAB" atrN="Sabedoria"/>
+			</layout>
+			<layout left="0" top="155" width="275" height="25">
+				<Atributo atr="car" atrU="CAR" atrN="Carisma"/>
+			</layout>
+		</rectangle>
+		
+		<layout left="280" top="115" width="235" height="190">
+			<rectangle align="client" color="black"/>
+			<label left="5" top="1" width="200" height="20" text="DESLOCAMENTOS"/>
+			
+			<label left="5" top="30" width="75" height="20" text="TERRESTRE"/>
+			<edit vertTextAlign="center" left="80" top="30" width="150" height="25" field="deslTerrestre"/>
+			<label left="40" top="55" width="40" height="20" text="VOO"/>
+			<edit vertTextAlign="center" left="80" top="55" width="150" height="25" field="deslVoo"/>
+			<label left="15" top="80" width="75" height="20" text="NATAÇÃO"/>
+			<edit vertTextAlign="center" left="80" top="80" width="150" height="25" field="deslNatacao"/>
+			<label left="20" top="105" width="75" height="20" text="ESCALAR"/>
+			<edit vertTextAlign="center" left="80" top="105" width="150" height="25" field="deslEscalar"/>
+			<label left="20" top="130" width="75" height="20" text="ESCAVAR"/>
+			<edit vertTextAlign="center" left="80" top="130" width="150" height="25" field="desEscavar"/>
+		</layout>
+		
+		<layout left="520" top="115" width="260" height="55" >
+			<rectangle align="client" color="black"/>
+			<label left="5" top="1" width="145" height="20" text="INICIATIVA"/>
+			
+			<button left="35" top="25" width="75" height="25" text="INICIATIVA" fontSize="11">
+				<event name="onClick">
+					local rolagem = rrpg.interpretarRolagem("1d20 " .. (sheet.iniciativa or "+0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Iniciativa de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
+				</event>
+			</button>
+			
+			<rectangle left="115" top="25" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="iniciativa" left="115" top="27" width="35" horzTextAlign="center"/>
+			<rectangle left="155" top="25" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="iniDes" left="155" top="27" width="35" horzTextAlign="center"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="195" top="25" width="35" height="25" field="iniVariado" />
+		</layout>
+
+		<rectangle left="785" top="115" width="322" height="322" color="black" strokeColor="white" strokeSize="1"/>
+		<image left="786" top="116" width="320" height="320" field="avatar" editable="true" style="autoFit" >
+			<event name="OnStartDrag">
+			    drag:addData("imageURL", sheet.avatar);
+			</event>
+		</image>
+
+		<rectangle left="520" top="175" width="260" height="440" color="black"/>
+		<label left="525" top="176" width="260" height="20" text="CLASSE DE ARMADURA"/>
+		
+		<layout left="560" top="200" width="210" height="50" >
+			<label left="10" top="0" width="35" height="20" text="CA"/>
+			<rectangle left="5" top="25" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="ca" left="5" top="27" width="35" horzTextAlign="center"/>
+			
+			<label left="45" top="0" width="40" height="20" text="SURP."/>
+			
+			<label left="85" top="0" width="45" height="20" text="TOQUE"/>
+			
+			<label left="135" top="0" width="35" height="20" text="PEN"/>
+			
+			<button left="165" top="0" width="45" height="20" fontSize="10" text="FALHA">
+				<event name="onClick">
+					local rolagem = rrpg.interpretarRolagem("1d100");
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Falha Arcana (" .. (sheet.falha or 0).. "%) de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
+				</event>
+			</button>
+		</layout>
+		<layout left="525" top="255" width="35" height="300" >
+			<label left="5" top="0" width="35" height="20" text="ARM"/>
+			<label left="5" top="30" width="35" height="20" text="ESC"/>
+			<label left="5" top="60" width="35" height="20" text="DES"/>
+			<label left="5" top="90" width="35" height="20" text="TAM"/>
+			<label left="5" top="120" width="35" height="20" text="NAT"/>
+			<label left="5" top="150" width="35" height="20" text="DEF"/>
+			<label left="5" top="180" width="35" height="20" text="ESQ"/>
+			<label left="5" top="210" width="35" height="20" text="SOR"/>
+			<label left="5" top="240" width="35" height="20" text="OUT"/>
+			<label left="5" top="270" width="35" height="20" text="VAR"/>
+		</layout>
+		<layout left="565" top="255" width="35" height="300" >
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="0" width="35" height="25" field="armaduraCa"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="30" width="35" height="25" field="escudoCa"/>
+			<rectangle left="0" top="60" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="destrezaCa" left="10" top="62" width="25" horzTextAlign="center"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="90" width="35" height="25" field="tamanhoCa"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="120" width="35" height="25" field="naturalCa"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="150" width="35" height="25" field="deflexaoCa"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="180" width="35" height="25" field="esquivaCa"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="210" width="35" height="25" field="sorteCa"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="240" width="35" height="25" field="outrosCa"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="0" top="270" width="35" height="25" field="variadosCa"/>
+		</layout>
+		<layout left="605" top="255" width="165" height="300" >
+			<edit vertTextAlign="center" left="0" top="0" width="165" height="25" field="armaduraCa2"/>
+			<edit vertTextAlign="center" left="0" top="30" width="165" height="25" field="escudoCa2"/>
+			<edit vertTextAlign="center" left="0" top="60" width="165" height="25" field="destrezaCa2"/>
+			<edit vertTextAlign="center" left="0" top="90" width="165" height="25" field="tamanhoCa2"/>
+			<edit vertTextAlign="center" left="0" top="120" width="165" height="25" field="naturalCa2"/>
+			<edit vertTextAlign="center" left="0" top="150" width="165" height="25" field="deflexaoCa2"/>
+			<edit vertTextAlign="center" left="0" top="180" width="165" height="25" field="esquivaCa2"/>
+			<edit vertTextAlign="center" left="0" top="210" width="165" height="25" field="sorteCa2"/>
+			<edit vertTextAlign="center" left="0" top="240" width="165" height="25" field="outrosCa2"/>
+			<edit vertTextAlign="center" left="0" top="270" width="165" height="25" field="variadosCa2"/>
+		</layout>
+		<layout left="525" top="570" width="260" height="25">
+			<label left="5" top="0" width="30" height="20" text="RM"/>
+			<edit vertTextAlign="center" left="40" top="0" width="205" height="25" field="rm"/>
+		</layout>
+
+		<rectangle left="0" top="310" width="515" height="135" color="black"/>
+		<label left="5" top="311" width="515" height="25" text="TESTES DE RESISTÊNCIA"/>
+		
+		<layout left="0" top="335" width="515" height="25">
+			<label left="50" top="0" width="40" height="25" text="TOTAL"/>
+			<label left="95" top="0" width="40" height="25" text="BASE"/>
+			<label left="130" top="0" width="40" height="25" text="ATR"/>
+			<label left="160" top="0" width="45" height="25" text="MAGIA"/>
+			<label left="205" top="0" width="40" height="25" text="VAR"/>
+			<label left="235" top="0" width="40" height="25" text="TEMP"/>
+			<label left="275" top="0" width="40" height="25" text="OUT"/>
+			<label left="310" top="0" width="200" height="25" text="CONDICIONAIS"/>
+		</layout>
+		<layout left="0" top="360" width="350" height="25">
+			<Resistencia tr="fort" TR="FORT" nome="Fortitude"/>
+		</layout>
+		<layout left="0" top="385" width="350" height="25">
+			<Resistencia tr="ref" TR="REF" nome="Reflexos"/>
+		</layout>
+		<layout left="0" top="410" width="350" height="25">
+			<Resistencia tr="von" TR="VON" nome="Vontade"/>
+		</layout>
+		<textEditor left="305" top="360" width="200" height="75" field="trCondicional"/>
+		
+		<rectangle left="0" top="450" width="290" height="65" color="black"/>
+		<layout left="0" top="455" width="280" height="25">
+			<label left="5" top="0" width="30" height="25" text="BBA"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="35" top="0" width="40" height="31" field="bba"/>
+			<edit vertTextAlign="center" left="80" top="0" width="200" height="29" field="bbaDesc"/>
+		</layout>
+		<layout left="0" top="485" width="280" height="25">
+			<button left="5" top="0" width="70" height="25" text="AGARRAR" fontSize="11">
+				<event name="onClick">
+					local rolagem = rrpg.interpretarRolagem("1d20 + " .. (sheet.agarrar or "0"));
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Agarrar de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
+				</event>
+			</button>
+			<rectangle left="80" top="0" width="40" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="agarrar" left="80" width="40" height="25" horzTextAlign="center"/>
+			<rectangle left="135" top="0" width="30" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="bba" left="135" width="30" height="25" horzTextAlign="center"/>
+			<rectangle left="170" top="0" width="30" height="25" color="black" strokeColor="white" strokeSize="1"/>
+			<label field="agarrarFor" left="170" width="30" height="25" horzTextAlign="center"/>
+			<edit type="number" vertTextAlign="center" left="205" top="0" width="35" height="25" field="agarrarTam"/>
+			<edit type="number" vertTextAlign="center" left="245" top="0" width="35" height="25" field="agarrarVar"/>
+		</layout>
+		
+		<rectangle left="0" top="520" width="290" height="95" color="black"/>	
+		<layout left="0" top="520" width="290" height="95">
+			<label left="60" top="5" width="50" height="25" text="Luz" />
+			<label left="100" top="5" width="55" height="25" text="Penumbra" fontSize="12"/>
+			<label left="160" top="5" width="50" height="25" text="Escuro"/>
+			<label left="215" top="5" width="50" height="25" text="Ângulo"/>
+
+			<label left="0" top="35" width="60" height="20" text="Visão" horzTextAlign="center"/>
+			<edit left="50" top="35" width="50" height="25" field="visionIntense"  type="number"/>
+			<edit left="105" top="35" width="50" height="25" field="visionWeak" type="number"/>
+			<edit left="160" top="35" width="50" height="25" field="visionDark" type="number"/>
+			<edit left="215" top="35" width="50" height="25" field="visionAngle" type="number"/>
+			<checkBox left="270" top="35" width="50" height="25" field="visionHave"/>
+
+			<label left="0" top="65" width="55" height="20" text="Luz" horzTextAlign="center"/>
+			<edit left="50" top="65" width="50" height="25" field="lightIntense"  type="number"/>
+			<edit left="105" top="65" width="50" height="25" field="lightWeak" type="number"/>
+			<edit left="215" top="65" width="50" height="25" field="lightAngle" type="number"/>
+		</layout>
+		
+		<rectangle left="295" top="450" width="220" height="165" color="black">
+			<label left="5" top="1" width="220" height="20" text="PONTOS DE VIGOR"/>
+			
+			<label left="35" top="25" width="100" height="20" text="VIGOR"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="5" top="45" width="105" height="25" field="pvTotal"/>
+			<label left="115" top="25" width="100" height="20" text="TEMPORARIO"/>
+			<edit type="number" vertTextAlign="center" horzTextAlign="center" left="110" top="45" width="105" height="25" field="pvTemporario"/>
+			
+			<button left="5" top="70" width="40" height="25"  text="DVs">
+				<event name="onClick">
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					sheet.modificador = sheet.modificador or 0;
+					mesaDoPersonagem.activeChat:rolarDados(sheet.dvs, "Pontos de Vigor de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"),
+						function (rolagem)
+							local maximo = 0;
+							local media = 0;
+							for i = 1, #rolagem.ops, 1 do 
+								local operacao = rolagem.ops[i]; 
+								if operacao.tipo == "dado" then   
+									maximo = maximo + (operacao.quantidade * operacao.face);
+									media = media + (operacao.quantidade * (operacao.face+1)/2);
+									if i==1 then
+										media = media + ((operacao.face-1)/2);
+									end;
+								elseif operacao.tipo == "imediato" then
+									maximo = maximo + operacao.valor;
+									media = media + operacao.valor;
+								end;
+							end;
+							local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+							mesaDoPersonagem.activeChat:enviarMensagem("PV máximo: " .. maximo .. "; PV médio: " .. math.floor(media));
+							sheet.pvTotal = math.floor(media);
+						end);  
+				</event>
+			</button>
+			<edit vertTextAlign="center" left="45" top="70" width="170" height="25" field="dvs"/>
+			<textEditor left="5" top="95" width="210" height="65" field="rd"/>
+		</rectangle>
+	</scrollBox>
+</form>

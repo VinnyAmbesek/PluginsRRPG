@@ -1,597 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmFichaRPGmeister3_svg" align="client" theme="dark" margins="{top=1}">
-    <scrollBox align="client">
-            
-			<template name="Pericia">
-				<checkBox left="3" top="$(altura3)" width="15" height="15" field="per$(num)" compilerOrder="1"/>
-				<edit vertTextAlign="center" left="21" top="$(altura)" width="138" height="25" field="pericia$(num)" compilerOrder="2"/>
-				<edit vertTextAlign="center" horzTextAlign="center" left="161" top="$(altura)" width="37" height="25" field="chave$(num)" compilerOrder="3"/>
-				<rectangle left="202" top="$(altura)" width="33" height="24" color="black" strokeColor="white" strokeSize="1" compilerOrder="0"/>
-				<label field="total$(num)" text="valor" left="202" top="$(altura)" width="35" height="25" horzTextAlign="center" compilerOrder="4"/>
-				<button left="240" top="$(altura)" width="24" height="25" text="R" fontSize="11">
-					<event name="onClick">
-						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-						
-						local value = string.gsub(sheet.total$(num), "+", "");
-						local mod = math.floor(tonumber(sheet.total$(num)) or 0) + (tonumber(sheet.buffPericia) or 0);
-						local rolagem = rrpg.interpretarRolagem("1d20 + " .. mod);
-						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de " .. (sheet.pericia$(num) or "Pericia") .. " de " .. (sheet.nome or "PONHA UM NOME NO PERSONAGEM"));
-					</event>
-				</button>
-				<rectangle left="267" top="$(altura)" width="33" height="24" color="black" strokeColor="white" strokeSize="1" compilerOrder="0"/>
-				<label field="atributo$(num)" text="valor" left="270" top="$(altura2)" width="20" height="20" horzTextAlign="center" compilerOrder="6"/>
-				<edit vertTextAlign="center" horzTextAlign="center" left="300" top="$(altura)" width="30" height="25" field="graduacao$(num)" compilerOrder="7"/>
-				<edit type="number" vertTextAlign="center" horzTextAlign="center" left="333" top="$(altura)" width="33" height="25" field="outros$(num)" compilerOrder="8"/>
-				<edit type="number" vertTextAlign="center" horzTextAlign="center" left="367" top="$(altura)" width="33" height="25" field="penalidade$(num)" compilerOrder="9"/>
-				<edit type="number" vertTextAlign="center" horzTextAlign="center" left="400" top="$(altura)" width="33" height="25" field="raca$(num)" compilerOrder="10"/>
-				<edit type="number" vertTextAlign="center" horzTextAlign="center" left="433" top="$(altura)" width="33" height="25" field="itens$(num)" compilerOrder="11"/>
-				
-				<dataLink fields="{'atributo$(num)', 'graduacao$(num)', 'outros$(num)', 'penalidade$(num)', 'raca$(num)', 'itens$(num)'}">    
-					<event name="onChange">
-						sheet.total$(num) = (tonumber(sheet.atributo$(num)) or 0) + 
-										(tonumber(sheet.graduacao$(num)) or 0) + 
-										(tonumber(sheet.outros$(num)) or 0) + 
-										(tonumber(sheet.penalidade$(num)) or 0) + 
-										(tonumber(sheet.raca$(num)) or 0) + 
-										(tonumber(sheet.itens$(num)) or 0);
-						if sheet.total$(num) >= 0 then
-						   sheet.total$(num) = "+" .. sheet.total$(num);
-						end;
-					</event>
-				</dataLink>
-				
-				<dataLink fields="{'chave$(num)', 'for1', 'for3', 'for5', 'des1', 'des3', 'des5', 'des2', 'des4', 'des6', 'con1', 'con3', 'con5', 'int1', 'int3', 'int5', 'sab1', 'sab3', 'sab5', 'car1', 'car3', 'car5'}">    
-					<event name="onChange">
-						local mod = getAtributo(sheet.chave$(num));
-						sheet.atributo$(num) = mod;
-					</event>
-				</dataLink>
-			</template>
+	<scrollBox align="client">
+
+		<script> 
+		<![CDATA[
 			
-			<layout left="0" top="0" width="472" height="656">
-				<rectangle align="client" color="black"  compilerOrder="0"/>
-				<label text="NOME DA PERÍCIA" left="21" top="1" width="135" height="20" horzTextAlign="center"/>
-				<label text="CHAVE" left="158" top="1" width="45" height="20" horzTextAlign="center"/>
-				<label text="TOTAL" left="205" top="1" width="40" height="20" horzTextAlign="center"/>
-				<label text="ATR" left="268" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="GRAD" left="298" top="1" width="40" height="20" horzTextAlign="center"/>
-				<label text="OUT" left="334" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="PEN" left="367" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="RAÇA" left="400" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="EQP" left="433" top="1" width="33" height="20" horzTextAlign="center"/>
+			local path = ndb.load("pathskills.xml");
+			local dnd = ndb.load("dndskills.xml");
+
+			local function updateAtributes(num)
+				local atr = "" .. num;
+				local mod = 0;
 				
-				<Pericia num="1" altura="25" altura2="27" altura3="28"/>
-				<Pericia num="2" altura="50" altura2="52" altura3="53"/>
-				<Pericia num="3" altura="75" altura2="77" altura3="78"/>
-				<Pericia num="4" altura="100" altura2="102" altura3="103"/>
-				<Pericia num="5" altura="125" altura2="127" altura3="128"/>
-				<Pericia num="6" altura="150" altura2="152" altura3="153"/>
-				<Pericia num="7" altura="175" altura2="177" altura3="178"/>
-				<Pericia num="8" altura="200" altura2="202" altura3="203"/>
-				<Pericia num="9" altura="225" altura2="227" altura3="228"/>
-				<Pericia num="10" altura="250" altura2="252" altura3="253"/>
-				<Pericia num="11" altura="275" altura2="277" altura3="278"/>
-				<Pericia num="12" altura="300" altura2="302" altura3="303"/>
-				<Pericia num="13" altura="325" altura2="327" altura3="328"/>
-				<Pericia num="14" altura="350" altura2="352" altura3="353"/>
-				<Pericia num="15" altura="375" altura2="377" altura3="378"/>
-				<Pericia num="16" altura="400" altura2="402" altura3="403"/>
-				<Pericia num="17" altura="425" altura2="427" altura3="428"/>
-				<Pericia num="18" altura="450" altura2="452" altura3="453"/>
-				<Pericia num="19" altura="475" altura2="477" altura3="478"/>
-				<Pericia num="20" altura="500" altura2="502" altura3="503"/>
-				<Pericia num="21" altura="525" altura2="527" altura3="528"/>
-				<Pericia num="22" altura="550" altura2="552" altura3="553"/>
-				<Pericia num="23" altura="575" altura2="577" altura3="578"/>
-				<Pericia num="24" altura="600" altura2="602" altura3="603"/>
-				<Pericia num="25" altura="625" altura2="627" altura3="628"/>
-			</layout>
-			<layout left="476" top="0" width="472" height="656">
-				<rectangle align="client" color="black"  compilerOrder="0"/>
-				<label text="NOME DA PERÍCIA" left="21" top="1" width="135" height="20" horzTextAlign="center"/>
-				<label text="CHAVE" left="158" top="1" width="45" height="20" horzTextAlign="center"/>
-				<label text="TOTAL" left="205" top="1" width="40" height="20" horzTextAlign="center"/>
-				<label text="ATR" left="268" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="GRAD" left="298" top="1" width="40" height="20" horzTextAlign="center"/>
-				<label text="OUT" left="334" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="PEN" left="367" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="RAÇA" left="400" top="1" width="33" height="20" horzTextAlign="center"/>
-				<label text="EQP" left="433" top="1" width="33" height="20" horzTextAlign="center"/>
-				
-				<Pericia num="26" altura="25" altura2="27" altura3="28"/>
-				<Pericia num="27" altura="50" altura2="52" altura3="53"/>
-				<Pericia num="28" altura="75" altura2="77" altura3="78"/>
-				<Pericia num="29" altura="100" altura2="102" altura3="103"/>
-				<Pericia num="30" altura="125" altura2="127" altura3="128"/>
-				<Pericia num="31" altura="150" altura2="152" altura3="153"/>
-				<Pericia num="32" altura="175" altura2="177" altura3="178"/>
-				<Pericia num="33" altura="200" altura2="202" altura3="203"/>
-				<Pericia num="34" altura="225" altura2="227" altura3="228"/>
-				<Pericia num="35" altura="250" altura2="252" altura3="253"/>
-				<Pericia num="36" altura="275" altura2="277" altura3="278"/>
-				<Pericia num="37" altura="300" altura2="302" altura3="303"/>
-				<Pericia num="38" altura="325" altura2="327" altura3="328"/>
-				<Pericia num="39" altura="350" altura2="352" altura3="353"/>
-				<Pericia num="40" altura="375" altura2="377" altura3="378"/>
-				<Pericia num="41" altura="400" altura2="402" altura3="403"/>
-				<Pericia num="42" altura="425" altura2="427" altura3="428"/>
-				<Pericia num="43" altura="450" altura2="452" altura3="453"/>
-				<Pericia num="44" altura="475" altura2="477" altura3="478"/>
-				<Pericia num="45" altura="500" altura2="502" altura3="503"/>
-				<Pericia num="46" altura="525" altura2="527" altura3="528"/>
-				<Pericia num="47" altura="550" altura2="552" altura3="553"/>
-				<Pericia num="48" altura="575" altura2="577" altura3="578"/>
-				<Pericia num="49" altura="600" altura2="602" altura3="603"/>
-				<Pericia num="50" altura="625" altura2="627" altura3="628"/>
-			</layout>
-			
-			<script>
-                local function getAtributo(chave)
-					if chave~=nil then
-						chave = chave:upper();
+				if num == 1 then
+					mod = getFOR();
+				elseif num == 2 then
+					mod = getDES();
+				elseif num == 3 then
+					mod = getCON();
+				elseif num == 4 then
+					mod = getINT();
+				elseif num == 5 then
+					mod = getSAB();
+				elseif num == 6 then
+					mod = getCAR();
+				end;
+
+				local nodes = ndb.getChildNodes(sheet.campoDasPericias); 
+				for i=1, #nodes, 1 do
+					if nodes[i].chavePericia == atr then
+						nodes[i].atributoPericia = mod;
 					end;
-                    local mod = 0;
-                    if (chave == "FOR") then
-                        mod = getFOR();
-                    end;
-                    if (chave == "DES") then
-                        mod = getDES();  
-                    end;
-                    if (chave == "CON") then
-                        mod = getCON();
-                    end;
-                    if (chave == "INT") then
-                        mod = getINT();  
-                    end;
-                    if (chave == "SAB") then
-                        mod = getSAB(); 
-                    end;
-                    if (chave == "CAR") then
-                        mod = getCAR();
-                    end;
-					return mod;
-                end;
-            </script>
-			
-            <button left="2" top="2" width="20" height="20" text="P" onClick="reset();"/>
-			<button left="477" top="5" width="20" height="20" text="O" onClick="organize();"/>
-			
-			<script>
-                local function reset()
-                    sheet.chave1="DES";
-                    sheet.chave2="DES";
-                    sheet.chave3="CAR";
-                    sheet.chave4="DES";
-                    sheet.chave5="CAR";
-                    sheet.chave6="CAR";
-                    sheet.chave7="INT";
-                    sheet.chave8="CAR";
-                    sheet.chave9="DES";
-                    sheet.chave10="CON";
-                    sheet.chave11="INT";
-                    sheet.chave12="INT";
-                    sheet.chave13="INT";
-                    sheet.chave14="INT";
-                    sheet.chave15="INT";
-                    sheet.chave16="INT";
-                    sheet.chave17="INT";
-                    sheet.chave18="INT";
-                    sheet.chave19="INT";
-                    sheet.chave20="INT";
-                    sheet.chave21="SAB";
-                    sheet.chave22="INT";
-                    sheet.chave23="CAR";
-                    sheet.chave24="CAR";
-                    sheet.chave25="DES";
-                    sheet.chave26="FOR";
-                    sheet.chave27="DES";
-                    sheet.chave28="INT";
-                    sheet.chave29="DES";
-                    sheet.chave30="INT";
-                    sheet.chave31="CAR";
-                    sheet.chave32="FOR";
-                    sheet.chave33="SAB";
-                    sheet.chave34="CAR";
-                    sheet.chave35="INT";
-                    sheet.chave36="INT";
-                    sheet.chave37="SAB";
-                    sheet.chave38="DES";
-                    sheet.chave39="INT";
-                    sheet.chave40="SAB";
-                    sheet.chave41="FOR";
-                    sheet.chave42="SAB";
-                    sheet.chave43="SAB";
-                    sheet.chave44="DES";
-                    sheet.chave45="CAR";
-                    sheet.chave46="";
-					sheet.chave47="";
-					sheet.chave48="";
-					sheet.chave49="";
-                    sheet.chave50="";
-					
-					sheet.pericia1="Abrir Fechaduras";
-                    sheet.pericia2="Acrobacia";
-                    sheet.pericia3="Adestrar Animais";
-                    sheet.pericia4="Arte da Fuga";
-                    sheet.pericia5="Atuação";
-                    sheet.pericia6="Atuação";
-                    sheet.pericia7="Avaliação";
-                    sheet.pericia8="Blefar";
-                    sheet.pericia9="Cavalgar";
-                    sheet.pericia10="Concentração";
-                    sheet.pericia11="Conhecimento Arcano";
-                    sheet.pericia12="Conhecimento Engenharia e Arquitetura";
-                    sheet.pericia13="Conhecimento Geografia";
-                    sheet.pericia14="Conhecimento Historia";
-                    sheet.pericia15="Conhecimento Local";
-                    sheet.pericia16="Conhecimento Masmorras";
-                    sheet.pericia17="Conhecimento Natureza";
-                    sheet.pericia18="Conhecimento Nobreza e Realeza";
-                    sheet.pericia19="Conhecimento Planos";
-                    sheet.pericia20="Conhecimento Religião";
-                    sheet.pericia21="Cura";
-                    sheet.pericia22="Decifrar Escrita";
-                    sheet.pericia23="Diplomacia";
-                    sheet.pericia24="Disfarces";
-                    sheet.pericia25="Equilibrio";
-                    sheet.pericia26="Escalar";
-                    sheet.pericia27="Esconder-se";
-                    sheet.pericia28="Falsificação";
-                    sheet.pericia29="Furtividade";
-                    sheet.pericia30="Identificar Magia";
-                    sheet.pericia31="Intimidação";
-                    sheet.pericia32="Natação";
-                    sheet.pericia33="Observar";
-                    sheet.pericia34="Obter Informação";
-                    sheet.pericia35="Oficios";
-                    sheet.pericia36="Operar Mecanismo";
-                    sheet.pericia37="Ouvir";
-                    sheet.pericia38="Prestidigitação";
-                    sheet.pericia39="Procurar";
-                    sheet.pericia40="Profissão";
-                    sheet.pericia41="Saltar";
-                    sheet.pericia42="Sentir Motivação";
-                    sheet.pericia43="Sobrevivência";
-                    sheet.pericia44="Usar Cordar";
-                    sheet.pericia45="Usar Instrumento Mágico";
-					sheet.pericia46="";
-					sheet.pericia47="";
-                    sheet.pericia48="";
-					sheet.pericia49="";
-                    sheet.pericia50="";
-                end;
-            </script>
-			
-			<script>
-				function organize()
-					for i=1,50,1 do
-						for j=i+1,50,1 do
-							local mod1 = sheet["pericia" .. i];
-							local mod2 = sheet["pericia" .. j];
-							if mod1==nil then
-								mod1="zzzzzzzzzz";
+				end
+			end;
+
+			local function updatePenalty()
+				if sheet~=nil then
+					local nodes = ndb.getChildNodes(sheet.campoDasPericias); 
+					for i=1, #nodes, 1 do
+						if nodes[i].penalidadeArmadura or nodes[i].penalidadeArmadura2 then
+							local pen = (tonumber(sheet.penalidade) or 0)
+
+							local mod = 0;
+							mod =   (tonumber(nodes[i].atributoPericia) or 0) +
+									(tonumber(nodes[i].graduacaoPericia) or 0) +
+									(tonumber(nodes[i].penalidesPericia) or 0) +
+									(tonumber(nodes[i].racialPericia) or 0) +
+									(tonumber(nodes[i].sinergiaPericia) or 0) +
+									(tonumber(nodes[i].equipamentosPericia) or 0) +
+									(tonumber(nodes[i].magicoPericia) or 0) +
+									(tonumber(nodes[i].outrosPericia) or 0) + 
+									(tonumber(nodes[i].talentosPericia) or 0) +
+									(tonumber(nodes[i].classePericia) or 0);
+
+							if nodes[i].penalidadeArmadura then
+								mod = mod + pen;
 							end;
-							if mod2==nil then
-								mod2="zzzzzzzzzz";
+							if nodes[i].penalidadeArmadura2 then
+								mod = mod + pen;
 							end;
-							
-							mod1 = mod1:lower();
-							mod2 = mod2:lower();
-							
-							if mod1>mod2 then
-								local aux = sheet["per" .. i]
-								sheet["per" .. i] = sheet["per" .. j];
-								sheet["per" .. j] = aux;
-								
-								aux = sheet["pericia" .. i]
-								sheet["pericia" .. i] = sheet["pericia" .. j];
-								sheet["pericia" .. j] = aux;
-								
-								aux = sheet["chave" .. i]
-								sheet["chave" .. i] = sheet["chave" .. j];
-								sheet["chave" .. j] = aux;
-								
-								aux = sheet["graduacao" .. i]
-								sheet["graduacao" .. i] = sheet["graduacao" .. j];
-								sheet["graduacao" .. j] = aux;
-								
-								aux = sheet["outros" .. i]
-								sheet["outros" .. i] = sheet["outros" .. j];
-								sheet["outros" .. j] = aux;
-								
-								aux = sheet["penalidade" .. i]
-								sheet["penalidade" .. i] = sheet["penalidade" .. j];
-								sheet["penalidade" .. j] = aux;
-								
-								aux = sheet["raca" .. i]
-								sheet["raca" .. i] = sheet["raca" .. j];
-								sheet["raca" .. j] = aux;
-								
-								aux = sheet["itens" .. i]
-								sheet["itens" .. i] = sheet["itens" .. j];
-								sheet["itens" .. j] = aux;
-							end;
+
+							nodes[i].totalPericia = mod;
 						end;
 					end;
 				end;
-			</script>
-			
-            <layout left="951" top="0" width="250" height="335">
-				<rectangle align="client" color="black"/>
-				<label left="5" top="1" width="200" height="20" text="IDIOMAS"/>
-                <textEditor left="5" top="23" width="240" height="305" field="idiomas"/>
-            </layout>
-			
-            <layout left="951" top="338" width="250" height="290">
-				<rectangle align="client" color="black"/>
-				<label left="5" top="1" width="200" height="20" text="OUTROS"/>
-                <textEditor left="5" top="23" width="240" height="260" field="periciasOutros"/>
-            </layout>
-			
-			<layout left="951" top="630" width="100" height="26">
-				<rectangle align="client" color="black"/>
-				<label left="10" top="2" width="50" height="20" text="TOTAL"/>
-				<rectangle left="60" top="3" width="37" height="20" color="black" strokeColor="white" strokeSize="1"/>
-                <label field="somaGraduacoes" left="60" top="2" width="37" height="20" horzTextAlign="center"/>
-            </layout>
-			
-			<dataLink fields="{'graduacao1', 'graduacao2', 'graduacao3', 'graduacao4', 'graduacao5', 'graduacao6', 'graduacao7', 'graduacao8', 'graduacao9', 'graduacao10', 'graduacao11', 'graduacao12', 'graduacao13', 'graduacao14', 'graduacao15', 'graduacao16', 'graduacao17', 'graduacao18', 'graduacao19', 'graduacao20', 'graduacao21', 'graduacao22', 'graduacao23', 'graduacao24', 'graduacao25', 'graduacao26', 'graduacao27', 'graduacao28', 'graduacao29', 'graduacao30', 'graduacao31', 'graduacao32', 'graduacao33', 'graduacao34', 'graduacao35', 'graduacao36', 'graduacao37', 'graduacao38', 'graduacao39', 'graduacao40', 'graduacao41', 'graduacao42', 'graduacao43', 'graduacao44', 'graduacao45', 'graduacao46', 'graduacao47', 'graduacao48', 'graduacao49', 'graduacao50'}">
-				<event name="onChange">
-					local mod = 0;
-					if sheet.per1 then
-						mod = mod + (tonumber(sheet.graduacao1) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao1) or 0) * 2);
+			end;
+
+			local function dndSkills()
+				local nodes = ndb.getChildNodes(sheet.campoDasPericias); 
+				for i=1, #nodes, 1 do
+					ndb.deleteNode(nodes[i]);
+				end
+
+				for i=1, 44, 1 do
+					local pericia = self.rclListaDasPericias:append();
+					pericia.nomePericia = dnd[i].nome;
+					pericia.chavePericia = dnd[i].chave;
+					pericia.exigeTreino = dnd[i].treino;
+					if dnd[i].armadura > 0 then
+						pericia.penalidadeArmadura2 = true;
 					end;
-					if sheet.per2 then
-						mod = mod + (tonumber(sheet.graduacao2) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao2) or 0) * 2);
+					if dnd[i].armadura > 1 then
+						pericia.penalidadeArmadura = true;
 					end;
-					if sheet.per3 then
-						mod = mod + (tonumber(sheet.graduacao3) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao3) or 0) * 2);
+				end;
+
+				self.rclListaDasPericias:sort();
+			end;
+
+			local function pathSkills()
+				local nodes = ndb.getChildNodes(sheet.campoDasPericias); 
+				for i=1, #nodes, 1 do
+					ndb.deleteNode(nodes[i]);
+				end
+
+				for i=1, 34, 1 do
+					local pericia = self.rclListaDasPericias:append();
+					pericia.nomePericia = path[i].nome;
+					pericia.chavePericia = path[i].chave;
+					pericia.exigeTreino = path[i].treino;
+					if path[i].armadura > 0 then
+						pericia.penalidadeArmadura2 = true;
 					end;
-					if sheet.per4 then
-						mod = mod + (tonumber(sheet.graduacao4) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao4) or 0) * 2);
-					end;
-					if sheet.per5 then
-						mod = mod + (tonumber(sheet.graduacao5) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao5) or 0) * 2);
-					end;
-					if sheet.per6 then
-						mod = mod + (tonumber(sheet.graduacao6) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao6) or 0) * 2);
-					end;
-					if sheet.per7 then
-						mod = mod + (tonumber(sheet.graduacao7) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao7) or 0) * 2);
-					end;
-					if sheet.per8 then
-						mod = mod + (tonumber(sheet.graduacao8) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao8) or 0) * 2);
-					end;
-					if sheet.per9 then
-						mod = mod + (tonumber(sheet.graduacao9) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao9) or 0) * 2);
-					end;
-					if sheet.per10 then
-						mod = mod + (tonumber(sheet.graduacao10) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao10) or 0) * 2);
-					end;
-					if sheet.per11 then
-						mod = mod + (tonumber(sheet.graduacao11) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao11) or 0) * 2);
-					end;
-					if sheet.per12 then
-						mod = mod + (tonumber(sheet.graduacao12) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao12) or 0) * 2);
-					end;
-					if sheet.per13 then
-						mod = mod + (tonumber(sheet.graduacao13) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao13) or 0) * 2);
-					end;
-					if sheet.per14 then
-						mod = mod + (tonumber(sheet.graduacao14) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao14) or 0) * 2);
-					end;
-					if sheet.per15 then
-						mod = mod + (tonumber(sheet.graduacao15) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao15) or 0) * 2);
-					end;
-					if sheet.per16 then
-						mod = mod + (tonumber(sheet.graduacao16) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao16) or 0) * 2);
-					end;
-					if sheet.per17 then
-						mod = mod + (tonumber(sheet.graduacao17) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao17) or 0) * 2);
-					end;
-					if sheet.per18 then
-						mod = mod + (tonumber(sheet.graduacao18) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao18) or 0) * 2);
-					end;
-					if sheet.per19 then
-						mod = mod + (tonumber(sheet.graduacao19) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao19) or 0) * 2);
-					end;
-					if sheet.per20 then
-						mod = mod + (tonumber(sheet.graduacao20) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao20) or 0) * 2);
-					end;
-					if sheet.per21 then
-						mod = mod + (tonumber(sheet.graduacao21) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao21) or 0) * 2);
-					end;
-					if sheet.per22 then
-						mod = mod + (tonumber(sheet.graduacao22) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao22) or 0) * 2);
-					end;
-					if sheet.per23 then
-						mod = mod + (tonumber(sheet.graduacao23) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao23) or 0) * 2);
-					end;
-					if sheet.per24 then
-						mod = mod + (tonumber(sheet.graduacao24) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao24) or 0) * 2);
-					end;
-					if sheet.per25 then
-						mod = mod + (tonumber(sheet.graduacao25) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao25) or 0) * 2);
-					end;
-					if sheet.per26 then
-						mod = mod + (tonumber(sheet.graduacao26) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao26) or 0) * 2);
-					end;
-					if sheet.per27 then
-						mod = mod + (tonumber(sheet.graduacao27) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao27) or 0) * 2);
-					end;
-					if sheet.per28 then
-						mod = mod + (tonumber(sheet.graduacao28) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao28) or 0) * 2);
-					end;
-					if sheet.per29 then
-						mod = mod + (tonumber(sheet.graduacao29) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao29) or 0) * 2);
-					end;
-					if sheet.per30 then
-						mod = mod + (tonumber(sheet.graduacao30) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao30) or 0) * 2);
-					end;
-					if sheet.per31 then
-						mod = mod + (tonumber(sheet.graduacao31) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao31) or 0) * 2);
-					end;
-					if sheet.per32 then
-						mod = mod + (tonumber(sheet.graduacao32) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao32) or 0) * 2);
-					end;
-					if sheet.per33 then
-						mod = mod + (tonumber(sheet.graduacao33) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao33) or 0) * 2);
-					end;
-					if sheet.per34 then
-						mod = mod + (tonumber(sheet.graduacao34) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao34) or 0) * 2);
-					end;
-					if sheet.per35 then
-						mod = mod + (tonumber(sheet.graduacao35) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao35) or 0) * 2);
-					end;
-					if sheet.per36 then
-						mod = mod + (tonumber(sheet.graduacao36) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao36) or 0) * 2);
-					end;
-					if sheet.per37 then
-						mod = mod + (tonumber(sheet.graduacao37) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao37) or 0) * 2);
-					end;
-					if sheet.per38 then
-						mod = mod + (tonumber(sheet.graduacao38) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao38) or 0) * 2);
-					end;
-					if sheet.per39 then
-						mod = mod + (tonumber(sheet.graduacao39) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao39) or 0) * 2);
-					end;
-					if sheet.per40 then
-						mod = mod + (tonumber(sheet.graduacao40) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao40) or 0) * 2);
-					end;
-					if sheet.per41 then
-						mod = mod + (tonumber(sheet.graduacao41) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao41) or 0) * 2);
-					end;
-					if sheet.per42 then
-						mod = mod + (tonumber(sheet.graduacao42) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao42) or 0) * 2);
-					end;
-					if sheet.per43 then
-						mod = mod + (tonumber(sheet.graduacao43) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao43) or 0) * 2);
-					end;
-					if sheet.per44 then
-						mod = mod + (tonumber(sheet.graduacao44) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao44) or 0) * 2);
-					end;
-					if sheet.per45 then
-						mod = mod + (tonumber(sheet.graduacao45) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao45) or 0) * 2);
-					end;
-					if sheet.per46 then
-						mod = mod + (tonumber(sheet.graduacao46) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao46) or 0) * 2);
-					end;
-					if sheet.per47 then
-						mod = mod + (tonumber(sheet.graduacao47) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao47) or 0) * 2);
-					end;
-					if sheet.per48 then
-						mod = mod + (tonumber(sheet.graduacao48) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao48) or 0) * 2);
-					end;
-					if sheet.per49 then
-						mod = mod + (tonumber(sheet.graduacao49) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao49) or 0) * 2);
-					end;
-					if sheet.per50 then
-						mod = mod + (tonumber(sheet.graduacao50) or 0);
-					else
-						mod = mod + ((tonumber(sheet.graduacao50) or 0) * 2);
-					end;
-					if sheet.somaGraduacoes~=mod then
-						sheet.somaGraduacoes = mod;
-					end;
+				end;
+
+				self.rclListaDasPericias:sort();
+			end;
+		]]>	
+		</script>
+
+		<template name="periciaSmallCenter">
+			<flowPart minWidth="90" maxWidth="100" height="35">
+				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
+				<edit align="client" class="" field="$(field)" horzTextAlign="center" fontSize="12" type="number"/>
+			</flowPart>
+		</template>
+
+		<popup name="popPericia" width="300" height="185" backOpacity="0.4">
+			<flowLayout align="top" autoHeight="true" maxControlsPerLine="3" margins="{bottom=4}" horzAlign="center">
+				<periciaSmallCenter text="Penalidades" field="penalidesPericia"/>
+				<periciaSmallCenter text="Racial" field="racialPericia"/>
+				<periciaSmallCenter text="Sinergia" field="sinergiaPericia"/>
+				<periciaSmallCenter text="Equipamentos" field="equipamentosPericia"/>
+				<periciaSmallCenter text="Magico" field="magicoPericia"/>
+				<periciaSmallCenter text="Outros" field="outrosPericia"/>
+				<periciaSmallCenter text="Talentos" field="talentosPericia"/>
+				<periciaSmallCenter text="Classe" field="classePericia"/>
+				<periciaSmallCenter text="Condicional" field="condicionalPericia"/>
+			</flowLayout>
+			<textEditor align="bottom" field="descricao"/>
+			<checkBox align="left" text="Exige Treino" field="exigeTreino"/>
+			<checkBox align="right" text="Penalidade Armadura" field="penalidadeArmadura"/>
+			<checkBox align="right" width="20" text="" field="penalidadeArmadura2"/>
+		</popup>
+		<popup name="popIdioma" width="200" height="100" backOpacity="0.4">
+			<checkBox align="top" text="Falar/Entender" field="conversarIdioma"/>
+			<checkBox align="top" text="Escrever/Ler" field="escritaIdioma"/>
+			<textEditor align="client" field="descricao"/>
+		</popup>
+
+		<layout left="0" top="0" width="930" height="685">
+			<rectangle align="client" color="black"/>
+			<label text="NOME DA PERÍCIA" left="20" top="1" width="135" height="20" horzTextAlign="center"/>
+			<label text="CHAVE" left="165" top="1" width="60" height="20" horzTextAlign="center"/>
+			<label text="TOTAL" left="245" top="1" width="40" height="20" horzTextAlign="center"/>
+			<label text="ATR" left="285" top="1" width="33" height="20" horzTextAlign="center"/>
+			<label text="GRAD" left="320" top="1" width="40" height="20" horzTextAlign="center"/>
+
+			<label text="NOME DA PERÍCIA" left="465" top="1" width="135" height="20" horzTextAlign="center"/>
+			<label text="CHAVE" left="610" top="1" width="60" height="20" horzTextAlign="center"/>
+			<label text="TOTAL" left="690" top="1" width="40" height="20" horzTextAlign="center"/>
+			<label text="ATR" left="730" top="1" width="33" height="20" horzTextAlign="center"/>
+			<label text="GRAD" left="765" top="1" width="40" height="20" horzTextAlign="center"/>
+
+			<recordList name="rclListaDasPericias" field="campoDasPericias" templateForm="frmFichaRPGmeister3p_svg" left="5" top="25" width="920" height="650" layout="verticalTiles">
+				<event name="onCompare">
+		            return utils.compareStringPtBr(nodeA.nomePericia, nodeB.nomePericia);
+		        </event>
+			</recordList>
+		</layout>
+
+		<layout left="940" top="0" width="300" height="400">
+			<rectangle align="client" color="black"/>
+			<checkBox left="60" top="5" width="19" height="15" field="idiomasIsClass"/>
+			<label text="FALAR IDIOMAS" left="80" top="1" width="135" height="20"/>
+			<edit vertTextAlign="center" horzTextAlign="center" left="50" top="25" width="30" height="20" field="idiomasGrad" type="float"/>
+			<label text="Graduações" left="90" top="25" width="135" height="20"/>
+
+			<label text="Idioma" left="0" top="55" width="110" height="20" horzTextAlign="center"/>
+			<label text="Alfabeto" left="110" top="55" width="110" height="20" horzTextAlign="center"/>
+
+			<recordList name="rclListaDosIdiomas" field="campoDosIdiomas" templateForm="frmFichaRPGmeister3i_svg" left="5" top="75" width="290" height="320" layout="vertical" minQt="1">
+				<event name="onCompare">
+		            return utils.compareStringPtBr(nodeA.nomeIdioma, nodeB.nomeIdioma);
+		        </event>
+			</recordList>
+		</layout>
+
+		<layout left="940" top="410" width="135" height="100">
+			<rectangle align="client" color="black"/>
+				<label text="PONTOS GASTOS" left="0" top="0" width="135" height="20" horzTextAlign="center"/>
+
+				<label left="10" top="30" width="70" height="20" text="DnD3.5"/>
+				<rectangle left="80" top="30" width="37" height="20" color="black" strokeColor="white" strokeSize="1"/>
+                <label field="pontosPericia" left="80" top="30" width="37" height="20" horzTextAlign="center"/>
+
+                <label left="10" top="55" width="70" height="20" text="Pathfinder"/>
+				<rectangle left="80" top="55" width="37" height="20" color="black" strokeColor="white" strokeSize="1"/>
+                <label field="pontosPericiaPath" left="80" top="55" width="37" height="20" horzTextAlign="center"/>
+		</layout>
+
+		<layout left="940" top="520" width="135" height="200">
+			<button text="Nova Perícia" left="0" top="0" width="125" height="25" onClick="self.rclListaDasPericias:append();"/>
+			<button text="Novo Idioma" left="0" top="25" width="125" height="25">
+				<event name="onClick">
+					local idioma = self.rclListaDosIdiomas:append();
+					idioma.conversarIdioma = true;
+					idioma.escritaIdioma = true;
 				</event>
-			</dataLink>
-    </scrollBox>
+			</button>
+			<button text="Organizar" left="0" top="50" width="125" height="25">
+				<event name="onClick">
+					self.rclListaDasPericias:sort();
+					self.rclListaDosIdiomas:sort();
+				</event>
+			</button>
+			<button text="Padrão DnD3.5" left="0" top="75" width="125" height="25" onClick="dndSkills();" hint="Vai apagar todas perícias atuais. "/>
+			<button text="Padrão Pathfinder" left="0" top="100" width="125" height="25" onClick="pathSkills();" hint="Vai apagar todas perícias atuais. "/>
+		</layout>
+	</scrollBox>
 </form>

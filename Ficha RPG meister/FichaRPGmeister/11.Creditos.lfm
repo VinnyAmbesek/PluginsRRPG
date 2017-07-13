@@ -14,31 +14,12 @@
 		<layout left="830" top="0" width="400" height="350">
 			<rectangle align="client" color="black"/>
 			<label left="0" top="0" width="400" height="20" text="ANOTAÇÕES DO MESTRE" horzTextAlign="center"/>
-			<textEditor left="10" top="25" width="380" height="320" field="anotacoes_do_mestre">
-				<event name="onChange">
-					if sheet~=nil and sheet.anotacoes_do_mestre~=nil then
-						local jogadores = rrpg.getMesaDe(sheet).jogadores;
-						local current = nil;
-						
-						for i = 1, #jogadores, 1 do
-							if jogadores[i].login==rrpg.getCurrentUser().login then
-								current = jogadores[i];
-							end;
-						end; 
-					
-						if current~=nil and current.isMestre then
-							sheet.anotacoes_do_mestre_backup = sheet.anotacoes_do_mestre;
-						else
-							sheet.anotacoes_do_mestre = sheet.anotacoes_do_mestre_backup;
-						end;
-					end;
-				</event>
-			</textEditor>
+			<textEditor left="10" top="25" width="380" height="320" field="anotacoes_do_mestre"/>
 		</layout>
 		
 		<label left="630" top="400" width="90" height="20" text="SUA VERSÃO:"/>
 		<rectangle left="724" top="399" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
-		<image left="725" top="400" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao21.png"/>
+		<image left="725" top="400" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao23.png"/>
 		
 		<label left="620" top="430" width="100" height="20" text="VERSÃO ATUAL:"/>
 		<rectangle left="724" top="429" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
