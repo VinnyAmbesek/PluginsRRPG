@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module sdkVersion="3.3" originalPluginFileName="nicksaver.rpk">
+<module sdkVersion="3.4_beta_1" originalPluginFileName="nicksaver.rpk">
 	<id>NickSaver</id>
-	<version>0.1</version>
+	<version>0.4</version>
 	<name>NickSaver</name>
 	<description>Salva o nick do usuario por mesa.</description>
 	<author>Vinny Ambesek</author>
