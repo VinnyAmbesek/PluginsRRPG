@@ -170,7 +170,7 @@ function newfrmVDA20_7()
     obj.image3:setWidth(100);
     obj.image3:setHeight(20);
     obj.image3:setStyle("autoFit");
-    obj.image3:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/WoD20th/release.png");
+    obj.image3:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao02.png");
     obj.image3:setName("image3");
 
     obj.label10 = gui.fromHandle(_obj_newObject("label"));
@@ -190,7 +190,7 @@ function newfrmVDA20_7()
     obj.image4:setWidth(100);
     obj.image4:setHeight(20);
     obj.image4:setStyle("autoFit");
-    obj.image4:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao02.png");
+    obj.image4:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/WoD20th/release.png");
     obj.image4:setName("image4");
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));

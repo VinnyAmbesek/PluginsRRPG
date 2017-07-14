@@ -9640,7 +9640,7 @@ function newfrmWerewolf20th()
     obj.image13:setWidth(100);
     obj.image13:setHeight(20);
     obj.image13:setStyle("autoFit");
-    obj.image13:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/WoD20th/release.png");
+    obj.image13:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao02.png");
     obj.image13:setName("image13");
 
     obj.label137 = gui.fromHandle(_obj_newObject("label"));
@@ -9660,7 +9660,7 @@ function newfrmWerewolf20th()
     obj.image14:setWidth(100);
     obj.image14:setHeight(20);
     obj.image14:setStyle("autoFit");
-    obj.image14:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao02.png");
+    obj.image14:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/WoD20th/release.png");
     obj.image14:setName("image14");
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
