@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmFM" formType="sheetTemplate" dataType="Ambesek.Nefertyne.FichaMultiaba" title="Ficha Multiaba" align="client" theme="dark">
+    <scrollBox align="client">
+        <popup name="popCredit" width="415" height="250" backOpacity="0.4">
+            <image left="5" top="5" width="200" height="200" src="images/RPGmeister.jpg" style="stretch" optimize="true" compilerOrder="0"/>
+
+            <layout left="210" top="5" width="200" height="150">
+                <rectangle left="0" top="0" width="200" height="150" color="black" xradius="15" yradius="15" cornerType="round"/>
+                <label left="0" top="10" width="200" height="20" text="Programador: Vinny (Ambesek)" horzTextAlign="center"/>
+                <label left="0" top="35" width="200" height="20" text="Arte: Nefer (Nefertyne)" horzTextAlign="center"/>
+                <label left="0" top="95" width="200" height="20" text="Ficha feita para a mesa: " horzTextAlign="center"/>
+                <label left="0" top="120" width="200" height="20" text="RPGmeister" horzTextAlign="center"/>
+            </layout>
+
+            <label left="210" top="160" width="90" height="20" text="SUA VERSÃO:"/>
+            <rectangle left="304" top="159" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
+            <image left="305" top="160" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao01.png"/>
+            
+            <label left="210" top="190" width="100" height="20" text="VERSÃO ATUAL:"/>
+            <rectangle left="304" top="189" width="102" height="22" color="white" strokeColor="black" strokeSize="1"/>
+            <image left="305" top="190" width="100" height="20" style="autoFit" src="http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20Multiaba/release.png"/>
+
+            <label left="5" top="210" width="120" height="20" text="CONHEÇA A MESA:"/>
+            <button left="125" top="210" width="100" text="RPGmeister" onClick="gui.openInBrowser('http://firecast.rrpg.com.br:90/a?a=pagRWEMesaInfo.actInfoMesa&amp;mesaid=64070');" />
+
+            <button left="305" top="215" width="100" text="Atualizar" onClick="gui.openInBrowser('http://http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20Multiaba/Ficha%20Multiaba.rpk')" />
+        </popup>
+        <layout align="top">
+            <layout width="150" height="50">
+                <button left="0" top="0" width="45" height="45" text="+" onClick="self.rclAbas:append();"/>
+                <colorComboBox left="50" top="0" width="45" height="45" field="backgroundColor" color="black" useAlpha="false">
+                    <event name="onChange">
+                        if sheet~=nil then
+                            self.txt.backgroundColor = sheet.backgroundColor;
+                        end;
+                    </event>
+                </colorComboBox>
+                <button left="100" top="0" width="45" height="45" text="?" name="creditBt">
+                    <event name="onClick">
+                        local pop = self:findControlByName("popCredit");
+                    
+                        if pop ~= nil then
+                            pop:setNodeObject(self.sheet);
+                            pop:showPopupEx("bottom", self.creditBt);
+                        else
+                            showMessage("Ops, bug.. nao encontrei o popup de creditos para exibir");
+                        end;
+                    </event>
+                </button>
+            </layout>
+            <layout left="150" width="1270" height="50">
+                <recordList name="rclAbas" field="abas" templateForm="frmFM_Aba" left="0" top="0" width="1270" height="46" selectable="true" layout="horizontal">
+                    <event name="onSelect">
+                        local node = self.rclAbas.selectedNode;
+                        self.boxTexto.node = node;
+                        self.boxTexto.visible = (node ~= nil);
+                    </event>
+                </recordList>
+            </layout>
+        </layout>
+        <layout align="client">
+            <dataScopeBox name="boxTexto" align="client" visible="false">
+                <richEdit name="txt" align="client" backgroundColor="black" defaultFontColor="white" field="txt" hideSelection="false"/>
+            </dataScopeBox>
+        </layout>
+    </scrollBox>
+</form>
