@@ -23,7 +23,7 @@
             <label left="5" top="210" width="120" height="20" text="CONHEÇA A MESA:"/>
             <button left="125" top="210" width="100" text="RPGmeister" onClick="gui.openInBrowser('http://firecast.rrpg.com.br:90/a?a=pagRWEMesaInfo.actInfoMesa&amp;mesaid=64070');" />
 
-            <button left="305" top="215" width="100" text="Atualizar" onClick="gui.openInBrowser('http://http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20Multiaba/Ficha%20Multiaba.rpk')" />
+            <button left="305" top="215" width="100" text="Atualizar" onClick="gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20Multiaba/Ficha%20Multiaba.rpk')" />
         </popup>
         <layout align="top">
             <layout width="150" height="50">

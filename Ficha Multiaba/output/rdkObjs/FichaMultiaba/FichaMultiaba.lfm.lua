@@ -287,7 +287,7 @@ function newfrmFM()
 
     obj._e_event1 = obj.button2:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('http://http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20Multiaba/Ficha%20Multiaba.rpk')
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20Multiaba/Ficha%20Multiaba.rpk')
         end, obj);
 
     obj._e_event2 = obj.button3:addEventListener("onClick",
