@@ -115,6 +115,10 @@ function localNDB.nodeFromHandle(nodeHandle)
 		return _ndb_getNodeName(self.handle);
 	end;
 	
+	function ctrl:getLocalID()
+		return _obj_getProp(self.handle, "LocalID");
+	end;	
+	
 	function ctrl:beginUpdate()
 		_obj_invoke(self.handle, "BeginUpdate");
 	end;	
@@ -636,6 +640,24 @@ function ndb.getServerUTCTime(nodeObj)
 			return _obj_getProp(node.handle, "ServerUTCTime");			
 		end;	
 	end;
+end;
+
+function ndb.editPermissions(nodeObj)
+	if nodeObj == nil then
+		return;
+	end;
+	
+	local node = localNDB.getNodeObjectFromFacade(nodeObj);
+	
+	if node ~= nil then		
+		local plugins = require("plugins.lua");
+		local ndbmodule = "RRPG.FIRECAST.FMXModule";	
+		plugins.sendPM(ndbmodule, "ndbHost:editPermissions", {localNodeID=node:getLocalID()}, nil, nil);		
+	end;		
+end;
+
+function ndb.loadNodeFromLocalID(localNodeID)
+	return _ndb_tryLoadNodeFromLocalID(localNodeID);
 end;
 
 -- OVERRIDE de funções nativas para funcionar com o NDB

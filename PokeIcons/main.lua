@@ -6,60 +6,69 @@ afkStatus = {};
 afkMessage = {};
 afkBotClock = {};
 
+
+rrpg.listen('HandleChatTextInput',
+    function(message)
+    	if string.match(message.texto, ":") then
+    		local text = "";
+
+			local arg = {};
+			local index = 0;
+			for i in string.gmatch(message.texto, "%S+") do
+				index = index + 1;
+				arg[index] = i;
+			end;
+
+			for i=1, #arg, 1 do
+				local token = arg[i];
+
+				local dot1 = string.sub(token, 1, 1);
+				local dot2 = string.sub(token, token:len(), token:len());
+
+				local num;
+				local rest = "";
+
+				if dot1==":" and dot2==":" then
+					num = string.sub(token, 2, 4);
+					num = tonumber(num);
+					rest = string.sub(token, 5, token:len()-1);
+
+					if num ==nil then
+						num = string.sub(token, 2, 3);
+						num = tonumber(num);
+						rest = string.sub(token, 4, token:len()-1);
+					end;
+					if num ==nil then
+						num = string.sub(token, 2, 2);
+						num = tonumber(num);
+						rest = string.sub(token, 3, token:len()-1);
+					end;
+				end;
+
+				if num ~=nil then
+					if num>=1 and num <=802 then
+						if num<10 then
+							num = "00" .. num .. rest;
+						elseif num<100 then
+							num = "0" .. num .. rest;
+						else
+							num = "" .. num .. rest;
+						end;
+						arg[i] = "[§I http://www.serebii.net/pokedex-sm/icon/" .. num .. ".png]";
+					end;
+				end;
+				text = text .. " " .. arg[i];
+			end;
+
+			message.response = {newText = text};
+    	end;
+        
+    end);
+
 -- Implementação dos comandos
 rrpg.messaging.listen("HandleChatCommand", 
 	function (message)
-		if message.comando == "poke" then
-			if message.parametro ~= nil and message.parametro ~= "" then
-				local text = "";
-
-				local arg = {};
-				local index = 0;
-				for i in string.gmatch(message.parametro, "%S+") do
-					index = index + 1;
-					arg[index] = i;
-				end;
-
-				for i=1, #arg, 1 do
-					local token = arg[i];
-					local num = string.sub(token, 1, 3);
-					num = tonumber(num);
-					local rest = string.sub(token, 4);
-					if num ==nil then
-						num = string.sub(token, 1, 2);
-						num = tonumber(num);
-						rest = string.sub(token, 3);
-					end;
-					if num ==nil then
-						num = string.sub(token, 1, 1);
-						num = tonumber(num);
-						rest = string.sub(token, 2);
-					end;
-					if num ~=nil then
-						if num>=1 and num <=802 then
-							if num<10 then
-								num = "00" .. num .. rest;
-							elseif num<100 then
-								num = "0" .. num .. rest;
-							else
-								num = "" .. num .. rest;
-							end;
-							arg[i] = "[§I http://www.serebii.net/pokedex-sm/icon/" .. num .. ".png]";
-						end;
-					end;
-					text = text .. " " .. arg[i];
-				end;
-
-				message.chat:enviarMensagem(text);
-			else
-				message.chat:escrever("Use: /poke <frase>");
-				message.chat:escrever("Cada numero entre 1 e 802 no inicio de uma palavra vai ser substituido por um pokemon.");
-				message.chat:escrever("Seguir o numero com -m -mx ou -my permite exibir mega evoluções.");
-				message.chat:escrever("Seguir o numero com -a permite exibir Alolan Forms.");
-				message.chat:escrever("Use: /pokecode para mais codigos ");
-			end;
-			message.response = {handled = true};
-		elseif message.comando == "unown" then
+		if message.comando == "unown" then
 			if message.parametro ~= nil and message.parametro ~= "" then
 				local text = "";
 				local length = string.len(message.parametro);
@@ -88,7 +97,12 @@ rrpg.messaging.listen("HandleChatCommand",
 			end;
 			message.response = {handled = true};
 		elseif message.comando == "pokecode" then
+			message.chat:escrever("Cada numero entre 1 e 802 entre ':' vai ser substituido por um pokemon.");
+			message.chat:escrever("Seguir o numero com -m -mx ou -my permite exibir mega evoluções.");
+			message.chat:escrever("Seguir o numero com -a permite exibir Alolan Forms.");
 			message.chat:escrever("Alguns pokémons tem codigos adicionais que podem ser colocados após seus numeros para exibir suas formas alternativas.");
+			message.chat:escrever("Seguir o numero com -m -mx ou -my permite exibir mega evoluções.");
+			message.chat:escrever("Seguir o numero com -a permite exibir Alolan Forms.");
 			message.chat:escrever("Pikachu 25 -a -b -c -f -h -k -l -o -phd -ps -r -s -u");
 			message.chat:escrever("Unown 201 -[b:z] -qm -em");
 			message.chat:escrever("Castform 351 -s -r -i");
@@ -132,5 +146,5 @@ rrpg.messaging.listen("HandleChatCommand",
 rrpg.messaging.listen("ListChatCommands",
         function(message)
                 message.response = {{comando="/unown <Texto>", descricao="Troca o texto por unown para cada letra. "},
-                                    {comando="/poke <Texto>", descricao="Cada numero entre 1 e 802 no inicio de uma palavra vai ser substituido por um Pokémon."}};
+                                    {comando="/pokecode", descricao="Exibe codigos para usar memes de Pokémon. v0.3"}};
         end);
