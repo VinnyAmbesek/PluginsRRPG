@@ -69,6 +69,7 @@ rrpg.messaging.listen("HandleChatCommand",
 		elseif message.comando == "readlog" then
 			local logFile = "/" .. message.mesa.nome .. ".log";
 			
+			vhd.forceDirectory("/Logs/" .. logTable .. "/");
 			if vhd.fileExists(logFile) then
 				fileStream = vhd.openFile(logFile, "r");
 				local logText = fileStream:readBinary("ansi");
@@ -93,6 +94,7 @@ rrpg.messaging.listen("HandleChatCommand",
 		elseif message.comando == "clearlog" then
 			local logFile = "/" .. message.mesa.nome .. ".log";
 			
+			vhd.forceDirectory("/Logs/" .. logTable .. "/");
 			if vhd.fileExists(logFile) then
 				fileStream = vhd.openFile(logFile, "w+");				
 				fileStream:close();
@@ -127,6 +129,7 @@ rrpg.messaging.listen("ChatMessage",
 			logTable = logTable:gsub('[\\/:*?\"<>|]', '_');
 			logTable = string.gsub(logTable, "%.", "_");
 			
+
 			logFile = "/Logs/" .. logTable .. "/".. logFile .. ".log";
 			
 			local linha = os.date("[%H:%M] ");
@@ -154,6 +157,7 @@ rrpg.messaging.listen("ChatMessage",
 
 			linha = utils.removerFmtChat(linha);
 		
+			vhd.forceDirectory("/Logs/" .. logTable .. "/");
 			if vhd.fileExists(logFile) then
 				fileStream = vhd.openFile(logFile, "a");
 			else
@@ -188,7 +192,8 @@ function (message)
 		logFile = "/Logs/" .. logTable .. "/" .. logFile .. ".log";
 			
 		local fileStream;
-			
+
+		vhd.forceDirectory("/Logs/" .. logTable .. "/");	
 		if vhd.fileExists(logFile) then
 			fileStream = vhd.openFile(logFile, "a");
 		else
@@ -229,7 +234,8 @@ function (message)
 		logFile = "/Logs/" .. logTable .. "/" .. logFile .. ".log";
 			
 		local fileStream;
-			
+
+		vhd.forceDirectory("/Logs/" .. logTable .. "/");	
 		if vhd.fileExists(logFile) then
 			fileStream = vhd.openFile(logFile, "a");
 		else
@@ -249,5 +255,5 @@ end);
 -- Add dica ao comando /help
 rrpg.messaging.listen("ListChatCommands",
         function(message)
-                message.response = {{comando="/autolog", descricao="Ativa ou desativa o autolog na mesa atual."}};
+                message.response = {{comando="/autolog", descricao="Ativa ou desativa o autolog na mesa atual. v1.2"}};
         end);
