@@ -122,7 +122,7 @@
 		<template name="Resistence">
 			<button left="5" width="45" text="$(atrU)" fontSize="11">
 				<event name="onClick">
-					local rolagem = rrpg.interpretarRolagem("1d20 " .. (sheet.efetMod$(atr)) or 0);
+					local rolagem = rrpg.interpretarRolagem("1d20 +" .. (sheet.tr$(atr)) or "0");
 					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
 					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de $(atrN) de " .. (sheet.nome or "NOME"));
 				</event>
@@ -433,7 +433,7 @@
 					else
 						showMessage("Ops, bug.. nao encontrei o popup de atributos para exibir");
 					end;
-					</event>
+				</event>
 			</button>
 		</rectangle>
 

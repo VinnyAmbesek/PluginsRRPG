@@ -908,6 +908,7 @@ end;
 
 local __DOPPathProps = {pathData = {tipo = "string", readProp = "PathData", writeProp="PathData"},
 						data = {tipo = "string", readProp = "PathData", writeProp="PathData"},
+						path = {tipo = "string", readProp = "PathData", writeProp="PathData"},
 						color = {tipo="color", readProp="FillColor", writeProp="FillColor"},
 						strokeColor = {tipo="color", readProp="StrokeColor", writeProp="StrokeColor"},
 						strokeSize = {tipo="double", readProp="StrokeThickness", writeProp="StrokeThickness"},
