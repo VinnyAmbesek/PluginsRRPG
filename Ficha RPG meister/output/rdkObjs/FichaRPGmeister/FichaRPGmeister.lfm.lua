@@ -41057,21 +41057,21 @@ function newfrmFichaRPGmeister()
 
     obj._e_event51 = obj.button14:addEventListener("onClick",
         function (self)
-            local rolagem = rrpg.interpretarRolagem("1d20 +" .. (sheet.trFort) or "0");
+            local rolagem = rrpg.interpretarRolagem("1d20 " .. (sheet.trFort) or 0);
             					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
             					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Fortitude de " .. (sheet.nome or "NOME"));
         end, obj);
 
     obj._e_event52 = obj.button15:addEventListener("onClick",
         function (self)
-            local rolagem = rrpg.interpretarRolagem("1d20 +" .. (sheet.trRef) or "0");
+            local rolagem = rrpg.interpretarRolagem("1d20 " .. (sheet.trRef) or 0);
             					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
             					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Reflexos de " .. (sheet.nome or "NOME"));
         end, obj);
 
     obj._e_event53 = obj.button16:addEventListener("onClick",
         function (self)
-            local rolagem = rrpg.interpretarRolagem("1d20 +" .. (sheet.trVon) or "0");
+            local rolagem = rrpg.interpretarRolagem("1d20 " .. (sheet.trVon) or 0);
             					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
             					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de Vontade de " .. (sheet.nome or "NOME"));
         end, obj);
