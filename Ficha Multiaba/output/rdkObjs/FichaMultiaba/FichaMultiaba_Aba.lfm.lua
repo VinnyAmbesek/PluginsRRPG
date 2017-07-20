@@ -44,12 +44,23 @@ function newfrmFM_Aba()
     obj.name_aba:setParent(obj);
     obj.name_aba:setLeft(0);
     obj.name_aba:setTop(0);
-    obj.name_aba:setWidth(100);
+    obj.name_aba:setWidth(75);
     obj.name_aba:setHeight(25);
     obj.name_aba:setField("nome_aba");
     obj.name_aba:setName("name_aba");
     obj.name_aba:setTransparent(true);
     obj.name_aba:setHorzTextAlign("center");
+
+    obj.cbxInvisivel = gui.fromHandle(_obj_newObject("imageCheckBox"));
+    obj.cbxInvisivel:setParent(obj);
+    obj.cbxInvisivel:setName("cbxInvisivel");
+    obj.cbxInvisivel:setLeft(77);
+    obj.cbxInvisivel:setTop(2);
+    obj.cbxInvisivel:setWidth(20);
+    obj.cbxInvisivel:setHeight(20);
+    obj.cbxInvisivel:setImageChecked("/FichaMultiaba/images/invisivel.png");
+    obj.cbxInvisivel:setImageUnchecked("/FichaMultiaba/images/visivel.png");
+    obj.cbxInvisivel:setAutoChange(false);
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj);
@@ -61,17 +72,61 @@ function newfrmFM_Aba()
     obj.button1:setOpacity(0.5);
     obj.button1:setName("button1");
 
-    obj._e_event0 = obj.name_aba:addEventListener("onEnter",
+
+         function self:alternarVisibilidade()
+             if self.cbxInvisivel.checked then
+                  ndb.setPermission(sheet, "group", "jogadores", "read", nil);
+                  ndb.setPermission(sheet, "group", "espectadores", "read", nil);
+             else
+                  ndb.setPermission(sheet, "group", "jogadores", "read", "deny");
+                  ndb.setPermission(sheet, "group", "espectadores", "read", "deny");
+             end;
+         end; 
+         function self:atualizarCbxInvisivel()          
+             self.cbxInvisivel.checked = ndb.getPermission(sheet, "group", "espectadores", "read") == "deny" or
+                                         ndb.getPermission(sheet, "group", "jogadores", "read") == "deny"                                                                                    
+              self.cbxInvisivel.enabled = ndb.testPermission(sheet, "writePermissions");
+         end;
+    
+
+
+    obj._e_event0 = obj:addEventListener("onScopeNodeChanged",
+        function (self)
+            if self.observer ~= nil then   
+                                self.observer.enabled = false;
+                                self.observer = nil;
+                        end;
+                         
+                        if sheet ~= nil then   
+                                self.observer = ndb.newObserver(sheet);
+                                self.observer.onPermissionListChanged =
+                                        function(node)                 
+                                                self:atualizarCbxInvisivel();
+                                        end;                               
+                                self.observer.onFinalPermissionsCouldBeChanged =
+                                        function(node)
+                                                self:atualizarCbxInvisivel();
+                                        end;                               
+                                self:atualizarCbxInvisivel();  
+                        end;
+        end, obj);
+
+    obj._e_event1 = obj.name_aba:addEventListener("onEnter",
         function (self)
             self.name_aba.transparent = false;
         end, obj);
 
-    obj._e_event1 = obj.name_aba:addEventListener("onExit",
+    obj._e_event2 = obj.name_aba:addEventListener("onExit",
         function (self)
             self.name_aba.transparent = true;
         end, obj);
 
-    obj._e_event2 = obj.button1:addEventListener("onClick",
+    obj._e_event3 = obj.cbxInvisivel:addEventListener("onClick",
+        function (self)
+            self:alternarVisibilidade();
+        end, obj);
+
+    obj._e_event4 = obj.button1:addEventListener("onClick",
         function (self)
             dialogs.confirmOkCancel("Tem certeza que quer apagar essa aba?",
             				function (confirmado)
@@ -82,6 +137,8 @@ function newfrmFM_Aba()
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event4);
+        __o_rrpgObjs.removeEventListenerById(self._e_event3);
         __o_rrpgObjs.removeEventListenerById(self._e_event2);
         __o_rrpgObjs.removeEventListenerById(self._e_event1);
         __o_rrpgObjs.removeEventListenerById(self._e_event0);
@@ -98,6 +155,7 @@ function newfrmFM_Aba()
 
         if self.name_aba ~= nil then self.name_aba:destroy(); self.name_aba = nil; end;
         if self.rectangle1 ~= nil then self.rectangle1:destroy(); self.rectangle1 = nil; end;
+        if self.cbxInvisivel ~= nil then self.cbxInvisivel:destroy(); self.cbxInvisivel = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         self:_oldLFMDestroy();
     end;
