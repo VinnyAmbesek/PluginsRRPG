@@ -297,10 +297,11 @@
 				<image name="imgVez" align="client" height="24" visible="false" src="images/vez.png"/>
 			</rectangle>
 		
-			<edit name="edtNome" field="nome" class="combatHeaderNome combatTrackerEdit" onMenu="self:exibirMenuDoAtor();"/>
+			<edit name="edtNome" field="nome" class="combatHeaderNome combatTrackerEdit"/>
+			<edit name="edtIniciativaBonus" field="iniciativaBonus" class="combatHeaderIniciativa combatTrackerEdit" type="number" horzTextAlign="center"/>
 						
 			<layout name="layRightAlinedComps" class="combateHeaderRightAlignedContent">
-				<edit name="edtIniciativa" field="iniciativa" class="combatHeaderIniciativa combatTrackerEdit" type="number" horzTextAlign="center" onMenu="self:exibirMenuDoAtor();"/>
+				<edit name="edtIniciativa" field="iniciativa" class="combatHeaderIniciativa combatTrackerEdit" type="number" horzTextAlign="center"/>
 				
 				<rectangle name="rctFriendOrFoe" class="combatHeaderFriendOrFoe" color="#00000000" 
 						   strokeColor="black" strokeSize="2" xradius="4" yradius="4"

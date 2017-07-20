@@ -29,31 +29,8 @@
 				</recordList>
 			</scrollBox>
 		</rectangle>
-	
-		<rectangle left="555" top="0" width="400" height="110" color="Black">
-			<label left="5" top="5" width="30" height="25" text="Dia" horzTextAlign="center" />
-			<label left="35" top="5" width="70" height="25" text="Mês" horzTextAlign="center" />
-			<label left="105" top="5" width="40" height="25" text="Ano" horzTextAlign="center" />
-			<label left="145" top="5" width="100" height="25" text="Era" horzTextAlign="center" />
-			<label left="245" top="5" width="150" height="25" text="Estação" horzTextAlign="center" />
-			
-			<edit left="5" top="30" width="30" height="25" field="dia" />
-			<edit left="35" top="30" width="70" height="25" field="mes" />
-			<edit left="105" top="30" width="40" height="25" field="ano" />
-			<edit left="145" top="30" width="100" height="25" field="era" />
-			<edit left="245" top="30" width="150" height="25" field="estacao" />
-			
-			<label left="5" top="55" width="65" height="25" text="Clima" horzTextAlign="center" />
-			<label left="70" top="55" width="65" height="25" text="Temperatura" horzTextAlign="center" fontSize="11" />
-			<label left="135" top="55" width="135" height="25" text="Luas" horzTextAlign="center" />
-			<label left="270" top="55" width="135" height="25" text="Outros" horzTextAlign="center" />
-			<edit left="5" top="80" width="65" height="25" field="clima" />
-			<edit left="70" top="80" width="65" height="25" field="temperatura" />
-			<edit left="135" top="80" width="130" height="25" field="luas" />
-			<edit left="265" top="80" width="130" height="25" field="outros" />
-		</rectangle>
 		
-		<rectangle left="555" top="115" width="680" height="500" color="Black">
+		<rectangle left="555" top="0" width="680" height="615" color="Black">
 			<label left="5" top="5" width="550" height="25" text="JOGADORES" horzTextAlign="center" />
 			
 			<label left="5" top="30" width="100" height="25" text="Jogador" horzTextAlign="center" />
@@ -66,6 +43,33 @@
 			<label left="530" top="30" width="75" height="25" text="PO Total" horzTextAlign="center" />
 			<label left="605" top="30" width="25" height="25" text="Nº" horzTextAlign="center" />
 			
+			<button left="600" top="5" width="25" height="25" text="V" hint="Dá voz a todos jogadores da lista, retira +Jogador dos outros e ativa mesa moderada. ">
+				<event name="onClick">
+					if sheet~=nil then
+						local jogadores = ndb.getChildNodes(sheet.jogadores);
+						local jogadoresNome = "";
+						local mesa = rrpg.getMesaDe(sheet);
+						local usuarios = mesa.jogadores;
+
+						mesa:requestSetModerada(true);
+						for i=1, #jogadores, 1 do
+							jogadoresNome = jogadoresNome .. jogadores[i].jogador .. " ";
+						end;
+
+						for i=1, #usuarios, 1 do 
+							if string.find(jogadoresNome, usuarios[i].login)== nil then
+								if not usuarios[i].isMestre then
+									usuarios[i]:requestSetJogador(false);
+									usuarios[i]:requestSetVoz(false);
+								end
+							else
+								usuarios[i]:requestSetJogador(true);
+								usuarios[i]:requestSetVoz(true);
+							end;
+						end;
+					end;
+				</event>
+			</button>
 			<button left="625" top="5" width="25" height="25" text="O" onClick="self.rclJogadores:sort();"/>
 			<button left="650" top="5" width="25" height="25" text="+" onClick="self.rclJogadores:append();"/>
 			

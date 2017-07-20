@@ -189,13 +189,24 @@ function newfrmGerenciador03_AVENTURA()
     obj.comboBox1:setParent(obj.rectangle1);
     obj.comboBox1:setLeft(630);
     obj.comboBox1:setTop(25);
-    obj.comboBox1:setWidth(150);
+    obj.comboBox1:setWidth(125);
     obj.comboBox1:setHeight(25);
     obj.comboBox1:setField("estado");
     obj.comboBox1:setItems({'Ativa', 'Pausada', 'Completa', 'Falha'});
     obj.comboBox1:setValues({'0', '1', '2', '3'});
     obj.comboBox1:setValue("0");
     obj.comboBox1:setName("comboBox1");
+
+    obj.cbxInvisivel = gui.fromHandle(_obj_newObject("imageCheckBox"));
+    obj.cbxInvisivel:setParent(obj.rectangle1);
+    obj.cbxInvisivel:setName("cbxInvisivel");
+    obj.cbxInvisivel:setLeft(757);
+    obj.cbxInvisivel:setTop(27);
+    obj.cbxInvisivel:setWidth(20);
+    obj.cbxInvisivel:setHeight(20);
+    obj.cbxInvisivel:setImageChecked("/GerenciadorDeCampanha/images/invisivel2.png");
+    obj.cbxInvisivel:setImageUnchecked("/GerenciadorDeCampanha/images/visivel2.png");
+    obj.cbxInvisivel:setAutoChange(false);
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj.rectangle1);
@@ -224,7 +235,51 @@ function newfrmGerenciador03_AVENTURA()
     obj.textEditor2:setField("resultados");
     obj.textEditor2:setName("textEditor2");
 
-    obj._e_event0 = obj.button1:addEventListener("onClick",
+
+			 function self:alternarVisibilidade()
+				if self.cbxInvisivel.checked then
+					 ndb.setPermission(sheet, "group", "jogadores", "read", nil);
+					 ndb.setPermission(sheet, "group", "espectadores", "read", nil);
+				else
+					 ndb.setPermission(sheet, "group", "jogadores", "read", "deny");
+					 ndb.setPermission(sheet, "group", "espectadores", "read", "deny");
+				end;
+			 end; 
+			 function self:atualizarCbxInvisivel()		  
+				self.cbxInvisivel.checked = ndb.getPermission(sheet, "group", "espectadores", "read") == "deny" or
+											 ndb.getPermission(sheet, "group", "jogadores", "read") == "deny"																					
+				self.cbxInvisivel.enabled = ndb.testPermission(sheet, "writePermissions");
+			 end;
+		
+
+
+    obj._e_event0 = obj:addEventListener("onScopeNodeChanged",
+        function (self)
+            if self.observer ~= nil then   
+            			self.observer.enabled = false;
+            			self.observer = nil;
+            		end;
+            		 
+            		if sheet ~= nil then   
+            			self.observer = ndb.newObserver(sheet);
+            			self.observer.onPermissionListChanged =
+            				function(node)				 
+            					self:atualizarCbxInvisivel();
+            				end;							   
+            			self.observer.onFinalPermissionsCouldBeChanged =
+            				function(node)
+            					self:atualizarCbxInvisivel();
+            				end;							   
+            			self:atualizarCbxInvisivel();  
+            		end;
+        end, obj);
+
+    obj._e_event1 = obj.cbxInvisivel:addEventListener("onClick",
+        function (self)
+            self:alternarVisibilidade();
+        end, obj);
+
+    obj._e_event2 = obj.button1:addEventListener("onClick",
         function (self)
             dialogs.confirmOkCancel("Tem certeza que quer apagar essa aventura?",
             					function (confirmado)
@@ -235,6 +290,8 @@ function newfrmGerenciador03_AVENTURA()
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event2);
+        __o_rrpgObjs.removeEventListenerById(self._e_event1);
         __o_rrpgObjs.removeEventListenerById(self._e_event0);
     end;
 
@@ -249,6 +306,7 @@ function newfrmGerenciador03_AVENTURA()
 
         if self.edit3 ~= nil then self.edit3:destroy(); self.edit3 = nil; end;
         if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
+        if self.cbxInvisivel ~= nil then self.cbxInvisivel:destroy(); self.cbxInvisivel = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.edit4 ~= nil then self.edit4:destroy(); self.edit4 = nil; end;

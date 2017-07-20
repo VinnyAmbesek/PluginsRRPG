@@ -148,8 +148,8 @@ function newfrmGerenciador01()
     obj.rectangle2:setParent(obj.scrollBox1);
     obj.rectangle2:setLeft(555);
     obj.rectangle2:setTop(0);
-    obj.rectangle2:setWidth(400);
-    obj.rectangle2:setHeight(110);
+    obj.rectangle2:setWidth(680);
+    obj.rectangle2:setHeight(615);
     obj.rectangle2:setColor("Black");
     obj.rectangle2:setName("rectangle2");
 
@@ -157,303 +157,132 @@ function newfrmGerenciador01()
     obj.label7:setParent(obj.rectangle2);
     obj.label7:setLeft(5);
     obj.label7:setTop(5);
-    obj.label7:setWidth(30);
+    obj.label7:setWidth(550);
     obj.label7:setHeight(25);
-    obj.label7:setText("Dia");
+    obj.label7:setText("JOGADORES");
     obj.label7:setHorzTextAlign("center");
     obj.label7:setName("label7");
 
     obj.label8 = gui.fromHandle(_obj_newObject("label"));
     obj.label8:setParent(obj.rectangle2);
-    obj.label8:setLeft(35);
-    obj.label8:setTop(5);
-    obj.label8:setWidth(70);
+    obj.label8:setLeft(5);
+    obj.label8:setTop(30);
+    obj.label8:setWidth(100);
     obj.label8:setHeight(25);
-    obj.label8:setText("Mês");
+    obj.label8:setText("Jogador");
     obj.label8:setHorzTextAlign("center");
     obj.label8:setName("label8");
 
     obj.label9 = gui.fromHandle(_obj_newObject("label"));
     obj.label9:setParent(obj.rectangle2);
     obj.label9:setLeft(105);
-    obj.label9:setTop(5);
-    obj.label9:setWidth(40);
+    obj.label9:setTop(30);
+    obj.label9:setWidth(100);
     obj.label9:setHeight(25);
-    obj.label9:setText("Ano");
+    obj.label9:setText("Personagem");
     obj.label9:setHorzTextAlign("center");
     obj.label9:setName("label9");
 
     obj.label10 = gui.fromHandle(_obj_newObject("label"));
     obj.label10:setParent(obj.rectangle2);
-    obj.label10:setLeft(145);
-    obj.label10:setTop(5);
-    obj.label10:setWidth(100);
+    obj.label10:setLeft(205);
+    obj.label10:setTop(30);
+    obj.label10:setWidth(75);
     obj.label10:setHeight(25);
-    obj.label10:setText("Era");
+    obj.label10:setText("XP Inicial");
     obj.label10:setHorzTextAlign("center");
     obj.label10:setName("label10");
 
     obj.label11 = gui.fromHandle(_obj_newObject("label"));
     obj.label11:setParent(obj.rectangle2);
-    obj.label11:setLeft(245);
-    obj.label11:setTop(5);
-    obj.label11:setWidth(150);
+    obj.label11:setLeft(280);
+    obj.label11:setTop(30);
+    obj.label11:setWidth(75);
     obj.label11:setHeight(25);
-    obj.label11:setText("Estação");
+    obj.label11:setText("XP Gasta");
     obj.label11:setHorzTextAlign("center");
     obj.label11:setName("label11");
 
-    obj.edit1 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit1:setParent(obj.rectangle2);
-    obj.edit1:setLeft(5);
-    obj.edit1:setTop(30);
-    obj.edit1:setWidth(30);
-    obj.edit1:setHeight(25);
-    obj.edit1:setField("dia");
-    obj.edit1:setName("edit1");
-
-    obj.edit2 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit2:setParent(obj.rectangle2);
-    obj.edit2:setLeft(35);
-    obj.edit2:setTop(30);
-    obj.edit2:setWidth(70);
-    obj.edit2:setHeight(25);
-    obj.edit2:setField("mes");
-    obj.edit2:setName("edit2");
-
-    obj.edit3 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit3:setParent(obj.rectangle2);
-    obj.edit3:setLeft(105);
-    obj.edit3:setTop(30);
-    obj.edit3:setWidth(40);
-    obj.edit3:setHeight(25);
-    obj.edit3:setField("ano");
-    obj.edit3:setName("edit3");
-
-    obj.edit4 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit4:setParent(obj.rectangle2);
-    obj.edit4:setLeft(145);
-    obj.edit4:setTop(30);
-    obj.edit4:setWidth(100);
-    obj.edit4:setHeight(25);
-    obj.edit4:setField("era");
-    obj.edit4:setName("edit4");
-
-    obj.edit5 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit5:setParent(obj.rectangle2);
-    obj.edit5:setLeft(245);
-    obj.edit5:setTop(30);
-    obj.edit5:setWidth(150);
-    obj.edit5:setHeight(25);
-    obj.edit5:setField("estacao");
-    obj.edit5:setName("edit5");
-
     obj.label12 = gui.fromHandle(_obj_newObject("label"));
     obj.label12:setParent(obj.rectangle2);
-    obj.label12:setLeft(5);
-    obj.label12:setTop(55);
-    obj.label12:setWidth(65);
+    obj.label12:setLeft(355);
+    obj.label12:setTop(30);
+    obj.label12:setWidth(75);
     obj.label12:setHeight(25);
-    obj.label12:setText("Clima");
+    obj.label12:setText("XP Total");
     obj.label12:setHorzTextAlign("center");
     obj.label12:setName("label12");
 
     obj.label13 = gui.fromHandle(_obj_newObject("label"));
     obj.label13:setParent(obj.rectangle2);
-    obj.label13:setLeft(70);
-    obj.label13:setTop(55);
-    obj.label13:setWidth(65);
+    obj.label13:setLeft(430);
+    obj.label13:setTop(30);
+    obj.label13:setWidth(25);
     obj.label13:setHeight(25);
-    obj.label13:setText("Temperatura");
+    obj.label13:setText("NEP");
     obj.label13:setHorzTextAlign("center");
-    obj.label13:setFontSize(11);
     obj.label13:setName("label13");
 
     obj.label14 = gui.fromHandle(_obj_newObject("label"));
     obj.label14:setParent(obj.rectangle2);
-    obj.label14:setLeft(135);
-    obj.label14:setTop(55);
-    obj.label14:setWidth(135);
+    obj.label14:setLeft(455);
+    obj.label14:setTop(30);
+    obj.label14:setWidth(75);
     obj.label14:setHeight(25);
-    obj.label14:setText("Luas");
+    obj.label14:setText("PO Inicial");
     obj.label14:setHorzTextAlign("center");
     obj.label14:setName("label14");
 
     obj.label15 = gui.fromHandle(_obj_newObject("label"));
     obj.label15:setParent(obj.rectangle2);
-    obj.label15:setLeft(270);
-    obj.label15:setTop(55);
-    obj.label15:setWidth(135);
+    obj.label15:setLeft(530);
+    obj.label15:setTop(30);
+    obj.label15:setWidth(75);
     obj.label15:setHeight(25);
-    obj.label15:setText("Outros");
+    obj.label15:setText("PO Total");
     obj.label15:setHorzTextAlign("center");
     obj.label15:setName("label15");
 
-    obj.edit6 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit6:setParent(obj.rectangle2);
-    obj.edit6:setLeft(5);
-    obj.edit6:setTop(80);
-    obj.edit6:setWidth(65);
-    obj.edit6:setHeight(25);
-    obj.edit6:setField("clima");
-    obj.edit6:setName("edit6");
-
-    obj.edit7 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit7:setParent(obj.rectangle2);
-    obj.edit7:setLeft(70);
-    obj.edit7:setTop(80);
-    obj.edit7:setWidth(65);
-    obj.edit7:setHeight(25);
-    obj.edit7:setField("temperatura");
-    obj.edit7:setName("edit7");
-
-    obj.edit8 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit8:setParent(obj.rectangle2);
-    obj.edit8:setLeft(135);
-    obj.edit8:setTop(80);
-    obj.edit8:setWidth(130);
-    obj.edit8:setHeight(25);
-    obj.edit8:setField("luas");
-    obj.edit8:setName("edit8");
-
-    obj.edit9 = gui.fromHandle(_obj_newObject("edit"));
-    obj.edit9:setParent(obj.rectangle2);
-    obj.edit9:setLeft(265);
-    obj.edit9:setTop(80);
-    obj.edit9:setWidth(130);
-    obj.edit9:setHeight(25);
-    obj.edit9:setField("outros");
-    obj.edit9:setName("edit9");
-
-    obj.rectangle3 = gui.fromHandle(_obj_newObject("rectangle"));
-    obj.rectangle3:setParent(obj.scrollBox1);
-    obj.rectangle3:setLeft(555);
-    obj.rectangle3:setTop(115);
-    obj.rectangle3:setWidth(680);
-    obj.rectangle3:setHeight(500);
-    obj.rectangle3:setColor("Black");
-    obj.rectangle3:setName("rectangle3");
-
     obj.label16 = gui.fromHandle(_obj_newObject("label"));
-    obj.label16:setParent(obj.rectangle3);
-    obj.label16:setLeft(5);
-    obj.label16:setTop(5);
-    obj.label16:setWidth(550);
+    obj.label16:setParent(obj.rectangle2);
+    obj.label16:setLeft(605);
+    obj.label16:setTop(30);
+    obj.label16:setWidth(25);
     obj.label16:setHeight(25);
-    obj.label16:setText("JOGADORES");
+    obj.label16:setText("Nº");
     obj.label16:setHorzTextAlign("center");
     obj.label16:setName("label16");
 
-    obj.label17 = gui.fromHandle(_obj_newObject("label"));
-    obj.label17:setParent(obj.rectangle3);
-    obj.label17:setLeft(5);
-    obj.label17:setTop(30);
-    obj.label17:setWidth(100);
-    obj.label17:setHeight(25);
-    obj.label17:setText("Jogador");
-    obj.label17:setHorzTextAlign("center");
-    obj.label17:setName("label17");
-
-    obj.label18 = gui.fromHandle(_obj_newObject("label"));
-    obj.label18:setParent(obj.rectangle3);
-    obj.label18:setLeft(105);
-    obj.label18:setTop(30);
-    obj.label18:setWidth(100);
-    obj.label18:setHeight(25);
-    obj.label18:setText("Personagem");
-    obj.label18:setHorzTextAlign("center");
-    obj.label18:setName("label18");
-
-    obj.label19 = gui.fromHandle(_obj_newObject("label"));
-    obj.label19:setParent(obj.rectangle3);
-    obj.label19:setLeft(205);
-    obj.label19:setTop(30);
-    obj.label19:setWidth(75);
-    obj.label19:setHeight(25);
-    obj.label19:setText("XP Inicial");
-    obj.label19:setHorzTextAlign("center");
-    obj.label19:setName("label19");
-
-    obj.label20 = gui.fromHandle(_obj_newObject("label"));
-    obj.label20:setParent(obj.rectangle3);
-    obj.label20:setLeft(280);
-    obj.label20:setTop(30);
-    obj.label20:setWidth(75);
-    obj.label20:setHeight(25);
-    obj.label20:setText("XP Gasta");
-    obj.label20:setHorzTextAlign("center");
-    obj.label20:setName("label20");
-
-    obj.label21 = gui.fromHandle(_obj_newObject("label"));
-    obj.label21:setParent(obj.rectangle3);
-    obj.label21:setLeft(355);
-    obj.label21:setTop(30);
-    obj.label21:setWidth(75);
-    obj.label21:setHeight(25);
-    obj.label21:setText("XP Total");
-    obj.label21:setHorzTextAlign("center");
-    obj.label21:setName("label21");
-
-    obj.label22 = gui.fromHandle(_obj_newObject("label"));
-    obj.label22:setParent(obj.rectangle3);
-    obj.label22:setLeft(430);
-    obj.label22:setTop(30);
-    obj.label22:setWidth(25);
-    obj.label22:setHeight(25);
-    obj.label22:setText("NEP");
-    obj.label22:setHorzTextAlign("center");
-    obj.label22:setName("label22");
-
-    obj.label23 = gui.fromHandle(_obj_newObject("label"));
-    obj.label23:setParent(obj.rectangle3);
-    obj.label23:setLeft(455);
-    obj.label23:setTop(30);
-    obj.label23:setWidth(75);
-    obj.label23:setHeight(25);
-    obj.label23:setText("PO Inicial");
-    obj.label23:setHorzTextAlign("center");
-    obj.label23:setName("label23");
-
-    obj.label24 = gui.fromHandle(_obj_newObject("label"));
-    obj.label24:setParent(obj.rectangle3);
-    obj.label24:setLeft(530);
-    obj.label24:setTop(30);
-    obj.label24:setWidth(75);
-    obj.label24:setHeight(25);
-    obj.label24:setText("PO Total");
-    obj.label24:setHorzTextAlign("center");
-    obj.label24:setName("label24");
-
-    obj.label25 = gui.fromHandle(_obj_newObject("label"));
-    obj.label25:setParent(obj.rectangle3);
-    obj.label25:setLeft(605);
-    obj.label25:setTop(30);
-    obj.label25:setWidth(25);
-    obj.label25:setHeight(25);
-    obj.label25:setText("Nº");
-    obj.label25:setHorzTextAlign("center");
-    obj.label25:setName("label25");
-
     obj.button3 = gui.fromHandle(_obj_newObject("button"));
-    obj.button3:setParent(obj.rectangle3);
-    obj.button3:setLeft(625);
+    obj.button3:setParent(obj.rectangle2);
+    obj.button3:setLeft(600);
     obj.button3:setTop(5);
     obj.button3:setWidth(25);
     obj.button3:setHeight(25);
-    obj.button3:setText("O");
+    obj.button3:setText("V");
+    obj.button3:setHint("Dá voz a todos jogadores da lista, retira +Jogador dos outros e ativa mesa moderada. ");
     obj.button3:setName("button3");
 
     obj.button4 = gui.fromHandle(_obj_newObject("button"));
-    obj.button4:setParent(obj.rectangle3);
-    obj.button4:setLeft(650);
+    obj.button4:setParent(obj.rectangle2);
+    obj.button4:setLeft(625);
     obj.button4:setTop(5);
     obj.button4:setWidth(25);
     obj.button4:setHeight(25);
-    obj.button4:setText("+");
+    obj.button4:setText("O");
     obj.button4:setName("button4");
 
+    obj.button5 = gui.fromHandle(_obj_newObject("button"));
+    obj.button5:setParent(obj.rectangle2);
+    obj.button5:setLeft(650);
+    obj.button5:setTop(5);
+    obj.button5:setWidth(25);
+    obj.button5:setHeight(25);
+    obj.button5:setText("+");
+    obj.button5:setName("button5");
+
     obj.scrollBox3 = gui.fromHandle(_obj_newObject("scrollBox"));
-    obj.scrollBox3:setParent(obj.rectangle3);
+    obj.scrollBox3:setParent(obj.rectangle2);
     obj.scrollBox3:setLeft(0);
     obj.scrollBox3:setTop(55);
     obj.scrollBox3:setWidth(680);
@@ -498,15 +327,42 @@ function newfrmGerenciador01()
 
     obj._e_event3 = obj.button3:addEventListener("onClick",
         function (self)
-            self.rclJogadores:sort();
+            if sheet~=nil then
+            						local jogadores = ndb.getChildNodes(sheet.jogadores);
+            						local jogadoresNome = "";
+            						local mesa = rrpg.getMesaDe(sheet);
+            						local usuarios = mesa.jogadores;
+            
+            						mesa:requestSetModerada(true);
+            						for i=1, #jogadores, 1 do
+            							jogadoresNome = jogadoresNome .. jogadores[i].jogador .. " ";
+            						end;
+            
+            						for i=1, #usuarios, 1 do 
+            							if string.find(jogadoresNome, usuarios[i].login)== nil then
+            								if not usuarios[i].isMestre then
+            									usuarios[i]:requestSetJogador(false);
+            									usuarios[i]:requestSetVoz(false);
+            								end
+            							else
+            								usuarios[i]:requestSetJogador(true);
+            								usuarios[i]:requestSetVoz(true);
+            							end;
+            						end;
+            					end;
         end, obj);
 
     obj._e_event4 = obj.button4:addEventListener("onClick",
         function (self)
+            self.rclJogadores:sort();
+        end, obj);
+
+    obj._e_event5 = obj.button5:addEventListener("onClick",
+        function (self)
             self.rclJogadores:append();
         end, obj);
 
-    obj._e_event5 = obj.rclJogadores:addEventListener("onCompare",
+    obj._e_event6 = obj.rclJogadores:addEventListener("onCompare",
         function (self, nodeA, nodeB)
             local mod1 = nodeA.xp;
             						local mod2 = nodeB.xp;
@@ -520,6 +376,7 @@ function newfrmGerenciador01()
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event6);
         __o_rrpgObjs.removeEventListenerById(self._e_event5);
         __o_rrpgObjs.removeEventListenerById(self._e_event4);
         __o_rrpgObjs.removeEventListenerById(self._e_event3);
@@ -542,47 +399,29 @@ function newfrmGerenciador01()
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.button3 ~= nil then self.button3:destroy(); self.button3 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
-        if self.edit4 ~= nil then self.edit4:destroy(); self.edit4 = nil; end;
         if self.label8 ~= nil then self.label8:destroy(); self.label8 = nil; end;
         if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
         if self.scrollBox3 ~= nil then self.scrollBox3:destroy(); self.scrollBox3 = nil; end;
         if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
         if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
         if self.label6 ~= nil then self.label6:destroy(); self.label6 = nil; end;
-        if self.label20 ~= nil then self.label20:destroy(); self.label20 = nil; end;
-        if self.label17 ~= nil then self.label17:destroy(); self.label17 = nil; end;
-        if self.edit9 ~= nil then self.edit9:destroy(); self.edit9 = nil; end;
-        if self.edit5 ~= nil then self.edit5:destroy(); self.edit5 = nil; end;
-        if self.edit6 ~= nil then self.edit6:destroy(); self.edit6 = nil; end;
         if self.label15 ~= nil then self.label15:destroy(); self.label15 = nil; end;
-        if self.label25 ~= nil then self.label25:destroy(); self.label25 = nil; end;
         if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;
-        if self.edit7 ~= nil then self.edit7:destroy(); self.edit7 = nil; end;
-        if self.label18 ~= nil then self.label18:destroy(); self.label18 = nil; end;
         if self.label2 ~= nil then self.label2:destroy(); self.label2 = nil; end;
         if self.scrollBox2 ~= nil then self.scrollBox2:destroy(); self.scrollBox2 = nil; end;
-        if self.edit3 ~= nil then self.edit3:destroy(); self.edit3 = nil; end;
         if self.rclJogadores ~= nil then self.rclJogadores:destroy(); self.rclJogadores = nil; end;
         if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
         if self.label12 ~= nil then self.label12:destroy(); self.label12 = nil; end;
-        if self.edit8 ~= nil then self.edit8:destroy(); self.edit8 = nil; end;
         if self.rectangle2 ~= nil then self.rectangle2:destroy(); self.rectangle2 = nil; end;
-        if self.rectangle3 ~= nil then self.rectangle3:destroy(); self.rectangle3 = nil; end;
-        if self.label23 ~= nil then self.label23:destroy(); self.label23 = nil; end;
+        if self.button5 ~= nil then self.button5:destroy(); self.button5 = nil; end;
         if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
-        if self.label21 ~= nil then self.label21:destroy(); self.label21 = nil; end;
-        if self.label22 ~= nil then self.label22:destroy(); self.label22 = nil; end;
         if self.label16 ~= nil then self.label16:destroy(); self.label16 = nil; end;
-        if self.label24 ~= nil then self.label24:destroy(); self.label24 = nil; end;
-        if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
+        if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
         if self.rclSessoes ~= nil then self.rclSessoes:destroy(); self.rclSessoes = nil; end;
         if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
         if self.label10 ~= nil then self.label10:destroy(); self.label10 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
         if self.rectangle1 ~= nil then self.rectangle1:destroy(); self.rectangle1 = nil; end;
-        if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
-        if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
-        if self.label19 ~= nil then self.label19:destroy(); self.label19 = nil; end;
         self:_oldLFMDestroy();
     end;
 

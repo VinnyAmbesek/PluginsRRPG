@@ -4,6 +4,9 @@
         <tab title="Introdução">
             <import file="01.Introducao.lfm"/>
         </tab>
+        <tab title="Calendario">
+            <import file="02.Calendario.lfm"/>
+        </tab>
         <tab title="NPCs">
             <import file="MainDockNPCs.lfm"/>
         </tab>

@@ -364,6 +364,17 @@ function newfrmAtorCombatTracker()
     obj.edtNome:setWidth(28);
     obj.edtNome:setAlign("client");
 
+    obj.edtIniciativaBonus = gui.fromHandle(_obj_newObject("edit"));
+    obj.edtIniciativaBonus:setParent(obj.layPrimeiraLinha);
+    obj.edtIniciativaBonus:setName("edtIniciativaBonus");
+    obj.edtIniciativaBonus:setField("iniciativaBonus");
+    obj.edtIniciativaBonus:setType("number");
+    obj.edtIniciativaBonus:setHorzTextAlign("center");
+    obj.edtIniciativaBonus:setFontSize(11);
+    obj.edtIniciativaBonus:setMargins({left=3});
+    obj.edtIniciativaBonus:setWidth(28);
+    obj.edtIniciativaBonus:setAlign("left");
+
     obj.layRightAlinedComps = gui.fromHandle(_obj_newObject("layout"));
     obj.layRightAlinedComps:setParent(obj.layPrimeiraLinha);
     obj.layRightAlinedComps:setName("layRightAlinedComps");
@@ -608,69 +619,57 @@ function newfrmAtorCombatTracker()
             self:exibirMenuDoAtor();
         end, obj);
 
-    obj._e_event6 = obj.edtNome:addEventListener("onMenu",
-        function (self, x, y)
-            self:exibirMenuDoAtor();
-        end, obj);
-
-    obj._e_event7 = obj.edtIniciativa:addEventListener("onMenu",
-        function (self, x, y)
-            self:exibirMenuDoAtor();
-        end, obj);
-
-    obj._e_event8 = obj.rctFriendOrFoe:addEventListener("onMouseUp",
+    obj._e_event6 = obj.rctFriendOrFoe:addEventListener("onMouseUp",
         function (self, event)
             if event.button == 'left' then self:nextFriendOrFoeFlag(); end;
         end, obj);
 
-    obj._e_event9 = obj.rctFriendOrFoe:addEventListener("onMenu",
+    obj._e_event7 = obj.rctFriendOrFoe:addEventListener("onMenu",
         function (self, x, y)
             self:exibirMenuDoAtor();
         end, obj);
 
-    obj._e_event10 = obj.imgDeleteAtor:addEventListener("onMouseUp",
+    obj._e_event8 = obj.imgDeleteAtor:addEventListener("onMouseUp",
         function (self, event)
             if event.button == 'left' then self:apagarAtor(); end;
         end, obj);
 
-    obj._e_event11 = obj.imgDeleteAtor:addEventListener("onMenu",
+    obj._e_event9 = obj.imgDeleteAtor:addEventListener("onMenu",
         function (self, x, y)
             self:exibirMenuDoAtor();
         end, obj);
 
-    obj._e_event12 = obj.imgInvisivel:addEventListener("onMouseUp",
+    obj._e_event10 = obj.imgInvisivel:addEventListener("onMouseUp",
         function (self, event)
             if event.button =='left' then self:alternarVisibilidade(); end;
         end, obj);
 
-    obj._e_event13 = obj.imgAddEfeito:addEventListener("onMouseUp",
+    obj._e_event11 = obj.imgAddEfeito:addEventListener("onMouseUp",
         function (self, event)
             if event.button =='left' then self:adicionarEfeito() end;
         end, obj);
 
-    obj._e_event14 = obj.rclEfeitos:addEventListener("onResize",
+    obj._e_event12 = obj.rclEfeitos:addEventListener("onResize",
         function (self)
             self:recalcularAlturaDoAtor()
         end, obj);
 
-    obj._e_event15 = obj.dataLink1:addEventListener("onChange",
+    obj._e_event13 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self:atualizarInterfaceFriendOrFoe();
         end, obj);
 
-    obj._e_event16 = obj.dataLink2:addEventListener("onChange",
+    obj._e_event14 = obj.dataLink2:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             self:atualizarInterfaceVez();
         end, obj);
 
-    obj._e_event17 = obj.dataLink3:addEventListener("onChange",
+    obj._e_event15 = obj.dataLink3:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             agendarReordenacao();
         end, obj);
 
     function obj:_releaseEvents()
-        __o_rrpgObjs.removeEventListenerById(self._e_event17);
-        __o_rrpgObjs.removeEventListenerById(self._e_event16);
         __o_rrpgObjs.removeEventListenerById(self._e_event15);
         __o_rrpgObjs.removeEventListenerById(self._e_event14);
         __o_rrpgObjs.removeEventListenerById(self._e_event13);
@@ -710,6 +709,7 @@ function newfrmAtorCombatTracker()
         if self.imgInvisivel ~= nil then self.imgInvisivel:destroy(); self.imgInvisivel = nil; end;
         if self.edtAnotacoes ~= nil then self.edtAnotacoes:destroy(); self.edtAnotacoes = nil; end;
         if self.horzLine1 ~= nil then self.horzLine1:destroy(); self.horzLine1 = nil; end;
+        if self.edtIniciativaBonus ~= nil then self.edtIniciativaBonus:destroy(); self.edtIniciativaBonus = nil; end;
         if self.imgAddEfeito ~= nil then self.imgAddEfeito:destroy(); self.imgAddEfeito = nil; end;
         if self.dataLink2 ~= nil then self.dataLink2:destroy(); self.dataLink2 = nil; end;
         if self.imgDeleteAtor ~= nil then self.imgDeleteAtor:destroy(); self.imgDeleteAtor = nil; end;

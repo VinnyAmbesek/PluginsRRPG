@@ -530,6 +530,15 @@ function newfrmCombatTracker()
     obj.image1:setSRC("/GerenciadorDeCampanha/images/addIcon.png");
     obj.image1:setName("image1");
 
+    obj.btnRoll = gui.fromHandle(_obj_newObject("button"));
+    obj.btnRoll:setParent(obj.layTopTracker);
+    obj.btnRoll:setName("btnRoll");
+    obj.btnRoll:setText("R");
+    obj.btnRoll:setAlign("left");
+    obj.btnRoll:setHint("Faz os testes de iniciativa de todos.");
+    obj.btnRoll:setWidth(24);
+    obj.btnRoll:setMargins({left=2, right=2});
+
     obj.btnUpdate = gui.fromHandle(_obj_newObject("button"));
     obj.btnUpdate:setParent(obj.layTopTracker);
     obj.btnUpdate:setName("btnUpdate");
@@ -538,6 +547,15 @@ function newfrmCombatTracker()
     obj.btnUpdate:setHint("Atualiza a ordem de iniciativa");
     obj.btnUpdate:setWidth(24);
     obj.btnUpdate:setMargins({left=2, right=2});
+
+    obj.btnAddAll = gui.fromHandle(_obj_newObject("button"));
+    obj.btnAddAll:setParent(obj.layTopTracker);
+    obj.btnAddAll:setName("btnAddAll");
+    obj.btnAddAll:setText("T");
+    obj.btnAddAll:setAlign("left");
+    obj.btnAddAll:setHint("Adiciona todos com +Jogador a lista.");
+    obj.btnAddAll:setWidth(24);
+    obj.btnAddAll:setMargins({left=2, right=2});
 
     obj.btnLimpar = gui.fromHandle(_obj_newObject("button"));
     obj.btnLimpar:setParent(obj.layTopTracker);
@@ -563,7 +581,7 @@ function newfrmCombatTracker()
 
     obj.label1 = gui.fromHandle(_obj_newObject("label"));
     obj.label1:setParent(obj.layout1);
-    obj.label1:setText("Nome");
+    obj.label1:setText(" Teste   Nome");
     obj.label1:setName("label1");
     obj.label1:setFontSize(11);
     obj.label1:setMargins({left=3});
@@ -669,30 +687,81 @@ function newfrmCombatTracker()
 
     obj._e_event0 = obj.btnAddAtor:addEventListener("onClick",
         function (self)
-            self:criarNovoAtor()
+            local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+            
+            				if not mesaDoPersonagem.meuJogador.isGold then
+            					shoMessage("Apenas para usuarios Gold!");
+            					return;
+            				end;
+            
+            				self:criarNovoAtor();
         end, obj);
 
-    obj._e_event1 = obj.btnUpdate:addEventListener("onClick",
+    obj._e_event1 = obj.btnRoll:addEventListener("onClick",
+        function (self)
+            local nodes = ndb.getChildNodes(sheet.atores);
+            				local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+            
+            				if not mesaDoPersonagem.meuJogador.isGold then
+            					shoMessage("Apenas para usuarios Gold!");
+            					return;
+            				end;
+            
+            				for i=1, #nodes, 1 do
+            					if nodes[i].iniciativaBonus ~= nil then
+            						local rolagem = rrpg.interpretarRolagem("1d20 + " .. nodes[i].iniciativaBonus);
+            
+            						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Iniciativa de " .. (nodes[i].nome or "Nome"),
+            								function (rolado)
+            									nodes[i].iniciativa = rolado.resultado;
+            									self.rclAtores:sort();
+            								end); 
+            					end;
+            				end
+        end, obj);
+
+    obj._e_event2 = obj.btnUpdate:addEventListener("onClick",
         function (self)
             self.rclAtores:sort()
         end, obj);
 
-    obj._e_event2 = obj.btnLimpar:addEventListener("onClick",
+    obj._e_event3 = obj.btnAddAll:addEventListener("onClick",
+        function (self)
+            local jogadores = rrpg.getMesaDe(sheet).jogadores;
+            				local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+            
+            				if not mesaDoPersonagem.meuJogador.isGold then
+            					shoMessage("Apenas para usuarios Gold!");
+            					return;
+            				end;
+            
+            				for i=1, #jogadores, 1 do
+            					if jogadores[i].isJogador then
+            						local ator = self:criarNovoAtor();
+            						ator.nome = utils.removerFmtChat(jogadores[i].nick)
+            						ator.fof = 1;
+            					end;
+            				end
+        end, obj);
+
+    obj._e_event4 = obj.btnLimpar:addEventListener("onClick",
         function (self)
             self:limpar();
         end, obj);
 
-    obj._e_event3 = obj.rclAtores:addEventListener("onCompare",
+    obj._e_event5 = obj.rclAtores:addEventListener("onCompare",
         function (self, nodeA, nodeB)
             return self:compareNodes(nodeA, nodeB);
         end, obj);
 
-    obj._e_event4 = obj.button1:addEventListener("onClick",
+    obj._e_event6 = obj.button1:addEventListener("onClick",
         function (self)
             self:proximoTurno();
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event6);
+        __o_rrpgObjs.removeEventListenerById(self._e_event5);
         __o_rrpgObjs.removeEventListenerById(self._e_event4);
         __o_rrpgObjs.removeEventListenerById(self._e_event3);
         __o_rrpgObjs.removeEventListenerById(self._e_event2);
@@ -709,12 +778,14 @@ function newfrmCombatTracker()
           self:setNodeDatabase(nil);
         end;
 
+        if self.btnAddAll ~= nil then self.btnAddAll:destroy(); self.btnAddAll = nil; end;
         if self.button1 ~= nil then self.button1:destroy(); self.button1 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.labTitFoF ~= nil then self.labTitFoF:destroy(); self.labTitFoF = nil; end;
+        if self.btnRoll ~= nil then self.btnRoll:destroy(); self.btnRoll = nil; end;
         if self.layTopTracker ~= nil then self.layTopTracker:destroy(); self.layTopTracker = nil; end;
-        if self.rclAtores ~= nil then self.rclAtores:destroy(); self.rclAtores = nil; end;
         if self.labTitIniciativa ~= nil then self.labTitIniciativa:destroy(); self.labTitIniciativa = nil; end;
+        if self.rclAtores ~= nil then self.rclAtores:destroy(); self.rclAtores = nil; end;
         if self.image1 ~= nil then self.image1:destroy(); self.image1 = nil; end;
         if self.layRightAlinedTitle ~= nil then self.layRightAlinedTitle:destroy(); self.layRightAlinedTitle = nil; end;
         if self.btnAddAtor ~= nil then self.btnAddAtor:destroy(); self.btnAddAtor = nil; end;

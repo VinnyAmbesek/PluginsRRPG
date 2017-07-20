@@ -52,7 +52,7 @@ function newfrmFichaRPGmeister11_svg()
     obj.layout1:setLeft(620);
     obj.layout1:setTop(10);
     obj.layout1:setWidth(200);
-    obj.layout1:setHeight(150);
+    obj.layout1:setHeight(170);
     obj.layout1:setName("layout1");
 
     obj.rectangle1 = gui.fromHandle(_obj_newObject("rectangle"));
@@ -83,7 +83,7 @@ function newfrmFichaRPGmeister11_svg()
     obj.label2:setTop(35);
     obj.label2:setWidth(200);
     obj.label2:setHeight(20);
-    obj.label2:setText("Lista de NPCs: Mia");
+    obj.label2:setText("Arte: Nefer (Nefertyne)");
     obj.label2:setHorzTextAlign("center");
     obj.label2:setName("label2");
 
@@ -93,17 +93,17 @@ function newfrmFichaRPGmeister11_svg()
     obj.label3:setTop(60);
     obj.label3:setWidth(200);
     obj.label3:setHeight(20);
-    obj.label3:setText("Arte: Nefer (Nefertyne)");
+    obj.label3:setText("Lista de NPCs: Mia");
     obj.label3:setHorzTextAlign("center");
     obj.label3:setName("label3");
 
     obj.label4 = gui.fromHandle(_obj_newObject("label"));
     obj.label4:setParent(obj.layout1);
     obj.label4:setLeft(0);
-    obj.label4:setTop(95);
+    obj.label4:setTop(85);
     obj.label4:setWidth(200);
     obj.label4:setHeight(20);
-    obj.label4:setText("Ficha feita para a mesa: ");
+    obj.label4:setText("Iniciativas: Alysson");
     obj.label4:setHorzTextAlign("center");
     obj.label4:setName("label4");
 
@@ -113,18 +113,28 @@ function newfrmFichaRPGmeister11_svg()
     obj.label5:setTop(120);
     obj.label5:setWidth(200);
     obj.label5:setHeight(20);
-    obj.label5:setText("RPGmeister");
+    obj.label5:setText("Ficha feita para a mesa: ");
     obj.label5:setHorzTextAlign("center");
     obj.label5:setName("label5");
 
     obj.label6 = gui.fromHandle(_obj_newObject("label"));
-    obj.label6:setParent(obj.scrollBox1);
-    obj.label6:setLeft(630);
-    obj.label6:setTop(400);
-    obj.label6:setWidth(90);
+    obj.label6:setParent(obj.layout1);
+    obj.label6:setLeft(0);
+    obj.label6:setTop(145);
+    obj.label6:setWidth(200);
     obj.label6:setHeight(20);
-    obj.label6:setText("SUA VERSÃO:");
+    obj.label6:setText("RPGmeister");
+    obj.label6:setHorzTextAlign("center");
     obj.label6:setName("label6");
+
+    obj.label7 = gui.fromHandle(_obj_newObject("label"));
+    obj.label7:setParent(obj.scrollBox1);
+    obj.label7:setLeft(630);
+    obj.label7:setTop(400);
+    obj.label7:setWidth(90);
+    obj.label7:setHeight(20);
+    obj.label7:setText("SUA VERSÃO:");
+    obj.label7:setName("label7");
 
     obj.rectangle2 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle2:setParent(obj.scrollBox1);
@@ -144,17 +154,17 @@ function newfrmFichaRPGmeister11_svg()
     obj.image2:setWidth(100);
     obj.image2:setHeight(20);
     obj.image2:setStyle("autoFit");
-    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao04.png");
+    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao05.png");
     obj.image2:setName("image2");
 
-    obj.label7 = gui.fromHandle(_obj_newObject("label"));
-    obj.label7:setParent(obj.scrollBox1);
-    obj.label7:setLeft(620);
-    obj.label7:setTop(430);
-    obj.label7:setWidth(100);
-    obj.label7:setHeight(20);
-    obj.label7:setText("VERSÃO ATUAL:");
-    obj.label7:setName("label7");
+    obj.label8 = gui.fromHandle(_obj_newObject("label"));
+    obj.label8:setParent(obj.scrollBox1);
+    obj.label8:setLeft(620);
+    obj.label8:setTop(430);
+    obj.label8:setWidth(100);
+    obj.label8:setHeight(20);
+    obj.label8:setText("VERSÃO ATUAL:");
+    obj.label8:setName("label8");
 
     obj.rectangle3 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle3:setParent(obj.scrollBox1);
@@ -201,14 +211,14 @@ function newfrmFichaRPGmeister11_svg()
     obj.button3:setText("Tutorial");
     obj.button3:setName("button3");
 
-    obj.label8 = gui.fromHandle(_obj_newObject("label"));
-    obj.label8:setParent(obj.scrollBox1);
-    obj.label8:setLeft(620);
-    obj.label8:setTop(525);
-    obj.label8:setWidth(120);
-    obj.label8:setHeight(20);
-    obj.label8:setText("CONHEÇA A MESA:");
-    obj.label8:setName("label8");
+    obj.label9 = gui.fromHandle(_obj_newObject("label"));
+    obj.label9:setParent(obj.scrollBox1);
+    obj.label9:setLeft(620);
+    obj.label9:setTop(525);
+    obj.label9:setWidth(120);
+    obj.label9:setHeight(20);
+    obj.label9:setText("CONHEÇA A MESA:");
+    obj.label9:setName("label9");
 
     obj.button4 = gui.fromHandle(_obj_newObject("button"));
     obj.button4:setParent(obj.scrollBox1);
@@ -269,6 +279,7 @@ function newfrmFichaRPGmeister11_svg()
         if self.image2 ~= nil then self.image2:destroy(); self.image2 = nil; end;
         if self.image3 ~= nil then self.image3:destroy(); self.image3 = nil; end;
         if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
+        if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
         if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
         if self.rectangle1 ~= nil then self.rectangle1:destroy(); self.rectangle1 = nil; end;
