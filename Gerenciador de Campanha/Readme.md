@@ -1,7 +1,11 @@
 #Gerenciador de Campanha
 Gerenciador de informações de campanha. Feito para ajudar jogadores e mestres a manterem notas organizadas sobre o jogo. 
 Proximas Versões:
++ Adicionar terremotos. 
++ Botão avançar não funcionando corretamente. 
++ Era está exibindo quantos dias se passaram desde o dia 1. Era pra ser o nome da era. 
 
+19 de Julho de 2017
 Versão 05:
 * Botao que rola automaticamente as iniciativas e poe no tracker. 
 * Botao que adiciona de todos jogadores a lista de iniciativa. 

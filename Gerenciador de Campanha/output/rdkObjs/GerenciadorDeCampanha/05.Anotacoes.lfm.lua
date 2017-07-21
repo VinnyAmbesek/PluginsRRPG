@@ -168,17 +168,9 @@ function newfrmFichaRPGmeister10_svg()
 
 
 				local function secret()
-					local jogadores = rrpg.getMesaDe(sheet).jogadores;
-					local current = nil;
+					local mesa = rrpg.getMesaDe(sheet);
 					
-					for i = 1, #jogadores, 1 do
-						if jogadores[i].login==rrpg.getCurrentUser().login then
-							current = jogadores[i];
-						end;
-					end; 
-					
-					
-					if current~=nil and current.isMestre then
+					if mesa.meuJogador.isMestre then
 						self.a1.visible = true;
 						self.a2.visible = true;
 						self.a3.visible = true;

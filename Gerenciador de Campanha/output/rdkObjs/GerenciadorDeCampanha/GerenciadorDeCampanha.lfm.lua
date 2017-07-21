@@ -3783,17 +3783,9 @@ function newfrmBibliotecaRPGmeister()
 
 
 				local function secret()
-					local jogadores = rrpg.getMesaDe(sheet).jogadores;
-					local current = nil;
+					local mesa = rrpg.getMesaDe(sheet);
 					
-					for i = 1, #jogadores, 1 do
-						if jogadores[i].login==rrpg.getCurrentUser().login then
-							current = jogadores[i];
-						end;
-					end; 
-					
-					
-					if current~=nil and current.isMestre then
+					if mesa.meuJogador.isMestre then
 						self.a1.visible = true;
 						self.a2.visible = true;
 						self.a3.visible = true;
@@ -4193,7 +4185,7 @@ function newfrmBibliotecaRPGmeister()
             						tempoRestante = tempoRestante - ((ano-1) * anoDuracao);
             
             						local meses = ndb.getChildNodes(sheet.listaMeses);
-            						local mes = 12;
+            						local mes = #meses;
             						local mesDuracao = 1;
             						local search = true;
             						local aux = 0;
@@ -4207,7 +4199,7 @@ function newfrmBibliotecaRPGmeister()
             								tempoRestante = tempoRestante - aux;
             							end;
             						end;
-            						if mes == 12 then
+            						if mes == #meses then
             							aux = meses[#meses].cumulativo; 
             							tempoRestante = tempoRestante - aux;
             						end;
@@ -4575,7 +4567,7 @@ function newfrmBibliotecaRPGmeister()
             
             						-- saving variables
             						sheet.tempo = tempo;
-            						sheet.era = tempo;
+            						-- sheet.era = tempo;
             
             						-- Cleaning hints
             

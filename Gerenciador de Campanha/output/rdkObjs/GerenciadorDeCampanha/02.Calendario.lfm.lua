@@ -1243,7 +1243,7 @@ function newfrmGerenciador02()
             						tempoRestante = tempoRestante - ((ano-1) * anoDuracao);
             
             						local meses = ndb.getChildNodes(sheet.listaMeses);
-            						local mes = 12;
+            						local mes = #meses;
             						local mesDuracao = 1;
             						local search = true;
             						local aux = 0;
@@ -1257,7 +1257,7 @@ function newfrmGerenciador02()
             								tempoRestante = tempoRestante - aux;
             							end;
             						end;
-            						if mes == 12 then
+            						if mes == #meses then
             							aux = meses[#meses].cumulativo; 
             							tempoRestante = tempoRestante - aux;
             						end;
@@ -1625,7 +1625,7 @@ function newfrmGerenciador02()
             
             						-- saving variables
             						sheet.tempo = tempo;
-            						sheet.era = tempo;
+            						-- sheet.era = tempo;
             
             						-- Cleaning hints
             
