@@ -143,7 +143,7 @@ function newfrmFM()
     obj.image2:setWidth(100);
     obj.image2:setHeight(20);
     obj.image2:setStyle("autoFit");
-    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao01.png");
+    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao02.png");
     obj.image2:setName("image2");
 
     obj.label6 = gui.fromHandle(_obj_newObject("label"));

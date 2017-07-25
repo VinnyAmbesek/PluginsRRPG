@@ -93,22 +93,22 @@ function newfrmFM_Aba()
     obj._e_event0 = obj:addEventListener("onScopeNodeChanged",
         function (self)
             if self.observer ~= nil then   
-                                self.observer.enabled = false;
-                                self.observer = nil;
-                        end;
-                         
-                        if sheet ~= nil then   
-                                self.observer = ndb.newObserver(sheet);
-                                self.observer.onPermissionListChanged =
-                                        function(node)                 
-                                                self:atualizarCbxInvisivel();
-                                        end;                               
-                                self.observer.onFinalPermissionsCouldBeChanged =
-                                        function(node)
-                                                self:atualizarCbxInvisivel();
-                                        end;                               
-                                self:atualizarCbxInvisivel();  
-                        end;
+                        self.observer.enabled = false;
+                        self.observer = nil;
+                    end;
+                     
+                    if sheet ~= nil then   
+                        self.observer = ndb.newObserver(sheet);
+                        self.observer.onPermissionListChanged =
+                            function(node)                 
+                                self:atualizarCbxInvisivel();
+                            end;                               
+                        self.observer.onFinalPermissionsCouldBeChanged =
+                            function(node)
+                                self:atualizarCbxInvisivel();
+                            end;                               
+                        self:atualizarCbxInvisivel();  
+                    end;
         end, obj);
 
     obj._e_event1 = obj.name_aba:addEventListener("onEnter",
