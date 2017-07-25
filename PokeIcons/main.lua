@@ -27,6 +27,7 @@ rrpg.listen('HandleChatTextInput',
 
 				local num;
 				local rest = "";
+				local changed = false;
 
 				if dot1==":" and dot2==":" then
 					num = string.sub(token, 2, 4);
@@ -54,13 +55,15 @@ rrpg.listen('HandleChatTextInput',
 						else
 							num = "" .. num .. rest;
 						end;
+						changed = true;
 						arg[i] = "[§I http://www.serebii.net/pokedex-sm/icon/" .. num .. ".png]";
 					end;
 				end;
 				text = text .. " " .. arg[i];
 			end;
-
-			message.response = {newText = text};
+			if changed then
+				message.response = {newText = text};
+			end;
     	end;
         
     end);
