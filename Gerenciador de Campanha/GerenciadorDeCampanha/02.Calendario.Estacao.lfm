@@ -5,7 +5,7 @@
 		<edit left="30" top="0" width="105" height="25" field="estacao"/>
 		<edit left="135" top="0" width="35" height="25" field="dias" type="number"/>
 
-		<button left="170" top="0" width="25" height="25" text="i">
+		<button left="170" top="0" width="25" height="25" text="i" hint="Detalhes da Estação">
 			<event name="onClick">
 				local pop = self:findControlByName("popClima");
 				

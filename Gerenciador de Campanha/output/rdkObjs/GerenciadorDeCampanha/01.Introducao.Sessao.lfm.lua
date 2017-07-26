@@ -47,6 +47,7 @@ function newfrmGerenciador01_Sessao()
     obj.edit1:setWidth(30);
     obj.edit1:setHeight(25);
     obj.edit1:setField("numero");
+    obj.edit1:setType("number");
     obj.edit1:setName("edit1");
 
     obj.edit2 = gui.fromHandle(_obj_newObject("edit"));
@@ -83,6 +84,7 @@ function newfrmGerenciador01_Sessao()
     obj.button1:setWidth(50);
     obj.button1:setHeight(25);
     obj.button1:setText("LOG");
+    obj.button1:setHint("Abrir Log");
     obj.button1:setName("button1");
 
     obj.edit5 = gui.fromHandle(_obj_newObject("edit"));

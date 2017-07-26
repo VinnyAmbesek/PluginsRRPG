@@ -138,6 +138,7 @@ function newfrmGerenciador03_AVENTURA()
     obj.edit1:setWidth(25);
     obj.edit1:setHeight(25);
     obj.edit1:setField("numero");
+    obj.edit1:setType("number");
     obj.edit1:setName("edit1");
 
     obj.edit2 = gui.fromHandle(_obj_newObject("edit"));
@@ -207,6 +208,7 @@ function newfrmGerenciador03_AVENTURA()
     obj.cbxInvisivel:setImageChecked("/GerenciadorDeCampanha/images/invisivel2.png");
     obj.cbxInvisivel:setImageUnchecked("/GerenciadorDeCampanha/images/visivel2.png");
     obj.cbxInvisivel:setAutoChange(false);
+    obj.cbxInvisivel:setHint("Alterna visibilidade para Jogadores e Espectadores.");
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj.rectangle1);

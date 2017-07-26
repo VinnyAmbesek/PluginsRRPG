@@ -112,6 +112,7 @@ function newfrmGerenciador01()
     obj.button1:setWidth(25);
     obj.button1:setHeight(25);
     obj.button1:setText("O");
+    obj.button1:setHint("Organizar");
     obj.button1:setName("button1");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
@@ -121,6 +122,7 @@ function newfrmGerenciador01()
     obj.button2:setWidth(25);
     obj.button2:setHeight(25);
     obj.button2:setText("+");
+    obj.button2:setHint("Novo");
     obj.button2:setName("button2");
 
     obj.scrollBox2 = gui.fromHandle(_obj_newObject("scrollBox"));
@@ -270,6 +272,7 @@ function newfrmGerenciador01()
     obj.button4:setWidth(25);
     obj.button4:setHeight(25);
     obj.button4:setText("O");
+    obj.button4:setHint("Organizar");
     obj.button4:setName("button4");
 
     obj.button5 = gui.fromHandle(_obj_newObject("button"));
@@ -279,6 +282,7 @@ function newfrmGerenciador01()
     obj.button5:setWidth(25);
     obj.button5:setHeight(25);
     obj.button5:setText("+");
+    obj.button5:setHint("Novo");
     obj.button5:setName("button5");
 
     obj.scrollBox3 = gui.fromHandle(_obj_newObject("scrollBox"));
@@ -309,20 +313,33 @@ function newfrmGerenciador01()
 
     obj._e_event1 = obj.button2:addEventListener("onClick",
         function (self)
-            self.rclSessoes:append();
+            if sheet~=nil then
+            						local sessoes = ndb.getChildNodes(sheet.sessoes);
+            						local num = 1;
+            
+            						if #sessoes > 0 then
+            							num = (tonumber(sessoes[#sessoes].numero) or 0) + 1
+            						end;
+            
+            						local node = self.rclSessoes:append();
+            						if node ~nil then
+            							node.numero = num;
+            							node.data = os.date("%d/%m/%Y", os.time());
+            						end;
+            
+            						self.rclSessoes:sort();
+            					end;
         end, obj);
 
     obj._e_event2 = obj.rclSessoes:addEventListener("onCompare",
         function (self, nodeA, nodeB)
-            local mod1 = nodeA.numero;
-            						local mod2 = nodeB.numero;
-            						if mod1==nil then
-            							mod1 = "zzzz";
-            						end;
-            						if mod2==nil then
-            							mod2 = "zzzz";
-            						end;
-            						return utils.compareStringPtBr(mod1, mod2);
+            if (tonumber(nodeA.numero) or 0) < (tonumber(nodeB.numero) or 0) then
+            		                    return 1;
+            		                elseif (tonumber(nodeA.numero) or 0) > (tonumber(nodeB.numero) or 0) then
+            		                    return -1;
+            		                else   
+            		                    return 0;
+            		                end;
         end, obj);
 
     obj._e_event3 = obj.button3:addEventListener("onClick",

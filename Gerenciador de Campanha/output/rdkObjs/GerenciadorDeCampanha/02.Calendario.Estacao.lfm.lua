@@ -74,6 +74,7 @@ function newfrmGerenciador02_ESTACAO()
     obj.button1:setWidth(25);
     obj.button1:setHeight(25);
     obj.button1:setText("i");
+    obj.button1:setHint("Detalhes da Estação");
     obj.button1:setName("button1");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));

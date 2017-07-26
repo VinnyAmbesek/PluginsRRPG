@@ -57,10 +57,7 @@ function newfrmFichaRPGmeister11_svg()
 
     obj.rectangle1 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle1:setParent(obj.layout1);
-    obj.rectangle1:setLeft(0);
-    obj.rectangle1:setTop(0);
-    obj.rectangle1:setWidth(200);
-    obj.rectangle1:setHeight(150);
+    obj.rectangle1:setAlign("client");
     obj.rectangle1:setColor("black");
     obj.rectangle1:setXradius(15);
     obj.rectangle1:setYradius(15);
@@ -154,7 +151,7 @@ function newfrmFichaRPGmeister11_svg()
     obj.image2:setWidth(100);
     obj.image2:setHeight(20);
     obj.image2:setStyle("autoFit");
-    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao05.png");
+    obj.image2:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao06.png");
     obj.image2:setName("image2");
 
     obj.label8 = gui.fromHandle(_obj_newObject("label"));
@@ -240,7 +237,7 @@ function newfrmFichaRPGmeister11_svg()
 
     obj._e_event2 = obj.button3:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('')
+            gui.openInBrowser('https://www.dropbox.com/s/3eodkgih3aq6hfz/Tutorial.docx?dl=0')
         end, obj);
 
     obj._e_event3 = obj.button4:addEventListener("onClick",

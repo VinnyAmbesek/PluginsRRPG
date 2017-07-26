@@ -192,7 +192,7 @@ function newfrmGerenciador02()
     obj.popCelestial:setParent(obj.scrollBox1);
     obj.popCelestial:setName("popCelestial");
     obj.popCelestial:setWidth(200);
-    obj.popCelestial:setHeight(175);
+    obj.popCelestial:setHeight(190);
     obj.popCelestial:setBackOpacity(0.4);
 
     obj.flowLayout2 = gui.fromHandle(_obj_newObject("flowLayout"));
@@ -464,6 +464,40 @@ function newfrmGerenciador02()
     obj.comboBox11:setHorzTextAlign("center");
     obj.comboBox11:setName("comboBox11");
 
+    obj.flowPart24 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart24:setParent(obj.flowLayout2);
+    obj.flowPart24:setMinWidth(70);
+    obj.flowPart24:setMaxWidth(70);
+    obj.flowPart24:setHeight(15);
+    obj.flowPart24:setName("flowPart24");
+
+    obj.label13 = gui.fromHandle(_obj_newObject("label"));
+    obj.label13:setParent(obj.flowPart24);
+    obj.label13:setAlign("top");
+    obj.label13:setFontSize(10);
+    obj.label13:setText("Terremotos");
+    obj.label13:setHorzTextAlign("center");
+    obj.label13:setWordWrap(true);
+    obj.label13:setTextTrimming("none");
+    obj.label13:setAutoSize(true);
+    obj.label13:setName("label13");
+
+    obj.flowPart25 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart25:setParent(obj.flowLayout2);
+    obj.flowPart25:setMinWidth(100);
+    obj.flowPart25:setMaxWidth(150);
+    obj.flowPart25:setHeight(20);
+    obj.flowPart25:setName("flowPart25");
+
+    obj.comboBox12 = gui.fromHandle(_obj_newObject("comboBox"));
+    obj.comboBox12:setParent(obj.flowPart25);
+    obj.comboBox12:setAlign("top");
+    obj.comboBox12:setFontSize(10);
+    obj.comboBox12:setField("terremotos");
+    obj.comboBox12:setItems({'Nenhum', 'Raro', 'Incomum', 'Comum', 'Constante'});
+    obj.comboBox12:setHorzTextAlign("center");
+    obj.comboBox12:setName("comboBox12");
+
     obj.layout1 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout1:setParent(obj.scrollBox1);
     obj.layout1:setLeft(0);
@@ -486,13 +520,13 @@ function newfrmGerenciador02()
     obj.rectangle1:setColor("Black");
     obj.rectangle1:setName("rectangle1");
 
-    obj.label13 = gui.fromHandle(_obj_newObject("label"));
-    obj.label13:setParent(obj.layout2);
-    obj.label13:setWidth(250);
-    obj.label13:setHeight(20);
-    obj.label13:setText("MESES");
-    obj.label13:setHorzTextAlign("center");
-    obj.label13:setName("label13");
+    obj.label14 = gui.fromHandle(_obj_newObject("label"));
+    obj.label14:setParent(obj.layout2);
+    obj.label14:setWidth(250);
+    obj.label14:setHeight(20);
+    obj.label14:setText("MESES");
+    obj.label14:setHorzTextAlign("center");
+    obj.label14:setName("label14");
 
     obj.layout3 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout3:setParent(obj.layout2);
@@ -509,6 +543,7 @@ function newfrmGerenciador02()
     obj.button1:setWidth(25);
     obj.button1:setHeight(25);
     obj.button1:setText("+");
+    obj.button1:setHint("Novo");
     obj.button1:setName("button1");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
@@ -518,18 +553,19 @@ function newfrmGerenciador02()
     obj.button2:setWidth(25);
     obj.button2:setHeight(25);
     obj.button2:setText("O");
+    obj.button2:setHint("Organizar");
     obj.button2:setName("button2");
 
-    obj.label14 = gui.fromHandle(_obj_newObject("label"));
-    obj.label14:setParent(obj.layout3);
-    obj.label14:setLeft(115);
-    obj.label14:setTop(0);
-    obj.label14:setWidth(40);
-    obj.label14:setHeight(25);
-    obj.label14:setText("Total");
-    obj.label14:setHitTest(true);
-    obj.label14:setHint("Quantos dias dura o ano.");
-    obj.label14:setName("label14");
+    obj.label15 = gui.fromHandle(_obj_newObject("label"));
+    obj.label15:setParent(obj.layout3);
+    obj.label15:setLeft(115);
+    obj.label15:setTop(0);
+    obj.label15:setWidth(40);
+    obj.label15:setHeight(25);
+    obj.label15:setText("Total");
+    obj.label15:setHitTest(true);
+    obj.label15:setHint("Quantos dias dura o ano.");
+    obj.label15:setName("label15");
 
     obj.rectangle2 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle2:setParent(obj.layout3);
@@ -555,39 +591,39 @@ function newfrmGerenciador02()
     obj.dias:setHitTest(true);
     obj.dias:setHint("Se estiver vermelho a duração do ano e das estações está dessincronizada. ");
 
-    obj.label15 = gui.fromHandle(_obj_newObject("label"));
-    obj.label15:setParent(obj.layout2);
-    obj.label15:setLeft(6);
-    obj.label15:setTop(50);
-    obj.label15:setWidth(30);
-    obj.label15:setHeight(25);
-    obj.label15:setText("Nº");
-    obj.label15:setHorzTextAlign("center");
-    obj.label15:setHitTest(true);
-    obj.label15:setHint("Qual a ordem dos meses?");
-    obj.label15:setName("label15");
-
     obj.label16 = gui.fromHandle(_obj_newObject("label"));
     obj.label16:setParent(obj.layout2);
-    obj.label16:setLeft(45);
+    obj.label16:setLeft(6);
     obj.label16:setTop(50);
-    obj.label16:setWidth(110);
+    obj.label16:setWidth(30);
     obj.label16:setHeight(25);
-    obj.label16:setText("Nome");
+    obj.label16:setText("Nº");
     obj.label16:setHorzTextAlign("center");
+    obj.label16:setHitTest(true);
+    obj.label16:setHint("Qual a ordem dos meses?");
     obj.label16:setName("label16");
 
     obj.label17 = gui.fromHandle(_obj_newObject("label"));
     obj.label17:setParent(obj.layout2);
-    obj.label17:setLeft(155);
+    obj.label17:setLeft(45);
     obj.label17:setTop(50);
-    obj.label17:setWidth(55);
+    obj.label17:setWidth(110);
     obj.label17:setHeight(25);
-    obj.label17:setText("Duração");
+    obj.label17:setText("Nome");
     obj.label17:setHorzTextAlign("center");
-    obj.label17:setHitTest(true);
-    obj.label17:setHint("Quantos dias dura esse mês.");
     obj.label17:setName("label17");
+
+    obj.label18 = gui.fromHandle(_obj_newObject("label"));
+    obj.label18:setParent(obj.layout2);
+    obj.label18:setLeft(155);
+    obj.label18:setTop(50);
+    obj.label18:setWidth(55);
+    obj.label18:setHeight(25);
+    obj.label18:setText("Duração");
+    obj.label18:setHorzTextAlign("center");
+    obj.label18:setHitTest(true);
+    obj.label18:setHint("Quantos dias dura esse mês.");
+    obj.label18:setName("label18");
 
     obj.rclMeses = gui.fromHandle(_obj_newObject("recordList"));
     obj.rclMeses:setParent(obj.layout2);
@@ -619,13 +655,13 @@ function newfrmGerenciador02()
     obj.rectangle3:setColor("Black");
     obj.rectangle3:setName("rectangle3");
 
-    obj.label18 = gui.fromHandle(_obj_newObject("label"));
-    obj.label18:setParent(obj.layout4);
-    obj.label18:setWidth(250);
-    obj.label18:setHeight(20);
-    obj.label18:setText("DIAS DA SEMANA");
-    obj.label18:setHorzTextAlign("center");
-    obj.label18:setName("label18");
+    obj.label19 = gui.fromHandle(_obj_newObject("label"));
+    obj.label19:setParent(obj.layout4);
+    obj.label19:setWidth(250);
+    obj.label19:setHeight(20);
+    obj.label19:setText("DIAS DA SEMANA");
+    obj.label19:setHorzTextAlign("center");
+    obj.label19:setName("label19");
 
     obj.layout5 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout5:setParent(obj.layout4);
@@ -642,6 +678,7 @@ function newfrmGerenciador02()
     obj.button3:setWidth(25);
     obj.button3:setHeight(25);
     obj.button3:setText("+");
+    obj.button3:setHint("Novo");
     obj.button3:setName("button3");
 
     obj.button4 = gui.fromHandle(_obj_newObject("button"));
@@ -651,18 +688,19 @@ function newfrmGerenciador02()
     obj.button4:setWidth(25);
     obj.button4:setHeight(25);
     obj.button4:setText("O");
+    obj.button4:setHint("Organizar");
     obj.button4:setName("button4");
 
-    obj.label19 = gui.fromHandle(_obj_newObject("label"));
-    obj.label19:setParent(obj.layout5);
-    obj.label19:setLeft(125);
-    obj.label19:setTop(0);
-    obj.label19:setWidth(40);
-    obj.label19:setHeight(25);
-    obj.label19:setText("Desvio");
-    obj.label19:setHitTest(true);
-    obj.label19:setHint("O ano 1 começa em quem dia da semana?");
-    obj.label19:setName("label19");
+    obj.label20 = gui.fromHandle(_obj_newObject("label"));
+    obj.label20:setParent(obj.layout5);
+    obj.label20:setLeft(125);
+    obj.label20:setTop(0);
+    obj.label20:setWidth(40);
+    obj.label20:setHeight(25);
+    obj.label20:setText("Desvio");
+    obj.label20:setHitTest(true);
+    obj.label20:setHint("O ano 1 começa em quem dia da semana?");
+    obj.label20:setName("label20");
 
     obj.edit1 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit1:setParent(obj.layout5);
@@ -674,27 +712,27 @@ function newfrmGerenciador02()
     obj.edit1:setType("number");
     obj.edit1:setName("edit1");
 
-    obj.label20 = gui.fromHandle(_obj_newObject("label"));
-    obj.label20:setParent(obj.layout4);
-    obj.label20:setLeft(6);
-    obj.label20:setTop(50);
-    obj.label20:setWidth(30);
-    obj.label20:setHeight(25);
-    obj.label20:setText("Nº");
-    obj.label20:setHorzTextAlign("center");
-    obj.label20:setHitTest(true);
-    obj.label20:setHint("Qual a ordem dos dias da semana?");
-    obj.label20:setName("label20");
-
     obj.label21 = gui.fromHandle(_obj_newObject("label"));
     obj.label21:setParent(obj.layout4);
-    obj.label21:setLeft(35);
+    obj.label21:setLeft(6);
     obj.label21:setTop(50);
-    obj.label21:setWidth(165);
+    obj.label21:setWidth(30);
     obj.label21:setHeight(25);
-    obj.label21:setText("Nome");
+    obj.label21:setText("Nº");
     obj.label21:setHorzTextAlign("center");
+    obj.label21:setHitTest(true);
+    obj.label21:setHint("Qual a ordem dos dias da semana?");
     obj.label21:setName("label21");
+
+    obj.label22 = gui.fromHandle(_obj_newObject("label"));
+    obj.label22:setParent(obj.layout4);
+    obj.label22:setLeft(35);
+    obj.label22:setTop(50);
+    obj.label22:setWidth(165);
+    obj.label22:setHeight(25);
+    obj.label22:setText("Nome");
+    obj.label22:setHorzTextAlign("center");
+    obj.label22:setName("label22");
 
     obj.rclSemana = gui.fromHandle(_obj_newObject("recordList"));
     obj.rclSemana:setParent(obj.layout4);
@@ -721,13 +759,13 @@ function newfrmGerenciador02()
     obj.rectangle4:setColor("Black");
     obj.rectangle4:setName("rectangle4");
 
-    obj.label22 = gui.fromHandle(_obj_newObject("label"));
-    obj.label22:setParent(obj.layout6);
-    obj.label22:setWidth(250);
-    obj.label22:setHeight(20);
-    obj.label22:setText("LUAS");
-    obj.label22:setHorzTextAlign("center");
-    obj.label22:setName("label22");
+    obj.label23 = gui.fromHandle(_obj_newObject("label"));
+    obj.label23:setParent(obj.layout6);
+    obj.label23:setWidth(250);
+    obj.label23:setHeight(20);
+    obj.label23:setText("LUAS");
+    obj.label23:setHorzTextAlign("center");
+    obj.label23:setName("label23");
 
     obj.layout7 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout7:setParent(obj.layout6);
@@ -744,6 +782,7 @@ function newfrmGerenciador02()
     obj.button5:setWidth(25);
     obj.button5:setHeight(25);
     obj.button5:setText("+");
+    obj.button5:setHint("Novo");
     obj.button5:setName("button5");
 
     obj.celestialBt = gui.fromHandle(_obj_newObject("button"));
@@ -754,40 +793,41 @@ function newfrmGerenciador02()
     obj.celestialBt:setHeight(25);
     obj.celestialBt:setText("i");
     obj.celestialBt:setName("celestialBt");
-
-    obj.label23 = gui.fromHandle(_obj_newObject("label"));
-    obj.label23:setParent(obj.layout6);
-    obj.label23:setLeft(15);
-    obj.label23:setTop(50);
-    obj.label23:setWidth(110);
-    obj.label23:setHeight(25);
-    obj.label23:setText("Nome");
-    obj.label23:setHorzTextAlign("center");
-    obj.label23:setName("label23");
+    obj.celestialBt:setHint("Eventos Celestiais");
 
     obj.label24 = gui.fromHandle(_obj_newObject("label"));
     obj.label24:setParent(obj.layout6);
-    obj.label24:setLeft(120);
+    obj.label24:setLeft(15);
     obj.label24:setTop(50);
-    obj.label24:setWidth(55);
+    obj.label24:setWidth(110);
     obj.label24:setHeight(25);
-    obj.label24:setText("Ciclo");
+    obj.label24:setText("Nome");
     obj.label24:setHorzTextAlign("center");
-    obj.label24:setHitTest(true);
-    obj.label24:setHint("Quantos dias leva o ciclo lunar?");
     obj.label24:setName("label24");
 
     obj.label25 = gui.fromHandle(_obj_newObject("label"));
     obj.label25:setParent(obj.layout6);
-    obj.label25:setLeft(155);
+    obj.label25:setLeft(120);
     obj.label25:setTop(50);
     obj.label25:setWidth(55);
     obj.label25:setHeight(25);
-    obj.label25:setText("Desvio");
+    obj.label25:setText("Ciclo");
     obj.label25:setHorzTextAlign("center");
     obj.label25:setHitTest(true);
-    obj.label25:setHint("No ano 1 em que dia começa o ciclo lunar (lua cheia)?");
+    obj.label25:setHint("Quantos dias leva o ciclo lunar?");
     obj.label25:setName("label25");
+
+    obj.label26 = gui.fromHandle(_obj_newObject("label"));
+    obj.label26:setParent(obj.layout6);
+    obj.label26:setLeft(155);
+    obj.label26:setTop(50);
+    obj.label26:setWidth(55);
+    obj.label26:setHeight(25);
+    obj.label26:setText("Desvio");
+    obj.label26:setHorzTextAlign("center");
+    obj.label26:setHitTest(true);
+    obj.label26:setHint("No ano 1 em que dia começa o ciclo lunar (lua cheia)?");
+    obj.label26:setName("label26");
 
     obj.rclLuas = gui.fromHandle(_obj_newObject("recordList"));
     obj.rclLuas:setParent(obj.layout6);
@@ -814,13 +854,13 @@ function newfrmGerenciador02()
     obj.rectangle5:setColor("Black");
     obj.rectangle5:setName("rectangle5");
 
-    obj.label26 = gui.fromHandle(_obj_newObject("label"));
-    obj.label26:setParent(obj.layout8);
-    obj.label26:setWidth(250);
-    obj.label26:setHeight(20);
-    obj.label26:setText("ESTAÇÕES");
-    obj.label26:setHorzTextAlign("center");
-    obj.label26:setName("label26");
+    obj.label27 = gui.fromHandle(_obj_newObject("label"));
+    obj.label27:setParent(obj.layout8);
+    obj.label27:setWidth(250);
+    obj.label27:setHeight(20);
+    obj.label27:setText("ESTAÇÕES");
+    obj.label27:setHorzTextAlign("center");
+    obj.label27:setName("label27");
 
     obj.layout9 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout9:setParent(obj.layout8);
@@ -837,6 +877,7 @@ function newfrmGerenciador02()
     obj.button6:setWidth(25);
     obj.button6:setHeight(25);
     obj.button6:setText("+");
+    obj.button6:setHint("Novo");
     obj.button6:setName("button6");
 
     obj.button7 = gui.fromHandle(_obj_newObject("button"));
@@ -846,18 +887,19 @@ function newfrmGerenciador02()
     obj.button7:setWidth(25);
     obj.button7:setHeight(25);
     obj.button7:setText("O");
+    obj.button7:setHint("Organizar");
     obj.button7:setName("button7");
 
-    obj.label27 = gui.fromHandle(_obj_newObject("label"));
-    obj.label27:setParent(obj.layout9);
-    obj.label27:setLeft(125);
-    obj.label27:setTop(0);
-    obj.label27:setWidth(40);
-    obj.label27:setHeight(25);
-    obj.label27:setText("Desvio");
-    obj.label27:setHitTest(true);
-    obj.label27:setHint("Em que dia do ano começa a primeira estação?");
-    obj.label27:setName("label27");
+    obj.label28 = gui.fromHandle(_obj_newObject("label"));
+    obj.label28:setParent(obj.layout9);
+    obj.label28:setLeft(125);
+    obj.label28:setTop(0);
+    obj.label28:setWidth(40);
+    obj.label28:setHeight(25);
+    obj.label28:setText("Desvio");
+    obj.label28:setHitTest(true);
+    obj.label28:setHint("Em que dia do ano começa a primeira estação?");
+    obj.label28:setName("label28");
 
     obj.edit2 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit2:setParent(obj.layout9);
@@ -869,39 +911,39 @@ function newfrmGerenciador02()
     obj.edit2:setType("number");
     obj.edit2:setName("edit2");
 
-    obj.label28 = gui.fromHandle(_obj_newObject("label"));
-    obj.label28:setParent(obj.layout8);
-    obj.label28:setLeft(6);
-    obj.label28:setTop(50);
-    obj.label28:setWidth(30);
-    obj.label28:setHeight(25);
-    obj.label28:setText("Nº");
-    obj.label28:setHorzTextAlign("center");
-    obj.label28:setHitTest(true);
-    obj.label28:setHint("Qual a ordem das estações?");
-    obj.label28:setName("label28");
-
     obj.label29 = gui.fromHandle(_obj_newObject("label"));
     obj.label29:setParent(obj.layout8);
-    obj.label29:setLeft(45);
+    obj.label29:setLeft(6);
     obj.label29:setTop(50);
-    obj.label29:setWidth(85);
+    obj.label29:setWidth(30);
     obj.label29:setHeight(25);
-    obj.label29:setText("Nome");
+    obj.label29:setText("Nº");
     obj.label29:setHorzTextAlign("center");
+    obj.label29:setHitTest(true);
+    obj.label29:setHint("Qual a ordem das estações?");
     obj.label29:setName("label29");
 
     obj.label30 = gui.fromHandle(_obj_newObject("label"));
     obj.label30:setParent(obj.layout8);
-    obj.label30:setLeft(130);
+    obj.label30:setLeft(45);
     obj.label30:setTop(50);
-    obj.label30:setWidth(55);
+    obj.label30:setWidth(85);
     obj.label30:setHeight(25);
-    obj.label30:setText("Duração");
+    obj.label30:setText("Nome");
     obj.label30:setHorzTextAlign("center");
-    obj.label30:setHitTest(true);
-    obj.label30:setHint("Quantos dias dura essa estação?");
     obj.label30:setName("label30");
+
+    obj.label31 = gui.fromHandle(_obj_newObject("label"));
+    obj.label31:setParent(obj.layout8);
+    obj.label31:setLeft(130);
+    obj.label31:setTop(50);
+    obj.label31:setWidth(55);
+    obj.label31:setHeight(25);
+    obj.label31:setText("Duração");
+    obj.label31:setHorzTextAlign("center");
+    obj.label31:setHitTest(true);
+    obj.label31:setHint("Quantos dias dura essa estação?");
+    obj.label31:setName("label31");
 
     obj.rclEstacoes = gui.fromHandle(_obj_newObject("recordList"));
     obj.rclEstacoes:setParent(obj.layout8);
@@ -928,15 +970,15 @@ function newfrmGerenciador02()
     obj.rectangle6:setColor("Black");
     obj.rectangle6:setName("rectangle6");
 
-    obj.label31 = gui.fromHandle(_obj_newObject("label"));
-    obj.label31:setParent(obj.layout10);
-    obj.label31:setLeft(5);
-    obj.label31:setTop(5);
-    obj.label31:setWidth(30);
-    obj.label31:setHeight(25);
-    obj.label31:setText("Dia");
-    obj.label31:setHorzTextAlign("center");
-    obj.label31:setName("label31");
+    obj.label32 = gui.fromHandle(_obj_newObject("label"));
+    obj.label32:setParent(obj.layout10);
+    obj.label32:setLeft(5);
+    obj.label32:setTop(5);
+    obj.label32:setWidth(30);
+    obj.label32:setHeight(25);
+    obj.label32:setText("Dia");
+    obj.label32:setHorzTextAlign("center");
+    obj.label32:setName("label32");
 
     obj.edit3 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit3:setParent(obj.layout10);
@@ -948,15 +990,15 @@ function newfrmGerenciador02()
     obj.edit3:setType("number");
     obj.edit3:setName("edit3");
 
-    obj.label32 = gui.fromHandle(_obj_newObject("label"));
-    obj.label32:setParent(obj.layout10);
-    obj.label32:setLeft(35);
-    obj.label32:setTop(5);
-    obj.label32:setWidth(30);
-    obj.label32:setHeight(25);
-    obj.label32:setText("Mês");
-    obj.label32:setHorzTextAlign("center");
-    obj.label32:setName("label32");
+    obj.label33 = gui.fromHandle(_obj_newObject("label"));
+    obj.label33:setParent(obj.layout10);
+    obj.label33:setLeft(35);
+    obj.label33:setTop(5);
+    obj.label33:setWidth(30);
+    obj.label33:setHeight(25);
+    obj.label33:setText("Mês");
+    obj.label33:setHorzTextAlign("center");
+    obj.label33:setName("label33");
 
     obj.edit4 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit4:setParent(obj.layout10);
@@ -968,15 +1010,15 @@ function newfrmGerenciador02()
     obj.edit4:setType("number");
     obj.edit4:setName("edit4");
 
-    obj.label33 = gui.fromHandle(_obj_newObject("label"));
-    obj.label33:setParent(obj.layout10);
-    obj.label33:setLeft(65);
-    obj.label33:setTop(5);
-    obj.label33:setWidth(40);
-    obj.label33:setHeight(25);
-    obj.label33:setText("Ano");
-    obj.label33:setHorzTextAlign("center");
-    obj.label33:setName("label33");
+    obj.label34 = gui.fromHandle(_obj_newObject("label"));
+    obj.label34:setParent(obj.layout10);
+    obj.label34:setLeft(65);
+    obj.label34:setTop(5);
+    obj.label34:setWidth(40);
+    obj.label34:setHeight(25);
+    obj.label34:setText("Ano");
+    obj.label34:setHorzTextAlign("center");
+    obj.label34:setName("label34");
 
     obj.edit5 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit5:setParent(obj.layout10);
@@ -988,15 +1030,15 @@ function newfrmGerenciador02()
     obj.edit5:setType("number");
     obj.edit5:setName("edit5");
 
-    obj.label34 = gui.fromHandle(_obj_newObject("label"));
-    obj.label34:setParent(obj.layout10);
-    obj.label34:setLeft(105);
-    obj.label34:setTop(5);
-    obj.label34:setWidth(100);
-    obj.label34:setHeight(25);
-    obj.label34:setText("Era");
-    obj.label34:setHorzTextAlign("center");
-    obj.label34:setName("label34");
+    obj.label35 = gui.fromHandle(_obj_newObject("label"));
+    obj.label35:setParent(obj.layout10);
+    obj.label35:setLeft(105);
+    obj.label35:setTop(5);
+    obj.label35:setWidth(100);
+    obj.label35:setHeight(25);
+    obj.label35:setText("Era");
+    obj.label35:setHorzTextAlign("center");
+    obj.label35:setName("label35");
 
     obj.edit6 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit6:setParent(obj.layout10);
@@ -1014,6 +1056,7 @@ function newfrmGerenciador02()
     obj.button8:setWidth(100);
     obj.button8:setHeight(25);
     obj.button8:setText("Avançar");
+    obj.button8:setHint("Avança X dias no Calandario.");
     obj.button8:setName("button8");
 
     obj.edit7 = gui.fromHandle(_obj_newObject("edit"));
@@ -1025,14 +1068,14 @@ function newfrmGerenciador02()
     obj.edit7:setField("add");
     obj.edit7:setName("edit7");
 
-    obj.label35 = gui.fromHandle(_obj_newObject("label"));
-    obj.label35:setParent(obj.layout10);
-    obj.label35:setLeft(160);
-    obj.label35:setTop(55);
-    obj.label35:setWidth(45);
-    obj.label35:setHeight(25);
-    obj.label35:setText("Dias");
-    obj.label35:setName("label35");
+    obj.label36 = gui.fromHandle(_obj_newObject("label"));
+    obj.label36:setParent(obj.layout10);
+    obj.label36:setLeft(160);
+    obj.label36:setTop(55);
+    obj.label36:setWidth(45);
+    obj.label36:setHeight(25);
+    obj.label36:setText("Dias");
+    obj.label36:setName("label36");
 
     obj.dataLink2 = gui.fromHandle(_obj_newObject("dataLink"));
     obj.dataLink2:setParent(obj.layout10);
@@ -1140,7 +1183,19 @@ function newfrmGerenciador02()
 
     obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)
-            self.rclMeses:append();
+            if sheet~=nil then
+            								local meses = ndb.getChildNodes(sheet.listaMeses);
+            								local num = #meses + 1;
+            
+            								local node = self.rclMeses:append();
+            								if node~=nil then
+            									node.ordem = num;
+            									node.mes = "Mês " .. num;
+            									node.dias = 30;
+            								end;
+            
+            								self.rclMeses:sort();
+            							end;
         end, obj);
 
     obj._e_event1 = obj.button2:addEventListener("onClick",
@@ -1172,7 +1227,18 @@ function newfrmGerenciador02()
 
     obj._e_event4 = obj.button3:addEventListener("onClick",
         function (self)
-            self.rclSemana:append();
+            if sheet~=nil then
+            								local semana = ndb.getChildNodes(sheet.listaSemana);
+            								local num = #semana + 1;
+            
+            								local node = self.rclSemana:append();
+            								if node~=nil then
+            									node.ordem = num;
+            									node.dia = "Dia " .. num;
+            								end;
+            
+            								self.rclSemana:sort();
+            							end;
         end, obj);
 
     obj._e_event5 = obj.button4:addEventListener("onClick",
@@ -1193,7 +1259,16 @@ function newfrmGerenciador02()
 
     obj._e_event7 = obj.button5:addEventListener("onClick",
         function (self)
-            self.rclLuas:append();
+            if sheet~=nil then
+            								local node = self.rclLuas:append();
+            								if node~=nil then
+            									node.luas = "Lua";
+            									node.ciclo = 28;
+            									node.desvio = 0;
+            								end;
+            
+            								self.rclLuas:sort();
+            							end;
         end, obj);
 
     obj._e_event8 = obj.celestialBt:addEventListener("onClick",
@@ -1210,7 +1285,19 @@ function newfrmGerenciador02()
 
     obj._e_event9 = obj.button6:addEventListener("onClick",
         function (self)
-            self.rclEstacoes:append();
+            if sheet~=nil then
+            								local estacao = ndb.getChildNodes(sheet.listaEstacoes);
+            								local num = #estacao + 1;
+            
+            								local node = self.rclEstacoes:append();
+            								if node~=nil then
+            									node.ordem = num;
+            									node.estacao = "Estação " .. num;
+            									node.dias = 90;
+            								end;
+            
+            								self.rclEstacoes:sort();
+            							end;
         end, obj);
 
     obj._e_event10 = obj.button7:addEventListener("onClick",
@@ -1302,7 +1389,13 @@ function newfrmGerenciador02()
             						if meses[mes] == nil or #semana < 1 or #estacoes < 1 then
             							return;
             						end;
-            						local nomeMes = meses[mes].mes;
+            						
+            						local nomeMes = "not found";
+            						for i=1, #meses, 1 do
+            							if meses[i].ordem == mes then
+            								nomeMes = meses[i].mes;
+            							end;
+            						end;
             
             						local diaDoAno = dia + meses[mes].cumulativo;
             						local tempo = diaDoAno + (ano-1) * anoDuracao;
@@ -1311,7 +1404,12 @@ function newfrmGerenciador02()
             						if diaDaSemana == 0 then
             							diaDaSemana = #semana;
             						end;
-            						local nomeDiaDaSemana = semana[diaDaSemana].dia;
+            						local nomeDiaDaSemana = "not found";
+            						for i=1, #semana, 1 do
+            							if semana[i].ordem == diaDaSemana then
+            								nomeDiaDaSemana = semana[i].dia;
+            							end;
+            						end;
             
             						-- defining season
             						local estacao = 0;
@@ -1541,6 +1639,10 @@ function newfrmGerenciador02()
             
             							local porcentagemCiclo = diaCiclo / ciclo;
             
+            							if luas[i].luas == nil then
+            								luas[i].luas = "Lua";
+            							end;
+            
             							if porcentagemCiclo <= 0.125 then
             								luasInfo = luasInfo .. luas[i].luas .. " cheia";
             								luasLabel = luasLabel .. luas[i].luas .. " (cheia)";
@@ -1581,9 +1683,9 @@ function newfrmGerenciador02()
             
             						local eventChance = {};
             						eventChance[0] = 0;
-            						local eventType = {sheet.sobrentural, sheet.auroras, sheet.cometas, sheet.cadentes, sheet.lunar, sheet.solar, sheet.meteoros};
+            						local eventType = {sheet.sobrentural, sheet.auroras, sheet.cometas, sheet.cadentes, sheet.lunar, sheet.solar, sheet.meteoros, sheet.terremotos};
             
-            						for i = 1, 7, 1 do 
+            						for i = 1, 8, 1 do 
             							if eventType[i] == "Raro" then
             								eventChance[i] = eventChance[i-1] + 1;
             							elseif eventType[i] == "Incomum" then
@@ -1617,6 +1719,8 @@ function newfrmGerenciador02()
             							event = 6;
             						elseif dice8 <= eventChance[7] then
             							event = 7;
+            						elseif dice8 <= eventChance[8] then
+            							event = 8;
             						end;
             
             						-- finalazing
@@ -1803,6 +1907,9 @@ function newfrmGerenciador02()
             									data = data .. "Durante a noite, uma forte chuva de meteoros é vista. Dezenas de meteoros iluminam o céu. "
             									sheet.eventosLabel = "Eventos: Chuva de Meteoros."
             								end;
+            							elseif event == 8 then
+            								data = data .. "Em certo momento do dia um terremoto começa, fazendo o chão se tremer e derrubando construções e objetos. ";
+            								sheet.eventosLabel = "Eventos: Terremoto."
             							end;
             						else
             							sheet.eventosLabel = "Eventos: Nenhum."
@@ -1859,13 +1966,14 @@ function newfrmGerenciador02()
         if self.comboBox6 ~= nil then self.comboBox6:destroy(); self.comboBox6 = nil; end;
         if self.flowPart18 ~= nil then self.flowPart18:destroy(); self.flowPart18 = nil; end;
         if self.layout3 ~= nil then self.layout3:destroy(); self.layout3 = nil; end;
-        if self.rclSemana ~= nil then self.rclSemana:destroy(); self.rclSemana = nil; end;
-        if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
         if self.label22 ~= nil then self.label22:destroy(); self.label22 = nil; end;
+        if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
+        if self.rclSemana ~= nil then self.rclSemana:destroy(); self.rclSemana = nil; end;
         if self.label24 ~= nil then self.label24:destroy(); self.label24 = nil; end;
         if self.layout1 ~= nil then self.layout1:destroy(); self.layout1 = nil; end;
-        if self.layout8 ~= nil then self.layout8:destroy(); self.layout8 = nil; end;
+        if self.flowPart25 ~= nil then self.flowPart25:destroy(); self.flowPart25 = nil; end;
         if self.rectangle1 ~= nil then self.rectangle1:destroy(); self.rectangle1 = nil; end;
+        if self.layout8 ~= nil then self.layout8:destroy(); self.layout8 = nil; end;
         if self.label27 ~= nil then self.label27:destroy(); self.label27 = nil; end;
         if self.label32 ~= nil then self.label32:destroy(); self.label32 = nil; end;
         if self.label35 ~= nil then self.label35:destroy(); self.label35 = nil; end;
@@ -1882,6 +1990,7 @@ function newfrmGerenciador02()
         if self.label31 ~= nil then self.label31:destroy(); self.label31 = nil; end;
         if self.label34 ~= nil then self.label34:destroy(); self.label34 = nil; end;
         if self.edit5 ~= nil then self.edit5:destroy(); self.edit5 = nil; end;
+        if self.comboBox12 ~= nil then self.comboBox12:destroy(); self.comboBox12 = nil; end;
         if self.flowPart12 ~= nil then self.flowPart12:destroy(); self.flowPart12 = nil; end;
         if self.label15 ~= nil then self.label15:destroy(); self.label15 = nil; end;
         if self.rclEstacoes ~= nil then self.rclEstacoes:destroy(); self.rclEstacoes = nil; end;
@@ -1927,6 +2036,7 @@ function newfrmGerenciador02()
         if self.button5 ~= nil then self.button5:destroy(); self.button5 = nil; end;
         if self.rectangle6 ~= nil then self.rectangle6:destroy(); self.rectangle6 = nil; end;
         if self.label21 ~= nil then self.label21:destroy(); self.label21 = nil; end;
+        if self.label36 ~= nil then self.label36:destroy(); self.label36 = nil; end;
         if self.flowPart6 ~= nil then self.flowPart6:destroy(); self.flowPart6 = nil; end;
         if self.flowLayout2 ~= nil then self.flowLayout2:destroy(); self.flowLayout2 = nil; end;
         if self.label30 ~= nil then self.label30:destroy(); self.label30 = nil; end;
@@ -1957,9 +2067,10 @@ function newfrmGerenciador02()
         if self.layout6 ~= nil then self.layout6:destroy(); self.layout6 = nil; end;
         if self.rectangle4 ~= nil then self.rectangle4:destroy(); self.rectangle4 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
-        if self.flowPart15 ~= nil then self.flowPart15:destroy(); self.flowPart15 = nil; end;
-        if self.layout7 ~= nil then self.layout7:destroy(); self.layout7 = nil; end;
         if self.dias ~= nil then self.dias:destroy(); self.dias = nil; end;
+        if self.layout7 ~= nil then self.layout7:destroy(); self.layout7 = nil; end;
+        if self.flowPart15 ~= nil then self.flowPart15:destroy(); self.flowPart15 = nil; end;
+        if self.flowPart24 ~= nil then self.flowPart24:destroy(); self.flowPart24 = nil; end;
         if self.precipitacaoLabel ~= nil then self.precipitacaoLabel:destroy(); self.precipitacaoLabel = nil; end;
         self:_oldLFMDestroy();
     end;

@@ -62,6 +62,7 @@ function newfrmGerenciador04()
     obj.button1:setWidth(20);
     obj.button1:setHeight(20);
     obj.button1:setText("+");
+    obj.button1:setHint("Novo");
     obj.button1:setName("button1");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
@@ -71,6 +72,7 @@ function newfrmGerenciador04()
     obj.button2:setWidth(20);
     obj.button2:setHeight(20);
     obj.button2:setText("O");
+    obj.button2:setHint("Organizar");
     obj.button2:setName("button2");
 
     obj.scrollBox2 = gui.fromHandle(_obj_newObject("scrollBox"));

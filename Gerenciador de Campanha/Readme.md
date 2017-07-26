@@ -1,9 +1,16 @@
 #Gerenciador de Campanha
 Gerenciador de informações de campanha. Feito para ajudar jogadores e mestres a manterem notas organizadas sobre o jogo. 
 Proximas Versões:
-+ Adicionar terremotos. 
-+ Botão avançar não funcionando corretamente. 
-+ Era está exibindo quantos dias se passaram desde o dia 1. Era pra ser o nome da era. 
+
+26 de Julho de 2017
+Versão 06
+* Multiplos bugs corrigidos. 
+* Adicionados hints a todos botoes. Segure o mouse acima do botão (e labels do calendario) para ver o que ele faz. 
+* Botao de adicionar nova sessão automaticamente coloca valor padrão para o numero da sessão e dia atual. 
+* Botões de adicionar do calendario poem valores padrão. 
+* Botao de adicionar aventura já poe valor de ordem padrão.
+* Tutorial adicionado, explicando todas partes do gerenciador.
+* Adicionado Terremotos a eventos celestiais (sei que terremoto é no chão e não no céu, mas praticidade).
 
 19 de Julho de 2017
 Versão 05:

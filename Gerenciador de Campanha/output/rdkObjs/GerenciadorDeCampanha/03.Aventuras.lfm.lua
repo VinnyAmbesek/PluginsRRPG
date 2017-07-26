@@ -62,6 +62,7 @@ function newfrmGerenciador03()
     obj.button1:setWidth(20);
     obj.button1:setHeight(20);
     obj.button1:setText("+");
+    obj.button1:setHint("Nova Aventura");
     obj.button1:setName("button1");
 
     obj.button2 = gui.fromHandle(_obj_newObject("button"));
@@ -71,6 +72,7 @@ function newfrmGerenciador03()
     obj.button2:setWidth(20);
     obj.button2:setHeight(20);
     obj.button2:setText("O");
+    obj.button2:setHint("Organizar");
     obj.button2:setName("button2");
 
     obj.scrollBox2 = gui.fromHandle(_obj_newObject("scrollBox"));
@@ -96,7 +98,17 @@ function newfrmGerenciador03()
 
     obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)
-            self.rclAventuras:append();
+            if sheet~=nil then
+            								local aventuras = ndb.getChildNodes(sheet.aventuras);
+            								local num = #aventuras + 1;
+            
+            								local node = self.rclAventuras:append();
+            								if node~=nil then
+            									node.numero = num;
+            								end;
+            
+            								self.rclAventuras:sort();
+            							end;
         end, obj);
 
     obj._e_event1 = obj.button2:addEventListener("onClick",
@@ -106,15 +118,13 @@ function newfrmGerenciador03()
 
     obj._e_event2 = obj.rclAventuras:addEventListener("onCompare",
         function (self, nodeA, nodeB)
-            local mod1 = nodeA.estado;
-            						local mod2 = nodeB.estado;
-            						local modR = utils.compareStringPtBr(mod1, mod2);
-            						if modR==0 then
-            							mod1 = nodeA.numero;
-            							mod2 = nodeB.numero;
-            							modR = utils.compareStringPtBr(mod1, mod2);
-            						end;
-            						return modR;
+            if (tonumber(nodeA.numero) or 0) < (tonumber(nodeB.numero) or 0) then
+            		                    return 1;
+            		                elseif (tonumber(nodeA.numero) or 0) > (tonumber(nodeB.numero) or 0) then
+            		                    return -1;
+            		                else   
+            		                    return 0;
+            		                end;
         end, obj);
 
     function obj:_releaseEvents()

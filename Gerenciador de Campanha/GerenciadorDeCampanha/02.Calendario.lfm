@@ -32,7 +32,7 @@
 			</flowLayout>
 		</popup>
 
-		<popup name="popCelestial" width="200" height="175" backOpacity="0.4">
+		<popup name="popCelestial" width="200" height="190" backOpacity="0.4">
 			<flowLayout align="top" autoHeight="true" maxControlsPerLine="2" margins="{bottom=4}" horzAlign="center">
 				<longTitleCenter text="Eventos Celestes"/>
 				<flowLineBreak/>
@@ -57,6 +57,9 @@
 
 				<smallTitleCenter text="Meteoros"/>
 				<longComboBox field="meteoros" items="{'Nenhum', 'Raro', 'Incomum', 'Comum', 'Constante'}"/>
+
+				<smallTitleCenter text="Terremotos"/>
+				<longComboBox field="terremotos" items="{'Nenhum', 'Raro', 'Incomum', 'Comum', 'Constante'}"/>
 			</flowLayout>
 		</popup>
 
@@ -68,8 +71,24 @@
     			<label width="250" height="20" text="MESES" horzTextAlign="center"/>
 
     			<layout left="0" top="25" width="250" height="25">
-	    			<button left="10" top="0" width="25" height="25" text="+" onClick="self.rclMeses:append();"/>
-	    			<button left="35" top="0" width="25" height="25" text="O" onClick="self.rclMeses:sort();"/>
+	    			<button left="10" top="0" width="25" height="25" text="+" hint="Novo">
+	    				<event name="onClick">
+							if sheet~=nil then
+								local meses = ndb.getChildNodes(sheet.listaMeses);
+								local num = #meses + 1;
+
+								local node = self.rclMeses:append();
+								if node~=nil then
+									node.ordem = num;
+									node.mes = "Mês " .. num;
+									node.dias = 30;
+								end;
+
+								self.rclMeses:sort();
+							end;
+						</event>
+	    			</button>
+	    			<button left="35" top="0" width="25" height="25" text="O" onClick="self.rclMeses:sort();" hint="Organizar"/>
 	    			<label left="115" top="0" width="40" height="25" text="Total" hitTest="true" hint="Quantos dias dura o ano."/>
 	    			<rectangle left="165" top="0" width="35" height="25" color="black" strokeColor="white" strokeSize="1"/>
 					<label left="165" top="0" width="35" height="25" field="dias" horzTextAlign="center" fontSize="12" name="dias" hitTest="true" hint="Se estiver vermelho a duração do ano e das estações está dessincronizada. "/>
@@ -111,8 +130,23 @@
     			<label width="250" height="20" text="DIAS DA SEMANA" horzTextAlign="center"/>
 
     			<layout left="0" top="25" width="250" height="25">
-	    			<button left="10" top="0" width="25" height="25" text="+" onClick="self.rclSemana:append();"/>
-	    			<button left="35" top="0" width="25" height="25" text="O" onClick="self.rclSemana:sort();"/>
+	    			<button left="10" top="0" width="25" height="25" text="+" hint="Novo">
+	    				<event name="onClick">
+							if sheet~=nil then
+								local semana = ndb.getChildNodes(sheet.listaSemana);
+								local num = #semana + 1;
+
+								local node = self.rclSemana:append();
+								if node~=nil then
+									node.ordem = num;
+									node.dia = "Dia " .. num;
+								end;
+
+								self.rclSemana:sort();
+							end;
+						</event>
+	    			</button>
+	    			<button left="35" top="0" width="25" height="25" text="O" onClick="self.rclSemana:sort();" hint="Organizar"/>
 	    			<label left="125" top="0" width="40" height="25" text="Desvio" hitTest="true" hint="O ano 1 começa em quem dia da semana?"/>
 					<edit left="165" top="0" width="35" height="25" field="desvioSemana" type="number"/>
 				</layout>
@@ -140,8 +174,21 @@
     			<label width="250" height="20" text="LUAS" horzTextAlign="center"/>
 
     			<layout left="0" top="25" width="250" height="25">
-	    			<button left="10" top="0" width="25" height="25" text="+" onClick="self.rclLuas:append();"/>
-	    			<button left="35" top="0" width="25" height="25" text="i" name="celestialBt">
+	    			<button left="10" top="0" width="25" height="25" text="+" hint="Novo">
+	    				<event name="onClick">
+							if sheet~=nil then
+								local node = self.rclLuas:append();
+								if node~=nil then
+									node.luas = "Lua";
+									node.ciclo = 28;
+									node.desvio = 0;
+								end;
+
+								self.rclLuas:sort();
+							end;
+						</event>
+	    			</button>
+	    			<button left="35" top="0" width="25" height="25" text="i" name="celestialBt" hint="Eventos Celestiais">
 						<event name="onClick">
 							local pop = self:findControlByName("popCelestial");
 							
@@ -168,8 +215,24 @@
     			<label width="250" height="20" text="ESTAÇÕES" horzTextAlign="center"/>
 
     			<layout left="0" top="25" width="250" height="25">
-	    			<button left="10" top="0" width="25" height="25" text="+" onClick="self.rclEstacoes:append();"/>
-	    			<button left="35" top="0" width="25" height="25" text="O" onClick="self.rclEstacoes:sort();"/>
+	    			<button left="10" top="0" width="25" height="25" text="+" hint="Novo">
+	    				<event name="onClick">
+							if sheet~=nil then
+								local estacao = ndb.getChildNodes(sheet.listaEstacoes);
+								local num = #estacao + 1;
+
+								local node = self.rclEstacoes:append();
+								if node~=nil then
+									node.ordem = num;
+									node.estacao = "Estação " .. num;
+									node.dias = 90;
+								end;
+
+								self.rclEstacoes:sort();
+							end;
+						</event>
+	    			</button>
+	    			<button left="35" top="0" width="25" height="25" text="O" onClick="self.rclEstacoes:sort();" hint="Organizar"/>
 	    			<label left="125" top="0" width="40" height="25" text="Desvio" hitTest="true" hint="Em que dia do ano começa a primeira estação?"/>
 					<edit left="165" top="0" width="35" height="25" field="desvioEstacao" type="number"/>
 				</layout>
@@ -208,7 +271,7 @@
 			<label left="105" top="5" width="100" height="25" text="Era" horzTextAlign="center" />
 			<edit left="105" top="30" width="100" height="25" field="era" />
 
-			<button left="5" top="55" width="100" height="25" text="Avançar">
+			<button left="5" top="55" width="100" height="25" text="Avançar" hint="Avança X dias no Calandario.">
 				<event name="onClick"><![CDATA[ 
 					if sheet~=nil then
 						local tempo = tonumber(sheet.tempo) or 1;
@@ -298,7 +361,13 @@
 						if meses[mes] == nil or #semana < 1 or #estacoes < 1 then
 							return;
 						end;
-						local nomeMes = meses[mes].mes;
+						
+						local nomeMes = "not found";
+						for i=1, #meses, 1 do
+							if meses[i].ordem == mes then
+								nomeMes = meses[i].mes;
+							end;
+						end;
 
 						local diaDoAno = dia + meses[mes].cumulativo;
 						local tempo = diaDoAno + (ano-1) * anoDuracao;
@@ -307,7 +376,12 @@
 						if diaDaSemana == 0 then
 							diaDaSemana = #semana;
 						end;
-						local nomeDiaDaSemana = semana[diaDaSemana].dia;
+						local nomeDiaDaSemana = "not found";
+						for i=1, #semana, 1 do
+							if semana[i].ordem == diaDaSemana then
+								nomeDiaDaSemana = semana[i].dia;
+							end;
+						end;
 
 						-- defining season
 						local estacao = 0;
@@ -537,6 +611,10 @@
 
 							local porcentagemCiclo = diaCiclo / ciclo;
 
+							if luas[i].luas == nil then
+								luas[i].luas = "Lua";
+							end;
+
 							if porcentagemCiclo <= 0.125 then
 								luasInfo = luasInfo .. luas[i].luas .. " cheia";
 								luasLabel = luasLabel .. luas[i].luas .. " (cheia)";
@@ -577,9 +655,9 @@
 
 						local eventChance = {};
 						eventChance[0] = 0;
-						local eventType = {sheet.sobrentural, sheet.auroras, sheet.cometas, sheet.cadentes, sheet.lunar, sheet.solar, sheet.meteoros};
+						local eventType = {sheet.sobrentural, sheet.auroras, sheet.cometas, sheet.cadentes, sheet.lunar, sheet.solar, sheet.meteoros, sheet.terremotos};
 
-						for i = 1, 7, 1 do 
+						for i = 1, 8, 1 do 
 							if eventType[i] == "Raro" then
 								eventChance[i] = eventChance[i-1] + 1;
 							elseif eventType[i] == "Incomum" then
@@ -613,6 +691,8 @@
 							event = 6;
 						elseif dice8 <= eventChance[7] then
 							event = 7;
+						elseif dice8 <= eventChance[8] then
+							event = 8;
 						end;
 
 						-- finalazing
@@ -799,6 +879,9 @@
 									data = data .. "Durante a noite, uma forte chuva de meteoros é vista. Dezenas de meteoros iluminam o céu. "
 									sheet.eventosLabel = "Eventos: Chuva de Meteoros."
 								end;
+							elseif event == 8 then
+								data = data .. "Em certo momento do dia um terremoto começa, fazendo o chão se tremer e derrubando construções e objetos. ";
+								sheet.eventosLabel = "Eventos: Terremoto."
 							end;
 						else
 							sheet.eventosLabel = "Eventos: Nenhum."

@@ -3,7 +3,7 @@
     <scrollBox align="client">
 		<rectangle left="0" top="0" width="1210" height="20" color="Black">
 			<label left="0" top="0" width="1210" height="20" text="PAGINA EXCLUSIVA DO MESTRE" horzTextAlign="center" />
-			<button left="0" top="0" width="50" height="20" text="Exibir" onClick="secret();"/>
+			<button left="0" top="0" width="50" height="20" text="Exibir" onClick="secret();" hint="Exibe as Anotações do Mestre."/>
 		</rectangle>
 	
 	   <layout left="0" top="0" width="400" height="605" name="a1" visible="false" >

@@ -62,6 +62,7 @@ function newfrmFichaRPGmeister10_svg()
     obj.button1:setWidth(50);
     obj.button1:setHeight(20);
     obj.button1:setText("Exibir");
+    obj.button1:setHint("Exibe as Anotações do Mestre.");
     obj.button1:setName("button1");
 
     obj.a1 = gui.fromHandle(_obj_newObject("layout"));

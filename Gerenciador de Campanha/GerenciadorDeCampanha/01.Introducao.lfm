@@ -10,21 +10,39 @@
 			<label left="330" top="30" width="80" height="25" text="Data" horzTextAlign="center" />
 			<label left="460" top="30" width="40" height="25" text="Log" horzTextAlign="center" />
 			
-			<button left="495" top="5" width="25" height="25" text="O" onClick="self.rclSessoes:sort();"/>
-			<button left="520" top="5" width="25" height="25" text="+" onClick="self.rclSessoes:append();"/>
+			<button left="495" top="5" width="25" height="25" text="O" onClick="self.rclSessoes:sort();" hint="Organizar"/>
+			<button left="520" top="5" width="25" height="25" text="+" hint="Novo">
+				<event name="onClick">
+					if sheet~=nil then
+						local sessoes = ndb.getChildNodes(sheet.sessoes);
+						local num = 1;
+
+						if #sessoes > 0 then
+							num = (tonumber(sessoes[#sessoes].numero) or 0) + 1
+						end;
+
+						local node = self.rclSessoes:append();
+						if node ~nil then
+							node.numero = num;
+							node.data = os.date("%d/%m/%Y", os.time());
+						end;
+
+						self.rclSessoes:sort();
+					end;
+				</event>
+			</button>
 			
 			<scrollBox left="0" top="55" width="550" height="555">
 				<recordList left="0" top="0" width="530" height="555" itemHeight="35" autoHeight="true" minQt="1" name="rclSessoes" field="sessoes" templateForm="frmGerenciador01_Sessao">
-					<event name="onCompare">
-						local mod1 = nodeA.numero;
-						local mod2 = nodeB.numero;
-						if mod1==nil then
-							mod1 = "zzzz";
-						end;
-						if mod2==nil then
-							mod2 = "zzzz";
-						end;
-						return utils.compareStringPtBr(mod1, mod2);
+					<event name="onCompare"><![CDATA[               
+		                if (tonumber(nodeA.numero) or 0) < (tonumber(nodeB.numero) or 0) then
+		                    return 1;
+		                elseif (tonumber(nodeA.numero) or 0) > (tonumber(nodeB.numero) or 0) then
+		                    return -1;
+		                else   
+		                    return 0;
+		                end;               
+		                ]]>
 					</event>
 				</recordList>
 			</scrollBox>
@@ -70,8 +88,8 @@
 					end;
 				</event>
 			</button>
-			<button left="625" top="5" width="25" height="25" text="O" onClick="self.rclJogadores:sort();"/>
-			<button left="650" top="5" width="25" height="25" text="+" onClick="self.rclJogadores:append();"/>
+			<button left="625" top="5" width="25" height="25" text="O" onClick="self.rclJogadores:sort();" hint="Organizar"/>
+			<button left="650" top="5" width="25" height="25" text="+" onClick="self.rclJogadores:append();" hint="Novo"/>
 			
 			<scrollBox left="0" top="55" width="680" height="440">
 				<recordList left="0" top="0" width="660" height="440" itemHeight="35" autoHeight="true" minQt="1" name="rclJogadores" field="jogadores" templateForm="frmGerenciador01_Jogadores">
