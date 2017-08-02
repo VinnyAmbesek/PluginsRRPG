@@ -23,6 +23,12 @@
 				<label align="client" field="$(field)" horzTextAlign="center" fontSize="12"/>
 			</flowPart>
 		</template>
+		<template name="atributeComboBox">
+			<flowPart minWidth="60" maxWidth="60" height="20">
+				<comboBox align="client" fontColor="white" field="$(field)" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR', '-'}" values="{'1', '2', '3', '4', '5', '6', '7'}"/>
+			</flowPart>
+		</template>
+
 		<template name="atributeFlow">
 			<flowLayout align="top" autoHeight="true" maxControlsPerLine="11" margins="{bottom=4}" horzAlign="center">
 				<smallFieldCenter field="inicial$(atr)"/>
@@ -100,17 +106,18 @@
 		<template name="resitenceFlow">
 			<flowLayout align="top" autoHeight="true" maxControlsPerLine="11" margins="{bottom=4}" horzAlign="center">
 				<smallFieldCenter field="base$(tr)"/>
-				<smallLabelCenter field="efetMod$(atr)"/>
+				<smallLabelCenter field="atrMod$(tr)"/>
 				<smallFieldCenter field="magia$(tr)"/>
 				<smallFieldCenter field="variavel$(tr)"/>
 				<smallFieldCenter field="temporario$(tr)"/>
 				<smallFieldCenter field="outros$(tr)"/>
+				<atributeComboBox field="atrTr$(tr)"/>
 			</flowLayout>
 
-			<dataLink fields="{'base$(tr)', 'efetMod$(atr)', 'magia$(tr)', 'variavel$(tr)', 'temporario$(tr)', 'outros$(tr)'}">
+			<dataLink fields="{'base$(tr)', 'atrMod$(tr)', 'magia$(tr)', 'variavel$(tr)', 'temporario$(tr)', 'outros$(tr)'}">
 				<event name="onChange"><![CDATA[
 					local tr = (tonumber(sheet.base$(tr)) or 0) + 
-									(tonumber(sheet.efetMod$(atr)) or 0) + 
+									(tonumber(sheet.atrMod$(tr)) or 0) + 
 									(tonumber(sheet.magia$(tr)) or 0) + 
 									(tonumber(sheet.variavel$(tr)) or 0) + 
 									(tonumber(sheet.temporario$(tr)) or 0) + 
@@ -183,7 +190,7 @@
 			<atributeFlow atr="Sab"/>
 			<atributeFlow atr="Car"/>
 		</popup>
-		<popup name="popResistencia" width="330" height="150" backOpacity="0.4">
+		<popup name="popResistencia" width="380" height="150" backOpacity="0.4">
 			<flowLayout align="top" autoHeight="true" maxControlsPerLine="11" margins="{bottom=4}" horzAlign="center">
 				<smallTitleCenter text="Base"/>
 				<smallTitleCenter text="Atributo"/>
@@ -191,10 +198,11 @@
 				<smallTitleCenter text="Melhoria"/>
 				<smallTitleCenter text="Temp."/>
 				<smallTitleCenter text="Outros"/>
+				<smallTitleCenter text=""/>
 			</flowLayout>
-			<resitenceFlow tr="Fort" atr="Con"/>
-			<resitenceFlow tr="Ref" atr="Des"/>
-			<resitenceFlow tr="Von" atr="Sab"/>
+			<resitenceFlow tr="Fort"/>
+			<resitenceFlow tr="Ref"/>
+			<resitenceFlow tr="Von"/>
 			<textEditor align="client" field="trCondicional"/>
 		</popup>
 		<popup name="popCA" width="600" height="210" backOpacity="0.4">
@@ -452,7 +460,7 @@
 			</layout>
 
 			<label left="50" top="105" width="60" height="20" text="Manobra" fontSize="11"/>
-			<comboBox left="95" top="105" width="100" field="qualidadeVoo" items="{' ', 'Desajeitado', 'Ruim', 'Média', 'Boa', 'Perfeita'}" horzTextAlign="center"/>
+			<comboBox left="95" top="105" width="100" field="qualidadeVoo" fontColor="white" items="{' ', 'Desajeitado', 'Ruim', 'Média', 'Boa', 'Perfeita'}" horzTextAlign="center"/>
 
 			<layout left="5" top="130" width="225" height="20">
 				<Speed nome="NATAÇÃO" mode="Natacao"/>
@@ -895,13 +903,78 @@
 
 			<layout left="0" top="30" width="275" height="25">
 				<Resistence atr="Fort" atrU="FORT" atrN="Fortitude"/>
+				<dataLink field="atrTrFort" defaultValue="3"/>
 			</layout>
 			<layout left="0" top="55" width="275" height="25">
 				<Resistence atr="Ref" atrU="REF" atrN="Reflexos"/>
+				<dataLink field="atrTrRef" defaultValue="2"/>
 			</layout>
 			<layout left="0" top="80" width="275" height="25">
 				<Resistence atr="Von" atrU="VON" atrN="Vontade"/>
+				<dataLink field="atrTrVon" defaultValue="5"/>
 			</layout>
+
+			<dataLink fields="{'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar', 'atrTrFort', 'atrTrRef', 'atrTrVon'}">
+				<event name="onChange">
+					if sheet ~= nil then
+						local atrModFort = 0;
+						local atrModRef = 0;
+						local atrModVon = 0;
+
+						local num = tonumber(sheet.atrTrFort) or 3;
+
+						if num == 1 then
+							atrModFort = getFOR();
+						elseif num == 2 then
+							atrModFort = getDES();
+						elseif num == 3 then
+							atrModFort = getCON();
+						elseif num == 4 then
+							atrModFort = getINT();
+						elseif num == 5 then
+							atrModFort = getSAB();
+						elseif num == 6 then
+							atrModFort = getCAR();
+						end;
+
+						num = tonumber(sheet.atrTrRef) or 2;
+
+						if num == 1 then
+							atrModRef = getFOR();
+						elseif num == 2 then
+							atrModRef = getDES();
+						elseif num == 3 then
+							atrModRef = getCON();
+						elseif num == 4 then
+							atrModRef = getINT();
+						elseif num == 5 then
+							atrModRef = getSAB();
+						elseif num == 6 then
+							atrModRef = getCAR();
+						end;
+
+						num = tonumber(sheet.atrTrVon) or 5;
+
+						if num == 1 then
+							atrModVon = getFOR();
+						elseif num == 2 then
+							atrModVon = getDES();
+						elseif num == 3 then
+							atrModVon = getCON();
+						elseif num == 4 then
+							atrModVon = getINT();
+						elseif num == 5 then
+							atrModVon = getSAB();
+						elseif num == 6 then
+							atrModVon = getCAR();
+						end;
+
+						sheet.atrModFort = atrModFort;
+						sheet.atrModRef = atrModRef;
+						sheet.atrModVon = atrModVon;
+					end;
+				</event>
+			</dataLink>
 
 			<button left="100" top="30" width="30" height="75" name="TrBut" text=">>">
 				<event name="onClick">

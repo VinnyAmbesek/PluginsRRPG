@@ -224,8 +224,8 @@
 			
 			<layout left="0" top="50" width="1200" height="550" name="layoutMagias"  visible="false">
 				<layout left="10" top="0" width="350" height="350">
-					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus"/>
-					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
+					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus" fontColor="white"/>
+					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD" fontColor="white"/>
 					
 					<rectangle left="210" top="0" width="30" height="25" color="black" strokeColor="white" strokeSize="1"/>
 					<label left="211" top="0" width="30" height="25" field="grimorio" horzTextAlign="center"/>
@@ -323,7 +323,7 @@
 				
 			<layout left="0" top="50" width="1200" height="550" name="layoutSignos" visible="false">
 				<label vertTextAlign="center" left="130" top="0" width="30" height="25" text="CD"/>
-				<comboBox left="160" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
+				<comboBox left="160" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD" fontColor="white"/>
 				<dataLink fields="{'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'}">
 					<event name="onChange">
 						local mod = 0;
@@ -422,8 +422,8 @@
 
 			<layout left="0" top="50" width="1200" height="550" name="layoutListaMagias" visible="false">
 				<layout left="10" top="0" width="350" height="350">
-					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus"/>
-					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
+					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus" fontColor="white"/>
+					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD" fontColor="white"/>
 					
 					<rectangle left="210" top="0" width="30" height="25" color="black" strokeColor="white" strokeSize="1"/>
 					<label left="211" top="0" width="30" height="25" field="grimorio" horzTextAlign="center"/>
@@ -554,8 +554,8 @@
 			
 			<layout left="0" top="50" width="1200" height="550" name="layoutMagiasAprimoradas" visible="false">
 				<layout left="10" top="0" width="350" height="350">
-					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus"/>
-					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD"/>
+					<comboBox left="115" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoBonus" fontColor="white"/>
+					<comboBox left="260" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD" fontColor="white"/>
 					
 					<layout left="0" top="25" width="350" height="25">
 						<label vertTextAlign="center" left="0" top="3" width="25" height="22" text="NÍVEL"/>
@@ -630,7 +630,7 @@
 				</layout>
 			</layout>
 			
-			<comboBox left="10" top="50" width="110" height="25" items="{'Lista Magias', 'Signos', 'Magias (OLD)', 'Magia Epica', 'Magias Aprimoradas'}" values="{'3', '2', '1', '7', '8'}" value="3" field="tipoMagia">
+			<comboBox left="10" top="50" width="110" height="25" items="{'Lista Magias', 'Signos', 'Magias (OLD)', 'Magia Epica', 'Magias Aprimoradas'}" values="{'3', '2', '1', '7', '8'}" value="3" field="tipoMagia" fontColor="white">
 				<event name="onChange">
 					limpar();
 				</event>

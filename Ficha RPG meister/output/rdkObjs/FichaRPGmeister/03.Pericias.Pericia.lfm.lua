@@ -108,6 +108,7 @@ function newfrmFichaRPGmeister3p_svg()
     obj.comboBox1:setField("chavePericia");
     obj.comboBox1:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR', '-'});
     obj.comboBox1:setValues({'1', '2', '3', '4', '5', '6', '7'});
+    obj.comboBox1:setFontColor("white");
     obj.comboBox1:setName("comboBox1");
 
     obj.rectangle2 = gui.fromHandle(_obj_newObject("rectangle"));

@@ -2545,6 +2545,28 @@ function newfrmFichaRPGmeister1o_svg()
     obj.textEditor2:setField("rd");
     obj.textEditor2:setName("textEditor2");
 
+    obj.button15 = gui.fromHandle(_obj_newObject("button"));
+    obj.button15:setParent(obj.scrollBox1);
+    obj.button15:setLeft(800);
+    obj.button15:setTop(500);
+    obj.button15:setWidth(100);
+    obj.button15:setHeight(25);
+    obj.button15:setText("AJUSTAR");
+    obj.button15:setFontSize(11);
+    obj.button15:setHint("Vai tentar ajustar as pericias, geral e habilidades do antigo pro novo.");
+    obj.button15:setName("button15");
+
+    obj.button16 = gui.fromHandle(_obj_newObject("button"));
+    obj.button16:setParent(obj.scrollBox1);
+    obj.button16:setLeft(800);
+    obj.button16:setTop(525);
+    obj.button16:setWidth(100);
+    obj.button16:setHeight(25);
+    obj.button16:setText("LIMPAR");
+    obj.button16:setFontSize(11);
+    obj.button16:setHint("Vai limpar as pericias, geral e habilidades antigas.");
+    obj.button16:setName("button16");
+
     obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)
             local mod = (getNumber(sheet.xpAtual) or 0) + (getNumber(sheet.xpNova) or 0);
@@ -2776,7 +2798,211 @@ function newfrmFichaRPGmeister1o_svg()
             						end);
         end, obj);
 
+    obj._e_event33 = obj.button15:addEventListener("onClick",
+        function (self)
+            if sheet~= nil then
+            					Dialogs.confirmOkCancel("Se você continuar isso vai adicionar todas suas pericias, atributos, resistencias e habilidades da lista antiga a lista nova. Se você já ajustou sua ficha pra nova versão cancele. ",
+            				        function (confirmado)
+            				            if confirmado then
+            				            	-- ATRIBUTOS
+            
+            				            	if sheet.for1 ~= nil then
+            				            		sheet.inicialFor = sheet.for1;
+            				            		if sheet.for3 ~= nil then
+            					            		sheet.melhoriaFor = sheet.for3 - sheet.for1;
+            					            	end;
+            				            	end;
+            
+            				            	if sheet.des1 ~= nil then
+            				            		sheet.inicialDes = sheet.des1;
+            				            		if sheet.des3 ~= nil then
+            					            		sheet.melhoriaDes = sheet.des3 - sheet.des1;
+            					            	end;
+            				            	end;
+            
+            				            	if sheet.con1 ~= nil then
+            				            		sheet.inicialCon = sheet.con1;
+            				            		if sheet.con3 ~= nil then
+            					            		sheet.melhoriaCon = sheet.con3 - sheet.con1;
+            					            	end;
+            				            	end;
+            
+            				            	if sheet.int1 ~= nil then
+            				            		sheet.inicialInt = sheet.int1;
+            				            		if sheet.int3 ~= nil then
+            					            		sheet.melhoriaInt = sheet.int3 - sheet.int1;
+            					            	end;
+            				            	end;
+            
+            				            	if sheet.sab1 ~= nil then
+            				            		sheet.inicialSab = sheet.sab1;
+            				            		if sheet.sab3 ~= nil then
+            					            		sheet.melhoriaSab = sheet.sab3 - sheet.sab1;
+            					            	end;
+            				            	end;
+            
+            				            	if sheet.car1 ~= nil then
+            				            		sheet.inicialCar = sheet.car1;
+            				            		if sheet.car3 ~= nil then
+            					            		sheet.melhoriaCar = sheet.car3 - sheet.car1;
+            					            	end;
+            				            	end;
+            
+            				            	-- RESISTENCIAS
+            
+            				            	if sheet.fortBase ~= nil then 
+            				            		sheet.baseFort = sheet.fortBase;
+            				            	end;
+            				            	if sheet.fortMagia ~= nil then 
+            				            		sheet.variavelFort = sheet.fortMagia;
+            				            	end;
+            				            	if sheet.refBase ~= nil then 
+            				            		sheet.baseRef = sheet.refBase;
+            				            	end;
+            				            	if sheet.refMagia ~= nil then 
+            				            		sheet.variavelRef = sheet.refMagia;
+            				            	end;
+            				            	if sheet.vonBase ~= nil then 
+            				            		sheet.baseVon = sheet.vonBase;
+            				            	end;
+            				            	if sheet.vonMagia ~= nil then 
+            				            		sheet.variavelVon = sheet.vonMagia;
+            				            	end;
+            
+            				            	-- PERICIAS
+            				                for i=1, 50, 1 do
+            									if sheet["pericia" .. i] ~= nil then
+            										
+            
+            										local pericia = self.rclListaDasPericias:append();
+            
+            										if pericia ~= nil then
+            											pericia.isClass = sheet["per" .. i];
+            											pericia.nomePericia = sheet["pericia" .. i];
+            											pericia.graduacaoPericia = sheet["graduacao" .. i];
+            											pericia.racialPericia = sheet["raca" .. i];
+            											pericia.equipamentosPericia = sheet["itens" .. i];
+            											pericia.outrosPericia = sheet["outros" .. i];
+            											if sheet["chave" .. i] == "FOR" then
+            												pericia.chavePericia = "1";
+            											elseif sheet["chave" .. i] == "DES" then
+            												pericia.chavePericia = "2";
+            											elseif sheet["chave" .. i] == "CON" then
+            												pericia.chavePericia = "3";
+            											elseif sheet["chave" .. i] == "INT" then
+            												pericia.chavePericia = "4";
+            											elseif sheet["chave" .. i] == "SAB" then
+            												pericia.chavePericia = "5";
+            											elseif sheet["chave" .. i] == "CAR" then
+            												pericia.chavePericia = "6";
+            											end;
+            										end;
+            									end;
+            								end;
+            
+            								self.rclListaDasPericias:sort();
+            
+            								-- HABILIDADES Talentos/Outros
+            
+            								for i=1, 40, 1 do
+            									if sheet["tNome" .. i] then
+            										local added;
+            										if i < 15 or (i > 28 and i < 36) then
+            											added = self.rclListaDosTalentos:append();
+            										else
+            											added = self.rclListaDosOutros:append();
+            										end;
+            
+            										added.nomeHabilidade = sheet["tNome" .. i];
+            										added.obtencaoHabilidade = sheet["tNep" .. i];
+            										added.livroHabilidade = sheet["tOrigem" .. i];
+            									end;
+            								end;
+            
+            								-- HABILIDADES classe
+            
+            								for i=1, 10, 1 do
+            									if sheet["cNome" .. i] then
+            										local added = self.rclListaDasCaracteristicasClasse:append();
+            
+            										added.nomeHabilidade = sheet["cNome" .. i];
+            										added.obtencaoHabilidade = sheet["cNep" .. i];
+            										added.livroHabilidade = sheet["cOrigem" .. i];
+            
+            										local a = sheet["cDescricao" .. i .. "a"] or "";
+            										local b = sheet["cDescricao" .. i .. "b"] or "";
+            										added.descricao = a .. b;
+            									end;
+            								end;
+            				            end;
+            				        end);
+            				end;
+        end, obj);
+
+    obj._e_event34 = obj.button16:addEventListener("onClick",
+        function (self)
+            if sheet~= nil then
+            					Dialogs.confirmOkCancel("Se você continuar isso vai apagar todas suas pericias, atributos, resistencias e habilidades da lista antiga. Se você ainda não ajustou sua ficha pra nova versão cancele. ",
+            				        function (confirmado)
+            				            if confirmado then
+            				            	-- ATRIBUTOS
+            
+            				            	sheet.for1 = nil;
+            				            	sheet.for3 = nil;
+            				            	sheet.des1 = nil;
+            				            	sheet.des3 = nil;
+            				            	sheet.con1 = nil;
+            				            	sheet.con3 = nil;
+            				            	sheet.int1 = nil;
+            				            	sheet.int3 = nil;
+            				            	sheet.sab1 = nil;
+            				            	sheet.sab3 = nil;
+            				            	sheet.car1 = nil;
+            				            	sheet.car3 = nil;
+            
+            				            	-- RESISTENCIAS
+            				            	sheet.fortBase = nil;
+            								sheet.fortMagia = nil;
+            								sheet.refBase = nil;
+            								sheet.refMagia = nil;
+            								sheet.vonBase = nil;
+            								sheet.vonMagia = nil;
+            
+            				            	-- PERICIAS
+            				                for i=1, 50, 1 do
+            									sheet["per" .. i] = nil;
+            									sheet["pericia" .. i] = nil;
+            									sheet["graduacao" .. i] = nil;
+            									sheet["raca" .. i] = nil;
+            									sheet["itens" .. i] = nil;
+            									sheet["outros" .. i] = nil;
+            									sheet["chave" .. i] = nil;
+            								end;
+            
+            								-- HABILIDADES Talentos/Outros
+            
+            								for i=1, 40, 1 do
+            									sheet["tNome" .. i] = nil;
+            									sheet["tNep" .. i] = nil;
+            									sheet["tOrigem" .. i] = nil;
+            								end;
+            
+            								for i=1, 10, 1 do
+            									sheet["cNome" .. i] = nil;
+            									sheet["cNep" .. i] = nil;
+            									sheet["cOrigem" .. i] = nil;
+            									sheet["cDescricao" .. i .. "a"] = nil;
+            									sheet["cDescricao" .. i .. "b"] = nil;
+            								end;
+            
+            				            end;
+            				        end);
+            				end;
+        end, obj);
+
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event34);
+        __o_rrpgObjs.removeEventListenerById(self._e_event33);
         __o_rrpgObjs.removeEventListenerById(self._e_event32);
         __o_rrpgObjs.removeEventListenerById(self._e_event31);
         __o_rrpgObjs.removeEventListenerById(self._e_event30);
@@ -2826,6 +3052,7 @@ function newfrmFichaRPGmeister1o_svg()
         if self.edit73 ~= nil then self.edit73:destroy(); self.edit73 = nil; end;
         if self.edit64 ~= nil then self.edit64:destroy(); self.edit64 = nil; end;
         if self.rectangle37 ~= nil then self.rectangle37:destroy(); self.rectangle37 = nil; end;
+        if self.button15 ~= nil then self.button15:destroy(); self.button15 = nil; end;
         if self.layout15 ~= nil then self.layout15:destroy(); self.layout15 = nil; end;
         if self.edit41 ~= nil then self.edit41:destroy(); self.edit41 = nil; end;
         if self.layout10 ~= nil then self.layout10:destroy(); self.layout10 = nil; end;
@@ -2845,6 +3072,7 @@ function newfrmFichaRPGmeister1o_svg()
         if self.label71 ~= nil then self.label71:destroy(); self.label71 = nil; end;
         if self.rectangle16 ~= nil then self.rectangle16:destroy(); self.rectangle16 = nil; end;
         if self.label75 ~= nil then self.label75:destroy(); self.label75 = nil; end;
+        if self.button16 ~= nil then self.button16:destroy(); self.button16 = nil; end;
         if self.label63 ~= nil then self.label63:destroy(); self.label63 = nil; end;
         if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
         if self.label22 ~= nil then self.label22:destroy(); self.label22 = nil; end;

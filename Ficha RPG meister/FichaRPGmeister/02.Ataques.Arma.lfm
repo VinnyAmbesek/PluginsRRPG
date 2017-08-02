@@ -24,6 +24,7 @@
     			pen = 1;
     		end;
     		pen = pen + (tonumber(node.buffAtaque) or 0);
+            pen = pen + (tonumber(node.tamanhoCa) or 0);
 
     		-- Pegando o valor dos atributos
     		local forc = tonumber(node.efetModFor) or 0;
@@ -340,7 +341,7 @@
 	<rectangle align="client" color="black" strokeColor="white" strokeSize="1"/>
     
 	<layout left="2" top="2" width="1105" height="300" name="default">
-		<comboBox left="0" top="0" width="200" height="25" name="weaponType" field="weaponType">
+		<comboBox left="0" top="0" width="200" height="25" name="weaponType" field="weaponType" fontColor="white">
 			<event name="onChange">
 				updateAll();
 			</event>
@@ -393,13 +394,13 @@
 		</layout>
 		<layout left="720" top="25" width="225" height="250">
 			<label left="0" top="0" width="75" height="25" text="Forma"/>
-			<comboBox left="75" top="0" width="150" height="25" field="forma" items="{'Corpo-a-Corpo', 'Distancia', 'Arremesso', 'Acuidade'}" values="{'1', '2', '3', '4'}"/>
+			<comboBox left="75" top="0" width="150" height="25" field="forma" items="{'Corpo-a-Corpo', 'Distancia', 'Arremesso', 'Acuidade'}" values="{'1', '2', '3', '4'}" fontColor="white"/>
 
             <label left="0" top="25" width="75" height="25" text="Empunhadura" fontSize="11"/>
-			<comboBox left="75" top="25" width="150" height="25" field="empunhadura" items="{'Leve', 'Uma Mão', 'Duas Mãos', 'Natural: Primario', 'Natural: Secundario'}" values="{'0', '1', '2', '3', '4'}"/>
+			<comboBox left="75" top="25" width="150" height="25" field="empunhadura" items="{'Leve', 'Uma Mão', 'Duas Mãos', 'Natural: Primario', 'Natural: Secundario'}" values="{'0', '1', '2', '3', '4'}" fontColor="white"/>
 
             <label left="0" top="50" width="75" height="25" text="Mão"/>
-			<comboBox left="75" top="50" width="150" height="25" field="mao" items="{'Habil', 'Inabil', 'Natural: Principal'}" values="{'0', '1', '2'}"/>
+			<comboBox left="75" top="50" width="150" height="25" field="mao" items="{'Habil', 'Inabil', 'Natural: Principal'}" values="{'0', '1', '2'}" fontColor="white"/>
 
 			<label left="0" top="75" width="75" height="25" text="Munição"/>
 			<edit left="75" top="75" width="50" height="25" field="municao"/>

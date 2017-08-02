@@ -281,6 +281,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox1:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
     obj.comboBox1:setValues({'1', '2', '3', '4', '5', '6'});
     obj.comboBox1:setField("atributoBonus");
+    obj.comboBox1:setFontColor("white");
     obj.comboBox1:setName("comboBox1");
 
     obj.comboBox2 = gui.fromHandle(_obj_newObject("comboBox"));
@@ -292,6 +293,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox2:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
     obj.comboBox2:setValues({'1', '2', '3', '4', '5', '6'});
     obj.comboBox2:setField("atributoCD");
+    obj.comboBox2:setFontColor("white");
     obj.comboBox2:setName("comboBox2");
 
     obj.rectangle3 = gui.fromHandle(_obj_newObject("rectangle"));
@@ -1738,6 +1740,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox3:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
     obj.comboBox3:setValues({'1', '2', '3', '4', '5', '6'});
     obj.comboBox3:setField("atributoCD");
+    obj.comboBox3:setFontColor("white");
     obj.comboBox3:setName("comboBox3");
 
     obj.dataLink32 = gui.fromHandle(_obj_newObject("dataLink"));
@@ -2427,6 +2430,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox4:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
     obj.comboBox4:setValues({'1', '2', '3', '4', '5', '6'});
     obj.comboBox4:setField("atributoBonus");
+    obj.comboBox4:setFontColor("white");
     obj.comboBox4:setName("comboBox4");
 
     obj.comboBox5 = gui.fromHandle(_obj_newObject("comboBox"));
@@ -2438,6 +2442,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox5:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
     obj.comboBox5:setValues({'1', '2', '3', '4', '5', '6'});
     obj.comboBox5:setField("atributoCD");
+    obj.comboBox5:setFontColor("white");
     obj.comboBox5:setName("comboBox5");
 
     obj.rectangle4 = gui.fromHandle(_obj_newObject("rectangle"));
@@ -4687,6 +4692,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox6:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
     obj.comboBox6:setValues({'1', '2', '3', '4', '5', '6'});
     obj.comboBox6:setField("atributoBonus");
+    obj.comboBox6:setFontColor("white");
     obj.comboBox6:setName("comboBox6");
 
     obj.comboBox7 = gui.fromHandle(_obj_newObject("comboBox"));
@@ -4698,6 +4704,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox7:setItems({'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'});
     obj.comboBox7:setValues({'1', '2', '3', '4', '5', '6'});
     obj.comboBox7:setField("atributoCD");
+    obj.comboBox7:setFontColor("white");
     obj.comboBox7:setName("comboBox7");
 
     obj.layout80 = gui.fromHandle(_obj_newObject("layout"));
@@ -6092,6 +6099,7 @@ function newfrmFichaRPGmeister5M_svg()
     obj.comboBox8:setValues({'3', '2', '1', '7', '8'});
     obj.comboBox8:setValue("3");
     obj.comboBox8:setField("tipoMagia");
+    obj.comboBox8:setFontColor("white");
     obj.comboBox8:setName("comboBox8");
 
     obj.popMagia = gui.fromHandle(_obj_newObject("popup"));

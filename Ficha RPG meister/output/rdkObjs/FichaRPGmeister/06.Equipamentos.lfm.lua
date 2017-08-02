@@ -1033,6 +1033,7 @@ function newfrmFichaRPGmeister6_svg()
     obj.comboBox3:setHeight(20);
     obj.comboBox3:setField("equipamentoCorpoCategoria");
     obj.comboBox3:setItems({'Leve', 'Média', 'Pesada', 'Massiva'});
+    obj.comboBox3:setFontColor("white");
     obj.comboBox3:setName("comboBox3");
 
     obj.label22 = gui.fromHandle(_obj_newObject("label"));

@@ -664,7 +664,6 @@ function newfrmFichaRPGmeister3_svg()
     obj.rclListaDosIdiomas:setWidth(290);
     obj.rclListaDosIdiomas:setHeight(320);
     obj.rclListaDosIdiomas:setLayout("vertical");
-    obj.rclListaDosIdiomas:setMinQt(1);
 
     obj.layout3 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout3:setParent(obj.scrollBox1);

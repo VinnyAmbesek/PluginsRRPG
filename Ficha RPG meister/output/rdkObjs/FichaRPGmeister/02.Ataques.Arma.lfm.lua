@@ -56,6 +56,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     			pen = 1;
     		end;
     		pen = pen + (tonumber(node.buffAtaque) or 0);
+            pen = pen + (tonumber(node.tamanhoCa) or 0);
 
     		-- Pegando o valor dos atributos
     		local forc = tonumber(node.efetModFor) or 0;
@@ -378,6 +379,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.weaponType:setHeight(25);
     obj.weaponType:setName("weaponType");
     obj.weaponType:setField("weaponType");
+    obj.weaponType:setFontColor("white");
 
     obj.layout1 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout1:setParent(obj.default);
@@ -1219,6 +1221,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.comboBox1:setField("forma");
     obj.comboBox1:setItems({'Corpo-a-Corpo', 'Distancia', 'Arremesso', 'Acuidade'});
     obj.comboBox1:setValues({'1', '2', '3', '4'});
+    obj.comboBox1:setFontColor("white");
     obj.comboBox1:setName("comboBox1");
 
     obj.label2 = gui.fromHandle(_obj_newObject("label"));
@@ -1240,6 +1243,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.comboBox2:setField("empunhadura");
     obj.comboBox2:setItems({'Leve', 'Uma Mão', 'Duas Mãos', 'Natural: Primario', 'Natural: Secundario'});
     obj.comboBox2:setValues({'0', '1', '2', '3', '4'});
+    obj.comboBox2:setFontColor("white");
     obj.comboBox2:setName("comboBox2");
 
     obj.label3 = gui.fromHandle(_obj_newObject("label"));
@@ -1260,6 +1264,7 @@ function newfrmFichaRPGmeister2Aar_svg()
     obj.comboBox3:setField("mao");
     obj.comboBox3:setItems({'Habil', 'Inabil', 'Natural: Principal'});
     obj.comboBox3:setValues({'0', '1', '2'});
+    obj.comboBox3:setFontColor("white");
     obj.comboBox3:setName("comboBox3");
 
     obj.label4 = gui.fromHandle(_obj_newObject("label"));

@@ -1,12 +1,18 @@
 # fichaRPGmeister
 Proximas Versões
-+ Combobox de tamanho + checkbox de quadrupede para calcular carga.
-+ Calculo automatico de Carga. 
 + Tiro Multiplo Aprimorado pra ataques avançados. 
 + Dar uma olhada nas questões de ajuste de tamanho da ficha para telas pequenas. 
++ Combobox atributo pra TR.
 
+1 de Agosto de 2017
 Versao 24:
+- Botao temporario para ajustar as habilidades, pericias, atributos e TRs para o modelo novo.
 - Corrigido bug na rolagem de testes de TR.
+- Alterada cor da fonte dos comboBox pra branco. 
+- Combobox para selecionar tamanho do personagem adicionado. 
+- Calculo automatico de carga.
+- Penalidades e Bonus de tamanho automaticamente adicionados a CA, Agarrar e Acerto. 
+- Combobox para selecionar atributo associado a TR adicionado. 
 
 13 de Julho de 2017
 Versao 23

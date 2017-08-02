@@ -124,11 +124,16 @@
 			<label left="5" top="1" width="150" height="20" text="CARGA"/>
 			
 			<label left="20" top="25" width="50" height="20" text="LEVE"/>
-			<edit horzTextAlign="center" left="80" top="25" width="70" height="20" field="cargaLeve"/>
+			<rectangle left="80" top="25" width="70" height="20" color="black" strokeColor="white" strokeSize="1"/>
+			<label left="80" top="25" width="70" height="20" field="cargaLeve" horzTextAlign="center"/>
+
 			<label left="20" top="47" width="50" height="20" text="MÉDIA"/>
-			<edit horzTextAlign="center" left="80" top="47" width="70" height="20" field="cargaMedia"/>
+			<rectangle left="80" top="47" width="70" height="20" color="black" strokeColor="white" strokeSize="1"/>
+			<label left="80" top="47" width="70" height="20" field="cargaMedia" horzTextAlign="center"/>
+
 			<label left="20" top="69" width="50" height="20" text="PESADA"/>
-			<edit horzTextAlign="center" left="80" top="69" width="70" height="20" field="cargaPesada"/>
+			<rectangle left="80" top="69" width="70" height="20" color="black" strokeColor="white" strokeSize="1"/>
+			<label left="80" top="69" width="70" height="20" field="cargaPesada" horzTextAlign="center"/>
 			
 			<rectangle width="70" height="20" left="80" top="91" color="black" strokeColor="white" strokeSize="1"/>
 			<label left="20" top="91" width="50" height="20" text="ERGUER"/>
