@@ -2,6 +2,11 @@
 <form name="frmFichaRPGmeister2Aar_svg" width="1110" height="280" theme="dark"  margins="{top=1, bottom=1}">
 	<script>
 		local function updateAll()
+
+            if debug then
+                rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Ataque com Arma.");
+                index = index + 1;
+            end;
 			if sheet == nil then
 				return;
 			end;
@@ -117,11 +122,13 @@
     			pen = pen + des;
     		end;
 
+            local multMunicao = 0;
     		if sheet.tiroMultiplo then
     			acertos = {};
     			acertos[1] = bba;
     			pen = pen-2;
     			local qtd = tonumber(sheet.tiroMultiploQtd) or 1;
+                multMunicao = qtd;
     			pen = pen - (qtd * 2);
     		end;
 
@@ -316,6 +323,7 @@
 
     		sheet.acertos = acertos;
     		sheet.numAtaques = #acertos;
+            sheet.multMunicao = multMunicao;
     		sheet.dado = dado;
     		sheet.crit = crit;
     		sheet.decisivo = decisivo;

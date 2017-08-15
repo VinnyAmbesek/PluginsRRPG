@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmFichaRPGmeister" formType="sheetTemplate" dataType="Alterar.DataType.FichaRPGmeister" title="Ficha RPGmeister" align="client" theme="dark">
+    <script>
+        local debug = false;
+        local index = 1;
+    </script>
     <tabControl align="client">
         <tab title="Geral">
-            
             <tabControl align="client">
                 <tab title="Novo">
                     <import file="01.Geral.lfm"/>
@@ -23,24 +26,10 @@
             </tabControl>
         </tab>
         <tab title="Perícias">
-            <tabControl align="client">
-                <tab title="Novo">
-                    <import file="03.Pericias.lfm"/>
-                </tab>
-                <tab title="Antigo">
-                    <import file="03.Pericias_old.lfm"/>
-                </tab>
-            </tabControl>
+            <import file="03.Pericias.lfm"/>
         </tab>
         <tab title="Habilidades">
-            <tabControl align="client">
-                <tab title="Novo">
-                    <import file="04.Habilidades.lfm"/>
-                </tab>
-                <tab title="Antigo">
-                    <import file="04.Habilidades_old.lfm"/>
-                </tab>
-            </tabControl>  
+            <import file="04.Habilidades.lfm"/>
         </tab>
 		<tab title="Magias">
             <import file="05.Magias.lfm"/>

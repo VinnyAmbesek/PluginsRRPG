@@ -243,12 +243,13 @@ function newfrmFichaRPGmeister2a_svg()
             						resultadoAtaques = {};
             						ataquesFeitos = 0;
             						numeroAtaques = 0;
+            						multMunicao = 0;
             						for i=1, #weapons, 1 do
             							local acertos = weapons[i].acertos;
             							local armamento = weapons[i].nomeAtaque or "arma";
             
-            							
             							numeroAtaques = numeroAtaques + weapons[i].numAtaques;
+            							multMunicao = multMunicao + weapons[i].multMunicao;
             
             							if weapons[i].municao~= nil then
             								local municao = tonumber(weapons[i].municao) or 0;
@@ -256,7 +257,7 @@ function newfrmFichaRPGmeister2a_svg()
             									weapons[i].municao = 0;
             									mesaDoPersonagem.activeChat:enviarMensagem("Esta arma possui apenas " .. municao .. " das " .. numeroAtaques .. " munições necessarias para atacar.");
             								else
-            									weapons[i].municao = municao - numeroAtaques;
+            									weapons[i].municao = municao - numeroAtaques - multMunicao;
             								end;
             							end;
             

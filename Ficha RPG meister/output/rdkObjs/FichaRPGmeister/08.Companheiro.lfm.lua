@@ -1142,6 +1142,10 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					if node~=nil then
+            						if debug then
+            							rrpg.getMesaDe(node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Modificador de Atributo do Companheiro. ");
+            							index = index + 1;
+            						end;
             						local mod = (tonumber(node.forComp) or 0);
             						mod = math.floor((mod-10)/2);
             						if mod >=0 then
@@ -1168,6 +1172,10 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					if node~=nil then
+            						if debug then
+            							rrpg.getMesaDe(node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Modificador de Atributo do Companheiro. ");
+            							index = index + 1;
+            						end;
             						local mod = (tonumber(node.desComp) or 0);
             						mod = math.floor((mod-10)/2);
             						if mod >=0 then
@@ -1194,6 +1202,10 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					if node~=nil then
+            						if debug then
+            							rrpg.getMesaDe(node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Modificador de Atributo do Companheiro. ");
+            							index = index + 1;
+            						end;
             						local mod = (tonumber(node.conComp) or 0);
             						mod = math.floor((mod-10)/2);
             						if mod >=0 then
@@ -1220,6 +1232,10 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					if node~=nil then
+            						if debug then
+            							rrpg.getMesaDe(node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Modificador de Atributo do Companheiro. ");
+            							index = index + 1;
+            						end;
             						local mod = (tonumber(node.intComp) or 0);
             						mod = math.floor((mod-10)/2);
             						if mod >=0 then
@@ -1246,6 +1262,10 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					if node~=nil then
+            						if debug then
+            							rrpg.getMesaDe(node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Modificador de Atributo do Companheiro. ");
+            							index = index + 1;
+            						end;
             						local mod = (tonumber(node.sabComp) or 0);
             						mod = math.floor((mod-10)/2);
             						if mod >=0 then
@@ -1272,6 +1292,10 @@ function newfrmFichaRPGmeister8_svg()
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             					if node~=nil then
+            						if debug then
+            							rrpg.getMesaDe(node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Modificador de Atributo do Companheiro. ");
+            							index = index + 1;
+            						end;
             						local mod = (tonumber(node.carComp) or 0);
             						mod = math.floor((mod-10)/2);
             						if mod >=0 then

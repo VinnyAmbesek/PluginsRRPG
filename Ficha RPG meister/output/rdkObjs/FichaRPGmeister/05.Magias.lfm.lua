@@ -200,6 +200,10 @@ function newfrmFichaRPGmeister5M_svg()
 
 				local function limpar()
 					if self.boxDetalhesDoItem.node~= nil then
+						if debug then
+							rrpg.getMesaDe(self.boxDetalhesDoItem.node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Visibilidade da pagina de magias. ");
+							index = index + 1;
+						end;
 						local mod = self.boxDetalhesDoItem.node.tipoMagia;
 						if mod=='1' then
 							self.layoutMagias.visible = true;
@@ -6334,6 +6338,60 @@ function newfrmFichaRPGmeister5M_svg()
     obj.edit157:setFontSize(12);
     obj.edit157:setName("edit157");
 
+    obj.flowPart9 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart9:setParent(obj.flowLayout1);
+    obj.flowPart9:setMinWidth(30);
+    obj.flowPart9:setMaxWidth(400);
+    obj.flowPart9:setHeight(35);
+    obj.flowPart9:setName("flowPart9");
+
+    obj.label167 = gui.fromHandle(_obj_newObject("label"));
+    obj.label167:setParent(obj.flowPart9);
+    obj.label167:setAlign("top");
+    obj.label167:setFontSize(10);
+    obj.label167:setText("LIVRO");
+    obj.label167:setHorzTextAlign("center");
+    obj.label167:setWordWrap(true);
+    obj.label167:setTextTrimming("none");
+    obj.label167:setAutoSize(true);
+    obj.label167:setName("label167");
+    obj.label167:setFontColor("white");
+
+    obj.edit158 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit158:setParent(obj.flowPart9);
+    obj.edit158:setAlign("client");
+    obj.edit158:setField("livro");
+    obj.edit158:setHorzTextAlign("center");
+    obj.edit158:setFontSize(12);
+    obj.edit158:setName("edit158");
+
+    obj.flowPart10 = gui.fromHandle(_obj_newObject("flowPart"));
+    obj.flowPart10:setParent(obj.flowLayout1);
+    obj.flowPart10:setMinWidth(30);
+    obj.flowPart10:setMaxWidth(400);
+    obj.flowPart10:setHeight(35);
+    obj.flowPart10:setName("flowPart10");
+
+    obj.label168 = gui.fromHandle(_obj_newObject("label"));
+    obj.label168:setParent(obj.flowPart10);
+    obj.label168:setAlign("top");
+    obj.label168:setFontSize(10);
+    obj.label168:setText("PÁGINA");
+    obj.label168:setHorzTextAlign("center");
+    obj.label168:setWordWrap(true);
+    obj.label168:setTextTrimming("none");
+    obj.label168:setAutoSize(true);
+    obj.label168:setName("label168");
+    obj.label168:setFontColor("white");
+
+    obj.edit159 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit159:setParent(obj.flowPart10);
+    obj.edit159:setAlign("client");
+    obj.edit159:setField("pagina");
+    obj.edit159:setHorzTextAlign("center");
+    obj.edit159:setFontSize(12);
+    obj.edit159:setName("edit159");
+
     obj.textEditor41 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor41:setParent(obj.popMagia);
     obj.textEditor41:setAlign("client");
@@ -6374,6 +6432,10 @@ function newfrmFichaRPGmeister5M_svg()
     obj._e_event4 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             if sheet~=nil then
+            								if debug then
+            									rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Paginas do Grimorio.");
+            									index = index + 1;
+            								end;
             								local mod = (tonumber(self.boxDetalhesDoItem.node.conhecidas0) or 0) + 
             											(tonumber(self.boxDetalhesDoItem.node.conhecidas1) or 0) + 
             											(tonumber(self.boxDetalhesDoItem.node.conhecidas2) or 0)*2 + 
@@ -6395,63 +6457,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event6 = obj.dataLink3:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 0;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 0;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus0 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus0 = resultado;
         end, obj);
 
     obj._e_event7 = obj.dataLink4:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 0;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 0;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd0 = mod;
+            							self.boxDetalhesDoItem.node.cd0 = mod;
+            						end;
         end, obj);
 
     obj._e_event8 = obj.dataLink5:addEventListener("onChange",
@@ -6461,63 +6535,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event9 = obj.dataLink6:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 1;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 1;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus1 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus1 = resultado;
         end, obj);
 
     obj._e_event10 = obj.dataLink7:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 1;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 1;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd1 = mod;
+            							self.boxDetalhesDoItem.node.cd1 = mod;
+            						end;
         end, obj);
 
     obj._e_event11 = obj.dataLink8:addEventListener("onChange",
@@ -6527,63 +6613,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event12 = obj.dataLink9:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 2;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 2;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus2 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus2 = resultado;
         end, obj);
 
     obj._e_event13 = obj.dataLink10:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 2;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 2;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd2 = mod;
+            							self.boxDetalhesDoItem.node.cd2 = mod;
+            						end;
         end, obj);
 
     obj._e_event14 = obj.dataLink11:addEventListener("onChange",
@@ -6593,63 +6691,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event15 = obj.dataLink12:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 3;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 3;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus3 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus3 = resultado;
         end, obj);
 
     obj._e_event16 = obj.dataLink13:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 3;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 3;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd3 = mod;
+            							self.boxDetalhesDoItem.node.cd3 = mod;
+            						end;
         end, obj);
 
     obj._e_event17 = obj.dataLink14:addEventListener("onChange",
@@ -6659,63 +6769,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event18 = obj.dataLink15:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 4;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 4;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus4 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus4 = resultado;
         end, obj);
 
     obj._e_event19 = obj.dataLink16:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 4;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 4;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd4 = mod;
+            							self.boxDetalhesDoItem.node.cd4 = mod;
+            						end;
         end, obj);
 
     obj._e_event20 = obj.dataLink17:addEventListener("onChange",
@@ -6725,63 +6847,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event21 = obj.dataLink18:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 5;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 5;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus5 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus5 = resultado;
         end, obj);
 
     obj._e_event22 = obj.dataLink19:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 5;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 5;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd5 = mod;
+            							self.boxDetalhesDoItem.node.cd5 = mod;
+            						end;
         end, obj);
 
     obj._e_event23 = obj.dataLink20:addEventListener("onChange",
@@ -6791,63 +6925,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event24 = obj.dataLink21:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 6;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 6;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus6 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus6 = resultado;
         end, obj);
 
     obj._e_event25 = obj.dataLink22:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 6;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 6;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd6 = mod;
+            							self.boxDetalhesDoItem.node.cd6 = mod;
+            						end;
         end, obj);
 
     obj._e_event26 = obj.dataLink23:addEventListener("onChange",
@@ -6857,63 +7003,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event27 = obj.dataLink24:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 7;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 7;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus7 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus7 = resultado;
         end, obj);
 
     obj._e_event28 = obj.dataLink25:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 7;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 7;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd7 = mod;
+            							self.boxDetalhesDoItem.node.cd7 = mod;
+            						end;
         end, obj);
 
     obj._e_event29 = obj.dataLink26:addEventListener("onChange",
@@ -6923,63 +7081,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event30 = obj.dataLink27:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 8;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 8;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus8 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus8 = resultado;
         end, obj);
 
     obj._e_event31 = obj.dataLink28:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 8;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 8;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd8 = mod;
+            							self.boxDetalhesDoItem.node.cd8 = mod;
+            						end;
         end, obj);
 
     obj._e_event32 = obj.dataLink29:addEventListener("onChange",
@@ -6989,89 +7159,111 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event33 = obj.dataLink30:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 9;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 9;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus9 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus9 = resultado;
         end, obj);
 
     obj._e_event34 = obj.dataLink31:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 9;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 9;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd9 = mod;
+            							self.boxDetalhesDoItem.node.cd9 = mod;
+            						end;
         end, obj);
 
     obj._e_event35 = obj.dataLink32:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
+            if sheet~=nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD signos");
+            								index = index + 1;
+            							end;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.cdSignos = (10+mod+1) .. "  " .. (10+mod+3) .. "  " .. (10+mod+5) .. "  " .. (10+mod+7) .. "  " .. (10+mod+9);
             						end;
-            						
-            						self.boxDetalhesDoItem.node.cdSignos = (10+mod+1) .. "  " .. (10+mod+3) .. "  " .. (10+mod+5) .. "  " .. (10+mod+7) .. "  " .. (10+mod+9);
         end, obj);
 
     obj._e_event36 = obj.dataLink33:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             if sheet~=nil then
+            								if debug then
+            									rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Paginas do grimorio.");
+            									index = index + 1;
+            								end;
             								local mod = (tonumber(self.boxDetalhesDoItem.node.conhecidas0) or 0) + 
             											(tonumber(self.boxDetalhesDoItem.node.conhecidas1) or 0) + 
             											(tonumber(self.boxDetalhesDoItem.node.conhecidas2) or 0)*2 + 
@@ -7093,63 +7285,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event38 = obj.dataLink35:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 0;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 0;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus0 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus0 = resultado;
         end, obj);
 
     obj._e_event39 = obj.dataLink36:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 0;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 0;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd0 = mod;
+            							self.boxDetalhesDoItem.node.cd0 = mod;
+            						end;
         end, obj);
 
     obj._e_event40 = obj.dataLink37:addEventListener("onChange",
@@ -7159,63 +7363,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event41 = obj.dataLink38:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 1;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 1;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus1 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus1 = resultado;
         end, obj);
 
     obj._e_event42 = obj.dataLink39:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 1;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 1;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd1 = mod;
+            							self.boxDetalhesDoItem.node.cd1 = mod;
+            						end;
         end, obj);
 
     obj._e_event43 = obj.dataLink40:addEventListener("onChange",
@@ -7225,63 +7441,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event44 = obj.dataLink41:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 2;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 2;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus2 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus2 = resultado;
         end, obj);
 
     obj._e_event45 = obj.dataLink42:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 2;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 2;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd2 = mod;
+            							self.boxDetalhesDoItem.node.cd2 = mod;
+            						end;
         end, obj);
 
     obj._e_event46 = obj.dataLink43:addEventListener("onChange",
@@ -7291,63 +7519,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event47 = obj.dataLink44:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 3;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 3;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus3 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus3 = resultado;
         end, obj);
 
     obj._e_event48 = obj.dataLink45:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 3;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 3;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd3 = mod;
+            							self.boxDetalhesDoItem.node.cd3 = mod;
+            						end;
         end, obj);
 
     obj._e_event49 = obj.dataLink46:addEventListener("onChange",
@@ -7357,63 +7597,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event50 = obj.dataLink47:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 4;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 4;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus4 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus4 = resultado;
         end, obj);
 
     obj._e_event51 = obj.dataLink48:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 4;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 4;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd4 = mod;
+            							self.boxDetalhesDoItem.node.cd4 = mod;
+            						end;
         end, obj);
 
     obj._e_event52 = obj.dataLink49:addEventListener("onChange",
@@ -7423,63 +7675,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event53 = obj.dataLink50:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 5;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 5;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus5 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus5 = resultado;
         end, obj);
 
     obj._e_event54 = obj.dataLink51:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 5;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 5;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd5 = mod;
+            							self.boxDetalhesDoItem.node.cd5 = mod;
+            						end;
         end, obj);
 
     obj._e_event55 = obj.dataLink52:addEventListener("onChange",
@@ -7489,63 +7753,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event56 = obj.dataLink53:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 6;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 6;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus6 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus6 = resultado;
         end, obj);
 
     obj._e_event57 = obj.dataLink54:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 6;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 6;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd6 = mod;
+            							self.boxDetalhesDoItem.node.cd6 = mod;
+            						end;
         end, obj);
 
     obj._e_event58 = obj.dataLink55:addEventListener("onChange",
@@ -7555,63 +7831,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event59 = obj.dataLink56:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 7;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 7;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus7 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus7 = resultado;
         end, obj);
 
     obj._e_event60 = obj.dataLink57:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 7;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 7;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd7 = mod;
+            							self.boxDetalhesDoItem.node.cd7 = mod;
+            						end;
         end, obj);
 
     obj._e_event61 = obj.dataLink58:addEventListener("onChange",
@@ -7621,63 +7909,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event62 = obj.dataLink59:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 8;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 8;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus8 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus8 = resultado;
         end, obj);
 
     obj._e_event63 = obj.dataLink60:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 8;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 8;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd8 = mod;
+            							self.boxDetalhesDoItem.node.cd8 = mod;
+            						end;
         end, obj);
 
     obj._e_event64 = obj.dataLink61:addEventListener("onChange",
@@ -7687,63 +7987,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event65 = obj.dataLink62:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 9;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 9;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus9 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus9 = resultado;
         end, obj);
 
     obj._e_event66 = obj.dataLink63:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 9;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 9;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd9 = mod;
+            							self.boxDetalhesDoItem.node.cd9 = mod;
+            						end;
         end, obj);
 
     obj._e_event67 = obj.button3:addEventListener("onClick",
@@ -7963,63 +8275,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event98 = obj.dataLink65:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 10;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 10;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus10 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus10 = resultado;
         end, obj);
 
     obj._e_event99 = obj.dataLink66:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 10;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 10;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd10 = mod;
+            							self.boxDetalhesDoItem.node.cd10 = mod;
+            						end;
         end, obj);
 
     obj._e_event100 = obj.dataLink67:addEventListener("onChange",
@@ -8029,63 +8353,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event101 = obj.dataLink68:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 11;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 11;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus11 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus11 = resultado;
         end, obj);
 
     obj._e_event102 = obj.dataLink69:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 11;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 11;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd11 = mod;
+            							self.boxDetalhesDoItem.node.cd11 = mod;
+            						end;
         end, obj);
 
     obj._e_event103 = obj.dataLink70:addEventListener("onChange",
@@ -8095,63 +8431,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event104 = obj.dataLink71:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 12;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 12;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus12 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus12 = resultado;
         end, obj);
 
     obj._e_event105 = obj.dataLink72:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 12;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 12;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd12 = mod;
+            							self.boxDetalhesDoItem.node.cd12 = mod;
+            						end;
         end, obj);
 
     obj._e_event106 = obj.dataLink73:addEventListener("onChange",
@@ -8161,63 +8509,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event107 = obj.dataLink74:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 13;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 13;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus13 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus13 = resultado;
         end, obj);
 
     obj._e_event108 = obj.dataLink75:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 13;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 13;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd13 = mod;
+            							self.boxDetalhesDoItem.node.cd13 = mod;
+            						end;
         end, obj);
 
     obj._e_event109 = obj.dataLink76:addEventListener("onChange",
@@ -8227,63 +8587,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event110 = obj.dataLink77:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 14;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 14;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus14 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus14 = resultado;
         end, obj);
 
     obj._e_event111 = obj.dataLink78:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 14;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 14;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd14 = mod;
+            							self.boxDetalhesDoItem.node.cd14 = mod;
+            						end;
         end, obj);
 
     obj._e_event112 = obj.dataLink79:addEventListener("onChange",
@@ -8293,63 +8665,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event113 = obj.dataLink80:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 15;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 15;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus15 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus15 = resultado;
         end, obj);
 
     obj._e_event114 = obj.dataLink81:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 15;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 15;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd15 = mod;
+            							self.boxDetalhesDoItem.node.cd15 = mod;
+            						end;
         end, obj);
 
     obj._e_event115 = obj.dataLink82:addEventListener("onChange",
@@ -8359,63 +8743,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event116 = obj.dataLink83:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 16;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 16;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus16 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus16 = resultado;
         end, obj);
 
     obj._e_event117 = obj.dataLink84:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 16;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 16;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd16 = mod;
+            							self.boxDetalhesDoItem.node.cd16 = mod;
+            						end;
         end, obj);
 
     obj._e_event118 = obj.dataLink85:addEventListener("onChange",
@@ -8425,63 +8821,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event119 = obj.dataLink86:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 17;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 17;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus17 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus17 = resultado;
         end, obj);
 
     obj._e_event120 = obj.dataLink87:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 17;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 17;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd17 = mod;
+            							self.boxDetalhesDoItem.node.cd17 = mod;
+            						end;
         end, obj);
 
     obj._e_event121 = obj.dataLink88:addEventListener("onChange",
@@ -8491,63 +8899,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event122 = obj.dataLink89:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 18;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 18;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus18 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus18 = resultado;
         end, obj);
 
     obj._e_event123 = obj.dataLink90:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 18;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 18;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd18 = mod;
+            							self.boxDetalhesDoItem.node.cd18 = mod;
+            						end;
         end, obj);
 
     obj._e_event124 = obj.dataLink91:addEventListener("onChange",
@@ -8557,63 +8977,75 @@ function newfrmFichaRPGmeister5M_svg()
 
     obj._e_event125 = obj.dataLink92:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 19;
-            						
-            						if nivel==0 then
-            							resultado = 0;
-            						else 
-            							if (nivel>mod) then
-            								result = 0;
-            							else
-            								resultado = mod + 4 - nivel;
-            								resultado = math.floor(resultado/4);
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+            								index = index + 1;
             							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 19;
+            							
+            							if nivel==0 then
+            								resultado = 0;
+            							else 
+            								if (nivel>mod) then
+            									result = 0;
+            								else
+            									resultado = mod + 4 - nivel;
+            									resultado = math.floor(resultado/4);
+            								end;
+            							end;
+            							
+            							self.boxDetalhesDoItem.node.bonus19 = resultado;
             						end;
-            						
-            						self.boxDetalhesDoItem.node.bonus19 = resultado;
         end, obj);
 
     obj._e_event126 = obj.dataLink93:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local resultado = 0;
-            						local mod = 0;
-            						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-            						
-            						if ctrl=='1' then
-            							mod = getFOR();
-            						elseif ctrl=='2' then
-            							mod = getDES();
-            						elseif ctrl=='3' then
-            							mod = getCON();
-            						elseif ctrl=='4' then
-            							mod = getINT();
-            						elseif ctrl=='5' then
-            							mod = getSAB();
-            						elseif ctrl=='6' then
-            							mod = getCAR();
-            						end;
-            						local nivel = 19;
-            						
-            						mod = 10 + mod + nivel;
+            if sheet ~= nil then
+            							if debug then
+            								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+            								index = index + 1;
+            							end;
+            							local resultado = 0;
+            							local mod = 0;
+            							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+            							
+            							if ctrl=='1' then
+            								mod = getFOR();
+            							elseif ctrl=='2' then
+            								mod = getDES();
+            							elseif ctrl=='3' then
+            								mod = getCON();
+            							elseif ctrl=='4' then
+            								mod = getINT();
+            							elseif ctrl=='5' then
+            								mod = getSAB();
+            							elseif ctrl=='6' then
+            								mod = getCAR();
+            							end;
+            							local nivel = 19;
+            							
+            							mod = 10 + mod + nivel;
             
-            						self.boxDetalhesDoItem.node.cd19 = mod;
+            							self.boxDetalhesDoItem.node.cd19 = mod;
+            						end;
         end, obj);
 
     obj._e_event127 = obj.comboBox8:addEventListener("onChange",
@@ -8856,6 +9288,7 @@ function newfrmFichaRPGmeister5M_svg()
         if self.textEditor4 ~= nil then self.textEditor4:destroy(); self.textEditor4 = nil; end;
         if self.layout34 ~= nil then self.layout34:destroy(); self.layout34 = nil; end;
         if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
+        if self.edit159 ~= nil then self.edit159:destroy(); self.edit159 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.rectangle7 ~= nil then self.rectangle7:destroy(); self.rectangle7 = nil; end;
         if self.edit58 ~= nil then self.edit58:destroy(); self.edit58 = nil; end;
@@ -8926,6 +9359,7 @@ function newfrmFichaRPGmeister5M_svg()
         if self.layout39 ~= nil then self.layout39:destroy(); self.layout39 = nil; end;
         if self.flowPart8 ~= nil then self.flowPart8:destroy(); self.flowPart8 = nil; end;
         if self.dataLink40 ~= nil then self.dataLink40:destroy(); self.dataLink40 = nil; end;
+        if self.flowPart10 ~= nil then self.flowPart10:destroy(); self.flowPart10 = nil; end;
         if self.layout69 ~= nil then self.layout69:destroy(); self.layout69 = nil; end;
         if self.rectangle9 ~= nil then self.rectangle9:destroy(); self.rectangle9 = nil; end;
         if self.edit121 ~= nil then self.edit121:destroy(); self.edit121 = nil; end;
@@ -9143,6 +9577,7 @@ function newfrmFichaRPGmeister5M_svg()
         if self.label131 ~= nil then self.label131:destroy(); self.label131 = nil; end;
         if self.label16 ~= nil then self.label16:destroy(); self.label16 = nil; end;
         if self.textEditor7 ~= nil then self.textEditor7:destroy(); self.textEditor7 = nil; end;
+        if self.edit158 ~= nil then self.edit158:destroy(); self.edit158 = nil; end;
         if self.edit10 ~= nil then self.edit10:destroy(); self.edit10 = nil; end;
         if self.edit106 ~= nil then self.edit106:destroy(); self.edit106 = nil; end;
         if self.edit31 ~= nil then self.edit31:destroy(); self.edit31 = nil; end;
@@ -9158,11 +9593,13 @@ function newfrmFichaRPGmeister5M_svg()
         if self.layout4 ~= nil then self.layout4:destroy(); self.layout4 = nil; end;
         if self.edit101 ~= nil then self.edit101:destroy(); self.edit101 = nil; end;
         if self.textEditor29 ~= nil then self.textEditor29:destroy(); self.textEditor29 = nil; end;
+        if self.label167 ~= nil then self.label167:destroy(); self.label167 = nil; end;
         if self.label58 ~= nil then self.label58:destroy(); self.label58 = nil; end;
         if self.comboBox1 ~= nil then self.comboBox1:destroy(); self.comboBox1 = nil; end;
         if self.label114 ~= nil then self.label114:destroy(); self.label114 = nil; end;
         if self.dataLink74 ~= nil then self.dataLink74:destroy(); self.dataLink74 = nil; end;
         if self.flowPart5 ~= nil then self.flowPart5:destroy(); self.flowPart5 = nil; end;
+        if self.flowPart9 ~= nil then self.flowPart9:destroy(); self.flowPart9 = nil; end;
         if self.label135 ~= nil then self.label135:destroy(); self.label135 = nil; end;
         if self.layout20 ~= nil then self.layout20:destroy(); self.layout20 = nil; end;
         if self.edit23 ~= nil then self.edit23:destroy(); self.edit23 = nil; end;
@@ -9336,6 +9773,7 @@ function newfrmFichaRPGmeister5M_svg()
         if self.dataLink66 ~= nil then self.dataLink66:destroy(); self.dataLink66 = nil; end;
         if self.edit39 ~= nil then self.edit39:destroy(); self.edit39 = nil; end;
         if self.edit130 ~= nil then self.edit130:destroy(); self.edit130 = nil; end;
+        if self.label168 ~= nil then self.label168:destroy(); self.label168 = nil; end;
         if self.dataLink1 ~= nil then self.dataLink1:destroy(); self.dataLink1 = nil; end;
         if self.edit144 ~= nil then self.edit144:destroy(); self.edit144 = nil; end;
         if self.dataLink52 ~= nil then self.dataLink52:destroy(); self.dataLink52 = nil; end;

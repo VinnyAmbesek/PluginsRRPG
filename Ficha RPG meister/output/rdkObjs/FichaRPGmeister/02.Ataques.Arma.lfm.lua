@@ -34,6 +34,11 @@ function newfrmFichaRPGmeister2Aar_svg()
 
 
 		local function updateAll()
+
+            if debug then
+                rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Ataque com Arma.");
+                index = index + 1;
+            end;
 			if sheet == nil then
 				return;
 			end;
@@ -149,11 +154,13 @@ function newfrmFichaRPGmeister2Aar_svg()
     			pen = pen + des;
     		end;
 
+            local multMunicao = 0;
     		if sheet.tiroMultiplo then
     			acertos = {};
     			acertos[1] = bba;
     			pen = pen-2;
     			local qtd = tonumber(sheet.tiroMultiploQtd) or 1;
+                multMunicao = qtd;
     			pen = pen - (qtd * 2);
     		end;
 
@@ -348,6 +355,7 @@ function newfrmFichaRPGmeister2Aar_svg()
 
     		sheet.acertos = acertos;
     		sheet.numAtaques = #acertos;
+            sheet.multMunicao = multMunicao;
     		sheet.dado = dado;
     		sheet.crit = crit;
     		sheet.decisivo = decisivo;

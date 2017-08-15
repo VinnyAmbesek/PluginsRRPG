@@ -1026,6 +1026,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label45:setWordWrap(true);
     obj.label45:setTextTrimming("none");
     obj.label45:setAutoSize(true);
+    obj.label45:setHint("Se a arma possui um nome de batismo ponha ele aqui.");
+    obj.label45:setHitTest(true);
     obj.label45:setName("label45");
 
     obj.edit15 = gui.fromHandle(_obj_newObject("edit"));
@@ -1051,6 +1053,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label46:setWordWrap(true);
     obj.label46:setTextTrimming("none");
     obj.label46:setAutoSize(true);
+    obj.label46:setHint("Qual a arma? Espada Longa? Machado de Batalha? Arco Longo?");
+    obj.label46:setHitTest(true);
     obj.label46:setName("label46");
 
     obj.edit16 = gui.fromHandle(_obj_newObject("edit"));
@@ -1076,6 +1080,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label47:setWordWrap(true);
     obj.label47:setTextTrimming("none");
     obj.label47:setAutoSize(true);
+    obj.label47:setHint("Essa arma foi feita para um personagem de que tamanho? Médio? Pequeno? Grande?");
+    obj.label47:setHitTest(true);
     obj.label47:setName("label47");
 
     obj.edit17 = gui.fromHandle(_obj_newObject("edit"));
@@ -1101,6 +1107,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label48:setWordWrap(true);
     obj.label48:setTextTrimming("none");
     obj.label48:setAutoSize(true);
+    obj.label48:setHint("Essa arma foi feita de um material especial? Adamante? Prata?");
+    obj.label48:setHitTest(true);
     obj.label48:setName("label48");
 
     obj.edit18 = gui.fromHandle(_obj_newObject("edit"));
@@ -1126,6 +1134,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label49:setWordWrap(true);
     obj.label49:setTextTrimming("none");
     obj.label49:setAutoSize(true);
+    obj.label49:setHint("Essa arma é Obra-Prima? +1? +2?");
+    obj.label49:setHitTest(true);
     obj.label49:setName("label49");
 
     obj.edit19 = gui.fromHandle(_obj_newObject("edit"));
@@ -1152,6 +1162,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label50:setWordWrap(true);
     obj.label50:setTextTrimming("none");
     obj.label50:setAutoSize(true);
+    obj.label50:setHint("Essa arma é Simples? Comum? Exotica?");
+    obj.label50:setHitTest(true);
     obj.label50:setName("label50");
 
     obj.edit20 = gui.fromHandle(_obj_newObject("edit"));
@@ -1177,6 +1189,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label51:setWordWrap(true);
     obj.label51:setTextTrimming("none");
     obj.label51:setAutoSize(true);
+    obj.label51:setHint("Qual o dado de dano dessa arma?");
+    obj.label51:setHitTest(true);
     obj.label51:setName("label51");
 
     obj.edit21 = gui.fromHandle(_obj_newObject("edit"));
@@ -1203,6 +1217,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label52:setWordWrap(true);
     obj.label52:setTextTrimming("none");
     obj.label52:setAutoSize(true);
+    obj.label52:setHint("Quando a margem de ameaça dessa arma?20? 19-20?");
+    obj.label52:setHitTest(true);
     obj.label52:setName("label52");
 
     obj.edit22 = gui.fromHandle(_obj_newObject("edit"));
@@ -1229,6 +1245,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label53:setWordWrap(true);
     obj.label53:setTextTrimming("none");
     obj.label53:setAutoSize(true);
+    obj.label53:setHint("Em um decisivo por quanto é multiplicado o dano dessa arma?");
+    obj.label53:setHitTest(true);
     obj.label53:setName("label53");
 
     obj.edit23 = gui.fromHandle(_obj_newObject("edit"));
@@ -1255,6 +1273,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label54:setWordWrap(true);
     obj.label54:setTextTrimming("none");
     obj.label54:setAutoSize(true);
+    obj.label54:setHint("Qual o alcance em metros da arma? Normalmente usado apenas em armas de ataque a distancia. ");
+    obj.label54:setHitTest(true);
     obj.label54:setName("label54");
 
     obj.edit24 = gui.fromHandle(_obj_newObject("edit"));
@@ -1280,6 +1300,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label55:setWordWrap(true);
     obj.label55:setTextTrimming("none");
     obj.label55:setAutoSize(true);
+    obj.label55:setHint("Essa arma tem efeitos especiais? Pode ser usada em derrubar? desarmar? Pode ser preparada contra investida?");
+    obj.label55:setHitTest(true);
     obj.label55:setName("label55");
 
     obj.edit25 = gui.fromHandle(_obj_newObject("edit"));
@@ -1305,6 +1327,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label56:setWordWrap(true);
     obj.label56:setTextTrimming("none");
     obj.label56:setAutoSize(true);
+    obj.label56:setHint("Qual o tipo de dano que essa arma causa? Concusivo? Cortante?");
+    obj.label56:setHitTest(true);
     obj.label56:setName("label56");
 
     obj.edit26 = gui.fromHandle(_obj_newObject("edit"));
@@ -1330,6 +1354,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label57:setWordWrap(true);
     obj.label57:setTextTrimming("none");
     obj.label57:setAutoSize(true);
+    obj.label57:setHint("Essa arma tem efeitos mágicos? Flamejante? Vorpal?");
+    obj.label57:setHitTest(true);
     obj.label57:setName("label57");
 
     obj.edit27 = gui.fromHandle(_obj_newObject("edit"));
@@ -1355,6 +1381,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label58:setWordWrap(true);
     obj.label58:setTextTrimming("none");
     obj.label58:setAutoSize(true);
+    obj.label58:setHint("Para escudos: qual o bonus que ele fornece na CA?");
+    obj.label58:setHitTest(true);
     obj.label58:setName("label58");
 
     obj.edit28 = gui.fromHandle(_obj_newObject("edit"));
@@ -1381,6 +1409,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label59:setWordWrap(true);
     obj.label59:setTextTrimming("none");
     obj.label59:setAutoSize(true);
+    obj.label59:setHint("Para escudos: qual a penalidade do escudo?");
+    obj.label59:setHitTest(true);
     obj.label59:setName("label59");
 
     obj.edit29 = gui.fromHandle(_obj_newObject("edit"));
@@ -1407,6 +1437,8 @@ function newfrmFichaRPGmeister7_svg()
     obj.label60:setWordWrap(true);
     obj.label60:setTextTrimming("none");
     obj.label60:setAutoSize(true);
+    obj.label60:setHint("Para escudos: qual a falha arcana?");
+    obj.label60:setHitTest(true);
     obj.label60:setName("label60");
 
     obj.edit30 = gui.fromHandle(_obj_newObject("edit"));
@@ -1435,49 +1467,61 @@ function newfrmFichaRPGmeister7_svg()
 
     obj._e_event2 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local mod = 0;
-            				mod = (getNumber(sheet.precoCabeca) or 0) +
-            							(getNumber(sheet.precoOlhos) or 0) +
-            							(getNumber(sheet.precoPescoco) or 0) +
-            							(getNumber(sheet.precoOmbros) or 0) +
-            							(getNumber(sheet.precoTorso) or 0) +
-            							(getNumber(sheet.precoCorpo) or 0) +
-            							(getNumber(sheet.precoPunhos) or 0) +
-            							(getNumber(sheet.precoCintura) or 0) +
-            							(getNumber(sheet.precoMaos) or 0) +
-            							(getNumber(sheet.precoDedosI) or 0) +
-            							(getNumber(sheet.precoDesdosII) or 0) +
-            							(getNumber(sheet.precoPes) or 0) +
-            							(getNumber(sheet.precoArmas) or 0) +
-            							(getNumber(sheet.precoMochila) or 0) +
-            							(getNumber(sheet.precoPermanencias) or 0) +
-            							(getNumber(sheet.precoLivres) or 0) +
-            							(getNumber(sheet.precoOutros) or 0) +
-            							(getNumber(sheet.precoMunicoes) or 0) +
-            							(getNumber(sheet.precoBolsos) or 0) +
-            							(getNumber(sheet.precoImoveis) or 0);
+            if sheet~= nil then
+            					if debug then
+            						rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Gastos em PO");
+            						index = index + 1;
+            					end;
+            					local mod = 0;
+            					mod = (getNumber(sheet.precoCabeca) or 0) +
+            								(getNumber(sheet.precoOlhos) or 0) +
+            								(getNumber(sheet.precoPescoco) or 0) +
+            								(getNumber(sheet.precoOmbros) or 0) +
+            								(getNumber(sheet.precoTorso) or 0) +
+            								(getNumber(sheet.precoCorpo) or 0) +
+            								(getNumber(sheet.precoPunhos) or 0) +
+            								(getNumber(sheet.precoCintura) or 0) +
+            								(getNumber(sheet.precoMaos) or 0) +
+            								(getNumber(sheet.precoDedosI) or 0) +
+            								(getNumber(sheet.precoDesdosII) or 0) +
+            								(getNumber(sheet.precoPes) or 0) +
+            								(getNumber(sheet.precoArmas) or 0) +
+            								(getNumber(sheet.precoMochila) or 0) +
+            								(getNumber(sheet.precoPermanencias) or 0) +
+            								(getNumber(sheet.precoLivres) or 0) +
+            								(getNumber(sheet.precoOutros) or 0) +
+            								(getNumber(sheet.precoMunicoes) or 0) +
+            								(getNumber(sheet.precoBolsos) or 0) +
+            								(getNumber(sheet.precoImoveis) or 0);
             
-            				local mod2 = 0;
-            				local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);   
-            				for i=1, #nodes, 1 do
-            					mod2 = mod2 + (getNumber(nodes[i].precoInventorioComp) or 0);
-            				end
-            				mod = mod + mod2;
-            				mod = string.gsub(mod, "%.", "_");
-            				while true do  
-            					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
-            					if (k==0) then
-            						break
-            						end
+            					local mod2 = 0;
+            					local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);   
+            					for i=1, #nodes, 1 do
+            						mod2 = mod2 + (getNumber(nodes[i].precoInventorioComp) or 0);
             					end
-            				mod = string.gsub(mod, ",", ".");
-            				mod = string.gsub(mod, "_", ",");
-            				sheet.gastos = mod .. "PO";
+            					mod = mod + mod2;
+            					mod = string.gsub(mod, "%.", "_");
+            					while true do  
+            						mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+            						if (k==0) then
+            							break
+            							end
+            						end
+            					mod = string.gsub(mod, ",", ".");
+            					mod = string.gsub(mod, "_", ",");
+            					sheet.gastos = mod .. "PO";
+            				end;
         end, obj);
 
     obj._e_event3 = obj.dataLink2:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local mod1 = sheet.cargaPesada;
+            if sheet~= nil then
+            					if debug then
+            						rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Carga");
+            						index = index + 1;
+            					end;
+            
+            					local mod1 = sheet.cargaPesada;
             					if mod1==nil then
             						mod1 = "0";
             					end
@@ -1491,39 +1535,46 @@ function newfrmFichaRPGmeister7_svg()
             					sheet.cargaErguer = mod .. "Kg";
             					sheet.cargaLevantar = (2*mod) .. "Kg";
             					sheet.cargaEmpurrar = (5*mod) .. "Kg";
+            				end;
         end, obj);
 
     obj._e_event4 = obj.dataLink3:addEventListener("onChange",
         function (self, field, oldValue, newValue)
-            local mod = 0;
-            				mod = (getNumber(sheet.pesoCabeca) or 0) +
-            							(getNumber(sheet.pesoOlhos) or 0) +
-            							(getNumber(sheet.pesoPescoco) or 0) +
-            							(getNumber(sheet.pesoOmbros) or 0) +
-            							(getNumber(sheet.pesoTorso) or 0) +
-            							(getNumber(sheet.pesoCorpo) or 0) +
-            							(getNumber(sheet.pesoPunhos) or 0) +
-            							(getNumber(sheet.pesoCintura) or 0) +
-            							(getNumber(sheet.pesoMaos) or 0) +
-            							(getNumber(sheet.pesoDedosI) or 0) +
-            							(getNumber(sheet.pesoDesdosII) or 0) +
-            							(getNumber(sheet.pesoPes) or 0) +
-            							(getNumber(sheet.pesoArmas) or 0) +
-            							(getNumber(sheet.pesoMochila) or 0) +
-            							(getNumber(sheet.pesoPermanencias) or 0) +
-            							(getNumber(sheet.pesoLivres) or 0) +
-            							(getNumber(sheet.pesoOutros) or 0) +
-            							(getNumber(sheet.pesoMunicoes) or 0) +
-            							(getNumber(sheet.pesoBolsos) or 0) +
-            							(getNumber(sheet.pesoImoveis) or 0);
-            				while true do  
-            					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
-            					if (k==0) then
-            						break
+            if sheet~=nil then
+            					if debug then
+            						rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Carga");
+            						index = index + 1;
+            					end;
+            					local mod = 0;
+            					mod = (getNumber(sheet.pesoCabeca) or 0) +
+            								(getNumber(sheet.pesoOlhos) or 0) +
+            								(getNumber(sheet.pesoPescoco) or 0) +
+            								(getNumber(sheet.pesoOmbros) or 0) +
+            								(getNumber(sheet.pesoTorso) or 0) +
+            								(getNumber(sheet.pesoCorpo) or 0) +
+            								(getNumber(sheet.pesoPunhos) or 0) +
+            								(getNumber(sheet.pesoCintura) or 0) +
+            								(getNumber(sheet.pesoMaos) or 0) +
+            								(getNumber(sheet.pesoDedosI) or 0) +
+            								(getNumber(sheet.pesoDesdosII) or 0) +
+            								(getNumber(sheet.pesoPes) or 0) +
+            								(getNumber(sheet.pesoArmas) or 0) +
+            								(getNumber(sheet.pesoMochila) or 0) +
+            								(getNumber(sheet.pesoPermanencias) or 0) +
+            								(getNumber(sheet.pesoLivres) or 0) +
+            								(getNumber(sheet.pesoOutros) or 0) +
+            								(getNumber(sheet.pesoMunicoes) or 0) +
+            								(getNumber(sheet.pesoBolsos) or 0) +
+            								(getNumber(sheet.pesoImoveis) or 0);
+            					while true do  
+            						mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+            						if (k==0) then
+            							break
+            							end
             						end
-            					end
-            				mod = string.gsub(mod, ",", ".");
-            				sheet.cargaAtual = mod .. "Kg";
+            					mod = string.gsub(mod, ",", ".");
+            					sheet.cargaAtual = mod .. "Kg";
+            				end;
         end, obj);
 
     function obj:_releaseEvents()

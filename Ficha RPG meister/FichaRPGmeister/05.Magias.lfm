@@ -52,6 +52,10 @@
 			<script>
 				local function limpar()
 					if self.boxDetalhesDoItem.node~= nil then
+						if debug then
+							rrpg.getMesaDe(self.boxDetalhesDoItem.node).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Visibilidade da pagina de magias. ");
+							index = index + 1;
+						end;
 						local mod = self.boxDetalhesDoItem.node.tipoMagia;
 						if mod=='1' then
 							self.layoutMagias.visible = true;
@@ -106,37 +110,43 @@
 				</dataLink>
 				<dataLink fields="{'atributoBonus', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'}">
 					<event name="onChange">
-						local resultado = 0;
-						local mod = 0;
-						local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
-						
-						if ctrl=='1' then
-							mod = getFOR();
-						elseif ctrl=='2' then
-							mod = getDES();
-						elseif ctrl=='3' then
-							mod = getCON();
-						elseif ctrl=='4' then
-							mod = getINT();
-						elseif ctrl=='5' then
-							mod = getSAB();
-						elseif ctrl=='6' then
-							mod = getCAR();
-						end;
-						local nivel = $(num);
-						
-						if nivel==0 then
-							resultado = 0;
-						else 
-							if (nivel>mod) then
-								result = 0;
-							else
-								resultado = mod + 4 - nivel;
-								resultado = math.floor(resultado/4);
+						if sheet ~= nil then
+							if debug then
+								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Bonus Magia.");
+								index = index + 1;
 							end;
+							local resultado = 0;
+							local mod = 0;
+							local ctrl = self.boxDetalhesDoItem.node.atributoBonus;
+							
+							if ctrl=='1' then
+								mod = getFOR();
+							elseif ctrl=='2' then
+								mod = getDES();
+							elseif ctrl=='3' then
+								mod = getCON();
+							elseif ctrl=='4' then
+								mod = getINT();
+							elseif ctrl=='5' then
+								mod = getSAB();
+							elseif ctrl=='6' then
+								mod = getCAR();
+							end;
+							local nivel = $(num);
+							
+							if nivel==0 then
+								resultado = 0;
+							else 
+								if (nivel>mod) then
+									result = 0;
+								else
+									resultado = mod + 4 - nivel;
+									resultado = math.floor(resultado/4);
+								end;
+							end;
+							
+							self.boxDetalhesDoItem.node.bonus$(num) = resultado;
 						end;
-						
-						self.boxDetalhesDoItem.node.bonus$(num) = resultado;
 					</event>
 				</dataLink>
 				
@@ -145,28 +155,34 @@
 				<label vertTextAlign="center" left="270" top="0" width="30" height="25" field="cd$(num)"/>
 				<dataLink fields="{'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'}">
 					<event name="onChange">
-						local resultado = 0;
-						local mod = 0;
-						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-						
-						if ctrl=='1' then
-							mod = getFOR();
-						elseif ctrl=='2' then
-							mod = getDES();
-						elseif ctrl=='3' then
-							mod = getCON();
-						elseif ctrl=='4' then
-							mod = getINT();
-						elseif ctrl=='5' then
-							mod = getSAB();
-						elseif ctrl=='6' then
-							mod = getCAR();
-						end;
-						local nivel = $(num);
-						
-						mod = 10 + mod + nivel;
+						if sheet ~= nil then
+							if debug then
+								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD de Magia.");
+								index = index + 1;
+							end;
+							local resultado = 0;
+							local mod = 0;
+							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+							
+							if ctrl=='1' then
+								mod = getFOR();
+							elseif ctrl=='2' then
+								mod = getDES();
+							elseif ctrl=='3' then
+								mod = getCON();
+							elseif ctrl=='4' then
+								mod = getINT();
+							elseif ctrl=='5' then
+								mod = getSAB();
+							elseif ctrl=='6' then
+								mod = getCAR();
+							end;
+							local nivel = $(num);
+							
+							mod = 10 + mod + nivel;
 
-						self.boxDetalhesDoItem.node.cd$(num) = mod;
+							self.boxDetalhesDoItem.node.cd$(num) = mod;
+						end;
 					</event>
 				</dataLink>
 			</template>
@@ -232,6 +248,10 @@
 					<dataLink fields="{'conhecidas0', 'conhecidas1', 'conhecidas2', 'conhecidas3', 'conhecidas4', 'conhecidas5', 'conhecidas6', 'conhecidas7', 'conhecidas8', 'conhecidas9'}">
 						<event name="onChange">
 							if sheet~=nil then
+								if debug then
+									rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Paginas do Grimorio.");
+									index = index + 1;
+								end;
 								local mod = (tonumber(self.boxDetalhesDoItem.node.conhecidas0) or 0) + 
 											(tonumber(self.boxDetalhesDoItem.node.conhecidas1) or 0) + 
 											(tonumber(self.boxDetalhesDoItem.node.conhecidas2) or 0)*2 + 
@@ -326,23 +346,29 @@
 				<comboBox left="160" top="0" width="60" height="25" items="{'FOR', 'DES', 'CON', 'INT', 'SAB', 'CAR'}" values="{'1', '2', '3', '4', '5', '6'}" field="atributoCD" fontColor="white"/>
 				<dataLink fields="{'atributoCD', 'efetModFor', 'efetModDes', 'efetModCon', 'efetModInt', 'efetModSab', 'efetModCar'}">
 					<event name="onChange">
-						local mod = 0;
-						local ctrl = self.boxDetalhesDoItem.node.atributoCD;
-						if ctrl=='1' then
-							mod = getFOR();
-						elseif ctrl=='2' then
-							mod = getDES();
-						elseif ctrl=='3' then
-							mod = getCON();
-						elseif ctrl=='4' then
-							mod = getINT();
-						elseif ctrl=='5' then
-							mod = getSAB();
-						elseif ctrl=='6' then
-							mod = getCAR();
+						if sheet~=nil then
+							if debug then
+								rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando CD signos");
+								index = index + 1;
+							end;
+							local mod = 0;
+							local ctrl = self.boxDetalhesDoItem.node.atributoCD;
+							if ctrl=='1' then
+								mod = getFOR();
+							elseif ctrl=='2' then
+								mod = getDES();
+							elseif ctrl=='3' then
+								mod = getCON();
+							elseif ctrl=='4' then
+								mod = getINT();
+							elseif ctrl=='5' then
+								mod = getSAB();
+							elseif ctrl=='6' then
+								mod = getCAR();
+							end;
+							
+							self.boxDetalhesDoItem.node.cdSignos = (10+mod+1) .. "  " .. (10+mod+3) .. "  " .. (10+mod+5) .. "  " .. (10+mod+7) .. "  " .. (10+mod+9);
 						end;
-						
-						self.boxDetalhesDoItem.node.cdSignos = (10+mod+1) .. "  " .. (10+mod+3) .. "  " .. (10+mod+5) .. "  " .. (10+mod+7) .. "  " .. (10+mod+9);
 					</event>
 				</dataLink>
 				<label vertTextAlign="center" left="230" top="0" width="100" height="25" field="cdSignos"/>
@@ -430,6 +456,10 @@
 					<dataLink fields="{'conhecidas0', 'conhecidas1', 'conhecidas2', 'conhecidas3', 'conhecidas4', 'conhecidas5', 'conhecidas6', 'conhecidas7', 'conhecidas8', 'conhecidas9'}">
 						<event name="onChange">
 							if sheet~=nil then
+								if debug then
+									rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Paginas do grimorio.");
+									index = index + 1;
+								end;
 								local mod = (tonumber(self.boxDetalhesDoItem.node.conhecidas0) or 0) + 
 											(tonumber(self.boxDetalhesDoItem.node.conhecidas1) or 0) + 
 											(tonumber(self.boxDetalhesDoItem.node.conhecidas2) or 0)*2 + 
@@ -653,6 +683,8 @@
 					<magicInfoField text="DURAÇÃO" field="duracao"/>
 					<magicInfoField text="TR" field="tr"/>
 					<magicInfoField text="RM" field="rm"/>
+					<magicInfoField text="LIVRO" field="livro"/>
+					<magicInfoField text="PÁGINA" field="pagina"/>
 				</flowLayout>
 				
 				<textEditor align="client" field="descricao" class=""/>

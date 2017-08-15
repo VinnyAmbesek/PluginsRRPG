@@ -78,44 +78,50 @@
 		</layout>
 		<dataLink fields="{'precoCabeca', 'precoOlhos', 'precoPescoco', 'precoOmbros', 'precoTorso', 'precoCorpo', 'precoPunhos', 'precoCintura', 'precoMaos', 'precoDedosI', 'precoDesdosII', 'precoPes', 'precoArmas', 'precoMochila', 'precoPermanencias', 'precoLivres', 'precoOutros', 'precoMunicoes', 'precoBolsos', 'precoImoveis', 'precoInventorioComp', 'campoDosCompanheiros'}">
 			<event name="onChange">
-				local mod = 0;
-				mod = (getNumber(sheet.precoCabeca) or 0) +
-							(getNumber(sheet.precoOlhos) or 0) +
-							(getNumber(sheet.precoPescoco) or 0) +
-							(getNumber(sheet.precoOmbros) or 0) +
-							(getNumber(sheet.precoTorso) or 0) +
-							(getNumber(sheet.precoCorpo) or 0) +
-							(getNumber(sheet.precoPunhos) or 0) +
-							(getNumber(sheet.precoCintura) or 0) +
-							(getNumber(sheet.precoMaos) or 0) +
-							(getNumber(sheet.precoDedosI) or 0) +
-							(getNumber(sheet.precoDesdosII) or 0) +
-							(getNumber(sheet.precoPes) or 0) +
-							(getNumber(sheet.precoArmas) or 0) +
-							(getNumber(sheet.precoMochila) or 0) +
-							(getNumber(sheet.precoPermanencias) or 0) +
-							(getNumber(sheet.precoLivres) or 0) +
-							(getNumber(sheet.precoOutros) or 0) +
-							(getNumber(sheet.precoMunicoes) or 0) +
-							(getNumber(sheet.precoBolsos) or 0) +
-							(getNumber(sheet.precoImoveis) or 0);
+				if sheet~= nil then
+					if debug then
+						rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Gastos em PO");
+						index = index + 1;
+					end;
+					local mod = 0;
+					mod = (getNumber(sheet.precoCabeca) or 0) +
+								(getNumber(sheet.precoOlhos) or 0) +
+								(getNumber(sheet.precoPescoco) or 0) +
+								(getNumber(sheet.precoOmbros) or 0) +
+								(getNumber(sheet.precoTorso) or 0) +
+								(getNumber(sheet.precoCorpo) or 0) +
+								(getNumber(sheet.precoPunhos) or 0) +
+								(getNumber(sheet.precoCintura) or 0) +
+								(getNumber(sheet.precoMaos) or 0) +
+								(getNumber(sheet.precoDedosI) or 0) +
+								(getNumber(sheet.precoDesdosII) or 0) +
+								(getNumber(sheet.precoPes) or 0) +
+								(getNumber(sheet.precoArmas) or 0) +
+								(getNumber(sheet.precoMochila) or 0) +
+								(getNumber(sheet.precoPermanencias) or 0) +
+								(getNumber(sheet.precoLivres) or 0) +
+								(getNumber(sheet.precoOutros) or 0) +
+								(getNumber(sheet.precoMunicoes) or 0) +
+								(getNumber(sheet.precoBolsos) or 0) +
+								(getNumber(sheet.precoImoveis) or 0);
 
-				local mod2 = 0;
-				local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);   
-				for i=1, #nodes, 1 do
-					mod2 = mod2 + (getNumber(nodes[i].precoInventorioComp) or 0);
-				end
-				mod = mod + mod2;
-				mod = string.gsub(mod, "%.", "_");
-				while true do  
-					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
-					if (k==0) then
-						break
-						end
+					local mod2 = 0;
+					local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);   
+					for i=1, #nodes, 1 do
+						mod2 = mod2 + (getNumber(nodes[i].precoInventorioComp) or 0);
 					end
-				mod = string.gsub(mod, ",", ".");
-				mod = string.gsub(mod, "_", ",");
-				sheet.gastos = mod .. "PO";
+					mod = mod + mod2;
+					mod = string.gsub(mod, "%.", "_");
+					while true do  
+						mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+						if (k==0) then
+							break
+							end
+						end
+					mod = string.gsub(mod, ",", ".");
+					mod = string.gsub(mod, "_", ",");
+					sheet.gastos = mod .. "PO";
+				end;
 			</event>
 		</dataLink>
 
@@ -150,6 +156,12 @@
 		</layout>
 		<dataLink field="cargaPesada">
 			<event name="onChange">
+				if sheet~= nil then
+					if debug then
+						rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Carga");
+						index = index + 1;
+					end;
+
 					local mod1 = sheet.cargaPesada;
 					if mod1==nil then
 						mod1 = "0";
@@ -164,77 +176,84 @@
 					sheet.cargaErguer = mod .. "Kg";
 					sheet.cargaLevantar = (2*mod) .. "Kg";
 					sheet.cargaEmpurrar = (5*mod) .. "Kg";
+				end;
 			</event>
 		</dataLink>
 		<dataLink fields="{'pesoCabeca', 'pesoOlhos', 'pesoPescoco', 'pesoOmbros', 'pesoTorso', 'pesoCorpo', 'pesoPunhos', 'pesoCintura', 'pesoMaos', 'pesoDedosI', 'pesoDesdosII', 'pesoPes', 'pesoArmas', 'pesoMochila', 'pesoPermanencias', 'pesoLivres', 'pesoOutros', 'pesoMunicoes', 'pesoBolsos', 'pesoImoveis', 'pesoInventorioComp'}">
 			<event name="onChange">
-				local mod = 0;
-				mod = (getNumber(sheet.pesoCabeca) or 0) +
-							(getNumber(sheet.pesoOlhos) or 0) +
-							(getNumber(sheet.pesoPescoco) or 0) +
-							(getNumber(sheet.pesoOmbros) or 0) +
-							(getNumber(sheet.pesoTorso) or 0) +
-							(getNumber(sheet.pesoCorpo) or 0) +
-							(getNumber(sheet.pesoPunhos) or 0) +
-							(getNumber(sheet.pesoCintura) or 0) +
-							(getNumber(sheet.pesoMaos) or 0) +
-							(getNumber(sheet.pesoDedosI) or 0) +
-							(getNumber(sheet.pesoDesdosII) or 0) +
-							(getNumber(sheet.pesoPes) or 0) +
-							(getNumber(sheet.pesoArmas) or 0) +
-							(getNumber(sheet.pesoMochila) or 0) +
-							(getNumber(sheet.pesoPermanencias) or 0) +
-							(getNumber(sheet.pesoLivres) or 0) +
-							(getNumber(sheet.pesoOutros) or 0) +
-							(getNumber(sheet.pesoMunicoes) or 0) +
-							(getNumber(sheet.pesoBolsos) or 0) +
-							(getNumber(sheet.pesoImoveis) or 0);
-				while true do  
-					mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
-					if (k==0) then
-						break
+				if sheet~=nil then
+					if debug then
+						rrpg.getMesaDe(sheet).activeChat:enviarMensagem("Debug #:" .. index .. ": Atualizando Carga");
+						index = index + 1;
+					end;
+					local mod = 0;
+					mod = (getNumber(sheet.pesoCabeca) or 0) +
+								(getNumber(sheet.pesoOlhos) or 0) +
+								(getNumber(sheet.pesoPescoco) or 0) +
+								(getNumber(sheet.pesoOmbros) or 0) +
+								(getNumber(sheet.pesoTorso) or 0) +
+								(getNumber(sheet.pesoCorpo) or 0) +
+								(getNumber(sheet.pesoPunhos) or 0) +
+								(getNumber(sheet.pesoCintura) or 0) +
+								(getNumber(sheet.pesoMaos) or 0) +
+								(getNumber(sheet.pesoDedosI) or 0) +
+								(getNumber(sheet.pesoDesdosII) or 0) +
+								(getNumber(sheet.pesoPes) or 0) +
+								(getNumber(sheet.pesoArmas) or 0) +
+								(getNumber(sheet.pesoMochila) or 0) +
+								(getNumber(sheet.pesoPermanencias) or 0) +
+								(getNumber(sheet.pesoLivres) or 0) +
+								(getNumber(sheet.pesoOutros) or 0) +
+								(getNumber(sheet.pesoMunicoes) or 0) +
+								(getNumber(sheet.pesoBolsos) or 0) +
+								(getNumber(sheet.pesoImoveis) or 0);
+					while true do  
+						mod, k = string.gsub(mod, "^(-?%d+)(%d%d%d)", '%1,%2')
+						if (k==0) then
+							break
+							end
 						end
-					end
-				mod = string.gsub(mod, ",", ".");
-				sheet.cargaAtual = mod .. "Kg";
+					mod = string.gsub(mod, ",", ".");
+					sheet.cargaAtual = mod .. "Kg";
+				end;
 			</event>
 		</dataLink>
 		<template name="weaponInfoField">
 			<flowPart minWidth="290" maxWidth="300" height="35">
-				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
+				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true" hint="$(hint)" hitTest="true"/>
 				<edit align="client" class="" field="$(field)" fontSize="12"/>
 			</flowPart>
 		</template>
 		<template name="weaponInfoFieldSmallCenter">
 			<flowPart minWidth="90" maxWidth="100" height="35">
-				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
+				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true" hint="$(hint)" hitTest="true"/>
 				<edit align="client" class="" field="$(field)" horzTextAlign="center" fontSize="12"/>
 			</flowPart>
 		</template>
 		<template name="weaponInfoFieldSmall">
 			<flowPart minWidth="90" maxWidth="100" height="35">
-				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true"/>
+				<label align="top" class="tituloCampo" fontSize="10" text="$(text)" horzTextAlign="center" wordWrap="true" textTrimming="none" autoSize="true" hint="$(hint)" hitTest="true"/>
 				<edit align="client" class="" field="$(field)" fontSize="12"/>
 			</flowPart>
 		</template>
 		<popup name="popArma" width="300" height="400" backOpacity="0.4">
 			<flowLayout align="top" autoHeight="true" maxControlsPerLine="3" margins="{bottom=4}" horzAlign="center">
-				<weaponInfoFieldSmall text="NOME" field="batismo"/>
-				<weaponInfoFieldSmall text="ARMA" field="arma"/>
-				<weaponInfoFieldSmall text="TAMANHO" field="tamanho"/>
-				<weaponInfoFieldSmall text="MATERIAL" field="material"/>
-				<weaponInfoFieldSmallCenter text="QUALIDADE" field="qualidade"/>
-				<weaponInfoFieldSmall text="CATEGORIA" field="categoria"/>
-				<weaponInfoFieldSmallCenter text="DANO" field="dano"/>
-				<weaponInfoFieldSmallCenter text="DECISIVO" field="decisivo"/>
-				<weaponInfoFieldSmallCenter text="MULTIPLICADOR" field="multiplicador"/>
-				<weaponInfoFieldSmall text="ALCANCE" field="alcance"/>
-				<weaponInfoFieldSmall text="ESPECIAL" field="especial"/>
-				<weaponInfoFieldSmall text="TIPO" field="tipo"/>
-				<weaponInfoField text="EFEITOS" field="efeitos"/>
-				<weaponInfoFieldSmallCenter text="CA" field="ca"/>
-				<weaponInfoFieldSmallCenter text="PEN" field="penalidade"/>
-				<weaponInfoFieldSmallCenter text="FALHA" field="falha"/>
+				<weaponInfoFieldSmall text="NOME" field="batismo" hint="Se a arma possui um nome de batismo ponha ele aqui."/>
+				<weaponInfoFieldSmall text="ARMA" field="arma" hint="Qual a arma? Espada Longa? Machado de Batalha? Arco Longo?"/>
+				<weaponInfoFieldSmall text="TAMANHO" field="tamanho" hint="Essa arma foi feita para um personagem de que tamanho? Médio? Pequeno? Grande?"/>
+				<weaponInfoFieldSmall text="MATERIAL" field="material" hint="Essa arma foi feita de um material especial? Adamante? Prata?"/>
+				<weaponInfoFieldSmallCenter text="QUALIDADE" field="qualidade" hint="Essa arma é Obra-Prima? +1? +2?"/>
+				<weaponInfoFieldSmall text="CATEGORIA" field="categoria" hint="Essa arma é Simples? Comum? Exotica?"/>
+				<weaponInfoFieldSmallCenter text="DANO" field="dano" hint="Qual o dado de dano dessa arma?"/>
+				<weaponInfoFieldSmallCenter text="DECISIVO" field="decisivo" hint="Quando a margem de ameaça dessa arma?20? 19-20?"/>
+				<weaponInfoFieldSmallCenter text="MULTIPLICADOR" field="multiplicador" hint="Em um decisivo por quanto é multiplicado o dano dessa arma?"/>
+				<weaponInfoFieldSmall text="ALCANCE" field="alcance" hint="Qual o alcance em metros da arma? Normalmente usado apenas em armas de ataque a distancia. "/>
+				<weaponInfoFieldSmall text="ESPECIAL" field="especial" hint="Essa arma tem efeitos especiais? Pode ser usada em derrubar? desarmar? Pode ser preparada contra investida?"/>
+				<weaponInfoFieldSmall text="TIPO" field="tipo" hint="Qual o tipo de dano que essa arma causa? Concusivo? Cortante?"/>
+				<weaponInfoField text="EFEITOS" field="efeitos" hint="Essa arma tem efeitos mágicos? Flamejante? Vorpal?"/>
+				<weaponInfoFieldSmallCenter text="CA" field="ca" hint="Para escudos: qual o bonus que ele fornece na CA?"/>
+				<weaponInfoFieldSmallCenter text="PEN" field="penalidade" hint="Para escudos: qual a penalidade do escudo?"/>
+				<weaponInfoFieldSmallCenter text="FALHA" field="falha" hint="Para escudos: qual a falha arcana?"/>
 			</flowLayout>
 			<textEditor align="client" field="descricao" class=""/>
 		</popup>
