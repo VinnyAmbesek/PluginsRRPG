@@ -187,7 +187,33 @@
 
 			<rectangle left="510" top="305" width="300" height="300" color="black">
 				<label left="0" top="0" width="300" height="25" text="ATAQUES" horzTextAlign="center"/>
-				<textEditor left="5" top="30" width="290" height="265" field="ataquesComp"/>
+				<textEditor left="5" top="30" width="290" height="120" field="ataquesComp"/>
+				<label left="5" top="150" width="100" height="20" text="Macro"/>
+				<script>
+					local function lines(str)
+					   local t = {}
+					   local function helper(line)
+					      table.insert(t, line)
+					      return ""
+					   end
+					   helper((str:gsub("(.-)\r?\n", helper)))
+					   return t
+					end
+				</script>
+				<button left="55" top="150" width="50" height="20" hint="Envia tudo do segundo espaço para ataques no chat." text="Atacar">
+					<event name="onClick">
+						local macro = self.boxDetalhesDoCompanheiro.node.macro;
+						if macro~=nil then
+							local macros = lines(macro);
+							local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+							for i=1, #macros, 1 do
+								mesaDoPersonagem.activeChat:enviarMensagem(macros[i]);
+							end;
+						end;
+					</event>
+				</button>
+				<textEditor left="5" top="170" width="290" height="120" field="macro"/>
+				
 			</rectangle>
 
 			<rectangle left="815" top="305" width="300" height="300" color="black">

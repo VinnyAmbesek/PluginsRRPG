@@ -15736,45 +15736,182 @@ function newfrmFichaRPGmeister()
 
 				local numeroAtaques = 0;
 				local ataquesFeitos = 0;
+				local ataqueID=1;
+				local weaponID=1;
 				local dadoAtaques = {};
 				local resultadoAtaques = {};
 				local rolando = false;
 
-				local function esperaAtaque(rolado)
+				local function proximoCritico(rolado)
+					ataquesFeitos = ataquesFeitos + 1;
+
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
+						end;
+
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						local crit = weapons[weaponID].crit;
+
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local rolagem = rrpg.interpretarRolagem(crit);
+							mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximoCritico(rolado)
+							end);
+						else
+							proximoCritico(nil);
+						end;
+					end;
+					-- Fim do Ataque
+				end;
+
+				local function proximaConfirmacao(rolado)
+					ataquesFeitos = ataquesFeitos + 1;
+
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
+						end;
+
+						local acertos = weapons[weaponID].acertos;
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+							mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximaConfirmacao(rolado)
+							end);
+						else
+							proximaConfirmacao(nil);
+						end;
+					else
+						-- Causa o dano adicional
+
+						weaponID = 1;
+						ataqueID = 1;
+						ataquesFeitos = 0;
+
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						local crit = weapons[weaponID].crit;
+
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local rolagem = rrpg.interpretarRolagem(crit);
+							mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximoCritico(rolado)
+							end);
+						else
+							proximoCritico(nil);
+						end;
+					end;
+				end;
+
+				local function proximoDano(rolado)
+					ataquesFeitos = ataquesFeitos + 1;
+
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
+						end;
+
+						local dano = weapons[weaponID].dado;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+
+						local rolagem = rrpg.interpretarRolagem(dano);
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+							function (rolado)
+								proximoDano(rolado)
+						end);
+					else
+						-- confirma os criticos
+
+						-- reseta variaveis
+						weaponID = 1;
+						ataqueID = 1;
+						ataquesFeitos = 0;
+
+						local acertos = weapons[weaponID].acertos;
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+							mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximaConfirmacao(rolado)
+							end);
+						else
+							proximaConfirmacao(nil);
+						end;
+					end
+				end;
+
+				local function proximoAtaque(rolado)
 					ataquesFeitos = ataquesFeitos + 1;
 					dadoAtaques[ataquesFeitos] = rolado.ops[1].resultados[1];
 					resultadoAtaques[ataquesFeitos] = rolado.resultado;
 
-					if ataquesFeitos == numeroAtaques then
-						local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
-						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-						local personagem = sheet.nome or "personagem";
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
 
-						for i=1, #weapons, 1 do
-							local acertos = weapons[i].acertos;
-							local dado = weapons[i].dado;
-							local armamento = weapons[i].nomeAtaque or "arma";
-							local crit = weapons[i].crit;
-							local decisivo = weapons[i].decisivo;
-
-							for j=1, weapons[i].numAtaques, 1 do
-								local rolagem = rrpg.interpretarRolagem(dado);
-								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano #" .. j .. " com " .. armamento .. " de " .. personagem);
-
-								local pos = (i-1) * weapons[i].numAtaques + j;
-								if dadoAtaques[pos]>=decisivo then
-									local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
-									mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. j .. " com " .. armamento .. " de " .. personagem);
-									local rolagem = rrpg.interpretarRolagem(crit);
-									mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. j .. " com " .. armamento .. " de " .. personagem);
-								end;
-							end;
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
 						end;
-						rolando = false;
-					end;
+
+						local acertos = weapons[weaponID].acertos;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+
+						local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+							function (rolado)
+								proximoAtaque(rolado)
+						end);
+
+					else
+						-- chama o dano
+
+						-- reseta variaveis
+						weaponID = 1;
+						ataqueID = 1;
+						ataquesFeitos = 0;
+
+						local dano = weapons[weaponID].dado;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+
+						local rolagem = rrpg.interpretarRolagem(dano);
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+							function (rolado)
+								proximoDano(rolado)
+						end);
+					end
 				end;
 
-			
+				
 
 
     obj.layout64 = gui.fromHandle(_obj_newObject("layout"));
@@ -27828,9 +27965,50 @@ function newfrmFichaRPGmeister()
     obj.textEditor75:setLeft(5);
     obj.textEditor75:setTop(30);
     obj.textEditor75:setWidth(290);
-    obj.textEditor75:setHeight(265);
+    obj.textEditor75:setHeight(120);
     obj.textEditor75:setField("ataquesComp");
     obj.textEditor75:setName("textEditor75");
+
+    obj.label776 = gui.fromHandle(_obj_newObject("label"));
+    obj.label776:setParent(obj.rectangle226);
+    obj.label776:setLeft(5);
+    obj.label776:setTop(150);
+    obj.label776:setWidth(100);
+    obj.label776:setHeight(20);
+    obj.label776:setText("Macro");
+    obj.label776:setName("label776");
+
+
+					local function lines(str)
+					   local t = {}
+					   local function helper(line)
+					      table.insert(t, line)
+					      return ""
+					   end
+					   helper((str:gsub("(.-)\r?\n", helper)))
+					   return t
+					end
+				
+
+
+    obj.button141 = gui.fromHandle(_obj_newObject("button"));
+    obj.button141:setParent(obj.rectangle226);
+    obj.button141:setLeft(55);
+    obj.button141:setTop(150);
+    obj.button141:setWidth(50);
+    obj.button141:setHeight(20);
+    obj.button141:setHint("Envia tudo do segundo espaço para ataques no chat.");
+    obj.button141:setText("Atacar");
+    obj.button141:setName("button141");
+
+    obj.textEditor76 = gui.fromHandle(_obj_newObject("textEditor"));
+    obj.textEditor76:setParent(obj.rectangle226);
+    obj.textEditor76:setLeft(5);
+    obj.textEditor76:setTop(170);
+    obj.textEditor76:setWidth(290);
+    obj.textEditor76:setHeight(120);
+    obj.textEditor76:setField("macro");
+    obj.textEditor76:setName("textEditor76");
 
     obj.rectangle227 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle227:setParent(obj.boxDetalhesDoCompanheiro);
@@ -27841,24 +28019,24 @@ function newfrmFichaRPGmeister()
     obj.rectangle227:setColor("black");
     obj.rectangle227:setName("rectangle227");
 
-    obj.label776 = gui.fromHandle(_obj_newObject("label"));
-    obj.label776:setParent(obj.rectangle227);
-    obj.label776:setLeft(0);
-    obj.label776:setTop(0);
-    obj.label776:setWidth(300);
-    obj.label776:setHeight(25);
-    obj.label776:setText("OUTROS");
-    obj.label776:setHorzTextAlign("center");
-    obj.label776:setName("label776");
+    obj.label777 = gui.fromHandle(_obj_newObject("label"));
+    obj.label777:setParent(obj.rectangle227);
+    obj.label777:setLeft(0);
+    obj.label777:setTop(0);
+    obj.label777:setWidth(300);
+    obj.label777:setHeight(25);
+    obj.label777:setText("OUTROS");
+    obj.label777:setHorzTextAlign("center");
+    obj.label777:setName("label777");
 
-    obj.textEditor76 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor76:setParent(obj.rectangle227);
-    obj.textEditor76:setLeft(5);
-    obj.textEditor76:setTop(30);
-    obj.textEditor76:setWidth(290);
-    obj.textEditor76:setHeight(265);
-    obj.textEditor76:setField("outrosComp");
-    obj.textEditor76:setName("textEditor76");
+    obj.textEditor77 = gui.fromHandle(_obj_newObject("textEditor"));
+    obj.textEditor77:setParent(obj.rectangle227);
+    obj.textEditor77:setLeft(5);
+    obj.textEditor77:setTop(30);
+    obj.textEditor77:setWidth(290);
+    obj.textEditor77:setHeight(265);
+    obj.textEditor77:setField("outrosComp");
+    obj.textEditor77:setName("textEditor77");
 
     obj.rectangle228 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle228:setParent(obj.boxDetalhesDoCompanheiro);
@@ -27882,14 +28060,14 @@ function newfrmFichaRPGmeister()
     obj.image25:setStyle("autoFit");
     obj.image25:setName("image25");
 
-    obj.button141 = gui.fromHandle(_obj_newObject("button"));
-    obj.button141:setParent(obj.scrollBox10);
-    obj.button141:setText("Novo Companheiro");
-    obj.button141:setLeft(1140);
-    obj.button141:setTop(206);
-    obj.button141:setWidth(160);
-    obj.button141:setHeight(20);
-    obj.button141:setName("button141");
+    obj.button142 = gui.fromHandle(_obj_newObject("button"));
+    obj.button142:setParent(obj.scrollBox10);
+    obj.button142:setText("Novo Companheiro");
+    obj.button142:setLeft(1140);
+    obj.button142:setTop(206);
+    obj.button142:setWidth(160);
+    obj.button142:setHeight(20);
+    obj.button142:setName("button142");
 
     obj.rectangle229 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle229:setParent(obj.scrollBox10);
@@ -27940,24 +28118,24 @@ function newfrmFichaRPGmeister()
     obj.rectangle230:setColor("black");
     obj.rectangle230:setName("rectangle230");
 
-    obj.label777 = gui.fromHandle(_obj_newObject("label"));
-    obj.label777:setParent(obj.rectangle230);
-    obj.label777:setLeft(3);
-    obj.label777:setTop(1);
-    obj.label777:setWidth(100);
-    obj.label777:setHeight(20);
-    obj.label777:setText("DESCRIÇÃO");
-    obj.label777:setName("label777");
-
     obj.label778 = gui.fromHandle(_obj_newObject("label"));
     obj.label778:setParent(obj.rectangle230);
-    obj.label778:setLeft(10);
-    obj.label778:setTop(25);
-    obj.label778:setWidth(90);
+    obj.label778:setLeft(3);
+    obj.label778:setTop(1);
+    obj.label778:setWidth(100);
     obj.label778:setHeight(20);
-    obj.label778:setText("TAMANHO");
-    obj.label778:setHorzTextAlign("center");
+    obj.label778:setText("DESCRIÇÃO");
     obj.label778:setName("label778");
+
+    obj.label779 = gui.fromHandle(_obj_newObject("label"));
+    obj.label779:setParent(obj.rectangle230);
+    obj.label779:setLeft(10);
+    obj.label779:setTop(25);
+    obj.label779:setWidth(90);
+    obj.label779:setHeight(20);
+    obj.label779:setText("TAMANHO");
+    obj.label779:setHorzTextAlign("center");
+    obj.label779:setName("label779");
 
     obj.comboBox16 = gui.fromHandle(_obj_newObject("comboBox"));
     obj.comboBox16:setParent(obj.rectangle230);
@@ -27980,15 +28158,15 @@ function newfrmFichaRPGmeister()
     obj.checkBox29:setText("Quadrúpede");
     obj.checkBox29:setName("checkBox29");
 
-    obj.label779 = gui.fromHandle(_obj_newObject("label"));
-    obj.label779:setParent(obj.rectangle230);
-    obj.label779:setLeft(10);
-    obj.label779:setTop(50);
-    obj.label779:setWidth(90);
-    obj.label779:setHeight(20);
-    obj.label779:setText("ALTURA");
-    obj.label779:setHorzTextAlign("center");
-    obj.label779:setName("label779");
+    obj.label780 = gui.fromHandle(_obj_newObject("label"));
+    obj.label780:setParent(obj.rectangle230);
+    obj.label780:setLeft(10);
+    obj.label780:setTop(50);
+    obj.label780:setWidth(90);
+    obj.label780:setHeight(20);
+    obj.label780:setText("ALTURA");
+    obj.label780:setHorzTextAlign("center");
+    obj.label780:setName("label780");
 
     obj.edit881 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit881:setParent(obj.rectangle230);
@@ -28000,15 +28178,15 @@ function newfrmFichaRPGmeister()
     obj.edit881:setVertTextAlign("center");
     obj.edit881:setName("edit881");
 
-    obj.label780 = gui.fromHandle(_obj_newObject("label"));
-    obj.label780:setParent(obj.rectangle230);
-    obj.label780:setLeft(10);
-    obj.label780:setTop(75);
-    obj.label780:setWidth(90);
-    obj.label780:setHeight(20);
-    obj.label780:setText("PESO");
-    obj.label780:setHorzTextAlign("center");
-    obj.label780:setName("label780");
+    obj.label781 = gui.fromHandle(_obj_newObject("label"));
+    obj.label781:setParent(obj.rectangle230);
+    obj.label781:setLeft(10);
+    obj.label781:setTop(75);
+    obj.label781:setWidth(90);
+    obj.label781:setHeight(20);
+    obj.label781:setText("PESO");
+    obj.label781:setHorzTextAlign("center");
+    obj.label781:setName("label781");
 
     obj.edit882 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit882:setParent(obj.rectangle230);
@@ -28020,15 +28198,15 @@ function newfrmFichaRPGmeister()
     obj.edit882:setVertTextAlign("center");
     obj.edit882:setName("edit882");
 
-    obj.label781 = gui.fromHandle(_obj_newObject("label"));
-    obj.label781:setParent(obj.rectangle230);
-    obj.label781:setLeft(310);
-    obj.label781:setTop(25);
-    obj.label781:setWidth(90);
-    obj.label781:setHeight(20);
-    obj.label781:setText("IDADE");
-    obj.label781:setHorzTextAlign("center");
-    obj.label781:setName("label781");
+    obj.label782 = gui.fromHandle(_obj_newObject("label"));
+    obj.label782:setParent(obj.rectangle230);
+    obj.label782:setLeft(310);
+    obj.label782:setTop(25);
+    obj.label782:setWidth(90);
+    obj.label782:setHeight(20);
+    obj.label782:setText("IDADE");
+    obj.label782:setHorzTextAlign("center");
+    obj.label782:setName("label782");
 
     obj.edit883 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit883:setParent(obj.rectangle230);
@@ -28040,15 +28218,15 @@ function newfrmFichaRPGmeister()
     obj.edit883:setVertTextAlign("center");
     obj.edit883:setName("edit883");
 
-    obj.label782 = gui.fromHandle(_obj_newObject("label"));
-    obj.label782:setParent(obj.rectangle230);
-    obj.label782:setLeft(310);
-    obj.label782:setTop(50);
-    obj.label782:setWidth(90);
-    obj.label782:setHeight(20);
-    obj.label782:setText("SEXO");
-    obj.label782:setHorzTextAlign("center");
-    obj.label782:setName("label782");
+    obj.label783 = gui.fromHandle(_obj_newObject("label"));
+    obj.label783:setParent(obj.rectangle230);
+    obj.label783:setLeft(310);
+    obj.label783:setTop(50);
+    obj.label783:setWidth(90);
+    obj.label783:setHeight(20);
+    obj.label783:setText("SEXO");
+    obj.label783:setHorzTextAlign("center");
+    obj.label783:setName("label783");
 
     obj.edit884 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit884:setParent(obj.rectangle230);
@@ -28060,15 +28238,15 @@ function newfrmFichaRPGmeister()
     obj.edit884:setVertTextAlign("center");
     obj.edit884:setName("edit884");
 
-    obj.label783 = gui.fromHandle(_obj_newObject("label"));
-    obj.label783:setParent(obj.rectangle230);
-    obj.label783:setLeft(310);
-    obj.label783:setTop(75);
-    obj.label783:setWidth(90);
-    obj.label783:setHeight(20);
-    obj.label783:setText("OUTROS");
-    obj.label783:setHorzTextAlign("center");
-    obj.label783:setName("label783");
+    obj.label784 = gui.fromHandle(_obj_newObject("label"));
+    obj.label784:setParent(obj.rectangle230);
+    obj.label784:setLeft(310);
+    obj.label784:setTop(75);
+    obj.label784:setWidth(90);
+    obj.label784:setHeight(20);
+    obj.label784:setText("OUTROS");
+    obj.label784:setHorzTextAlign("center");
+    obj.label784:setName("label784");
 
     obj.edit885 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit885:setParent(obj.rectangle230);
@@ -28080,15 +28258,15 @@ function newfrmFichaRPGmeister()
     obj.edit885:setVertTextAlign("center");
     obj.edit885:setName("edit885");
 
-    obj.label784 = gui.fromHandle(_obj_newObject("label"));
-    obj.label784:setParent(obj.rectangle230);
-    obj.label784:setLeft(610);
-    obj.label784:setTop(25);
-    obj.label784:setWidth(90);
-    obj.label784:setHeight(20);
-    obj.label784:setText("OLHOS");
-    obj.label784:setHorzTextAlign("center");
-    obj.label784:setName("label784");
+    obj.label785 = gui.fromHandle(_obj_newObject("label"));
+    obj.label785:setParent(obj.rectangle230);
+    obj.label785:setLeft(610);
+    obj.label785:setTop(25);
+    obj.label785:setWidth(90);
+    obj.label785:setHeight(20);
+    obj.label785:setText("OLHOS");
+    obj.label785:setHorzTextAlign("center");
+    obj.label785:setName("label785");
 
     obj.edit886 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit886:setParent(obj.rectangle230);
@@ -28100,15 +28278,15 @@ function newfrmFichaRPGmeister()
     obj.edit886:setVertTextAlign("center");
     obj.edit886:setName("edit886");
 
-    obj.label785 = gui.fromHandle(_obj_newObject("label"));
-    obj.label785:setParent(obj.rectangle230);
-    obj.label785:setLeft(610);
-    obj.label785:setTop(50);
-    obj.label785:setWidth(90);
-    obj.label785:setHeight(20);
-    obj.label785:setText("PELE");
-    obj.label785:setHorzTextAlign("center");
-    obj.label785:setName("label785");
+    obj.label786 = gui.fromHandle(_obj_newObject("label"));
+    obj.label786:setParent(obj.rectangle230);
+    obj.label786:setLeft(610);
+    obj.label786:setTop(50);
+    obj.label786:setWidth(90);
+    obj.label786:setHeight(20);
+    obj.label786:setText("PELE");
+    obj.label786:setHorzTextAlign("center");
+    obj.label786:setName("label786");
 
     obj.edit887 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit887:setParent(obj.rectangle230);
@@ -28120,15 +28298,15 @@ function newfrmFichaRPGmeister()
     obj.edit887:setVertTextAlign("center");
     obj.edit887:setName("edit887");
 
-    obj.label786 = gui.fromHandle(_obj_newObject("label"));
-    obj.label786:setParent(obj.rectangle230);
-    obj.label786:setLeft(610);
-    obj.label786:setTop(75);
-    obj.label786:setWidth(90);
-    obj.label786:setHeight(20);
-    obj.label786:setText("CABELO");
-    obj.label786:setHorzTextAlign("center");
-    obj.label786:setName("label786");
+    obj.label787 = gui.fromHandle(_obj_newObject("label"));
+    obj.label787:setParent(obj.rectangle230);
+    obj.label787:setLeft(610);
+    obj.label787:setTop(75);
+    obj.label787:setWidth(90);
+    obj.label787:setHeight(20);
+    obj.label787:setText("CABELO");
+    obj.label787:setHorzTextAlign("center");
+    obj.label787:setName("label787");
 
     obj.edit888 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit888:setParent(obj.rectangle230);
@@ -28140,15 +28318,15 @@ function newfrmFichaRPGmeister()
     obj.edit888:setVertTextAlign("center");
     obj.edit888:setName("edit888");
 
-    obj.label787 = gui.fromHandle(_obj_newObject("label"));
-    obj.label787:setParent(obj.rectangle230);
-    obj.label787:setLeft(910);
-    obj.label787:setTop(25);
-    obj.label787:setWidth(90);
-    obj.label787:setHeight(20);
-    obj.label787:setText("PLANO");
-    obj.label787:setHorzTextAlign("center");
-    obj.label787:setName("label787");
+    obj.label788 = gui.fromHandle(_obj_newObject("label"));
+    obj.label788:setParent(obj.rectangle230);
+    obj.label788:setLeft(910);
+    obj.label788:setTop(25);
+    obj.label788:setWidth(90);
+    obj.label788:setHeight(20);
+    obj.label788:setText("PLANO");
+    obj.label788:setHorzTextAlign("center");
+    obj.label788:setName("label788");
 
     obj.edit889 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit889:setParent(obj.rectangle230);
@@ -28160,15 +28338,15 @@ function newfrmFichaRPGmeister()
     obj.edit889:setVertTextAlign("center");
     obj.edit889:setName("edit889");
 
-    obj.label788 = gui.fromHandle(_obj_newObject("label"));
-    obj.label788:setParent(obj.rectangle230);
-    obj.label788:setLeft(910);
-    obj.label788:setTop(50);
-    obj.label788:setWidth(90);
-    obj.label788:setHeight(20);
-    obj.label788:setText("REGIÃO");
-    obj.label788:setHorzTextAlign("center");
-    obj.label788:setName("label788");
+    obj.label789 = gui.fromHandle(_obj_newObject("label"));
+    obj.label789:setParent(obj.rectangle230);
+    obj.label789:setLeft(910);
+    obj.label789:setTop(50);
+    obj.label789:setWidth(90);
+    obj.label789:setHeight(20);
+    obj.label789:setText("REGIÃO");
+    obj.label789:setHorzTextAlign("center");
+    obj.label789:setName("label789");
 
     obj.edit890 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit890:setParent(obj.rectangle230);
@@ -28180,15 +28358,15 @@ function newfrmFichaRPGmeister()
     obj.edit890:setVertTextAlign("center");
     obj.edit890:setName("edit890");
 
-    obj.label789 = gui.fromHandle(_obj_newObject("label"));
-    obj.label789:setParent(obj.rectangle230);
-    obj.label789:setLeft(910);
-    obj.label789:setTop(75);
-    obj.label789:setWidth(90);
-    obj.label789:setHeight(20);
-    obj.label789:setText("REINO");
-    obj.label789:setHorzTextAlign("center");
-    obj.label789:setName("label789");
+    obj.label790 = gui.fromHandle(_obj_newObject("label"));
+    obj.label790:setParent(obj.rectangle230);
+    obj.label790:setLeft(910);
+    obj.label790:setTop(75);
+    obj.label790:setWidth(90);
+    obj.label790:setHeight(20);
+    obj.label790:setText("REINO");
+    obj.label790:setHorzTextAlign("center");
+    obj.label790:setName("label790");
 
     obj.edit891 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit891:setParent(obj.rectangle230);
@@ -28219,23 +28397,23 @@ function newfrmFichaRPGmeister()
     obj.rectangle231:setColor("black");
     obj.rectangle231:setName("rectangle231");
 
-    obj.label790 = gui.fromHandle(_obj_newObject("label"));
-    obj.label790:setParent(obj.layout220);
-    obj.label790:setLeft(5);
-    obj.label790:setTop(1);
-    obj.label790:setWidth(100);
-    obj.label790:setHeight(20);
-    obj.label790:setText("APARÊNCIA");
-    obj.label790:setName("label790");
+    obj.label791 = gui.fromHandle(_obj_newObject("label"));
+    obj.label791:setParent(obj.layout220);
+    obj.label791:setLeft(5);
+    obj.label791:setTop(1);
+    obj.label791:setWidth(100);
+    obj.label791:setHeight(20);
+    obj.label791:setText("APARÊNCIA");
+    obj.label791:setName("label791");
 
-    obj.textEditor77 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor77:setParent(obj.layout220);
-    obj.textEditor77:setLeft(5);
-    obj.textEditor77:setTop(25);
-    obj.textEditor77:setWidth(365);
-    obj.textEditor77:setHeight(210);
-    obj.textEditor77:setField("aparencia");
-    obj.textEditor77:setName("textEditor77");
+    obj.textEditor78 = gui.fromHandle(_obj_newObject("textEditor"));
+    obj.textEditor78:setParent(obj.layout220);
+    obj.textEditor78:setLeft(5);
+    obj.textEditor78:setTop(25);
+    obj.textEditor78:setWidth(365);
+    obj.textEditor78:setHeight(210);
+    obj.textEditor78:setField("aparencia");
+    obj.textEditor78:setName("textEditor78");
 
     obj.layout221 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout221:setParent(obj.scrollBox11);
@@ -28251,23 +28429,23 @@ function newfrmFichaRPGmeister()
     obj.rectangle232:setColor("black");
     obj.rectangle232:setName("rectangle232");
 
-    obj.label791 = gui.fromHandle(_obj_newObject("label"));
-    obj.label791:setParent(obj.layout221);
-    obj.label791:setLeft(5);
-    obj.label791:setTop(1);
-    obj.label791:setWidth(100);
-    obj.label791:setHeight(20);
-    obj.label791:setText("PERSONALIDADE");
-    obj.label791:setName("label791");
+    obj.label792 = gui.fromHandle(_obj_newObject("label"));
+    obj.label792:setParent(obj.layout221);
+    obj.label792:setLeft(5);
+    obj.label792:setTop(1);
+    obj.label792:setWidth(100);
+    obj.label792:setHeight(20);
+    obj.label792:setText("PERSONALIDADE");
+    obj.label792:setName("label792");
 
-    obj.textEditor78 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor78:setParent(obj.layout221);
-    obj.textEditor78:setLeft(5);
-    obj.textEditor78:setTop(25);
-    obj.textEditor78:setWidth(365);
-    obj.textEditor78:setHeight(220);
-    obj.textEditor78:setField("personalidade");
-    obj.textEditor78:setName("textEditor78");
+    obj.textEditor79 = gui.fromHandle(_obj_newObject("textEditor"));
+    obj.textEditor79:setParent(obj.layout221);
+    obj.textEditor79:setLeft(5);
+    obj.textEditor79:setTop(25);
+    obj.textEditor79:setWidth(365);
+    obj.textEditor79:setHeight(220);
+    obj.textEditor79:setField("personalidade");
+    obj.textEditor79:setName("textEditor79");
 
     obj.layout222 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout222:setParent(obj.scrollBox11);
@@ -28283,23 +28461,34 @@ function newfrmFichaRPGmeister()
     obj.rectangle233:setColor("black");
     obj.rectangle233:setName("rectangle233");
 
-    obj.label792 = gui.fromHandle(_obj_newObject("label"));
-    obj.label792:setParent(obj.layout222);
-    obj.label792:setLeft(5);
-    obj.label792:setTop(1);
-    obj.label792:setWidth(100);
-    obj.label792:setHeight(20);
-    obj.label792:setText("HISTORIA");
-    obj.label792:setName("label792");
+    obj.label793 = gui.fromHandle(_obj_newObject("label"));
+    obj.label793:setParent(obj.layout222);
+    obj.label793:setLeft(5);
+    obj.label793:setTop(1);
+    obj.label793:setWidth(100);
+    obj.label793:setHeight(20);
+    obj.label793:setText("HISTORIA");
+    obj.label793:setName("label793");
 
-    obj.textEditor79 = gui.fromHandle(_obj_newObject("textEditor"));
-    obj.textEditor79:setParent(obj.layout222);
-    obj.textEditor79:setLeft(5);
-    obj.textEditor79:setTop(25);
-    obj.textEditor79:setWidth(815);
-    obj.textEditor79:setHeight(465);
-    obj.textEditor79:setField("historia");
-    obj.textEditor79:setName("textEditor79");
+    obj.button143 = gui.fromHandle(_obj_newObject("button"));
+    obj.button143:setParent(obj.layout222);
+    obj.button143:setLeft(720);
+    obj.button143:setTop(1);
+    obj.button143:setWidth(100);
+    obj.button143:setHeight(20);
+    obj.button143:setText("Copiar Antigo");
+    obj.button143:setName("button143");
+
+    obj.richEdit1 = gui.fromHandle(_obj_newObject("richEdit"));
+    obj.richEdit1:setParent(obj.layout222);
+    obj.richEdit1:setLeft(5);
+    obj.richEdit1:setTop(25);
+    obj.richEdit1:setWidth(815);
+    obj.richEdit1:setHeight(465);
+    obj.richEdit1:setField("background");
+    lfm_setPropAsString(obj.richEdit1, "backgroundColor",  "#333333");
+    lfm_setPropAsString(obj.richEdit1, "defaultFontColor",  "white");
+    obj.richEdit1:setName("richEdit1");
 
     obj.tab14 = gui.fromHandle(_obj_newObject("tab"));
     obj.tab14:setParent(obj.tabControl1);
@@ -28331,15 +28520,15 @@ function newfrmFichaRPGmeister()
     obj.rectangle234:setColor("black");
     obj.rectangle234:setName("rectangle234");
 
-    obj.label793 = gui.fromHandle(_obj_newObject("label"));
-    obj.label793:setParent(obj.layout223);
-    obj.label793:setLeft(0);
-    obj.label793:setTop(0);
-    obj.label793:setWidth(400);
-    obj.label793:setHeight(20);
-    obj.label793:setText("ANOTAÇÕES");
-    obj.label793:setHorzTextAlign("center");
-    obj.label793:setName("label793");
+    obj.label794 = gui.fromHandle(_obj_newObject("label"));
+    obj.label794:setParent(obj.layout223);
+    obj.label794:setLeft(0);
+    obj.label794:setTop(0);
+    obj.label794:setWidth(400);
+    obj.label794:setHeight(20);
+    obj.label794:setText("ANOTAÇÕES");
+    obj.label794:setHorzTextAlign("center");
+    obj.label794:setName("label794");
 
     obj.textEditor80 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor80:setParent(obj.layout223);
@@ -28364,15 +28553,15 @@ function newfrmFichaRPGmeister()
     obj.rectangle235:setColor("black");
     obj.rectangle235:setName("rectangle235");
 
-    obj.label794 = gui.fromHandle(_obj_newObject("label"));
-    obj.label794:setParent(obj.layout224);
-    obj.label794:setLeft(0);
-    obj.label794:setTop(0);
-    obj.label794:setWidth(400);
-    obj.label794:setHeight(20);
-    obj.label794:setText("ANOTAÇÕES");
-    obj.label794:setHorzTextAlign("center");
-    obj.label794:setName("label794");
+    obj.label795 = gui.fromHandle(_obj_newObject("label"));
+    obj.label795:setParent(obj.layout224);
+    obj.label795:setLeft(0);
+    obj.label795:setTop(0);
+    obj.label795:setWidth(400);
+    obj.label795:setHeight(20);
+    obj.label795:setText("ANOTAÇÕES");
+    obj.label795:setHorzTextAlign("center");
+    obj.label795:setName("label795");
 
     obj.textEditor81 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor81:setParent(obj.layout224);
@@ -28397,15 +28586,15 @@ function newfrmFichaRPGmeister()
     obj.rectangle236:setColor("black");
     obj.rectangle236:setName("rectangle236");
 
-    obj.label795 = gui.fromHandle(_obj_newObject("label"));
-    obj.label795:setParent(obj.layout225);
-    obj.label795:setLeft(0);
-    obj.label795:setTop(0);
-    obj.label795:setWidth(400);
-    obj.label795:setHeight(20);
-    obj.label795:setText("ANOTAÇÕES");
-    obj.label795:setHorzTextAlign("center");
-    obj.label795:setName("label795");
+    obj.label796 = gui.fromHandle(_obj_newObject("label"));
+    obj.label796:setParent(obj.layout225);
+    obj.label796:setLeft(0);
+    obj.label796:setTop(0);
+    obj.label796:setWidth(400);
+    obj.label796:setHeight(20);
+    obj.label796:setText("ANOTAÇÕES");
+    obj.label796:setHorzTextAlign("center");
+    obj.label796:setName("label796");
 
     obj.textEditor82 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor82:setParent(obj.layout225);
@@ -28463,45 +28652,45 @@ function newfrmFichaRPGmeister()
     obj.rectangle237:setCornerType("round");
     obj.rectangle237:setName("rectangle237");
 
-    obj.label796 = gui.fromHandle(_obj_newObject("label"));
-    obj.label796:setParent(obj.layout226);
-    obj.label796:setLeft(0);
-    obj.label796:setTop(10);
-    obj.label796:setWidth(200);
-    obj.label796:setHeight(20);
-    obj.label796:setText("Programador: Vinny (Ambesek)");
-    obj.label796:setHorzTextAlign("center");
-    obj.label796:setName("label796");
-
     obj.label797 = gui.fromHandle(_obj_newObject("label"));
     obj.label797:setParent(obj.layout226);
     obj.label797:setLeft(0);
-    obj.label797:setTop(35);
+    obj.label797:setTop(10);
     obj.label797:setWidth(200);
     obj.label797:setHeight(20);
-    obj.label797:setText("Arte: Nefer (Nefertyne)");
+    obj.label797:setText("Programador: Vinny (Ambesek)");
     obj.label797:setHorzTextAlign("center");
     obj.label797:setName("label797");
 
     obj.label798 = gui.fromHandle(_obj_newObject("label"));
     obj.label798:setParent(obj.layout226);
     obj.label798:setLeft(0);
-    obj.label798:setTop(95);
+    obj.label798:setTop(35);
     obj.label798:setWidth(200);
     obj.label798:setHeight(20);
-    obj.label798:setText("Ficha feita para a mesa: ");
+    obj.label798:setText("Arte: Nefer (Nefertyne)");
     obj.label798:setHorzTextAlign("center");
     obj.label798:setName("label798");
 
     obj.label799 = gui.fromHandle(_obj_newObject("label"));
     obj.label799:setParent(obj.layout226);
     obj.label799:setLeft(0);
-    obj.label799:setTop(120);
+    obj.label799:setTop(95);
     obj.label799:setWidth(200);
     obj.label799:setHeight(20);
-    obj.label799:setText("RPGmeister");
+    obj.label799:setText("Ficha feita para a mesa: ");
     obj.label799:setHorzTextAlign("center");
     obj.label799:setName("label799");
+
+    obj.label800 = gui.fromHandle(_obj_newObject("label"));
+    obj.label800:setParent(obj.layout226);
+    obj.label800:setLeft(0);
+    obj.label800:setTop(120);
+    obj.label800:setWidth(200);
+    obj.label800:setHeight(20);
+    obj.label800:setText("RPGmeister");
+    obj.label800:setHorzTextAlign("center");
+    obj.label800:setName("label800");
 
     obj.layout227 = gui.fromHandle(_obj_newObject("layout"));
     obj.layout227:setParent(obj.scrollBox13);
@@ -28517,15 +28706,15 @@ function newfrmFichaRPGmeister()
     obj.rectangle238:setColor("black");
     obj.rectangle238:setName("rectangle238");
 
-    obj.label800 = gui.fromHandle(_obj_newObject("label"));
-    obj.label800:setParent(obj.layout227);
-    obj.label800:setLeft(0);
-    obj.label800:setTop(0);
-    obj.label800:setWidth(400);
-    obj.label800:setHeight(20);
-    obj.label800:setText("ANOTAÇÕES DO MESTRE");
-    obj.label800:setHorzTextAlign("center");
-    obj.label800:setName("label800");
+    obj.label801 = gui.fromHandle(_obj_newObject("label"));
+    obj.label801:setParent(obj.layout227);
+    obj.label801:setLeft(0);
+    obj.label801:setTop(0);
+    obj.label801:setWidth(400);
+    obj.label801:setHeight(20);
+    obj.label801:setText("ANOTAÇÕES DO MESTRE");
+    obj.label801:setHorzTextAlign("center");
+    obj.label801:setName("label801");
 
     obj.textEditor83 = gui.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor83:setParent(obj.layout227);
@@ -28536,14 +28725,14 @@ function newfrmFichaRPGmeister()
     obj.textEditor83:setField("anotacoes_do_mestre");
     obj.textEditor83:setName("textEditor83");
 
-    obj.label801 = gui.fromHandle(_obj_newObject("label"));
-    obj.label801:setParent(obj.scrollBox13);
-    obj.label801:setLeft(630);
-    obj.label801:setTop(400);
-    obj.label801:setWidth(90);
-    obj.label801:setHeight(20);
-    obj.label801:setText("SUA VERSÃO:");
-    obj.label801:setName("label801");
+    obj.label802 = gui.fromHandle(_obj_newObject("label"));
+    obj.label802:setParent(obj.scrollBox13);
+    obj.label802:setLeft(630);
+    obj.label802:setTop(400);
+    obj.label802:setWidth(90);
+    obj.label802:setHeight(20);
+    obj.label802:setText("SUA VERSÃO:");
+    obj.label802:setName("label802");
 
     obj.rectangle239 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle239:setParent(obj.scrollBox13);
@@ -28566,14 +28755,14 @@ function newfrmFichaRPGmeister()
     obj.image27:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao25.png");
     obj.image27:setName("image27");
 
-    obj.label802 = gui.fromHandle(_obj_newObject("label"));
-    obj.label802:setParent(obj.scrollBox13);
-    obj.label802:setLeft(620);
-    obj.label802:setTop(430);
-    obj.label802:setWidth(100);
-    obj.label802:setHeight(20);
-    obj.label802:setText("VERSÃO ATUAL:");
-    obj.label802:setName("label802");
+    obj.label803 = gui.fromHandle(_obj_newObject("label"));
+    obj.label803:setParent(obj.scrollBox13);
+    obj.label803:setLeft(620);
+    obj.label803:setTop(430);
+    obj.label803:setWidth(100);
+    obj.label803:setHeight(20);
+    obj.label803:setText("VERSÃO ATUAL:");
+    obj.label803:setName("label803");
 
     obj.rectangle240 = gui.fromHandle(_obj_newObject("rectangle"));
     obj.rectangle240:setParent(obj.scrollBox13);
@@ -28596,46 +28785,46 @@ function newfrmFichaRPGmeister()
     obj.image28:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/release.png");
     obj.image28:setName("image28");
 
-    obj.button142 = gui.fromHandle(_obj_newObject("button"));
-    obj.button142:setParent(obj.scrollBox13);
-    obj.button142:setLeft(620);
-    obj.button142:setTop(475);
-    obj.button142:setWidth(100);
-    obj.button142:setText("Change Log");
-    obj.button142:setName("button142");
-
-    obj.button143 = gui.fromHandle(_obj_newObject("button"));
-    obj.button143:setParent(obj.scrollBox13);
-    obj.button143:setLeft(730);
-    obj.button143:setTop(475);
-    obj.button143:setWidth(100);
-    obj.button143:setText("Atualizar");
-    obj.button143:setName("button143");
-
     obj.button144 = gui.fromHandle(_obj_newObject("button"));
     obj.button144:setParent(obj.scrollBox13);
-    obj.button144:setLeft(840);
+    obj.button144:setLeft(620);
     obj.button144:setTop(475);
     obj.button144:setWidth(100);
-    obj.button144:setText("Tutorial");
+    obj.button144:setText("Change Log");
     obj.button144:setName("button144");
-
-    obj.label803 = gui.fromHandle(_obj_newObject("label"));
-    obj.label803:setParent(obj.scrollBox13);
-    obj.label803:setLeft(620);
-    obj.label803:setTop(525);
-    obj.label803:setWidth(120);
-    obj.label803:setHeight(20);
-    obj.label803:setText("CONHEÇA A MESA:");
-    obj.label803:setName("label803");
 
     obj.button145 = gui.fromHandle(_obj_newObject("button"));
     obj.button145:setParent(obj.scrollBox13);
-    obj.button145:setLeft(740);
-    obj.button145:setTop(525);
+    obj.button145:setLeft(730);
+    obj.button145:setTop(475);
     obj.button145:setWidth(100);
-    obj.button145:setText("RPGmeister");
+    obj.button145:setText("Atualizar");
     obj.button145:setName("button145");
+
+    obj.button146 = gui.fromHandle(_obj_newObject("button"));
+    obj.button146:setParent(obj.scrollBox13);
+    obj.button146:setLeft(840);
+    obj.button146:setTop(475);
+    obj.button146:setWidth(100);
+    obj.button146:setText("Tutorial");
+    obj.button146:setName("button146");
+
+    obj.label804 = gui.fromHandle(_obj_newObject("label"));
+    obj.label804:setParent(obj.scrollBox13);
+    obj.label804:setLeft(620);
+    obj.label804:setTop(525);
+    obj.label804:setWidth(120);
+    obj.label804:setHeight(20);
+    obj.label804:setText("CONHEÇA A MESA:");
+    obj.label804:setName("label804");
+
+    obj.button147 = gui.fromHandle(_obj_newObject("button"));
+    obj.button147:setParent(obj.scrollBox13);
+    obj.button147:setLeft(740);
+    obj.button147:setTop(525);
+    obj.button147:setWidth(100);
+    obj.button147:setText("RPGmeister");
+    obj.button147:setName("button147");
 
     obj._e_event0 = obj.dataLink1:addEventListener("onChange",
         function (self, field, oldValue, newValue)
@@ -31729,20 +31918,21 @@ function newfrmFichaRPGmeister()
             						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
             						local personagem = sheet.nome or "personagem";
             
+            						--limpando variaveis do ultimo ataque
             						dadoAtaques = {};
             						resultadoAtaques = {};
             						ataquesFeitos = 0;
-            						numeroAtaques = 0;
             						multMunicao = 0;
-            						for i=1, #weapons, 1 do
-            							local acertos = weapons[i].acertos;
-            							local armamento = weapons[i].nomeAtaque or "arma";
+            						ataqueID=1;
+            						weaponID=1;
             
+            						numeroAtaques = 0;
+            						for i=1, #weapons, 1 do
             							numeroAtaques = numeroAtaques + weapons[i].numAtaques;
-            							multMunicao = multMunicao + weapons[i].multMunicao;
             
             							if weapons[i].municao~= nil then
             								local municao = tonumber(weapons[i].municao) or 0;
+            								local multMunicao = tonumber(weapons[i].multMunicao) or 0;
             								if numeroAtaques > municao then
             									weapons[i].municao = 0;
             									mesaDoPersonagem.activeChat:enviarMensagem("Esta arma possui apenas " .. municao .. " das " .. numeroAtaques .. " munições necessarias para atacar.");
@@ -31750,15 +31940,17 @@ function newfrmFichaRPGmeister()
             									weapons[i].municao = municao - numeroAtaques - multMunicao;
             								end;
             							end;
-            
-            							for j=1, weapons[i].numAtaques, 1 do
-            								local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
-            								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. j .. " com " .. armamento .. " de " .. personagem, 
-            									function (rolado)
-            										esperaAtaque(rolado)
-            								end);
-            							end;
             						end;
+            
+            						--preparando ataque
+            						local acertos = weapons[weaponID].acertos;
+            						local armamento = weapons[weaponID].nomeAtaque or "arma";
+            
+            						local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+            						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+            							function (rolado)
+            								proximoAtaque(rolado)
+            						end);
         end, obj);
 
     obj._e_event157 = obj.button96:addEventListener("onClick",
@@ -35394,24 +35586,36 @@ function newfrmFichaRPGmeister()
             					mesaDoPersonagem.activeChat:rolarDados(rolagem, "Teste de vontade de " .. (node.nomeComp or "Companheiro"));
         end, obj);
 
-    obj._e_event385 = obj.image25:addEventListener("onStartDrag",
+    obj._e_event385 = obj.button141:addEventListener("onClick",
+        function (self)
+            local macro = self.boxDetalhesDoCompanheiro.node.macro;
+            						if macro~=nil then
+            							local macros = lines(macro);
+            							local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+            							for i=1, #macros, 1 do
+            								mesaDoPersonagem.activeChat:enviarMensagem(macros[i]);
+            							end;
+            						end;
+        end, obj);
+
+    obj._e_event386 = obj.image25:addEventListener("onStartDrag",
         function (self, drag, x, y)
             drag:addData("imageURL", self.rclListaDosCompanheiros.selectedNode.avatarComp);
         end, obj);
 
-    obj._e_event386 = obj.button141:addEventListener("onClick",
+    obj._e_event387 = obj.button142:addEventListener("onClick",
         function (self)
             self.rclListaDosCompanheiros:append();
         end, obj);
 
-    obj._e_event387 = obj.rclListaDosCompanheiros:addEventListener("onSelect",
+    obj._e_event388 = obj.rclListaDosCompanheiros:addEventListener("onSelect",
         function (self)
             local node = self.rclListaDosCompanheiros.selectedNode;
             				self.boxDetalhesDoCompanheiro.node = node;
             				self.boxDetalhesDoCompanheiro.visible = (node ~= nil);
         end, obj);
 
-    obj._e_event388 = obj.rclListaDosCompanheiros:addEventListener("onEndEnumeration",
+    obj._e_event389 = obj.rclListaDosCompanheiros:addEventListener("onEndEnumeration",
         function (self)
             if self.rclListaDosCompanheiros.selectedNode == nil and sheet ~= nil then
             					local nodes = ndb.getChildNodes(sheet.campoDosCompanheiros);               
@@ -35421,7 +35625,7 @@ function newfrmFichaRPGmeister()
             				end;
         end, obj);
 
-    obj._e_event389 = obj.dataLink147:addEventListener("onChange",
+    obj._e_event390 = obj.dataLink147:addEventListener("onChange",
         function (self, field, oldValue, newValue)
             if sheet~=nil then
             					if debug then
@@ -35532,27 +35736,34 @@ function newfrmFichaRPGmeister()
             				end;
         end, obj);
 
-    obj._e_event390 = obj.button142:addEventListener("onClick",
-        function (self)
-            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Change%20Log.txt')
-        end, obj);
-
     obj._e_event391 = obj.button143:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister.rpk')
+            System.setClipboardText(sheet.historia);
         end, obj);
 
     obj._e_event392 = obj.button144:addEventListener("onClick",
         function (self)
-            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister%20-%20Tutorial.docx')
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Change%20Log.txt')
         end, obj);
 
     obj._e_event393 = obj.button145:addEventListener("onClick",
+        function (self)
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister.rpk')
+        end, obj);
+
+    obj._e_event394 = obj.button146:addEventListener("onClick",
+        function (self)
+            gui.openInBrowser('http://www.cin.ufpe.br/~jvdl/Plugins/Ficha%20RPG%20meister%20releases/Ficha%20RPG%20meister%20-%20Tutorial.docx')
+        end, obj);
+
+    obj._e_event395 = obj.button147:addEventListener("onClick",
         function (self)
             gui.openInBrowser('http://firecast.rrpg.com.br:90/a?a=pagRWEMesaInfo.actInfoMesa&mesaid=64070');
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event395);
+        __o_rrpgObjs.removeEventListenerById(self._e_event394);
         __o_rrpgObjs.removeEventListenerById(self._e_event393);
         __o_rrpgObjs.removeEventListenerById(self._e_event392);
         __o_rrpgObjs.removeEventListenerById(self._e_event391);
@@ -36997,6 +37208,7 @@ function newfrmFichaRPGmeister()
         if self.edit415 ~= nil then self.edit415:destroy(); self.edit415 = nil; end;
         if self.layout101 ~= nil then self.layout101:destroy(); self.layout101 = nil; end;
         if self.label776 ~= nil then self.label776:destroy(); self.label776 = nil; end;
+        if self.label804 ~= nil then self.label804:destroy(); self.label804 = nil; end;
         if self.label657 ~= nil then self.label657:destroy(); self.label657 = nil; end;
         if self.flowPart4 ~= nil then self.flowPart4:destroy(); self.flowPart4 = nil; end;
         if self.edit387 ~= nil then self.edit387:destroy(); self.edit387 = nil; end;
@@ -38344,6 +38556,7 @@ function newfrmFichaRPGmeister()
         if self.edit52 ~= nil then self.edit52:destroy(); self.edit52 = nil; end;
         if self.button4 ~= nil then self.button4:destroy(); self.button4 = nil; end;
         if self.edit316 ~= nil then self.edit316:destroy(); self.edit316 = nil; end;
+        if self.button146 ~= nil then self.button146:destroy(); self.button146 = nil; end;
         if self.flowPart57 ~= nil then self.flowPart57:destroy(); self.flowPart57 = nil; end;
         if self.rectangle55 ~= nil then self.rectangle55:destroy(); self.rectangle55 = nil; end;
         if self.label176 ~= nil then self.label176:destroy(); self.label176 = nil; end;
@@ -38463,6 +38676,7 @@ function newfrmFichaRPGmeister()
         if self.edit863 ~= nil then self.edit863:destroy(); self.edit863 = nil; end;
         if self.edit706 ~= nil then self.edit706:destroy(); self.edit706 = nil; end;
         if self.flowPart75 ~= nil then self.flowPart75:destroy(); self.flowPart75 = nil; end;
+        if self.button147 ~= nil then self.button147:destroy(); self.button147 = nil; end;
         if self.label23 ~= nil then self.label23:destroy(); self.label23 = nil; end;
         if self.dataLink10 ~= nil then self.dataLink10:destroy(); self.dataLink10 = nil; end;
         if self.flowPart97 ~= nil then self.flowPart97:destroy(); self.flowPart97 = nil; end;
@@ -38771,6 +38985,7 @@ function newfrmFichaRPGmeister()
         if self.rectangle240 ~= nil then self.rectangle240:destroy(); self.rectangle240 = nil; end;
         if self.rclListaDosAtaques ~= nil then self.rclListaDosAtaques:destroy(); self.rclListaDosAtaques = nil; end;
         if self.edit694 ~= nil then self.edit694:destroy(); self.edit694 = nil; end;
+        if self.richEdit1 ~= nil then self.richEdit1:destroy(); self.richEdit1 = nil; end;
         if self.label621 ~= nil then self.label621:destroy(); self.label621 = nil; end;
         if self.label460 ~= nil then self.label460:destroy(); self.label460 = nil; end;
         if self.scrollBox3 ~= nil then self.scrollBox3:destroy(); self.scrollBox3 = nil; end;

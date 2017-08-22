@@ -92,45 +92,182 @@ function newfrmFichaRPGmeister2a_svg()
 
 				local numeroAtaques = 0;
 				local ataquesFeitos = 0;
+				local ataqueID=1;
+				local weaponID=1;
 				local dadoAtaques = {};
 				local resultadoAtaques = {};
 				local rolando = false;
 
-				local function esperaAtaque(rolado)
+				local function proximoCritico(rolado)
+					ataquesFeitos = ataquesFeitos + 1;
+
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
+						end;
+
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						local crit = weapons[weaponID].crit;
+
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local rolagem = rrpg.interpretarRolagem(crit);
+							mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximoCritico(rolado)
+							end);
+						else
+							proximoCritico(nil);
+						end;
+					end;
+					-- Fim do Ataque
+				end;
+
+				local function proximaConfirmacao(rolado)
+					ataquesFeitos = ataquesFeitos + 1;
+
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
+						end;
+
+						local acertos = weapons[weaponID].acertos;
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+							mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximaConfirmacao(rolado)
+							end);
+						else
+							proximaConfirmacao(nil);
+						end;
+					else
+						-- Causa o dano adicional
+
+						weaponID = 1;
+						ataqueID = 1;
+						ataquesFeitos = 0;
+
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						local crit = weapons[weaponID].crit;
+
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local rolagem = rrpg.interpretarRolagem(crit);
+							mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximoCritico(rolado)
+							end);
+						else
+							proximoCritico(nil);
+						end;
+					end;
+				end;
+
+				local function proximoDano(rolado)
+					ataquesFeitos = ataquesFeitos + 1;
+
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
+
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
+						end;
+
+						local dano = weapons[weaponID].dado;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+
+						local rolagem = rrpg.interpretarRolagem(dano);
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+							function (rolado)
+								proximoDano(rolado)
+						end);
+					else
+						-- confirma os criticos
+
+						-- reseta variaveis
+						weaponID = 1;
+						ataqueID = 1;
+						ataquesFeitos = 0;
+
+						local acertos = weapons[weaponID].acertos;
+						local decisivo = weapons[weaponID].decisivo;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+						if dadoAtaques[ataquesFeitos+1]>=decisivo then
+							local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+							mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+								function (rolado)
+									proximaConfirmacao(rolado)
+							end);
+						else
+							proximaConfirmacao(nil);
+						end;
+					end
+				end;
+
+				local function proximoAtaque(rolado)
 					ataquesFeitos = ataquesFeitos + 1;
 					dadoAtaques[ataquesFeitos] = rolado.ops[1].resultados[1];
 					resultadoAtaques[ataquesFeitos] = rolado.resultado;
 
-					if ataquesFeitos == numeroAtaques then
-						local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
-						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
-						local personagem = sheet.nome or "personagem";
+					local personagem = sheet.nome or "personagem";
+					local mesaDoPersonagem = rrpg.getMesaDe(sheet);
+					local weapons = ndb.getChildNodes(self.boxDetalhesDoAtaque.node.campoDeArmas);
 
-						for i=1, #weapons, 1 do
-							local acertos = weapons[i].acertos;
-							local dado = weapons[i].dado;
-							local armamento = weapons[i].nomeAtaque or "arma";
-							local crit = weapons[i].crit;
-							local decisivo = weapons[i].decisivo;
-
-							for j=1, weapons[i].numAtaques, 1 do
-								local rolagem = rrpg.interpretarRolagem(dado);
-								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano #" .. j .. " com " .. armamento .. " de " .. personagem);
-
-								local pos = (i-1) * weapons[i].numAtaques + j;
-								if dadoAtaques[pos]>=decisivo then
-									local confirmacao = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
-									mesaDoPersonagem.activeChat:rolarDados(confirmacao, "Confirmação de Decisivo do ataque #" .. j .. " com " .. armamento .. " de " .. personagem);
-									local rolagem = rrpg.interpretarRolagem(crit);
-									mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano adicional do decisivo #" .. j .. " com " .. armamento .. " de " .. personagem);
-								end;
-							end;
+					if ataquesFeitos < numeroAtaques then
+						ataqueID = ataqueID + 1;
+						if ataqueID > weapons[weaponID].numAtaques then
+							ataqueID = 1;
+							weaponID = weaponID+1;
 						end;
-						rolando = false;
-					end;
+
+						local acertos = weapons[weaponID].acertos;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+
+						local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+							function (rolado)
+								proximoAtaque(rolado)
+						end);
+
+					else
+						-- chama o dano
+
+						-- reseta variaveis
+						weaponID = 1;
+						ataqueID = 1;
+						ataquesFeitos = 0;
+
+						local dano = weapons[weaponID].dado;
+						local armamento = weapons[weaponID].nomeAtaque or "arma";
+
+						local rolagem = rrpg.interpretarRolagem(dano);
+						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Dano #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+							function (rolado)
+								proximoDano(rolado)
+						end);
+					end
 				end;
 
-			
+				
 
 
     obj.layout1 = gui.fromHandle(_obj_newObject("layout"));
@@ -239,20 +376,21 @@ function newfrmFichaRPGmeister2a_svg()
             						local mesaDoPersonagem = rrpg.getMesaDe(sheet);
             						local personagem = sheet.nome or "personagem";
             
+            						--limpando variaveis do ultimo ataque
             						dadoAtaques = {};
             						resultadoAtaques = {};
             						ataquesFeitos = 0;
-            						numeroAtaques = 0;
             						multMunicao = 0;
-            						for i=1, #weapons, 1 do
-            							local acertos = weapons[i].acertos;
-            							local armamento = weapons[i].nomeAtaque or "arma";
+            						ataqueID=1;
+            						weaponID=1;
             
+            						numeroAtaques = 0;
+            						for i=1, #weapons, 1 do
             							numeroAtaques = numeroAtaques + weapons[i].numAtaques;
-            							multMunicao = multMunicao + weapons[i].multMunicao;
             
             							if weapons[i].municao~= nil then
             								local municao = tonumber(weapons[i].municao) or 0;
+            								local multMunicao = tonumber(weapons[i].multMunicao) or 0;
             								if numeroAtaques > municao then
             									weapons[i].municao = 0;
             									mesaDoPersonagem.activeChat:enviarMensagem("Esta arma possui apenas " .. municao .. " das " .. numeroAtaques .. " munições necessarias para atacar.");
@@ -260,15 +398,17 @@ function newfrmFichaRPGmeister2a_svg()
             									weapons[i].municao = municao - numeroAtaques - multMunicao;
             								end;
             							end;
-            
-            							for j=1, weapons[i].numAtaques, 1 do
-            								local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[j]);
-            								mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. j .. " com " .. armamento .. " de " .. personagem, 
-            									function (rolado)
-            										esperaAtaque(rolado)
-            								end);
-            							end;
             						end;
+            
+            						--preparando ataque
+            						local acertos = weapons[weaponID].acertos;
+            						local armamento = weapons[weaponID].nomeAtaque or "arma";
+            
+            						local rolagem = rrpg.interpretarRolagem("1d20+" .. acertos[ataqueID]);
+            						mesaDoPersonagem.activeChat:rolarDados(rolagem, "Ataque #" .. ataqueID .. " com " .. armamento .. " de " .. personagem, 
+            							function (rolado)
+            								proximoAtaque(rolado)
+            						end);
         end, obj);
 
     obj._e_event5 = obj.button4:addEventListener("onClick",
