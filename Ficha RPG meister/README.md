@@ -4,7 +4,7 @@ Proximas Versões
 + Dar uma olhada nas questões de ajuste de tamanho da ficha para telas pequenas. 
 + Rolar ataques para companheiros
 
-22 de Agosto de 2017
+23 de Agosto de 2017
 Versao 25: 
 - Popup de Magia possui opções para pagina e livro. 
 - Corrigido bug que não removia corretamente munições em tiros multiplos. 

@@ -6,14 +6,7 @@
     </script>
     <tabControl align="client">
         <tab title="Geral">
-            <tabControl align="client">
-                <tab title="Novo">
-                    <import file="01.Geral.lfm"/>
-                </tab>
-                <tab title="Antigo">
-                    <import file="01.Geral_old.lfm"/>
-                </tab>
-            </tabControl>
+            <import file="01.Geral.lfm"/>
         </tab>
         <tab title="Ataques">
             <tabControl align="client">

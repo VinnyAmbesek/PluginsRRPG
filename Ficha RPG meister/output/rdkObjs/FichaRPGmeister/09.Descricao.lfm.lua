@@ -414,6 +414,7 @@ function newfrmFichaRPGmeister9_svg()
     obj.richEdit1:setHeight(465);
     obj.richEdit1:setField("background");
     lfm_setPropAsString(obj.richEdit1, "backgroundColor",  "#333333");
+    lfm_setPropAsString(obj.richEdit1, "defaultFontSize",  "12");
     lfm_setPropAsString(obj.richEdit1, "defaultFontColor",  "white");
     obj.richEdit1:setName("richEdit1");
 
