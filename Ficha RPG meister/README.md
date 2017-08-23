@@ -11,7 +11,7 @@ Versao 25:
 - Corrigido bug que fazia ataques virem fora de ordem. 
 - Labels do popup de armas possuem hints de uso. 
 - ATENCAO: Antigo espaço para atributos, tr, habilidades e pericias removido. Para recuperar informação volte a versão 24.
-- Hitoria do personagem agora usa richEdit.
+- Historia do personagem agora usa richEdit.
 - Os companheiros agora possuem um espaço para o macro de ataque. 
 
 1 de Agosto de 2017
