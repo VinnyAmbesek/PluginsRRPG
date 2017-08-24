@@ -13211,6 +13211,8 @@ function newfrmFichaRPGmeister()
 						else
 							proximoCritico(nil);
 						end;
+					else
+						rolando = false;
 					end;
 					-- Fim do Ataque
 				end;

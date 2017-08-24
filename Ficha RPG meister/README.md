@@ -2,7 +2,6 @@
 Proximas Versões
 + Tiro Multiplo Aprimorado pra ataques avançados. 
 + Dar uma olhada nas questões de ajuste de tamanho da ficha para telas pequenas. 
-+ Rolar ataques para companheiros
 
 23 de Agosto de 2017
 Versao 25: 
@@ -12,7 +11,7 @@ Versao 25:
 - Labels do popup de armas possuem hints de uso. 
 - ATENCAO: Antigo espaço para atributos, tr, habilidades e pericias removido. Para recuperar informação volte a versão 24.
 - Historia do personagem agora usa richEdit.
-- Os companheiros agora possuem um espaço para o macro de ataque. 
+- Os companheiros agora possuem um espaço para um macro simples de ataque. 
 
 1 de Agosto de 2017
 Versao 24:

@@ -125,6 +125,8 @@ function newfrmFichaRPGmeister2a_svg()
 						else
 							proximoCritico(nil);
 						end;
+					else
+						rolando = false;
 					end;
 					-- Fim do Ataque
 				end;
