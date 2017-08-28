@@ -2722,7 +2722,7 @@ function newfrmBibliotecaRPGmeister()
 						local mesa = personagem.mesa;
 
 						if ndb.testPermission(node, "writePermissions") then               
-						return true;
+							return true;
 						else
 							return false;
 					   end;
@@ -3982,7 +3982,7 @@ function newfrmBibliotecaRPGmeister()
     obj.image3:setWidth(100);
     obj.image3:setHeight(20);
     obj.image3:setStyle("autoFit");
-    obj.image3:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao06.png");
+    obj.image3:setSRC("http://www.cin.ufpe.br/~jvdl/Plugins/Version/versao07.png");
     obj.image3:setName("image3");
 
     obj.label82 = gui.fromHandle(_obj_newObject("label"));
@@ -4072,7 +4072,7 @@ function newfrmBibliotecaRPGmeister()
             						end;
             
             						local node = self.rclSessoes:append();
-            						if node ~nil then
+            						if node~=nil then
             							node.numero = num;
             							node.data = os.date("%d/%m/%Y", os.time());
             						end;

@@ -1254,7 +1254,7 @@ function newListade_NPC_Dock()
 						local mesa = personagem.mesa;
 
 						if ndb.testPermission(node, "writePermissions") then               
-						return true;
+							return true;
 						else
 							return false;
 					   end;

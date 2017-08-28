@@ -235,7 +235,7 @@ function newListaDeNPCs()
 						local mesa = personagem.mesa;
 
 						if ndb.testPermission(node, "writePermissions") then               
-						return true;
+							return true;
 						else
 							return false;
 					   end;

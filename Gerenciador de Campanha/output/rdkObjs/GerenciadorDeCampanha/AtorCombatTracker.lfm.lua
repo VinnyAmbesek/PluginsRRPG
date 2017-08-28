@@ -192,7 +192,7 @@ function newfrmAtorCombatTracker()
 		end;
 
 		function self:reordenar()
-			self:sort();
+			--self:sort()
 			scheduledSort = false;
 		end;
 		

@@ -322,7 +322,7 @@ function newfrmGerenciador01()
             						end;
             
             						local node = self.rclSessoes:append();
-            						if node ~nil then
+            						if node~=nil then
             							node.numero = num;
             							node.data = os.date("%d/%m/%Y", os.time());
             						end;
