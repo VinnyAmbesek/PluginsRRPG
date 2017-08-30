@@ -203,6 +203,8 @@ local function controlFromHandle(handle)
 	return ctrl;
 end
 
+gui.controlFromHandle = controlFromHandle;
+
 --[[ Objeto Layout ]]--
 
 local function layoutFromHandle(handle)

@@ -5,7 +5,7 @@ require("rrpgDialogs.lua");
 require("rrpgLFM.lua");
 require("ndb.lua");
 
-function newfrmFM_Aba()
+function newfrm_FM_Aba()
     __o_rrpgObjs.beginObjectsLoading();
 
     local obj = gui.fromHandle(_obj_newObject("form"));
@@ -26,7 +26,7 @@ function newfrmFM_Aba()
 
     _gui_assignInitialParentForForm(obj.handle);
     obj:beginUpdate();
-    obj:setName("frmFM_Aba");
+    obj:setName("frm_FM_Aba");
     obj:setHeight(25);
     obj:setWidth(125);
     obj:setTheme("dark");
@@ -36,6 +36,7 @@ function newfrmFM_Aba()
     obj.rectangle1:setParent(obj);
     obj.rectangle1:setAlign("client");
     obj.rectangle1:setStrokeColor("black");
+    obj.rectangle1:setHitTest(false);
     obj.rectangle1:setStrokeSize(2);
     obj.rectangle1:setColor("#000000FF");
     obj.rectangle1:setName("rectangle1");
@@ -49,7 +50,7 @@ function newfrmFM_Aba()
     obj.name_aba:setField("nome_aba");
     obj.name_aba:setName("name_aba");
     obj.name_aba:setTransparent(true);
-    obj.name_aba:setHorzTextAlign("center");
+    obj.name_aba:setFontSize(10);
 
     obj.cbxInvisivel = gui.fromHandle(_obj_newObject("imageCheckBox"));
     obj.cbxInvisivel:setParent(obj);
@@ -61,6 +62,7 @@ function newfrmFM_Aba()
     obj.cbxInvisivel:setImageChecked("/FichaMultiaba/images/invisivel.png");
     obj.cbxInvisivel:setImageUnchecked("/FichaMultiaba/images/visivel.png");
     obj.cbxInvisivel:setAutoChange(false);
+    obj.cbxInvisivel:setHint("Altera a visibilidade entre somente o mestre e todos. ");
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj);
@@ -70,6 +72,7 @@ function newfrmFM_Aba()
     obj.button1:setHeight(25);
     obj.button1:setText("X");
     obj.button1:setOpacity(0.5);
+    obj.button1:setHint("Apaga a aba. ");
     obj.button1:setName("button1");
 
 
@@ -167,17 +170,17 @@ function newfrmFM_Aba()
     return obj;
 end;
 
-local _frmFM_Aba = {
-    newEditor = newfrmFM_Aba, 
-    new = newfrmFM_Aba, 
-    name = "frmFM_Aba", 
+local _frm_FM_Aba = {
+    newEditor = newfrm_FM_Aba, 
+    new = newfrm_FM_Aba, 
+    name = "frm_FM_Aba", 
     dataType = "", 
     formType = "undefined", 
     formComponentName = "form", 
     title = "", 
     description=""};
 
-frmFM_Aba = _frmFM_Aba;
-rrpg.registrarForm(_frmFM_Aba);
+frm_FM_Aba = _frm_FM_Aba;
+rrpg.registrarForm(_frm_FM_Aba);
 
-return _frmFM_Aba;
+return _frm_FM_Aba;
