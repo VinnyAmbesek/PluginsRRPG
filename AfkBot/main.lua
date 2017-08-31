@@ -1,31 +1,45 @@
 ﻿require("rrpg.lua");
 require("vhd.lua");
 require("utils.lua");
+require("ndb.lua");
 
-afkStatus = {};
-afkMessage = {};
-afkBotClock = {};
+afkdb = ndb.load("afkData.xml");
+if afkdb.afkStatus==nil then
+	afkdb.afkStatus = {};
+	afkdb.afkMessage = {};
+	afkdb.afkBotClock = {};
+end;
+if afkdb.afkSpectator== nil then
+	afkdb.afkSpectator = {};
+end;
 
 -- Implementação dos comandos
 rrpg.messaging.listen("HandleChatCommand", 
 	function (message)
 		if message.comando == "afk" then
-			if afkStatus[message.mesa.nome] == false or afkStatus[message.mesa.nome] == nil then
-				afkStatus[message.mesa.nome] = true;
-				afkBotClock[message.mesa.nome] = os.clock() - 300;
-				message.mesa.chat:escrever("AfkBot habilitado!");
+			if afkdb.afkStatus[message.mesa.codigoInterno] == false or afkdb.afkStatus[message.mesa.codigoInterno] == nil then
+				afkdb.afkStatus[message.mesa.codigoInterno] = true;
+				afkdb.afkBotClock[message.mesa.codigoInterno] = os.clock() - 300;
+				if message.parametro == "true" then
+					afkdb.afkSpectator[message.mesa.codigoInterno] = true;
+					message.chat:escrever("AfkBot habilitado! Espectadores serão automaticamente alertados!");
+				else
+					afkdb.afkSpectator[message.mesa.codigoInterno] = false;
+					message.chat:escrever("AfkBot habilitado! Espectadores não serão automaticamente alertados!");
+				end;
 			else
-				afkStatus[message.mesa.nome] = false;
-				message.mesa.chat:escrever("AfkBot desabilitado!");
-			end	
+				afkdb.afkStatus[message.mesa.codigoInterno] = false;
+				afkdb.afkSpectator[message.mesa.codigoInterno] = false;
+				message.chat:escrever("AfkBot desabilitado!");
+			end		
 			
 			message.response = {handled = true};
 		elseif message.comando == "msg" then
 			if message.parametro == "" or message.parametro == nil then
-				message.mesa.chat:escrever("Sua mensagem salva é: [" .. (afkMessage[message.mesa.nome] or "") .. "].");
+				message.chat:escrever("Sua mensagem salva é: [" .. (afkdb.afkMessage[message.mesa.codigoInterno] or "") .. "].");
 			else
-				afkMessage[message.mesa.nome] = message.parametro;
-				message.mesa.chat:escrever("Sua mensagem: [" .. afkMessage[message.mesa.nome] .. "] foi salva.");
+				afkdb.afkMessage[message.mesa.codigoInterno] = message.parametro;
+				message.chat:escrever("Sua mensagem: [" .. afkdb.afkMessage[message.mesa.codigoInterno] .. "] foi salva.");
 			end;
 			message.response = {handled = true};
 		end
@@ -34,44 +48,59 @@ rrpg.messaging.listen("HandleChatCommand",
 -- Escuta das mensagens de chat padrão
 rrpg.messaging.listen("ChatMessage", 
 	function (message)
-		if afkStatus[message.mesa.nome] == true then
+		if afkdb.afkStatus[message.mesa.codigoInterno] == true then
 			local time = os.clock();
-			if afkBotClock[message.mesa.nome]~=nil and afkBotClock[message.mesa.nome]+300 > time then
+			if afkdb.afkBotClock[message.mesa.codigoInterno]~=nil and afkdb.afkBotClock[message.mesa.codigoInterno]+300 > time then
 				return;
 			end;
-			afkBotClock[message.mesa.nome] = time;
 
 			local text = utils.removerFmtChat(message.texto, true);
-			local login = rrpg.getCurrentUser().login;
-			local nick;
-			local mestre;
+			local login = message.mesa.meuJogador.login;
+			local nick = utils.removerFmtChat(message.mesa.meuJogador.nick, true);
+			local mestre = "mestre";
 
-			for i=1, #message.mesa.jogadores, 1 do
-				if message.mesa.jogadores[i].login == login then
-					nick = utils.removerFmtChat(message.mesa.jogadores[i].nick, true);
-					mestre = message.mesa.jogadores[i].isMestre;
-				end;
-			end;
-
-			if not mestre then
+			if message.mesa.meuJogador.isMestre then
+				text = text:lower();
+				nick = nick:lower();
+				login = login:lower();
+			else
+				message.chat:escrever("Apenas mestres!");
 				return;
 			end;
 
-			local info = "AfkBot: Está é uma mensagem automatica de " .. nick .. "(" .. login .. ") que está ocupado e não pode responder.";
+			local info = "[§K1]AfkBot: Está é uma mensagem automatica de " .. message.mesa.meuJogador.nick .. "[§K1](" .. message.mesa.meuJogador.login .. ") que está ocupado e não pode responder.";
 
-			local isLogin = string.match(' '.. login ..' ', '%A'..text..'%A') ~= nil;
-			local isNick = string.match(' '.. nick ..' ', '%A'..text..'%A') ~= nil;
+			local isLogin = string.match(text, login) ~= nil;
+			local isNick = string.match(text, nick) ~= nil;
+			local isMestre = string.match(text, mestre) ~= nil;
 
-			if isLogin or isNick then
-				message.mesa.chat:enviarNarracao(info);
-				message.mesa.chat:enviarNarracao(afkMessage[message.mesa.nome]);
+			if isLogin or isNick or isMestre then
+				afkdb.afkBotClock[message.mesa.codigoInterno] = os.clock();
+				message.chat:enviarNarracao(info);
+				message.chat:enviarNarracao(afkdb.afkMessage[message.mesa.codigoInterno]);
+				return;
 			end;
 		end
 	end);
 
+rrpg.messaging.listen("MesaJoined",
+	function(message)
+		local time = os.clock();
+		if afkdb.afkBotClock[message.mesa.codigoInterno]~=nil and afkdb.afkBotClock[message.mesa.codigoInterno]+300 > time then
+			return;
+		end;
+		if afkdb.afkSpectator[message.mesa.codigoInterno] and message.jogador.isEspectador then
+			afkdb.afkBotClock[message.mesa.codigoInterno] = os.clock();
+
+			local info = "[§K1]AfkBot: Está é uma mensagem automatica de " .. message.mesa.meuJogador.nick .. "[§K1](" .. message.mesa.meuJogador.login .. ") que está ocupado e não pode responder.";
+			message.mesa.chat:enviarNarracao(info);
+			message.mesa.chat:enviarNarracao(afkdb.afkMessage[message.mesa.codigoInterno]);
+		end;
+	end);
+
 rrpg.messaging.listen("ListChatCommands",
-        function(message)
-                message.response = {{comando="/msg <Vazio>", descricao="Mostra a mensagem atual salva no AfkBot."},
-                                    {comando="/msg <Texto>", descricao="Salva <Texto> como a mensagem automatica de resposta no AfkBot. "},
-                                    {comando="/afk", descricao="Ativa ou desativa o AfkBot"}};
-        end);
+    function(message)
+        message.response = {{comando="/msg <Vazio>", descricao="Mostra a mensagem atual salva no AfkBot."},
+                            {comando="/msg <Texto>", descricao="Salva <Texto> como a mensagem automatica de resposta no AfkBot. "},
+                            {comando="/afk <Boolean (opcional)>", descricao="Ativa ou desativa o AfkBot v0.5, opcionalmente passando true como parametro o bot avisa cada espectador que entrar na mesa. "}};
+    end);
