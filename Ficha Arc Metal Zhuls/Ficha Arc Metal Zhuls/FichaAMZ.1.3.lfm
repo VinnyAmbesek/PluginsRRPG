@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form name="frmAMZ1_3" align="client" theme="dark">
+	<template name="Peculiaridade">
+		<label left="0" top="5" width="60" height="20" text="$(nome)" horzTextAlign="center"/>
+		<edit left="60" top="0" width="170" height="25" field="desc_$(field)"/>
+	</template>
+	<template name="PeculiaridadeGrande">
+		<rectangle align="client" color="black" xradius="5" yradius="5" cornerType="round"/>
+		<label left="0" top="5" width="230" height="20" text="$(nome)" horzTextAlign="center"/>
+		<textEditor left="5" top="25" width="225" height="120" field="desc_$(field)"/>
+	</template>
+	<scrollBox align="client">
+		<layout left="0" top="0" width="960" height="35">
+			<rectangle align="client" color="black" xradius="5" yradius="5" cornerType="round"/>
+			<layout left="5" top="5" width="240" height="25" >
+				<Peculiaridade field="peculiaridade_tipo" nome="Tipo"/>
+			</layout>
+			<layout left="240" top="5" width="240" height="25" >
+				<Peculiaridade field="peculiaridade_nome" nome="Nome"/>
+			</layout>
+			<layout left="480" top="5" width="240" height="25" >
+				<Peculiaridade field="peculiaridade_acerto" nome="Acerto"/>
+			</layout>
+			<layout left="720" top="5" width="240" height="25" >
+				<Peculiaridade field="peculiaridade_duracao" nome="Duração"/>
+			</layout>
+		</layout>
+		<layout left="0" top="40" width="960" height="160">
+			<layout left="0" top="5" width="235" height="150" >
+				<PeculiaridadeGrande field="peculiaridade_historia" nome="Historia"/>
+			</layout>
+			<layout left="240" top="5" width="235" height="150" >
+				<PeculiaridadeGrande field="peculiaridade_descricao" nome="Descrição"/>
+			</layout>
+			<layout left="480" top="5" width="235" height="150" >
+				<PeculiaridadeGrande field="peculiaridade_extra" nome="Habilidade Extra"/>
+			</layout>
+			<layout left="720" top="5" width="235" height="150" >
+				<PeculiaridadeGrande field="peculiaridade_cooldown" nome="Cooldown"/>
+			</layout>
+		</layout>
+
+		<layout left="0" top="200" width="960" height="245">
+			<layout left="0" top="5" width="715" height="235" >
+				<rectangle align="client" color="black" xradius="5" yradius="5" cornerType="round"/>
+				<label left="0" top="0" width="715" height="20" text="Desenvolvimento" horzTextAlign="center"/>
+				<textEditor left="5" top="25" width="705" height="205" field="desc_peculiaridade_desenvolvimento"/>
+			</layout>
+			<layout left="720" top="5" width="235" height="235" >
+				<rectangle align="client" color="black" strokeColor="white" strokeSize="1"/>
+				<image left="1" top="1" width="233" height="233" field="peculiaridade_image" editable="true" style="autoFit" >
+					<event name="OnStartDrag">
+					    drag:addData("imageURL", sheet.peculiaridade_image);
+					</event>
+				</image>
+			</layout>
+		</layout>
+
+	</scrollBox>
+</form>
