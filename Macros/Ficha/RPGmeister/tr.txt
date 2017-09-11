@@ -9,6 +9,8 @@ if indice == nil or indice < 1 or indice > 3 then
 end;
 if filter == "all" or filter == "pc" or filter == "pcOnline" or filter=="npc" then
   personagem = getCharacterSheet(chooseCharacter("Qual personagem deseja testar "..texto.."?", filter));
+elseif filter == "mine" then
+  personagem = getCharacterSheet(chooseCharacterOfPlayer("Qual personagem deseja testar "..texto.."?", myPlayer));
 end;
 
 local teste = "1d20+";

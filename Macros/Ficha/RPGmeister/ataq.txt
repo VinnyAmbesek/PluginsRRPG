@@ -6,6 +6,8 @@ local personagem = sheet;
 
 if filter == "all" or filter == "pc" or filter == "pcOnline" or filter=="npc" then
   personagem = getCharacterSheet(chooseCharacter("Qual personagem deseja usar para atacar?", filter));
+elseif filter == "mine" then
+  personagem = getCharacterSheet(chooseCharacterOfPlayer("Qual personagem deseja usar para atacar?", myPlayer));
 end;
 
 local ataques = ndb.getChildNodes(personagem.campoDosAtaques);

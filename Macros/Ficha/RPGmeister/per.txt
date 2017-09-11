@@ -4,8 +4,12 @@ local texto = "";
 
 local filter = arg[#arg];
 local personagem = sheet;
-if filter == "all" or filter == "pc" or filter == "pcOnline" or filter=="npc" then
-  personagem = getCharacterSheet(chooseCharacter("Qual personagem deseja usar para o teste?", filter));
+if filter == "all" or filter == "pc" or filter == "pcOnline" or filter=="npc" or filter=="mine" then
+  if filter=="mine"then
+    personagem = getCharacterSheet(chooseCharacterOfPlayer("Qual personagem deseja usar para o teste?", myPlayer));
+  else
+    personagem = getCharacterSheet(chooseCharacter("Qual personagem deseja usar para o teste?", filter));
+  end;
   local size = #arg-1;
   nome = "";
   for i=1, size, 1 do
