@@ -21,8 +21,8 @@
 		</dataLink>
 	</template>
 	<template name="Turma">
-		<checkBox left="5" top="0" width="20" height="20" field="turma_inicial_$(field)"/>
-		<checkBox left="35" top="0" width="20" height="20" field="turma_atual_$(field)"/>
+		<radioButton left="5" top="0" width="20" height="20" field="turma_inicial_$(field)" groupName="turma_inicial"/>
+		<radioButton left="35" top="0" width="20" height="20" field="turma_atual_$(field)" groupName="turma_atual"/>
 		<label left="60" top="0" width="90" height="20" text="$(text)" horzTextAlign="center"/>
 	</template>
 
@@ -33,7 +33,7 @@
 
 			<layout left="5" top="25" width="260" height="25">
 				<label left="0" top="0" width="110" height="20" text="Dom" horzTextAlign="center"/>
-				<edit left="110" top="0" width="150" height="25" field="dom"/>
+				<comboBox left="110" top="0" width="150" height="25" field="dom" items="{'Fisico-Corporal', 'Sensibilidade Elevada', 'Mental-Lógico', 'Intrapessoal', 'Visual-Espacial'}"/>
 			</layout>
 			<layout left="5" top="50" width="260" height="50">
 				<label left="110" top="5" width="50" height="20" text="Inicial" horzTextAlign="center"/>
@@ -59,12 +59,15 @@
 			</layout>
 			<layout left="5" top="175" width="260" height="25">
 				<label left="0" top="0" width="110" height="20" text="Zhuls" horzTextAlign="center"/>
-				<edit left="110" top="0" width="150" height="25" field="zhuls"/>
+				<rectangle left="110" top="0" width="150" height="25" color="black" strokeColor="white" strokeSize="1"/>
+				<label left="112" top="0" width="146" height="25" field="zhuls" horzTextAlign="center"/>
 			</layout>
 			<layout left="5" top="200" width="260" height="25">
 				<label left="0" top="0" width="110" height="20" text="Modelo" horzTextAlign="center"/>
-				<edit left="110" top="0" width="75" height="25" field="model_grade"/>
-				<edit left="185" top="0" width="75" height="25" field="model_type"/>
+				<rectangle left="110" top="0" width="75" height="25" color="black" strokeColor="white" strokeSize="1"/>
+				<label left="112" top="0" width="71" height="25" field="modelo_nome" fontSize="12" horzTextAlign="center"/>
+				<rectangle left="185" top="0" width="75" height="25" color="black" strokeColor="white" strokeSize="1"/>
+				<label left="187" top="0" width="71" height="25" field="modelo_tipo" fontSize="12" horzTextAlign="center"/>
 			</layout>
 			<layout left="5" top="225" width="260" height="25">
 				<label left="0" top="0" width="110" height="20" text="Device" horzTextAlign="center"/>

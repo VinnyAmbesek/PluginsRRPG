@@ -27,8 +27,8 @@ function newfrmAMZ2_3_1()
     _gui_assignInitialParentForForm(obj.handle);
     obj:beginUpdate();
     obj:setName("frmAMZ2_3_1");
-    obj:setWidth(365);
-    obj:setHeight(300);
+    obj:setWidth(765);
+    obj:setHeight(325);
     obj:setTheme("dark");
     obj:setMargins({top=5});
 
@@ -56,7 +56,7 @@ function newfrmAMZ2_3_1()
 
     obj.button1 = gui.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj);
-    obj.button1:setLeft(340);
+    obj.button1:setLeft(740);
     obj.button1:setTop(1);
     obj.button1:setWidth(23);
     obj.button1:setHeight(23);
@@ -77,7 +77,7 @@ function newfrmAMZ2_3_1()
     obj.edit1:setParent(obj);
     obj.edit1:setLeft(60);
     obj.edit1:setTop(0);
-    obj.edit1:setWidth(280);
+    obj.edit1:setWidth(680);
     obj.edit1:setHeight(25);
     obj.edit1:setField("nome");
     obj.edit1:setName("edit1");
@@ -96,7 +96,7 @@ function newfrmAMZ2_3_1()
     obj.edit2:setParent(obj);
     obj.edit2:setLeft(60);
     obj.edit2:setTop(25);
-    obj.edit2:setWidth(305);
+    obj.edit2:setWidth(705);
     obj.edit2:setHeight(25);
     obj.edit2:setField("tipo");
     obj.edit2:setName("edit2");
@@ -115,7 +115,7 @@ function newfrmAMZ2_3_1()
     obj.textEditor1:setParent(obj);
     obj.textEditor1:setLeft(60);
     obj.textEditor1:setTop(50);
-    obj.textEditor1:setWidth(305);
+    obj.textEditor1:setWidth(705);
     obj.textEditor1:setHeight(75);
     obj.textEditor1:setField("descricao");
     obj.textEditor1:setName("textEditor1");
@@ -134,7 +134,7 @@ function newfrmAMZ2_3_1()
     obj.edit3:setParent(obj);
     obj.edit3:setLeft(60);
     obj.edit3:setTop(125);
-    obj.edit3:setWidth(305);
+    obj.edit3:setWidth(705);
     obj.edit3:setHeight(25);
     obj.edit3:setField("efeito");
     obj.edit3:setName("edit3");
@@ -153,7 +153,7 @@ function newfrmAMZ2_3_1()
     obj.edit4:setParent(obj);
     obj.edit4:setLeft(60);
     obj.edit4:setTop(150);
-    obj.edit4:setWidth(305);
+    obj.edit4:setWidth(705);
     obj.edit4:setHeight(25);
     obj.edit4:setField("acerto");
     obj.edit4:setName("edit4");
@@ -164,17 +164,18 @@ function newfrmAMZ2_3_1()
     obj.label6:setTop(175);
     obj.label6:setWidth(60);
     obj.label6:setHeight(20);
-    obj.label6:setText("Condições");
+    obj.label6:setText("Canalização");
     obj.label6:setHorzTextAlign("center");
+    obj.label6:setFontSize(11);
     obj.label6:setName("label6");
 
     obj.edit5 = gui.fromHandle(_obj_newObject("edit"));
     obj.edit5:setParent(obj);
     obj.edit5:setLeft(60);
     obj.edit5:setTop(175);
-    obj.edit5:setWidth(305);
+    obj.edit5:setWidth(705);
     obj.edit5:setHeight(25);
-    obj.edit5:setField("condicoes");
+    obj.edit5:setField("canalizacao");
     obj.edit5:setName("edit5");
 
     obj.label7 = gui.fromHandle(_obj_newObject("label"));
@@ -183,7 +184,7 @@ function newfrmAMZ2_3_1()
     obj.label7:setTop(200);
     obj.label7:setWidth(60);
     obj.label7:setHeight(20);
-    obj.label7:setText("Duração");
+    obj.label7:setText("Condições");
     obj.label7:setHorzTextAlign("center");
     obj.label7:setName("label7");
 
@@ -191,9 +192,9 @@ function newfrmAMZ2_3_1()
     obj.edit6:setParent(obj);
     obj.edit6:setLeft(60);
     obj.edit6:setTop(200);
-    obj.edit6:setWidth(305);
+    obj.edit6:setWidth(705);
     obj.edit6:setHeight(25);
-    obj.edit6:setField("duracao");
+    obj.edit6:setField("condicoes");
     obj.edit6:setName("edit6");
 
     obj.label8 = gui.fromHandle(_obj_newObject("label"));
@@ -202,7 +203,7 @@ function newfrmAMZ2_3_1()
     obj.label8:setTop(225);
     obj.label8:setWidth(60);
     obj.label8:setHeight(20);
-    obj.label8:setText("Custo");
+    obj.label8:setText("Duração");
     obj.label8:setHorzTextAlign("center");
     obj.label8:setName("label8");
 
@@ -210,9 +211,9 @@ function newfrmAMZ2_3_1()
     obj.edit7:setParent(obj);
     obj.edit7:setLeft(60);
     obj.edit7:setTop(225);
-    obj.edit7:setWidth(305);
+    obj.edit7:setWidth(705);
     obj.edit7:setHeight(25);
-    obj.edit7:setField("custo");
+    obj.edit7:setField("duracao");
     obj.edit7:setName("edit7");
 
     obj.label9 = gui.fromHandle(_obj_newObject("label"));
@@ -221,7 +222,7 @@ function newfrmAMZ2_3_1()
     obj.label9:setTop(250);
     obj.label9:setWidth(60);
     obj.label9:setHeight(20);
-    obj.label9:setText("Dano");
+    obj.label9:setText("Custo");
     obj.label9:setHorzTextAlign("center");
     obj.label9:setName("label9");
 
@@ -229,9 +230,9 @@ function newfrmAMZ2_3_1()
     obj.edit8:setParent(obj);
     obj.edit8:setLeft(60);
     obj.edit8:setTop(250);
-    obj.edit8:setWidth(305);
+    obj.edit8:setWidth(705);
     obj.edit8:setHeight(25);
-    obj.edit8:setField("dano");
+    obj.edit8:setField("custo");
     obj.edit8:setName("edit8");
 
     obj.label10 = gui.fromHandle(_obj_newObject("label"));
@@ -240,7 +241,7 @@ function newfrmAMZ2_3_1()
     obj.label10:setTop(275);
     obj.label10:setWidth(60);
     obj.label10:setHeight(20);
-    obj.label10:setText("OBS.:");
+    obj.label10:setText("Dano");
     obj.label10:setHorzTextAlign("center");
     obj.label10:setName("label10");
 
@@ -248,10 +249,29 @@ function newfrmAMZ2_3_1()
     obj.edit9:setParent(obj);
     obj.edit9:setLeft(60);
     obj.edit9:setTop(275);
-    obj.edit9:setWidth(305);
+    obj.edit9:setWidth(705);
     obj.edit9:setHeight(25);
-    obj.edit9:setField("obs");
+    obj.edit9:setField("dano");
     obj.edit9:setName("edit9");
+
+    obj.label11 = gui.fromHandle(_obj_newObject("label"));
+    obj.label11:setParent(obj);
+    obj.label11:setLeft(0);
+    obj.label11:setTop(300);
+    obj.label11:setWidth(60);
+    obj.label11:setHeight(20);
+    obj.label11:setText("OBS.:");
+    obj.label11:setHorzTextAlign("center");
+    obj.label11:setName("label11");
+
+    obj.edit10 = gui.fromHandle(_obj_newObject("edit"));
+    obj.edit10:setParent(obj);
+    obj.edit10:setLeft(60);
+    obj.edit10:setTop(300);
+    obj.edit10:setWidth(705);
+    obj.edit10:setHeight(25);
+    obj.edit10:setField("obs");
+    obj.edit10:setName("edit10");
 
     obj._e_event0 = obj.button1:addEventListener("onClick",
         function (self)
@@ -278,6 +298,7 @@ function newfrmAMZ2_3_1()
         if self.edit4 ~= nil then self.edit4:destroy(); self.edit4 = nil; end;
         if self.label8 ~= nil then self.label8:destroy(); self.label8 = nil; end;
         if self.edit8 ~= nil then self.edit8:destroy(); self.edit8 = nil; end;
+        if self.label11 ~= nil then self.label11:destroy(); self.label11 = nil; end;
         if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
         if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
         if self.textEditor1 ~= nil then self.textEditor1:destroy(); self.textEditor1 = nil; end;
@@ -288,6 +309,7 @@ function newfrmAMZ2_3_1()
         if self.label9 ~= nil then self.label9:destroy(); self.label9 = nil; end;
         if self.edit6 ~= nil then self.edit6:destroy(); self.edit6 = nil; end;
         if self.label10 ~= nil then self.label10:destroy(); self.label10 = nil; end;
+        if self.edit10 ~= nil then self.edit10:destroy(); self.edit10 = nil; end;
         if self.rectangle1 ~= nil then self.rectangle1:destroy(); self.rectangle1 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
         if self.label7 ~= nil then self.label7:destroy(); self.label7 = nil; end;

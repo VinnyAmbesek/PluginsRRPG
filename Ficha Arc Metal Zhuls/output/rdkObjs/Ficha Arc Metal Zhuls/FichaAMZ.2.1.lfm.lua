@@ -103,7 +103,7 @@ function newfrmAMZ2_1()
     obj.edit2:setTop(0);
     obj.edit2:setWidth(155);
     obj.edit2:setHeight(25);
-    obj.edit2:setField("desc_nome_zhuls");
+    obj.edit2:setField("zhuls");
     obj.edit2:setName("edit2");
 
     obj.layout4 = gui.fromHandle(_obj_newObject("layout"));

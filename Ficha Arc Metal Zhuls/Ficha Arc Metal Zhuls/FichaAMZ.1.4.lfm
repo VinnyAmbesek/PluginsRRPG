@@ -50,7 +50,9 @@
 					<Backpack nome="9. " field="9"/>
 				</layout>
 				<layout left="0" top="25" width="230" height="25">
-					<OpenSlot nome="10. " field="10"/>
+					<label left="0" top="5" width="60" height="20" text="10. " horzTextAlign="center"/>
+					<rectangle left="60" top="0" width="165" height="25" color="black" strokeColor="white" strokeSize="1"/>
+					<label left="62" top="0" width="161" height="25" field="device"/>
 				</layout>
 				<dataLink field="inventario_9">
 					<event name="onChange">

@@ -11,7 +11,8 @@
 				<Zhuls field="portador " nome="Portador"/>
 			</layout>
 			<layout left="240" top="5" width="310" height="25" >
-				<Zhuls field="nome_zhuls" nome="Nome"/>
+				<label left="0" top="5" width="80" height="20" text="Nome" horzTextAlign="trailing"/>
+				<edit left="85" top="0" width="155" height="25" field="zhuls"/>
 			</layout>
 			<layout left="475" top="5" width="310" height="25" >
 				<Zhuls field="porte" nome="Porte"/>

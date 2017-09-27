@@ -26,7 +26,17 @@
 					<import file="FichaAMZ.2.2.lfm"/>
 				</tab>
 				<tab title="Habilidades">
-					<import file="FichaAMZ.2.3.lfm"/>
+					<tabControl align="client">
+						<tab title="Habilidades Unicas">
+							<import file="FichaAMZ.2.3a.lfm"/>
+						</tab>
+						<tab title="Estilo de Luta">
+							<import file="FichaAMZ.2.3b.lfm"/>
+						</tab>
+						<tab title="Habilidades Iniciais">
+							<import file="FichaAMZ.2.3c.lfm"/>
+						</tab>
+					</tabControl>
 				</tab>
 				<tab title="Equipamentos">
 					<import file="FichaAMZ.2.4.lfm"/>
@@ -34,7 +44,7 @@
 			</tabControl>
 		</tab>
 		<tab title="Rolagens">
-			
+			<import file="FichaAMZ.3.lfm"/>
 		</tab>
 		<tab title="Historia">
 			<import file="FichaAMZ.4.lfm"/>

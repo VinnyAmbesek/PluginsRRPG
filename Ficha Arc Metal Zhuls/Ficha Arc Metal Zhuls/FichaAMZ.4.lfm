@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmAMZ4" align="client" theme="dark">
 	<scrollBox align="client">
-		<layout left="0" top="0" width="650" height="635">
-			<rectangle align="client" color="black" xradius="5" yradius="5" cornerType="round"/>
-	        <label left="0" top="0" width="650" height="20" text="Historia" horzTextAlign="center"/>
-			<richEdit left="10" top="25" width="630" height="595" field="historia" backgroundColor="#333333" defaultFontColor="white" defaultFontSize="12"/>
-        </layout>
-
-        <layout left="660" top="0" width="400" height="635">
-			<rectangle align="client" color="black" xradius="5" yradius="5" cornerType="round"/>
-	        <label left="0" top="0" width="400" height="20" text="Caracteristica Zhuls" horzTextAlign="center"/>
-			<richEdit left="10" top="25" width="380" height="595" field="carac_zhuls" backgroundColor="#333333" defaultFontColor="white" defaultFontSize="12"/>
-        </layout>
+		<richEdit align="client" field="historia" backgroundColor="#333333" defaultFontColor="white" defaultFontSize="12"/>
 	</scrollBox>
 </form>
